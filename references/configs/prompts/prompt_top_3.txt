@@ -1,0 +1,28 @@
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+You are a strict medical classification model.
+You must follow the output rules exactly.
+<|eot_id|>
+<|start_header_id|>user<|end_header_id|>
+Select the 3 best matching FHIR resources, ordered from most to least relevant.
+
+CANDIDATE FHIR RESOURCES:
+{context}
+
+DESCRIPTION:
+"{description}"
+
+OUTPUT RULES:
+- Respond ONLY with valid JSON.
+- Do NOT include explanations.
+- Do NOT include text before or after the JSON or inside the JSON.
+- Select EXACTLY 3 candidates, ordered from most to least relevant.
+- Use exactly this schema:
+
+{{
+  "answer": ["a", "b", "c"]
+}}
+
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+The answer is: \n

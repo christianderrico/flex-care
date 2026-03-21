@@ -1,0 +1,598 @@
+{"input":"Unique patient identifier","output":"Condition.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"Condition.encounter"}
+{"input":"ICD code for the diagnoses","output":"Condition.code"}
+{"input":"Meaning of ICD code","output":"Condition.code"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"Encounter.identifier"}
+{"input":"Classification for the urgency of the admission","output":"Encounter.class"}
+{"input":"Classification for the urgency of the admission","output":"Encounter.priority"}
+{"input":"Location of the patient prior to arriving at the hospital","output":"Encounter.hospitalization.admitSource"}
+{"input":"Disposition of the patient after they are discharged from the hospital","output":"Encounter.hospitalization.dischargeDisposition"}
+{"input":"Unique patient identifier","output":"Encounter.subject"}
+{"input":"Date and time the patient was admitted to the hospital","output":"Encounter.period"}
+{"input":"Date and time the patient was discharged from the hospital","output":"Encounter.period"}
+{"input":"Five character code which uniquely represents the event","output":"Encounter.type"}
+{"input":"Short textual descriptions of the hcpcs_cd listed","output":"Encounter.type"}
+{"input":"Current service that the patient resides under","output":"Encounter.serviceType"}
+{"input":"Type of unit or ward in which the patient is physically located","output":"Location.name"}
+{"input":"Type of unit or ward in which the patient is physically located","output":"Location.identifier"}
+{"input":"Type of unit or ward in which the patient is physically located","output":"Encounter.location"}
+{"input":"Date and time the patient was transferred into the current care unit","output":"Encounter.location.period"}
+{"input":"Date and time the patient was transferred out of the current physical location","output":"Encounter.location.period"}
+{"input":"Unique identifier to a patient ward stay","output":"Encounter.identifier"}
+{"input":"First ICU type in which the patient was cared for","output":"Encounter.location"}
+{"input":"Date and time the patient was transferred into the ICU","output":"Encounter.period"}
+{"input":"Date and time the patient was transferred out of the ICU","output":"Encounter.period"}
+{"input":"Unique patient identifier","output":"Encounter.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"Encounter.partOf"}
+{"input":"Unique patient identifier","output":"MedicationAdministration.subject"}
+{"input":"Integer identifier which is unique for each patient hospitalization","output":"MedicationAdministration.context"}
+{"input":"Time at which the medication was administered","output":"MedicationAdministration.effective[x]"}
+{"input":"Identifier which allows linking the eMAR order to pharmacy information provided in the pharmacy table","output":"MedicationAdministration.request"}
+{"input":"Location on the patient where the medication was administred","output":"MedicationAdministration.dosage.site"}
+{"input":"Route of administration for the medication","output":"MedicationAdministration.dosage.route"}
+{"input":"Free-text descriptions or comments related to a medication administration event","output":"MedicationAdministration.dosage.route"}
+{"input":"Rate at which the medication was infused","output":"MedicationAdministration.dosage.rate[x]"}
+{"input":"Unit of measurement for the frequency of infusion","output":"MedicationAdministration.dosage.rate[x]"}
+{"input":"Identifier for the medication given to the patient","output":"MedicationAdministration.medication[x]"}
+{"input":"Name of the medication givent to the patient","output":"MedicationAdministration.medication[x]"}
+{"input":"Type of provider order","output":"MedicationAdministration.medication[x]"}
+{"input":"Unique patient identifier","output":"MedicationAdministration.subject"}
+{"input":"Unique identifier to a patient ICU stay","output":"MedicationAdministration.context"}
+{"input":"Start time of an input\/output event","output":"MedicationAdministration.effective[x]"}
+{"input":"Rate at which the drug or substance was administered to the patient either between the starttime and endtime","output":"MedicationAdministration.dosage.rate[x]"}
+{"input":"Rate at which the drug or substance was administered to the patient either between the starttime and endtime","output":"MedicationAdministration.effective[x]"}
+{"input":"End time of an input\/output event","output":"MedicationAdministration.effective[x]"}
+{"input":"Describes the role of the substance in the solution","output":"MedicationAdministration.dosage.method"}
+{"input":"Amount of medication given to the patient in standard units","output":"MedicationAdministration.dosage.dose"}
+{"input":"Amount of medication given to the patient in standardized units","output":"MedicationAdministration.dosage.dose"}
+{"input":"Rate of medication administration given to the patient in standardized unit","output":"MedicationAdministration.dosage.rate[x]"}
+{"input":"Items identifier","output":"Observation.code"}
+{"input":"Items identifier","output":"MedicationAdministration.medication[x]"}
+{"input":"Describes the concept which is represented by the itemid","output":"Observation.code"}
+{"input":"Describes the concept which is represented by the itemid","output":"Procedure.code"}
+{"input":"Describes the concept which is represented by the itemid","output":"MedicationAdministration.medication[x]"}
+{"input":"Unique identifier for the given pharmacy entry","output":"MedicationDispense.identifier"}
+{"input":"Unique identifier for the given pharmacy entry","output":"MedicationDispense.authorizingPrescription"}
+{"input":"Name of the medication provided","output":"MedicationDispense.medication[x]"}
+{"input":"Unique patient identifier","output":"MedicationDispense.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"MedicationDispense.context"}
+{"input":"What proportion of the formulary to fill","output":"MedicationDispense.quantity"}
+{"input":"Intended route of administration for the prescription","output":"MedicationDispense.dosageInstruction"}
+{"input":"Frequency at which the medication should be administered to the patient","output":"MedicationDispense.dosageInstruction"}
+{"input":"Numeric duration of the given dose","output":"MedicationDispense.dosageInstruction"}
+{"input":"Maximum dose that may be given in a single hour","output":"MedicationDispense.dosageInstruction"}
+{"input":"Identifier which links administrations in emar to pharmacy information in the pharmacy table","output":"MedicationRequest.identifier"}
+{"input":"Unique patient identifier","output":"MedicationRequest.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"MedicationRequest.encounter"}
+{"input":"Identifier for the prescribed medication","output":"MedicationRequest.medication[x]"}
+{"input":"State of a medication order (active, discontinued, completed)","output":"MedicationRequest.status"}
+{"input":"Timestamp when the prescription order was entered into the system","output":"MedicationRequest.authoredOn"}
+{"input":"Free-text description of the composition of the prescribed medication","output":"MedicationRequest.dosageInstruction"}
+{"input":"Prescribed route of administration","output":"MedicationRequest.dosageInstruction"}
+{"input":"Prescribed dose for the patient intended to be administered over the given time period","output":"MedicationRequest.dosageInstruction"}
+{"input":"Unit of measurement for the dose","output":"MedicationRequest.dosageInstruction"}
+{"input":"Prescribed frequency of administration of the medication","output":"MedicationRequest.dosageInstruction"}
+{"input":"Intended length of time for which a medication was prescribed","output":"MedicationRequest.dosageInstruction"}
+{"input":"Prescribed maximum dosage per hour","output":"MedicationRequest.dosageInstruction"}
+{"input":"Prescribed start time for the medication","output":"MedicationRequest.dispenseRequest.validityPeriod"}
+{"input":"Prescribed stop time for the medication","output":"MedicationRequest.dispenseRequest.validityPeriod"}
+{"input":"Integer which is unique for every row in the table","output":"Observation.identifier"}
+{"input":"Current state of a lab test result (cmopleted, canceled, in progress)","output":"Observation.status"}
+{"input":"Unique patient identifier","output":"Observation.subject"}
+{"input":"Unique patient identifier","output":"Specimen.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"Observation.encounter"}
+{"input":"Uniquely denoted the specimen from which the lab measurement was made","output":"Observation.specimen"}
+{"input":"Uniquely denoted the specimen from which the lab measurement was made","output":"Specimen.identifier"}
+{"input":"Time at which the laboratory measurement was charted","output":"Observation.effective[x]"}
+{"input":"Time at which the laboratory measurement was charted","output":"Specimen.collection.collected[x]"}
+{"input":"Time at which the measurement was made available in the laboratory system","output":"Observation.issued"}
+{"input":"Result of laboratory test in standardized unit","output":"Observation.value[x]"}
+{"input":"Unit of measurement for the laboratory concept","output":"Observation.referenceRange.high"}
+{"input":"Unit of measurement for the laboratory concept","output":"Observation.value[x]"}
+{"input":"Unit of measurement for the laboratory concept","output":"Observation.referenceRange.low"}
+{"input":"Result of laboratory test in standard unit","output":"Observation.value[x]"}
+{"input":"Deidentified free-text comments associated with the laboratory measurement","output":"Observation.note"}
+{"input":"Deidentified free-text comments associated with the laboratory measurement","output":"Observation.value[x]"}
+{"input":"Brief string mainly used to indicate if the laboratory measurement is abnormal","output":"Observation.interpretation"}
+{"input":"Lower reference ranges indicating the normal range for the laboratory measurements","output":"Observation.referenceRange.low"}
+{"input":"Upper reference ranges indicating the normal range for the laboratory measurements","output":"Observation.referenceRange.high"}
+{"input":"Unique identifier for a laboratory concept","output":"Observation.code"}
+{"input":"Describes the concept which is represented by the itemid","output":"Observation.code"}
+{"input":"Unique patient identifier","output":"Observation.subject"}
+{"input":"Unique patient identifier","output":"Specimen.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"Observation.encounter"}
+{"input":"Uniquely denoted the specimen from which the microbiology measurement was made","output":"Observation.specimen"}
+{"input":"Uniquely denoted the specimen from which the microbiology measurement was made","output":"Specimen.identifier"}
+{"input":"Identifier for the test performed on the given specimen","output":"Observation.code"}
+{"input":"Name of the test performed on the given specimen","output":"Observation.code"}
+{"input":"Time at which an observation was charted","output":"Observation.effective[x]"}
+{"input":"Time at which an observation was charted","output":"Specimen.collection.collected[x]"}
+{"input":"Identifier for the organism, if any, which grew when tested (NULL = no  organism)","output":"Observation.code"}
+{"input":"Identifier for the organism, if any, which grew when tested (NULL = no  organism)","output":"Observation.hasMember"}
+{"input":"Identifier for the organism, if any, which grew when tested (NULL = no  organism)","output":"Observation.value[x]"}
+{"input":"Name of the organism, if any, which grew when tested (NULL = no  organism)","output":"Observation.code"}
+{"input":"Unique integer denoting the row","output":"Observation.identifier"}
+{"input":"Unique integer denoting the row","output":"Observation.hasMember"}
+{"input":"Identifier for the antibiotic tested against the given organism for sensitivity","output":"Observation.code"}
+{"input":"Name of the antibiotic tested against the given organism for sensitivity","output":"Observation.code"}
+{"input":"Date and time of when the microbiology result was available","output":"Observation.effective[x]"}
+{"input":"Deidentified free-text comments associated with the microbiology measurement","output":"Observation.note"}
+{"input":"Unique patient identifier","output":"Observation.subject"}
+{"input":"Unique identifier to a patient ward stay","output":"Observation.encounter"}
+{"input":"Time at which an observation was made","output":"Observation.effective[x]"}
+{"input":"Time at which an observation was manually input or manually validated by a member of the clinical staff","output":"Observation.issued"}
+{"input":"Data from value in a numeric format","output":"Observation.value[x]"}
+{"input":"Unit of measurement for the value","output":"Observation.referenceRange.high"}
+{"input":"Unit of measurement for the value","output":"Observation.value[x]"}
+{"input":"Unit of measurement for the value","output":"Observation.referenceRange.low"}
+{"input":"Value measured for the concept identified by the itemid","output":"Observation.value[x]"}
+{"input":"Lower limit of the normal range for a given physiological measurement","output":"Observation.referenceRange.low"}
+{"input":"Higher limit of the normal range for a given physiological measurement","output":"Observation.referenceRange.high"}
+{"input":"Information of the type of data the itemid corresponds to","output":"Observation.category"}
+{"input":"Unique patient identifier","output":"Observation.subject"}
+{"input":"Unique identifier to a patient ward stay","output":"Observation.encounter"}
+{"input":"Time at which an observation was charted","output":"Observation.effective[x]"}
+{"input":"Time at which an observation was manually input or manually validated by a member of the clinical staff","output":"Observation.issued"}
+{"input":"Documented date - this is the value that corresponds to the concept referred to by itemid","output":"Observation.value[x]"}
+{"input":"Unique patient identifier","output":"Observation.subject"}
+{"input":"Identifier unique to a patient ICU stay","output":"Observation.encounter"}
+{"input":"Time of an output event","output":"Observation.effective[x]"}
+{"input":"Time at which an observation was manually input or manually validated by a member of the clinical staff","output":"Observation.issued"}
+{"input":"Amount of a substance at the charttime in standard unit","output":"Observation.value[x]"}
+{"input":"Amount of a substance at the charttime in standardized unit","output":"Observation.value[x]"}
+{"input":"Unique patient identifier","output":"Patient.identifier"}
+{"input":"Patient’s age in the anchor_year","output":"Patient.birthDate"}
+{"input":"De-identified date of death for the patient","output":"Patient.deceased[x]"}
+{"input":"Marital status of the patient","output":"Patient.maritalStatus"}
+{"input":"Primary language spoken by the patient","output":"Patient.communication.language"}
+{"input":"Unique patient identifier","output":"Procedure.subject"}
+{"input":"Identifier for single patient’s admission to the hospital","output":"Procedure.encounter"}
+{"input":"Date of the associated procedures","output":"Procedure.performed[x]"}
+{"input":"ICD code for the associated procedure","output":"Procedure.code"}
+{"input":"ICD version used for the icd_code","output":"Procedure.code"}
+{"input":"Title fields provide a brief definition for the given procedure code in ``","output":"Procedure.code"}
+{"input":"Unique patient identifier","output":"Procedure.subject"}
+{"input":"Identifier unique to a patient ICU stay","output":"Procedure.encounter"}
+{"input":"Start time of an event","output":"Procedure.performed[x]"}
+{"input":"End time of an event","output":"Procedure.performed[x]"}
+{"input":"Information about where on the patient’s body the procedure is taking place","output":"Procedure.bodySite"}
+{"input":"States the ultimate status of the procedure referred to in the row","output":"Procedure.status"}
+{"input":"Information on the medication order","output":"Procedure.category"}
+{"input":"Identifier for a single measurement type in the database","output":"Procedure.code"}
+{"input":"Describes the biological fluid or sample type from which a lab test was performed","output":"Specimen.type"}
+{"input":"Identifier for the specimen that is tested for bacterial growth","output":"Specimen.type"}
+{"input":"Description of the specimen that is tested for bacterial growth","output":"Specimen.type"}
+{"input":"Patient identifier","output":"Patient.identifier"}
+{"input":"Patient gender (i.e. M=Male and F=Female)","output":"Patient.gender"}
+{"input":"Patient birthday","output":"Patient.birthDate"}
+{"input":"Patient identifier","output":"Patient.identifier"}
+{"input":"Start date of the hospital stay","output":"Encounter.startDate"}
+{"input":"End date of the hospital stay","output":"Encounter.endDate"}
+{"input":"If the hospital stay consists in either a first prosthetic provision or a renewal (i.e., FirstDeliv, Renewal)","output":"Encounter.hospitalization.reAdmission"}
+{"input":"Length of the hospital stay (i.e., number of days)","output":"Encounter.length"}
+{"input":"Amputation Date","output":"Procedure.occurence"}
+{"input":"Amptuation Side (i.e. L=left or R=right)","output":"Procedure.bodySite"}
+{"input":"Cause of amputation (i.e. cancer, congenital, infectious, traumatic, vascular)","output":"Procedure.reason"}
+{"input":"Patient height (m)","output":"Observation.value"}
+{"input":"Patient weight (without prosthesis) (kg)","output":"Observation.value"}
+{"input":"010 Numerical Rating Scale of Pain","output":"Observation.value"}
+{"input":"010 Numerical Rating Scale of Pain","output":"Observation.value"}
+{"input":"010 Numerical Rating Scale of Pain","output":"Observation.value"}
+{"input":"010 Numerical Rating Scale of Pain","output":"Observation.value"}
+{"input":"010 Numerical Rating Scale of Pain","output":"Observation.value"}
+{"input":"Test to assess locomotor capacity in clinical and research settings. Outcome measures are time taken to complete the test and the number of steps","output":"Observation.value"}
+{"input":"If the patient has the diabetes or not (i.e., True or False)","output":"Condition"}
+{"input":"Commercial name of knee model","output":"DeviceDefinition.identifier"}
+{"input":"Commercial name of knee model","output":"Device.identifier"}
+{"input":"Commercial name of knee model","output":"DeviceDefinition.deviceName"}
+{"input":"Commercial name of knee model","output":"Device.deviceName"}
+{"input":"Manufacturer of the prosthetic knee","output":"DeviceDefinition.manufacturer"}
+{"input":"Manufacturer of the prosthetic knee","output":"Device.manufacturer"}
+{"input":"If the prosthetic knee can be manually locked or not (i.e., 1=yes, 0=no)","output":"DeviceDefinition.property"}
+{"input":"If the prosthetic knee can be manually locked or not (i.e., 1=yes, 0=no)","output":"Device.property"}
+{"input":"If the prosthetic knee is polycentric or not (i.e., 1=yes, 0=no)","output":"DeviceDefinition.property"}
+{"input":"If the prosthetic knee is polycentric or not (i.e., 1=yes, 0=no)","output":"Device.property"}
+{"input":"Ifr the prosthetic knee has a hydraulic or pneumatic control or not (i.e., 1=yes, 0=no)","output":"DeviceDefinition.property"}
+{"input":"Ifr the prosthetic knee has a hydraulic or pneumatic control or not (i.e., 1=yes, 0=no)","output":"Device.property"}
+{"input":"If the prosthetic knee is microprocessor-controlled or not (i.e., 1=yes, 0=no)","output":"DeviceDefinition.property"}
+{"input":"If the prosthetic knee is microprocessor-controlled or not (i.e., 1=yes, 0=no)","output":"Device.property"}
+{"input":"Prosthetic knee weight (kg)","output":"DeviceDefinition.property"}
+{"input":"Prosthetic knee weight (kg)","output":"Device.property"}
+{"input":"Maximum weight of the person that can be supported by the prosthesis (kg)","output":"DeviceDefinition.property"}
+{"input":"Maximum weight of the person that can be supported by the prosthesis (kg)","output":"Device.property"}
+{"input":"Activity level of the patient appropriate for that specifici prosthetic knee (expressed either in terms of K-level or in natural language)","output":"DeviceDefinition.property"}
+{"input":"Activity level of the patient appropriate for that specifici prosthetic knee (expressed either in terms of K-level or in natural language)","output":"Device.property"}
+{"input":"URL to prosthetic knee website","output":"DeviceDefinition.contact"}
+{"input":"URL to prosthetic knee website","output":"Device.contact"}
+{"input":"Knee category (i.e., AMK, FK, LF, MPK)","output":"DeviceDefinition.property"}
+{"input":"Knee category (i.e., AMK, FK, LF, MPK)","output":"Device.property"}
+{"input":"When the fall occurred","output":"AdverseEvent.occurrence"}
+{"input":"Trade name of the medication","output":"MedicationRequest.identifier"}
+{"input":"Anatomical Therapeutic Chemica (ATC) code","output":"MedicationRequest.code"}
+{"input":"LCI administration date at admission","output":"Questionnaire"}
+{"input":"LCI administration date at admission","output":"QuestionnaireResponse"}
+{"input":"LCI score at admission","output":"Questionnaire"}
+{"input":"LCI score at admission","output":"QuestionnaireResponse"}
+{"input":"LCI administration date at discharge","output":"Questionnaire"}
+{"input":"LCI administration date at discharge","output":"QuestionnaireResponse"}
+{"input":"LCI score at discharge","output":"Questionnaire"}
+{"input":"LCI score at discharge","output":"QuestionnaireResponse"}
+{"input":"AMP administration date at admission","output":"Questionnaire"}
+{"input":"AMP administration date at admission","output":"QuestionnaireResponse"}
+{"input":"Use of prosthesis (AMPPRO) or without (AMPnoPRO) in fulfilling the questionnaire at admission","output":"Questionnaire"}
+{"input":"Use of prosthesis (AMPPRO) or without (AMPnoPRO) in fulfilling the questionnaire at admission","output":"QuestionnaireResponse"}
+{"input":"AMP general score at admission","output":"Questionnaire"}
+{"input":"AMP general score at admission","output":"QuestionnaireResponse"}
+{"input":"K-level value at admission","output":"Questionnaire"}
+{"input":"K-level value at admission","output":"QuestionnaireResponse"}
+{"input":"AMP administration date at discharge","output":"Questionnaire"}
+{"input":"AMP administration date at discharge","output":"QuestionnaireResponse"}
+{"input":"Use of prosthesis (AMPPRO) or without (AMPnoPRO) in fulfilling the questionnaire at discharge","output":"Questionnaire"}
+{"input":"Use of prosthesis (AMPPRO) or without (AMPnoPRO) in fulfilling the questionnaire at discharge","output":"QuestionnaireResponse"}
+{"input":"AMP general score at discharge","output":"Questionnaire"}
+{"input":"AMP general score at discharge","output":"QuestionnaireResponse"}
+{"input":"K-level value at discharge","output":"Questionnaire"}
+{"input":"K-level value at discharge","output":"QuestionnaireResponse"}
+{"input":"Morse administration date at admission","output":"Questionnaire"}
+{"input":"Morse administration date at admission","output":"QuestionnaireResponse"}
+{"input":"History of falling at admission","output":"Questionnaire"}
+{"input":"History of falling at admission","output":"QuestionnaireResponse"}
+{"input":"Secondary Pathologies Assessment at admission","output":"Questionnaire"}
+{"input":"Secondary Pathologies Assessment at admission","output":"QuestionnaireResponse"}
+{"input":"Mobility assessment (e.g. walking aid, rollator, crutches, etc) at admission","output":"Questionnaire"}
+{"input":"Mobility assessment (e.g. walking aid, rollator, crutches, etc) at admission","output":"QuestionnaireResponse"}
+{"input":"Adoption of intravenous therapy\/heparin lock at admission","output":"Questionnaire"}
+{"input":"Adoption of intravenous therapy\/heparin lock at admission","output":"QuestionnaireResponse"}
+{"input":"Gait assessment (e.g. curve posture, low balance, abnormal, etc.) at admission","output":"Questionnaire"}
+{"input":"Gait assessment (e.g. curve posture, low balance, abnormal, etc.) at admission","output":"QuestionnaireResponse"}
+{"input":"Mental status assessment at admission","output":"Questionnaire"}
+{"input":"Mental status assessment at admission","output":"QuestionnaireResponse"}
+{"input":"Overall Morse score at admission","output":"Questionnaire"}
+{"input":"Overall Morse score at admission","output":"QuestionnaireResponse"}
+{"input":"Morse administration date at discharge","output":"Questionnaire"}
+{"input":"Morse administration date at discharge","output":"QuestionnaireResponse"}
+{"input":"History of falling at discharge","output":"Questionnaire"}
+{"input":"History of falling at discharge","output":"QuestionnaireResponse"}
+{"input":"Secondary Pathologies Assessment at discharge","output":"Questionnaire"}
+{"input":"Secondary Pathologies Assessment at discharge","output":"QuestionnaireResponse"}
+{"input":"Mobility assessment (e.g. walking aid, rollator, crutches, etc) at discharge","output":"Questionnaire"}
+{"input":"Mobility assessment (e.g. walking aid, rollator, crutches, etc) at discharge","output":"QuestionnaireResponse"}
+{"input":"Adoption of intravenous therapy\/heparin lock at discharge","output":"Questionnaire"}
+{"input":"Adoption of intravenous therapy\/heparin lock at discharge","output":"QuestionnaireResponse"}
+{"input":"Gait assessment (e.g. curve posture, low balance, abnormal, etc.) at discharge","output":"Questionnaire"}
+{"input":"Gait assessment (e.g. curve posture, low balance, abnormal, etc.) at discharge","output":"QuestionnaireResponse"}
+{"input":"Mental status assessment at discharge","output":"Questionnaire"}
+{"input":"Mental status assessment at discharge","output":"QuestionnaireResponse"}
+{"input":"Overall Morse score at discharge","output":"Questionnaire"}
+{"input":"Overall Morse score at discharge","output":"QuestionnaireResponse"}
+{"input":"Morse administration date at change","output":"Questionnaire"}
+{"input":"Morse administration date at change","output":"QuestionnaireResponse"}
+{"input":"History of falling at change","output":"Questionnaire"}
+{"input":"History of falling at change","output":"QuestionnaireResponse"}
+{"input":"Secondary Pathologies Assessment at change","output":"Questionnaire"}
+{"input":"Secondary Pathologies Assessment at change","output":"QuestionnaireResponse"}
+{"input":"Mobility assessment (e.g. walking aid, rollator, crutches, etc) at change","output":"Questionnaire"}
+{"input":"Mobility assessment (e.g. walking aid, rollator, crutches, etc) at change","output":"QuestionnaireResponse"}
+{"input":"Adoption of intravenous therapy\/heparin lock at change","output":"Questionnaire"}
+{"input":"Adoption of intravenous therapy\/heparin lock at change","output":"QuestionnaireResponse"}
+{"input":"Gait assessment (e.g. curve posture, low balance, abnormal, etc.) at change","output":"Questionnaire"}
+{"input":"Gait assessment (e.g. curve posture, low balance, abnormal, etc.) at change","output":"QuestionnaireResponse"}
+{"input":"Mental status assessment at change","output":"Questionnaire"}
+{"input":"Mental status assessment at change","output":"QuestionnaireResponse"}
+{"input":"Overall Morse score at change","output":"Questionnaire"}
+{"input":"Overall Morse score at change","output":"QuestionnaireResponse"}
+{"input":"TWT execution date at baseline","output":"Questionnaire"}
+{"input":"TWT execution date at baseline","output":"QuestionnaireResponse"}
+{"input":"TWT perfomance time at baseline (mean between two trials)","output":"Questionnaire"}
+{"input":"TWT perfomance time at baseline (mean between two trials)","output":"QuestionnaireResponse"}
+{"input":"TWT perfomance number of steps at baseline (mean between two trials)","output":"Questionnaire"}
+{"input":"TWT perfomance number of steps at baseline (mean between two trials)","output":"QuestionnaireResponse"}
+{"input":"TWT execution date at discharge","output":"Questionnaire"}
+{"input":"TWT execution date at discharge","output":"QuestionnaireResponse"}
+{"input":"TWT performance time at discharge (mean between two trials)","output":"Questionnaire"}
+{"input":"TWT performance time at discharge (mean between two trials)","output":"QuestionnaireResponse"}
+{"input":"TWT performance number of steps at discharge (mean between two trials)","output":"Questionnaire"}
+{"input":"TWT performance number of steps at discharge (mean between two trials)","output":"QuestionnaireResponse"}
+{"input":"Barthel administration date at admission","output":"Questionnaire"}
+{"input":"Barthel administration date at admission","output":"QuestionnaireResponse"}
+{"input":"Need assistance on grooming (i.e. personal care) at admission","output":"Questionnaire"}
+{"input":"Need assistance on grooming (i.e. personal care) at admission","output":"QuestionnaireResponse"}
+{"input":"Need assistance on bathing at admission","output":"Questionnaire"}
+{"input":"Need assistance on bathing at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in feeding at admission","output":"Questionnaire"}
+{"input":"Need of assistance in feeding at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in dressing at admission","output":"Questionnaire"}
+{"input":"Need of assistance in dressing at admission","output":"QuestionnaireResponse"}
+{"input":"Presence or absence of fecal incontinence at admission","output":"Questionnaire"}
+{"input":"Presence or absence of fecal incontinence at admission","output":"QuestionnaireResponse"}
+{"input":"Presence or absence of urinary incontinence at admission","output":"Questionnaire"}
+{"input":"Presence or absence of urinary incontinence at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in toilet use at admission","output":"Questionnaire"}
+{"input":"Need of assistance in toilet use at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in transfers (bed to chair and back) at admission","output":"Questionnaire"}
+{"input":"Need of assistance in transfers (bed to chair and back) at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance on mobility (on level surfaces) at admission","output":"Questionnaire"}
+{"input":"Need of assistance on mobility (on level surfaces) at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance on stairs climbing at admission","output":"Questionnaire"}
+{"input":"Need of assistance on stairs climbing at admission","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in using the wheelchair (if needed) at admission","output":"Questionnaire"}
+{"input":"Need of assistance in using the wheelchair (if needed) at admission","output":"QuestionnaireResponse"}
+{"input":"Barthel total score at admission","output":"Questionnaire"}
+{"input":"Barthel total score at admission","output":"QuestionnaireResponse"}
+{"input":"Barthel administration date at mid rehab pathway","output":"Questionnaire"}
+{"input":"Barthel administration date at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need assistance on grooming (i.e. personal care) at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need assistance on grooming (i.e. personal care) at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need assistance on bathing at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need assistance on bathing at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in feeding at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance in feeding at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in dressing at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance in dressing at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Presence or absence of fecal incontinence at mid rehab pathway","output":"Questionnaire"}
+{"input":"Presence or absence of fecal incontinence at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Presence or absence of urinary incontinence at mid rehab pathway","output":"Questionnaire"}
+{"input":"Presence or absence of urinary incontinence at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in toilet use at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance in toilet use at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in transfers (bed to chair and back) at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance in transfers (bed to chair and back) at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance on mobility (on level surfaces) at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance on mobility (on level surfaces) at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance on stairs climbing at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance on stairs climbing at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in using the wheelchair (if needed) at mid rehab pathway","output":"Questionnaire"}
+{"input":"Need of assistance in using the wheelchair (if needed) at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Barthel total score at mid rehab pathway","output":"Questionnaire"}
+{"input":"Barthel total score at mid rehab pathway","output":"QuestionnaireResponse"}
+{"input":"Barthel administration date at discharge","output":"Questionnaire"}
+{"input":"Barthel administration date at discharge","output":"QuestionnaireResponse"}
+{"input":"Need assistance on grooming (i.e. personal care) at discharge","output":"Questionnaire"}
+{"input":"Need assistance on grooming (i.e. personal care) at discharge","output":"QuestionnaireResponse"}
+{"input":"Need assistance on bathing at discharge","output":"Questionnaire"}
+{"input":"Need assistance on bathing at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in feeding at discharge","output":"Questionnaire"}
+{"input":"Need of assistance in feeding at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in dressing at discharge","output":"Questionnaire"}
+{"input":"Need of assistance in dressing at discharge","output":"QuestionnaireResponse"}
+{"input":"Presence or absence of fecal incontinence at discharge","output":"Questionnaire"}
+{"input":"Presence or absence of fecal incontinence at discharge","output":"QuestionnaireResponse"}
+{"input":"Presence or absence of urinary incontinence at discharge","output":"Questionnaire"}
+{"input":"Presence or absence of urinary incontinence at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in toilet use at discharge","output":"Questionnaire"}
+{"input":"Need of assistance in toilet use at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in transfers (bed to chair and back) at discharge","output":"Questionnaire"}
+{"input":"Need of assistance in transfers (bed to chair and back) at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance on mobility (on level surfaces) at discharge","output":"Questionnaire"}
+{"input":"Need of assistance on mobility (on level surfaces) at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance on stairs climbing at discharge","output":"Questionnaire"}
+{"input":"Need of assistance on stairs climbing at discharge","output":"QuestionnaireResponse"}
+{"input":"Need of assistance in using the wheelchair (if needed) at discharge","output":"Questionnaire"}
+{"input":"Need of assistance in using the wheelchair (if needed) at discharge","output":"QuestionnaireResponse"}
+{"input":"Barthel total score at discharge","output":"Questionnaire"}
+{"input":"Barthel total score at discharge","output":"QuestionnaireResponse"}
+{"input":"Emilia-Romagna Region (ERR) questionnaire on fall risk in hospital. Administration date at admission","output":"Questionnaire"}
+{"input":"Emilia-Romagna Region (ERR) questionnaire on fall risk in hospital. Administration date at admission","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Occurrence of falls in previous year","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Occurrence of falls in previous year","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Fear of falling","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Fear of falling","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Use of drugs from the cardiologic area","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Use of drugs from the cardiologic area","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Use of drugs from the psychotropic area","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Use of drugs from the psychotropic area","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Use of three or more drugs other than those from the cardiologic or psychotropic areas","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Use of three or more drugs other than those from the cardiologic or psychotropic areas","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Diabetes","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Diabetes","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at admission. Cognitive impairment","output":"Questionnaire"}
+{"input":"RER questionnaire at admission. Cognitive impairment","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire. Administration date at discharge","output":"Questionnaire"}
+{"input":"RER questionnaire. Administration date at discharge","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Occurrence of falls in previous year","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Occurrence of falls in previous year","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Occurrence of falls during the hospital stay","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Occurrence of falls during the hospital stay","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Fear of falling","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Fear of falling","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Use of drugs from the cardiologic area","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Use of drugs from the cardiologic area","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Use of drugs from the psychotropic area","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Use of drugs from the psychotropic area","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Use of three or more drugs other than those from the cardiologic or psychotropic areas","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Use of three or more drugs other than those from the cardiologic or psychotropic areas","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Diabetes","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Diabetes","output":"QuestionnaireResponse"}
+{"input":"RER questionnaire at discharge. Cognitive impairment","output":"Questionnaire"}
+{"input":"RER questionnaire at discharge. Cognitive impairment","output":"QuestionnaireResponse"}
+{"input":"Unique encounter identifier","output":"Encounter.identifier"}
+{"input":"Unique patient identifier","output":"Patient.identifier"}
+{"input":"Admission age","output":"Patient.birthDate"}
+{"input":"Admission gender","output":"Patient.gender"}
+{"input":"Patient height","output":"Observation"}
+{"input":"Patient weight","output":"Observation"}
+{"input":"CPR status","output":"Communication.status"}
+{"input":"CPR status","output":"Condition"}
+{"input":"Date-time of CPR status documentation","output":"Condition.evidence.detail"}
+{"input":"Medication allergies","output":"AllergyIntolerance.code"}
+{"input":"Medication allergies","output":"AllergyIntolerance.category"}
+{"input":"Medication allergies","output":"AllergyIntolerance.type"}
+{"input":"Charlson comorbidity index","output":"Observation.code"}
+{"input":"Elixhauser comorbidity index","output":"Observation.code"}
+{"input":"SOFA score during encounter","output":"Observation.code"}
+{"input":"SIRS criteria during encounter","output":"Observation.code"}
+{"input":"Disease severity classification system","output":"Observation.code"}
+{"input":"Glasgow Coma Scale Score","output":"Observation.code"}
+{"input":"Logistic Organ Dysfunction System Score","output":"Observation.code"}
+{"input":"Multiple Organ Dysfunction Score","output":"Observation.code"}
+{"input":"National Early Warning Score Modified","output":"Observation.code"}
+{"input":"Modified Early Warning Score","output":"Observation.code"}
+{"input":"Hospital at admission","output":"Encounter.serviceProvider"}
+{"input":"date-time of admission","output":"Encounter.period"}
+{"input":"date-time of discharge","output":"Encounter.period"}
+{"input":"Unit discharge location","output":"Encounter.location"}
+{"input":"Date-time stamp with location","output":"Encounter.location.period"}
+{"input":"ICD-9\/10 diagnosis codes for encounter","output":"Encounter.diagnosis.condition"}
+{"input":"procedure codes for encounter","output":"Encounter.diagnosis.condition"}
+{"input":"DRG\/Primary diagnosis for encounter","output":"Encounter.diagnosis.condition"}
+{"input":"CPT codes for encounter","output":"Encounter.diagnosis.condition"}
+{"input":"CPT codes for encounter","output":"CarePlan.activity.progress"}
+{"input":"Body temperature","output":"Observation.code"}
+{"input":"Heart Rate","output":"Observation.code"}
+{"input":"Respiratory Rate","output":"Observation.code"}
+{"input":"Systolic Blood Pressure","output":"Observation.code"}
+{"input":"Diastolic Blood Pressure","output":"Observation.code"}
+{"input":"Mean Arterial Pressure","output":"Observation.code"}
+{"input":"Oxygen saturation","output":"Observation.code"}
+{"input":"Bands, neutrophil count","output":"DiagnosticReport.result"}
+{"input":"Plasma C-Reactive Protein","output":"DiagnosticReport.result"}
+{"input":"Erythrocyte Sedimentation","output":"DiagnosticReport.result"}
+{"input":"White Blood Cell count","output":"DiagnosticReport.result"}
+{"input":"Procalcitonin level","output":"DiagnosticReport.result"}
+{"input":"Partial pressure of oxygen in arterial blood","output":"DiagnosticReport.result"}
+{"input":"Partial pressure of carbon dioxide in arterial blood","output":"DiagnosticReport.result"}
+{"input":"partial pressure of oxygen to fraction of inspired oxygen ratio","output":"DiagnosticReport.result"}
+{"input":"arterial lactate level","output":"DiagnosticReport.result"}
+{"input":"Creatine Kinase","output":"DiagnosticReport.result"}
+{"input":"Brain Natriuretic Peptide","output":"DiagnosticReport.result"}
+{"input":"Mixed venous oxygen saturation","output":"DiagnosticReport.result"}
+{"input":"Cardiac Index","output":"Observation.code"}
+{"input":"Central Venous Pressure","output":"Observation.code"}
+{"input":"Left ventricular Ejection Fraction; echocardiogram","output":"DiagnosticReport.result"}
+{"input":"Tricuspid Annular Plane Systolic Excursion; echocardiogram","output":"Observation.code"}
+{"input":"Tricuspid Annular Plane Systolic Excursion; echocardiogram","output":"DiagnosticReport.result"}
+{"input":"Diastolic dysfunction Grade; echocardiogram","output":"DiagnosticReport.result"}
+{"input":"Blood urea nitrogen","output":"DiagnosticReport.result"}
+{"input":"Creatinine","output":"DiagnosticReport.result"}
+{"input":"Bicarbonate","output":"DiagnosticReport.result"}
+{"input":"Base excess","output":"DiagnosticReport.result"}
+{"input":"Alanine Transaminase","output":"DiagnosticReport.result"}
+{"input":"Aspartate Transaminase","output":"DiagnosticReport.result"}
+{"input":"Total bilirubin","output":"DiagnosticReport.result"}
+{"input":"Albumin level","output":"DiagnosticReport.result"}
+{"input":"Ammonia level","output":"DiagnosticReport.result"}
+{"input":"Hemoglobin","output":"DiagnosticReport.result"}
+{"input":"Hematocrit","output":"DiagnosticReport.result"}
+{"input":"International Normalized Ratio","output":"DiagnosticReport.result"}
+{"input":"Prothrombin","output":"DiagnosticReport.result"}
+{"input":"Activated Partial Thromboplastin Time","output":"DiagnosticReport.result"}
+{"input":"TEG","output":"DiagnosticReport.result"}
+{"input":"TEG","output":"DiagnosticReport.result"}
+{"input":"TEG","output":"DiagnosticReport.result"}
+{"input":"TEG","output":"DiagnosticReport.result"}
+{"input":"Lysis at 30 minutes","output":"DiagnosticReport.result"}
+{"input":"lactate dehydrogenase","output":"DiagnosticReport.result"}
+{"input":"e.g., straw colored vs turbid","output":"DiagnosticReport.result"}
+{"input":"white cell count","output":"Observation.code"}
+{"input":"red cell count","output":"DiagnosticReport.result"}
+{"input":"Serum ionized calcium level","output":"DiagnosticReport.result"}
+{"input":"Thyroid Stimulating Hormone","output":"DiagnosticReport.result"}
+{"input":"Human chorionic gonadotropin levels","output":"DiagnosticReport.result"}
+{"input":"Unique culture identifier","output":"DiagnosticReport.identifier"}
+{"input":"e.g., blood, sputum","output":"DiagnosticReport.specimen"}
+{"input":"Date-time specimen >collection collected","output":"DiagnosticReport.specimen"}
+{"input":"Date-time DiagnosticReport issued","output":"DiagnosticReport.issued"}
+{"input":"Name of antibiotic sensitivities","output":"DiagnosticReport.result"}
+{"input":"Name of antibiotic sensitivities","output":"DiagnosticReport"}
+{"input":"Date-time of start of surgery","output":"Procedure.performed[x]"}
+{"input":"Fraction of inspired oxygen","output":"Procedure.performed[x]"}
+{"input":"Mode of ventilation","output":"Observation.code"}
+{"input":"Date-time (all of these parameters can be included in an Observation â€œpanelâ€)","output":"Observation.code"}
+{"input":"Date-time","output":"Observation.code"}
+{"input":"Positive End Expiratory Pressure","output":"Observation.code"}
+{"input":"Ratio of inspiratory to expiratory time","output":"Observation.code"}
+{"input":"Set ventilator respiratory rate","output":"Observation.code"}
+{"input":"Event date-time","output":"Observation.code"}
+{"input":"Event date-time","output":"Observation.code"}
+{"input":"e.g., success vs failure","output":"Observation.code"}
+{"input":"Drug name","output":"MedicationAdministration.medication[x]"}
+{"input":"Dose\/volume of drug\/IO administered","output":"MedicationAdministration.dosage"}
+{"input":"Units of drug","output":"MedicationAdministration.dosage"}
+{"input":"Date-time med\/IO administered \/started","output":"MedicationAdministration.effective[x]"}
+{"input":"End date-time for IOs","output":"MedicationAdministration.effective[x]"}
+{"input":"Name of diagnostic test (e.g., chest xray)","output":"ServiceRequest.code"}
+{"input":"Name of diagnostic test (e.g., chest xray)","output":"Procedure.code"}
+{"input":"Date-time ordered","output":"ServiceRequest.authoredOn"}
+{"input":"Date-time ordered","output":"ServiceRequest.occurrence[x]"}
+{"input":"Date-time completed","output":"Procedure.performed[x]"}
+{"input":"e.g., left ventricular ejection fraction e.g., central venous catheter, foley catheter","output":"DiagnosticReport.result"}
+{"input":"Date-time intervention ordered","output":"ServiceRequest.authoredOn"}
+{"input":"Date-time intervention completed","output":"Procedure.performed[x]"}
+{"input":"Date-time catheter removed","output":"Procedure.performed[x]"}
+{"input":"Date-time of measurement","output":"Observation.code"}
+{"input":"Measurement","output":"Observation.code"}
+{"input":"e.g., pleural drainage","output":"Observation.code"}
+{"input":"Date-time of measurement","output":"Observation.code"}
+{"input":"e.g., crystalloid infusion, colloid transfusion","output":"Observation.code"}
+{"input":"Date-time measured","output":"Observation.code"}
+{"input":"Days on at least one vasopressor","output":"Observation"}
+{"input":"Days on at least one vasopressor","output":"MedicationAdministration"}
+{"input":"Hospital discharge disposition","output":"Encounter.hospitalization.dischargeDisposition"}
+{"input":"Date-time","output":"Condition"}
+{"input":"unit of measurement","output":"Observation.valueQuantity.unit"}
+{"input":"symbols and\/or expressions defined in a coding system","output":"Observation.code"}
+{"input":"an amount or a number of something ","output":"Observation.valueQuantity"}
+{"input":"procedure used to measure an amount, quantity, size, level, extent, or magnitude, resulting in an qualitative or quantitative value","output":"Observation.method"}
+{"input":"any anatomical structure, any nonspecific and anatomical site, as well as morphologic abnormalities","output":"Observation.bodySite"}
+{"input":"any anatomical structure, any nonspecific and anatomical site, as well as morphologic abnormalities","output":"Procedure.bodySite"}
+{"input":"any anatomical structure, any nonspecific and anatomical site, as well as morphologic abnormalities","output":"Condition.bodySite"}
+{"input":"healthcare institute providing the data","output":"Organization.name"}
+{"input":"a pseudo code assigned as unique identifier to an individual by a data provider institute","output":"Patient.identifier"}
+{"input":"professional health care specialization","output":"Practioner.qualification.code"}
+{"input":"professional health care specialization","output":"PractionerRole.specialty"}
+{"input":"physical location or medical division taking care of the individual","output":"Practioner.address"}
+{"input":"describes the relationship between the individual and care provider institute","output":"Procedure.performer.actor"}
+{"input":"an interaction between an individual and a specific unit or service of a healthcare provider institute, e.g. emergency, intensive care unit, for the purpose of providing healthcare service(s) or assessing the health status of an individual","output":"Encounter"}
+{"input":"administrative artefact for billing according to Swiss DRG","output":"ChargeItem"}
+{"input":"information on the individual’s permission to make health related data and collected samples available for research purposes","output":"Consent"}
+{"input":"the date and time of birth of the individual","output":"Patient.birthDate"}
+{"input":"the date and time of death of the individual\n","output":"Patient.deceasedDateTime"}
+{"input":"death information availability","output":"Patient.deceasedBoolean"}
+{"input":"the gender of the individual used for administrative purposes","output":"Patient.gender"}
+{"input":"the civil status indicates the familial and social situation of the individual","output":"Patient.maritalStatus"}
+{"input":"frequency of the heart beats, i.e. the number of time a heart beats per unit of time","output":"Observation.valueQuantity"}
+{"input":"blood pressure measured either in the artery, in the vein, or in the pulmonary circulation","output":"Observation.valueQuantity"}
+{"input":"body temperature of the individual","output":"Observation.valueQuantity"}
+{"input":"frequency at which the breathing occurs","output":"Observation.valueQuantity"}
+{"input":"fraction of oxygen present in the blood","output":"Observation.valueQuantity"}
+{"input":"height of the individual","output":"Observation.valueQuantity"}
+{"input":"weight of the individual","output":"Observation.valueQuantity"}
+{"input":"clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern","output":"Condition.code"}
+{"input":"determination of the presence of a disease, condition, or injury from expressed signs and symptoms and assessments such as physical examination, laboratory test, or the like","output":"Condition.code"}
+{"input":"clinical judgment concerning a human response to health conditions\/life processes, or a vulnerability for that response, by an individual, family, group or community; a nursing diagnosis provides the basis for selection of nursing interventions to achieve outcomes for which the nurse has accountability","output":"Condition.code"}
+{"input":"discharge diagnosis given respecting the rules of FOPH and used for building the DRGs, e.g. K35 acute appendicitis ","output":"Condition.code"}
+{"input":"invasive or non-invasive intervention performed for, with or on behalf of an individual whose purpose is to assess, improve, maintain, promote or modify health, functioning or health conditions ","output":"Procedure.code"}
+{"input":"procedure, coded respecting the rules of FOPH and used for building the DRGs, e.g. Z57.34 open biopsy of the urinary bladder","output":"Procedure.code"}
+{"input":"score given using a scoring system based on procedures that serve to classify e.g. health status, disease pattern or injury pattern and are used in medicine","output":"Observation.valueString"}
+{"input":"any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes","output":"Specimen"}
+{"input":"biosample stored in a biobank","output":"Specimen"}
+{"input":"laboratory analyzer used to assess medical laboratory samples ","output":"Device"}
+{"input":"lab test information including information elements provided by LOINC, instrument and test kit ","output":"Observation.code"}
+{"input":"transmitted laboratory analysis results for a specific biosample analyzed ","output":"Obeservation.valueCodeableConcept"}
+{"input":"type of time period during which a treatment was given or an assessment was performed; this can be single time points or a continuous event","output":"Observation.effective[x]"}
+{"input":"type of time period during which a treatment was given or an assessment was performed; this can be single time points or a continuous event","output":"Procedure.performed[x]"}
+{"input":"physical manifestation of a product that contains the active ingredient(s) and\/or inactive ingredient(s) that are intended to be delivered to the patient","output":"Medication.code"}
+{"input":"medication that can be given to the patient","output":"Medication.code"}
+{"input":"any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical ","output":"Substance"}
+{"input":"single event at which a drug was administered to the patient; this could be a single time point in case of a pill\/cream or a duration in case of a single infusion pack or a single patch; one or many drug administration events are initiated by a drug prescription depending on the frequency stated in the prescription","output":"Encounter"}
+{"input":"plan that defines at which frequency a drug should be administered to a patient with a given quantity; at every frequency time point a drug administration event should occur","output":"MedicationRequest.dispenseRequest"}
+{"input":"risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance","output":"Allergy.code"}
+{"input":"manifestation of an allergic reaction following an exposure to a substance","output":"Allergy"}
+{"input":"classification of malignant tumor","output":"Obeservation.valueCodeableConcept"}
+{"input":"growth extent of the tumor and how far the tumor has spread","output":"Obeservation.valueCodeableConcept"}
+{"input":"tumor cells and tumor tissue abnormality","output":"Obeservation.valueCodeableConcept"}
+{"input":"ICD-O diagnosis","output":"Condition.code"}
+{"input":"given radiotherapy procedure during oncological treatment","output":"Procedure.category"}
+{"input":"assessment of oncology treatment","output":"Procedure.category"}
+{"input":"circumference measurement of a body site","output":"Obeservation.valueCodeableConcept"}
+{"input":"treatment or procedure purpose","output":"Procedure.reasonCode"}
+{"input":"gestational age of a child at birth","output":"Obeservation.valueCodeableConcept"}
+{"input":"tumor specimen, volume and fixation method used","output":"Specimen"}
+{"input":"radiographic procedure using the emission of x-rays to form an image of the structure penetrated by the radiation","output":"Procedure.category"}
+{"input":"results from an intervention that caused unintentional harm","output":"AdverseEvent"}
+{"input":"product intended for medical use when the main effect is not achieved by a medicinal product; medical devices include, but are not limited to, implants, instruments, devices, in vitro diagnostics ","output":"Device"}
+{"input":"describes how the data was determined, e.g. measured, calculated","output":"Observation.method"}
+{"input":"fraction of inspired oxygen (FiO2) either calculated knowing the device used and the amount of oxygen administrated or coming from the respiratory system settings","output":"Obeservation.valueRatio"}
+{"input":"time elapsed since birth of the individual ","output":"Patient.birthDate"}
+{"input":"interval of values that is deemed normal for a physiologic measurement in healthy individuals ","output":"Observation.referenceRange"}
+{"input":"localization with respect to the side of the body ","output":"Condition.bodySite"}

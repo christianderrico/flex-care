@@ -1,0 +1,69 @@
+Mapping,Field_description
+['Observation.valueQuantity.unit'],Unit of measurement
+['Observation.code'],symbols and/or expressions defined in a coding system
+['Observation.valueQuantity'],an amount or a number of something 
+['Observation.method'],"procedure used to measure an amount, quantity, size, level, extent, or magnitude, resulting in an qualitative or quantitative value"
+['Observation.bodySite'],"any anatomical structure, any nonspecific and anatomical site, as well as morphologic abnormalities"
+['Procedure.bodySite'],"any anatomical structure, any nonspecific and anatomical site, as well as morphologic abnormalities"
+['Condition.bodySite'],"any anatomical structure, any nonspecific and anatomical site, as well as morphologic abnormalities"
+['Organization.name'],healthcare institute providing the data
+['Patient.identifier'],a pseudo code assigned as unique identifier to an individual by a data provider institute
+['Practitioner.qualification.code'],professional health care specialization
+['PractitionerRole.specialty'],professional health care specialization
+['Practitioner.address'],physical location or medical division taking care of the individual
+['Procedure.performer.actor'],describes the relationship between the individual and care provider institute
+['Encounter'],"an interaction between an individual and a specific unit or service of a healthcare provider institute, e.g. emergency, intensive care unit, for the purpose of providing healthcare service(s) or assessing the health status of an individual"
+['ChargeItem'],administrative artefact for billing according to Swiss DRG
+['Consent'],information on the individual’s permission to make health related data and collected samples available for research purposes
+['Patient.birthDate'],the date and time of birth of the individual
+['Patient.deceasedDateTime'],"the date and time of death of the individual
+"
+['Patient.deceasedBoolean'],death information availability
+['Patient.gender'],the gender of the individual used for administrative purposes
+['Patient.maritalStatus'],the civil status indicates the familial and social situation of the individual
+['Observation.valueQuantity'],"frequency of the heart beats, i.e. the number of time a heart beats per unit of time"
+['Observation.valueQuantity'],"blood pressure measured either in the artery, in the vein, or in the pulmonary circulation"
+['Observation.valueQuantity'],body temperature of the individual
+['Observation.valueQuantity'],frequency at which the breathing occurs
+['Observation.valueQuantity'],fraction of oxygen present in the blood
+['Observation.valueQuantity'],height of the individual
+['Observation.valueQuantity'],weight of the individual
+['Condition.code'],"clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern"
+['Condition.code'],"determination of the presence of a disease, condition, or injury from expressed signs and symptoms and assessments such as physical examination, laboratory test, or the like"
+['Condition.code'],"clinical judgment concerning a human response to health conditions/life processes, or a vulnerability for that response, by an individual, family, group or community; a nursing diagnosis provides the basis for selection of nursing interventions to achieve outcomes for which the nurse has accountability"
+['Condition.code'],"discharge diagnosis given respecting the rules of FOPH and used for building the DRGs, e.g. K35 acute appendicitis "
+['Procedure.code'],"invasive or non-invasive intervention performed for, with or on behalf of an individual whose purpose is to assess, improve, maintain, promote or modify health, functioning or health conditions "
+['Procedure.code'],"procedure, coded respecting the rules of FOPH and used for building the DRGs, e.g. Z57.34 open biopsy of the urinary bladder"
+['Observation.valueString'],"score given using a scoring system based on procedures that serve to classify e.g. health status, disease pattern or injury pattern and are used in medicine"
+['Specimen'],"any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes"
+['Specimen'],biosample stored in a biobank
+['Device'],laboratory analyzer used to assess medical laboratory samples 
+['Observation.code'],"lab test information including information elements provided by LOINC, instrument and test kit "
+['Observation.valueCodeableConcept'],transmitted laboratory analysis results for a specific biosample analyzed 
+['Observation.effective[x]'],type of time period during which a treatment was given or an assessment was performed; this can be single time points or a continuous event
+['Procedure.performed[x]'],type of time period during which a treatment was given or an assessment was performed; this can be single time points or a continuous event
+['Medication.code'],physical manifestation of a product that contains the active ingredient(s) and/or inactive ingredient(s) that are intended to be delivered to the patient
+['Medication.code'],medication that can be given to the patient
+['Substance'],"any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical "
+['Encounter'],single event at which a drug was administered to the patient; this could be a single time point in case of a pill/cream or a duration in case of a single infusion pack or a single patch; one or many drug administration events are initiated by a drug prescription depending on the frequency stated in the prescription
+['MedicationRequest.dispenseRequest'],plan that defines at which frequency a drug should be administered to a patient with a given quantity; at every frequency time point a drug administration event should occur
+['Allergy.code'],"risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance"
+['Allergy'],manifestation of an allergic reaction following an exposure to a substance
+['Observation.valueCodeableConcept'],classification of malignant tumor
+['Observation.valueCodeableConcept'],growth extent of the tumor and how far the tumor has spread
+['Observation.valueCodeableConcept'],tumor cells and tumor tissue abnormality
+['Condition.code'],ICD-O diagnosis
+['Procedure.category'],given radiotherapy procedure during oncological treatment
+['Procedure.category'],assessment of oncology treatment
+['Observation.valueCodeableConcept'],circumference measurement of a body site
+['Procedure.reasonCode'],treatment or procedure purpose
+['Observation.valueCodeableConcept'],gestational age of a child at birth
+['Specimen'],"tumor specimen, volume and fixation method used"
+['Procedure.category'],radiographic procedure using the emission of x-rays to form an image of the structure penetrated by the radiation
+['AdverseEvent'],results from an intervention that caused unintentional harm
+['Device'],"product intended for medical use when the main effect is not achieved by a medicinal product; medical devices include, but are not limited to, implants, instruments, devices, in vitro diagnostics "
+['Observation.method'],"describes how the data was determined, e.g. measured, calculated"
+['Observation.valueRatio'],fraction of inspired oxygen (FiO2) either calculated knowing the device used and the amount of oxygen administrated or coming from the respiratory system settings
+['Patient.birthDate'],time elapsed since birth of the individual 
+['Observation.referenceRange'],interval of values that is deemed normal for a physiologic measurement in healthy individuals 
+['Condition.bodySite'],localization with respect to the side of the body 
