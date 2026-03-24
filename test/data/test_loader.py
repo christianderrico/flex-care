@@ -81,38 +81,38 @@ class TestLoaderDocs:
     """Tests for Loader document generation."""
 
     def test_returns_one_document_per_resource(self, tmp_path):
-        """"""
+        """Loader.docs should return one document per patient"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         assert len(loader.docs) == 1
 
     def test_document_is_valid_json(self, tmp_path):
-        """"""
+        """Document should be a valid json"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert isinstance(parsed, dict)
 
     def test_document_contains_required_keys(self, tmp_path):
-        """"""
+        """Document should contain the required keys"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         for key in ("resource", "description", "usage", "extra", "examples", "documentation"):
             assert key in parsed, f"Missing key: {key}"
 
     def test_description_is_truncated_at_cutoff(self, tmp_path):
-        """"""
+        """Description should be truncated at cutoff"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert "This resource is referenced" not in parsed["description"]
         assert parsed["description"] == "A patient resource."
 
     def test_usage_is_preserved(self, tmp_path):
-        """"""
+        """Usage should be preserved"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert parsed["usage"] == "Used for demographic info."
 
     def test_extra_excludes_intro_and_usage(self, tmp_path):
-        """"""
+        """Extra section should exclude intro and usage"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert "A patient resource" not in parsed["extra"]
@@ -120,27 +120,27 @@ class TestLoaderDocs:
         assert "Does not cover practitioners" in parsed["extra"]
 
     def test_examples_are_formatted_correctly(self, tmp_path):
-        """"""
+        """Examples should be formatted correctly"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert "General Patient is an example of patient" in parsed["examples"]
         assert "Minimal Patient is an example of patient" in parsed["examples"]
 
     def test_documentation_strips_resource_prefix(self, tmp_path):
-        """"""
+        """Documentation strips resource prefix"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert "id: the logical id" in parsed["documentation"]
         assert "name: a human name" in parsed["documentation"]
 
     def test_documentation_keeps_top_level_key(self, tmp_path):
-        """"""
+        """Documentation should keep top level key"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         parsed = json.loads(loader.docs[0])
         assert "Patient: the root resource" in parsed["documentation"]
 
     def test_empty_docs_dir_raises_runtime_error(self, tmp_path):
-        """"""
+        """Empty docs dir should raise runtime error"""
         empty_docs = tmp_path / "Docs"
         empty_docs.mkdir()
 
@@ -148,7 +148,7 @@ class TestLoaderDocs:
             Loader(docs_path=empty_docs)
 
     def test_docs_returns_a_copy(self, tmp_path):
-        """"""
+        """Docs should return a copy"""
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
         assert loader.docs is not loader.docs
 
