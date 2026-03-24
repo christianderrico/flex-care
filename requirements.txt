@@ -7,3 +7,9 @@ pynblint
 bandit
 mypy
 deepchecks
+transformers
+huggingface_hub
+langchain-community
+langchain-core
+langchain-huggingface
+outlines
