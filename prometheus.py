@@ -1,17 +1,56 @@
-import time
+"""
+MLflow to Prometheus metrics exporter.
+"""
+
 import mlflow
-import pandas as pd
-from prometheus_client import start_http_server, Gauge
+from prometheus_client import Gauge
 from mlflow.tracking import MlflowClient
 
 print(mlflow.get_tracking_uri())
 mlflow.set_tracking_uri("http://localhost:8080")
 
-accuracy  = Gauge('mlflow_accuracy',  'Accuracy del run', ['run_id', 'experiment', 'status'])
-loss      = Gauge('mlflow_loss',      'Loss del run',     ['run_id', 'experiment', 'status'])
-run_count = Gauge('mlflow_run_count', 'Numero totale di run', ['experiment'])
+accuracy = Gauge(
+    "mlflow_accuracy",
+    "Accuracy del run",
+    ["run_id", "experiment", "status"]
+)
+"""Prometheus Gauge tracking the accuracy metric for each MLflow run."""
 
-def update_metrics():
+loss = Gauge(
+    "mlflow_loss",
+    "Loss del run",
+    ["run_id", "experiment", "status"]
+)
+"""Prometheus Gauge tracking the loss metric for each MLflow run."""
+
+run_count = Gauge(
+    "mlflow_run_count",
+    "Numero totale di run",
+    ["experiment"]
+)
+"""Prometheus Gauge tracking the total number of runs per experiment."""
+
+
+def update_metrics() -> None:
+    """Scrape MLflow experiments and export run metrics to Prometheus.
+
+    Connects to the MLflow tracking server, iterates over all available
+    experiments, and updates the Prometheus Gauges for each run that
+    exposes an ``accuracy`` or ``loss`` metric. Also updates the total
+    run count per experiment.
+
+    The function queries up to 100 runs per experiment. Runs missing
+    a given metric are silently skipped for that metric only.
+
+    Side effects:
+        Updates the global Prometheus Gauges ``accuracy``, ``loss``,
+        and ``run_count`` with the latest values from the MLflow server.
+
+    Example::
+
+        update_metrics()
+        # Gauges are now populated and ready to be scraped by Prometheus.
+    """
     print("Cerco esperimenti...")
     client = MlflowClient()
 
@@ -28,9 +67,9 @@ def update_metrics():
 
         for run in runs:
             labels = {
-                "run_id":     run.info.run_id[:8],
+                "run_id": run.info.run_id[:8],
                 "experiment": exp.name,
-                "status":     run.info.status
+                "status": run.info.status,
             }
             metrics = run.data.metrics
             if "accuracy" in metrics:
@@ -40,8 +79,15 @@ def update_metrics():
                 loss.labels(**labels).set(metrics["loss"])
                 print(f"  loss: {metrics['loss']}")
 
+
 if __name__ == "__main__":
     update_metrics()
+    # Uncomment the block below to enable continuous monitoring mode.
+    # Starts a Prometheus HTTP server on port 8001 and refreshes
+    # metrics every 15 seconds, keeping Grafana dashboards live.
+    #
+    # from prometheus_client import start_http_server
+    # import time
     # start_http_server(8001)
     # while True:
     #     update_metrics()
