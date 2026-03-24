@@ -4,13 +4,11 @@ Unit tests for the Loader class.
 
 import json
 from pathlib import Path
-from unittest.mock import patch
 
 import pandas as pd
 import pytest
 
 from src.data.loader import Loader
-from src.data.resources import load_resources
 
 def _make_resource_json(tmp_path: Path, resource: str, payload: dict) -> Path:
     """Write a scraped resource JSON file in the expected directory layout."""
@@ -52,14 +50,11 @@ def _make_loader(tmp_path, resource_rows, doc_payloads: dict):
     for resource, payload in doc_payloads.items():
         _make_resource_json(docs_path, resource, payload)
 
-    with patch.object(Loader, "__init__", return_value=None):
-        loader = Loader()
-        loader._Loader__root = tmp_path
-        loader._Loader__docs_path = docs_path
-        loader._Loader__dataset_dir = dataset_dir
-        loader._Loader__resources_list_path = resources_csv
-        loader._Loader__resources = load_resources(resources_csv)
-        loader._Loader__documents = loader._Loader__load_docs()
+    loader = Loader(
+        docs_path=docs_path,
+        dataset_path=dataset_dir,
+        resources_path=resources_csv
+    )
 
     return loader
 
@@ -136,16 +131,11 @@ class TestLoaderDocs:
         assert "Patient: the root resource" in parsed["documentation"]
 
     def test_empty_docs_dir_raises_runtime_error(self, tmp_path):
-        resources_csv = _make_resources_csv(tmp_path, BASE_RESOURCE_ROWS)
         empty_docs = tmp_path / "Docs"
         empty_docs.mkdir()
 
-        with patch.object(Loader, "__init__", lambda self: None):
-            loader = Loader.__new__(Loader)
-            loader._Loader__docs_path = empty_docs
-
         with pytest.raises(RuntimeError, match="No documents found"):
-            loader._Loader__load_docs()
+            Loader(docs_path=empty_docs)
 
     def test_docs_returns_a_copy(self, tmp_path):
         loader = _make_loader(tmp_path, BASE_RESOURCE_ROWS, {"patient": MINIMAL_PATIENT_PAYLOAD})
@@ -208,7 +198,7 @@ class TestLoaderLoadDataset:
         assert result == ["patient"]
 
     def test_filters_out_unknown_resources(self, tmp_path):
-        """Test that a list of mappings resolving to the same resource returns a single ground_truth entry."""
+        """Test filters out unknown resources"""
         _make_dataset_csv(tmp_path, "eval.csv", [
             {"Field_description": "Unknown field", "Mapping": "unknownresource"},
             {"Field_description": "Patient age",   "Mapping": "patient"},
