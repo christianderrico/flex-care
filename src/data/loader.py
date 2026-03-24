@@ -35,14 +35,17 @@ class Loader:
 
     _EXCLUDED_SECTIONS = frozenset({"introduction", "Scope and Usage", "title"})
     _INTRO_CUTOFF      = "This resource is referenced"
+    _ROOT = Path(__file__).resolve().parents[2]
 
     def __init__(
         self,
+        docs_path      = _ROOT / "data" / "Docs",
+        dataset_path   = _ROOT / "data",
+        resources_path = _ROOT / "data" / "FHIR_resources.csv"
     ):
-        self.__root = Path(__file__).resolve().parents[2]
-        self.__docs_path:            Path = self.__root / "data" / "Docs"
-        self.__dataset_dir:          Path = self.__root / "data"
-        self.__resources_list_path:  Path = self.__root / "data" / "FHIR_resources.csv"
+        self.__docs_path:            Path = docs_path
+        self.__dataset_dir:          Path = dataset_path
+        self.__resources_list_path:  Path = resources_path
         self.__resources:       list[str] = load_resources(self.__resources_list_path)
         self.__documents:       list[str] = self.__load_docs()
 

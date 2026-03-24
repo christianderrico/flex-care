@@ -1,4 +1,6 @@
 # script da eseguire una volta: test/data/fixtures/fetch_fixtures.py
+import pandas as pd
+import pytest
 import requests
 from pathlib import Path
 

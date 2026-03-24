@@ -13,6 +13,6 @@ retrieval:
   index_path: "models/faiss_index"
 
 model:
-  name: "meta-llama/Llama-3.3-70B-Instruct"
+  name: "Qwen/Qwen2.5-72B-Instruct"
   n_output: 3
   prompt_template: "../references/configs/prompts/prompt_top_3.txt"

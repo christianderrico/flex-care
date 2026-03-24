@@ -3,7 +3,7 @@ Evaluation metrics for FHIR resource classification.
 """
 
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score
-from evaluation.rag_metrics import hit_k
+from src.evaluation.rag_metrics import hit_k
 from src.models.classifier import PredictionResult
 
 def evaluate(results: list[PredictionResult]) -> dict[str, float]:

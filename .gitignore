@@ -298,4 +298,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.vscode/
+mlartifacts/
+mlflow.db
+
+notebooks/emissions.csv
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,visualstudiocode,jupyternotebooks,python
