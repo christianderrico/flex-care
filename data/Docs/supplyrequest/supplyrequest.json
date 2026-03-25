@@ -1,0 +1,95 @@
+{
+  "resource": "supplyrequest",
+  "examples": [
+    {
+      "name": "Simple order for resupply",
+      "document": {
+        "resourceType": "SupplyRequest",
+        "id": "simpleorder",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: simpleorder</p><p><b>identifier</b>: Order10284</p><p><b>status</b>: active</p><p><b>category</b>: Central Stock Resupply <span>(Details : {[not stated] code 'central' = 'central', given as 'Central Stock Resupply'})</span></p><p><b>priority</b>: asap</p><p><b>item</b>: Blood collect tubes blue cap <span>(Details : {[not stated] code 'BlueTubes' = 'BlueTubes', given as 'Blood collect tubes blue cap'})</span></p><p><b>quantity</b>: 10</p><p><b>occurrence</b>: 31/12/2016</p><p><b>authoredOn</b>: 31/12/2016</p><p><b>requester</b>: Henry Seven</p><p><b>supplier</b>: Vendor1</p><p><b>reasonCode</b>: Refill due to low stock <span>(Details : {[not stated] code 'stock_low' = 'stock_low', given as 'Refill due to low stock'})</span></p><p><b>deliverFrom</b>: Location 1</p><p><b>deliverTo</b>: GoodHealth Clinic Receiving</p></div>"
+        },
+        "identifier": [
+          {
+            "value": "Order10284"
+          }
+        ],
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "code": "central",
+              "display": "Central Stock Resupply"
+            }
+          ]
+        },
+        "priority": "asap",
+        "itemCodeableConcept": {
+          "coding": [
+            {
+              "code": "BlueTubes",
+              "display": "Blood collect tubes blue cap"
+            }
+          ]
+        },
+        "quantity": {
+          "value": 10
+        },
+        "occurrenceDateTime": "2016-12-31",
+        "authoredOn": "2016-12-31",
+        "requester": {
+          "display": "Henry Seven"
+        },
+        "supplier": [
+          {
+            "display": "Vendor1"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "stock_low",
+                "display": "Refill due to low stock"
+              }
+            ]
+          }
+        ],
+        "deliverFrom": {
+          "display": "Location 1"
+        },
+        "deliverTo": {
+          "display": "GoodHealth Clinic Receiving"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.21Resource SupplyRequest - Content",
+    "introduction": "A record of a request for a medication, substance or device used in the healthcare setting.\nThis resource is referenced by SupplyDelivery",
+    "Scope and Usage": "This resource is a request resource from a FHIR workflow perspective - see Workflow .  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for request resources .\nThe scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process.  This includes supplies specifically\r\nused in the treatment of patients as well as supply movement within an institution (transport a set of supplies from\r\nmaterials management to a service unit (nurse station).  This resource does not include the provisioning of transportation\r\nservices.\nThe SupplyRequest resource allows requesting only a single item.\r\nIf a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource.\r\nThese instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the Request pattern",
+    "Boundaries and Relationships": "Note that the SupplyRequest records the fact that a request was made. To actually act on that request, additional workflow beyond simply the existence of a SupplyRequest is required. This can be achieved by using an Task resource, with the SupplyRequest referenced from the Task.focus, or by using the SupplyRequest resource in the context of an messaging or service workflow where the request is explicit or implicit.  The SupplyDelivery resource represents the fulfillment as a result of SupplyRequest being acted upon.\nThe SupplyRequest resource is used for inventory management .       When requesting medication, substances and devices when there is a patient focus or instructions regarding their use, DeviceRequest or MedicationRequest should be used instead"
+  },
+  "definitions": "SupplyRequest: a record of a request for a medication, substance or device used in the healthcare setting. [STOP]\nSupplyRequest.identifier: business identifiers assigned to this supplyrequest by the author and/or other systems. these identifiers remain constant as the resource is updated and propagates from server to server. [STOP]\nSupplyRequest.status: status of the supply request. [STOP]\nSupplyRequest.category: category of supply, e.g.  central, non-stock, etc. this is used to support work flows associated with the supply process. [STOP]\nSupplyRequest.priority: indicates how quickly this supplyrequest should be addressed with respect to other requests. [STOP]\nSupplyRequest.item[x]: the item that is requested to be supplied. this is either a link to a resource representing the details of the item or a code that identifies the item from a known list. [STOP]\nSupplyRequest.quantity: the amount that is being ordered of the indicated item. [STOP]\nSupplyRequest.parameter: specific parameters for the ordered item.  for example, the size of the indicated item. [STOP]\nSupplyRequest.parameter.code: a code or string that identifies the device detail being asserted. [STOP]\nSupplyRequest.parameter.value[x]: the value of the device detail. [STOP]\nSupplyRequest.occurrence[x]: when the request should be fulfilled. [STOP]\nSupplyRequest.authoredOn: when the request was made. [STOP]\nSupplyRequest.requester: the device, practitioner, etc. who initiated the request. [STOP]\nSupplyRequest.supplier: who is intended to fulfill the request. [STOP]\nSupplyRequest.reasonCode: the reason why the supply item was requested. [STOP]\nSupplyRequest.reasonReference: the reason why the supply item was requested. [STOP]\nSupplyRequest.deliverFrom: where the supply is expected to come from. [STOP]\nSupplyRequest.deliverTo: where the supply is destined to go. [STOP]",
+  "documentation": {
+    "SupplyRequest": "a record of a request for a medication, substance or device used in the healthcare setting.",
+    "SupplyRequest.identifier": "business identifiers assigned to this supplyrequest by the author and/or other systems. these identifiers remain constant as the resource is updated and propagates from server to server.",
+    "SupplyRequest.status": "status of the supply request.",
+    "SupplyRequest.category": "category of supply, e.g.  central, non-stock, etc. this is used to support work flows associated with the supply process.",
+    "SupplyRequest.priority": "indicates how quickly this supplyrequest should be addressed with respect to other requests.",
+    "SupplyRequest.item[x]": "the item that is requested to be supplied. this is either a link to a resource representing the details of the item or a code that identifies the item from a known list.",
+    "SupplyRequest.quantity": "the amount that is being ordered of the indicated item.",
+    "SupplyRequest.parameter": "specific parameters for the ordered item.  for example, the size of the indicated item.",
+    "SupplyRequest.parameter.code": "a code or string that identifies the device detail being asserted.",
+    "SupplyRequest.parameter.value[x]": "the value of the device detail.",
+    "SupplyRequest.occurrence[x]": "when the request should be fulfilled.",
+    "SupplyRequest.authoredOn": "when the request was made.",
+    "SupplyRequest.requester": "the device, practitioner, etc. who initiated the request.",
+    "SupplyRequest.supplier": "who is intended to fulfill the request.",
+    "SupplyRequest.reasonCode": "the reason why the supply item was requested.",
+    "SupplyRequest.reasonReference": "the reason why the supply item was requested.",
+    "SupplyRequest.deliverFrom": "where the supply is expected to come from.",
+    "SupplyRequest.deliverTo": "where the supply is destined to go."
+  }
+}

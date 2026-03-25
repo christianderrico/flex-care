@@ -1,0 +1,974 @@
+{
+  "resource": "questionnaire",
+  "examples": [
+    {
+      "name": "General questionnaire example",
+      "document": {
+        "resourceType": "Questionnaire",
+        "id": "3141",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <pre>\n            1.Comorbidity?\n              1.1 Cardial Comorbidity\n                1.1.1 Angina?\n                1.1.2 MI?\n              1.2 Vascular Comorbidity?\n              ...\n            Histopathology\n              Abdominal\n                pT category?\n              ...\n          </pre>\n    </div>"
+        },
+        "url": "http://hl7.org/fhir/Questionnaire/3141",
+        "title": "Cancer Quality Forum Questionnaire 2012",
+        "status": "draft",
+        "subjectType": [
+          "Patient"
+        ],
+        "date": "2012-01",
+        "item": [
+          {
+            "linkId": "1",
+            "code": [
+              {
+                "system": "http://example.org/system/code/sections",
+                "code": "COMORBIDITY"
+              }
+            ],
+            "type": "group",
+            "item": [
+              {
+                "linkId": "1.1",
+                "code": [
+                  {
+                    "system": "http://example.org/system/code/questions",
+                    "code": "COMORB"
+                  }
+                ],
+                "prefix": "1",
+                "type": "choice",
+                "answerValueSet": "http://hl7.org/fhir/ValueSet/yesnodontknow",
+                "item": [
+                  {
+                    "linkId": "1.1.1",
+                    "code": [
+                      {
+                        "system": "http://example.org/system/code/sections",
+                        "code": "CARDIAL"
+                      }
+                    ],
+                    "type": "group",
+                    "enableWhen": [
+                      {
+                        "question": "1.1",
+                        "operator": "=",
+                        "answerCoding": {
+                          "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                          "code": "Y"
+                        }
+                      }
+                    ],
+                    "item": [
+                      {
+                        "linkId": "1.1.1.1",
+                        "code": [
+                          {
+                            "system": "http://example.org/system/code/questions",
+                            "code": "COMORBCAR"
+                          }
+                        ],
+                        "prefix": "1.1",
+                        "type": "choice",
+                        "answerValueSet": "http://hl7.org/fhir/ValueSet/yesnodontknow",
+                        "item": [
+                          {
+                            "linkId": "1.1.1.1.1",
+                            "code": [
+                              {
+                                "system": "http://example.org/system/code/questions",
+                                "code": "COMCAR00",
+                                "display": "Angina Pectoris"
+                              },
+                              {
+                                "system": "http://snomed.info/sct",
+                                "code": "194828000",
+                                "display": "Angina (disorder)"
+                              }
+                            ],
+                            "prefix": "1.1.1",
+                            "type": "choice",
+                            "answerValueSet": "http://hl7.org/fhir/ValueSet/yesnodontknow"
+                          },
+                          {
+                            "linkId": "1.1.1.1.2",
+                            "code": [
+                              {
+                                "system": "http://snomed.info/sct",
+                                "code": "22298006",
+                                "display": "Myocardial infarction (disorder)"
+                              }
+                            ],
+                            "prefix": "1.1.2",
+                            "type": "choice",
+                            "answerValueSet": "http://hl7.org/fhir/ValueSet/yesnodontknow"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "1.1.1.2",
+                        "code": [
+                          {
+                            "system": "http://example.org/system/code/questions",
+                            "code": "COMORBVAS"
+                          }
+                        ],
+                        "prefix": "1.2",
+                        "type": "choice",
+                        "answerValueSet": "http://hl7.org/fhir/ValueSet/yesnodontknow"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "2",
+            "code": [
+              {
+                "system": "http://example.org/system/code/sections",
+                "code": "HISTOPATHOLOGY"
+              }
+            ],
+            "type": "group",
+            "item": [
+              {
+                "linkId": "2.1",
+                "code": [
+                  {
+                    "system": "http://example.org/system/code/sections",
+                    "code": "ABDOMINAL"
+                  }
+                ],
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "2.1.2",
+                    "code": [
+                      {
+                        "system": "http://example.org/system/code/questions",
+                        "code": "STADPT",
+                        "display": "pT category"
+                      }
+                    ],
+                    "type": "choice"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world lifelines questionnaire (fictively taken from the patient)",
+      "document": {
+        "resourceType": "Questionnaire",
+        "id": "f201",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <pre>Lifelines Questionnaire 1 part 1\n  1. Do you have allergies?\n  2. General Questions:\n    2.a) What is your gender?\n    2.b) What is your date of birth?\n    2.c) What is your country of birth?\n    2.d) What is your marital status?\n    3. Intoxications:\n      3.a) Do you smoke?\n      3.b) Do you drink alcohol?</pre>\n    </div>"
+        },
+        "url": "http://hl7.org/fhir/Questionnaire/f201",
+        "status": "active",
+        "subjectType": [
+          "Patient"
+        ],
+        "date": "2010",
+        "code": [
+          {
+            "system": "http://example.org/system/code/lifelines/nl",
+            "code": "VL 1-1, 18-65_1.2.2",
+            "display": "Lifelines Questionnaire 1 part 1"
+          }
+        ],
+        "item": [
+          {
+            "linkId": "1",
+            "text": "Do you have allergies?",
+            "type": "boolean"
+          },
+          {
+            "linkId": "2",
+            "text": "General questions",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "2.1",
+                "text": "What is your gender?",
+                "type": "string"
+              },
+              {
+                "linkId": "2.2",
+                "text": "What is your date of birth?",
+                "type": "date"
+              },
+              {
+                "linkId": "2.3",
+                "text": "What is your country of birth?",
+                "type": "string"
+              },
+              {
+                "linkId": "2.4",
+                "text": "What is your marital status?",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "linkId": "3",
+            "text": "Intoxications",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "3.1",
+                "text": "Do you smoke?",
+                "type": "boolean"
+              },
+              {
+                "linkId": "3.2",
+                "text": "Do you drink alchohol?",
+                "type": "boolean"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Neonate record from New South Wales, Australia \"My Personal Health Record\" example",
+      "document": {
+        "resourceType": "Questionnaire",
+        "id": "bb",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <pre>\n        <b>Birth details - To be completed by health professional</b>\n  Name of child: ____________________________________\n            Sex: __\n            \n  Neonatal Information\n    Birth Weight (kg): ___________\n    Birth Length (cm): ___________\n    Vitamin K given  : __\n             1st dose: ___________\n             2nd dose: ___________\n    Hep B given      : __\n      Date given     : ___________\n    Abnormalities noted at birth:\n      _______________________________________________\n      </pre>\n    </div>"
+        },
+        "url": "http://hl7.org/fhir/Questionnaire/bb",
+        "title": "NSW Government My Personal Health Record",
+        "status": "draft",
+        "subjectType": [
+          "Patient"
+        ],
+        "date": "2013-02-19",
+        "publisher": "New South Wales Department of Health",
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "AU"
+              }
+            ]
+          }
+        ],
+        "item": [
+          {
+            "linkId": "birthDetails",
+            "text": "Birth details - To be completed by health professional",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "group",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "nameOfChild",
+                    "text": "Name of child",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "sex",
+                    "text": "Sex",
+                    "type": "choice",
+                    "answerOption": [
+                      {
+                        "valueCoding": {
+                          "code": "F"
+                        }
+                      },
+                      {
+                        "valueCoding": {
+                          "code": "M"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "neonatalInformation",
+                "text": "Neonatal Information",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "birthWeight",
+                    "text": "Birth weight (kg)",
+                    "type": "decimal"
+                  },
+                  {
+                    "linkId": "birthLength",
+                    "text": "Birth length (cm)",
+                    "type": "decimal"
+                  },
+                  {
+                    "linkId": "vitaminKgiven",
+                    "text": "Vitamin K given",
+                    "type": "choice",
+                    "answerOption": [
+                      {
+                        "valueCoding": {
+                          "code": "INJECTION"
+                        }
+                      },
+                      {
+                        "valueCoding": {
+                          "code": "INTRAVENOUS"
+                        }
+                      },
+                      {
+                        "valueCoding": {
+                          "code": "ORAL"
+                        }
+                      }
+                    ],
+                    "item": [
+                      {
+                        "linkId": "vitaminKgivenDoses",
+                        "type": "group",
+                        "enableWhen": [
+                          {
+                            "question": "vitaminKgiven",
+                            "operator": "exists",
+                            "answerBoolean": true
+                          }
+                        ],
+                        "item": [
+                          {
+                            "linkId": "vitaminiKDose1",
+                            "text": "1st dose",
+                            "type": "dateTime"
+                          },
+                          {
+                            "linkId": "vitaminiKDose2",
+                            "text": "2nd dose",
+                            "type": "dateTime"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "hepBgiven",
+                    "text": "Hep B given y / n",
+                    "type": "boolean",
+                    "item": [
+                      {
+                        "linkId": "hepBgivenDate",
+                        "text": "Date given",
+                        "type": "date"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "abnormalitiesAtBirth",
+                    "text": "Abnormalities noted at birth",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Glasgow Coma Score example form",
+      "document": {
+        "resourceType": "Questionnaire",
+        "id": "gcs",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: gcs</p><p><b>contained</b>: , , </p><p><b>url</b>: <b>http://hl7.org/fhir/Questionnaire/gcs</b></p><p><b>title</b>: Glasgow Coma Score</p><p><b>status</b>: draft</p><p><b>subjectType</b>: Patient</p><p><b>date</b>: 03/08/2015</p><p><b>publisher</b>: FHIR Project team</p><p><b>code</b>: Glasgow coma score total (Details: LOINC code 9269-2 = 'Glasgow coma score total', stated as 'null')</p><blockquote><p><b>item</b></p><p><b>linkId</b>: 1.1</p><p><b>code</b>: Glasgow coma score verbal (Details: LOINC code 9270-0 = 'Glasgow coma score verbal', stated as 'null')</p><p><b>type</b>: choice</p><p><b>answerValueSet</b>: <a>#verbal</a></p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 1.2</p><p><b>code</b>: Glasgow coma score motor (Details: LOINC code 9268-4 = 'Glasgow coma score motor', stated as 'null')</p><p><b>type</b>: choice</p><p><b>answerValueSet</b>: <a>#motor</a></p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 1.3</p><p><b>code</b>: Glasgow coma score eye opening (Details: LOINC code 9267-6 = 'Glasgow coma score eye opening', stated as 'null')</p><p><b>type</b>: choice</p><p><b>answerValueSet</b>: <a>#eye</a></p></blockquote></div>"
+        },
+        "contained": [
+          {
+            "resourceType": "ValueSet",
+            "id": "motor",
+            "identifier": [
+              {
+                "system": "http://loinc.org",
+                "value": "http://loinc.org/ValueSet/LL357-5"
+              }
+            ],
+            "name": "GCS Motor Value Set",
+            "status": "active",
+            "description": "LOINC ANSWER LIST    (LL357-5)",
+            "compose": {
+              "include": [
+                {
+                  "system": "http://loinc.org",
+                  "concept": [
+                    {
+                      "code": "LA6562-8",
+                      "display": "No motor response"
+                    },
+                    {
+                      "code": "LA6563-6",
+                      "display": "Extension to pain"
+                    },
+                    {
+                      "code": "LA6564-4",
+                      "display": "Flexion to pain"
+                    },
+                    {
+                      "code": "LA6565-1",
+                      "display": "Withdrawl from pain"
+                    },
+                    {
+                      "code": "LA6566-9",
+                      "display": "Localizing pain"
+                    },
+                    {
+                      "code": "LA6567-7",
+                      "display": "Obeys commands"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "resourceType": "ValueSet",
+            "id": "verbal",
+            "identifier": [
+              {
+                "system": "http://loinc.org",
+                "value": "http://loinc.org/ValueSet/LL356-7"
+              }
+            ],
+            "name": "GCS Verbal Value Set",
+            "status": "active",
+            "description": "LOINC ANSWER LIST    (LL356-7)",
+            "compose": {
+              "include": [
+                {
+                  "system": "http://loinc.org",
+                  "concept": [
+                    {
+                      "code": "LA6557-8",
+                      "display": "No verbal response (>2yrs); no vocal response (<=2yrs)"
+                    },
+                    {
+                      "code": "LA6558-6",
+                      "display": "Incomprehensible sounds"
+                    },
+                    {
+                      "code": "LA6559-4",
+                      "display": "Inappropriate words"
+                    },
+                    {
+                      "code": "LA6560-2",
+                      "display": "Confused"
+                    },
+                    {
+                      "code": "LA6561-0",
+                      "display": "Oriented"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "resourceType": "ValueSet",
+            "id": "eye",
+            "identifier": [
+              {
+                "system": "http://loinc.org",
+                "value": "http://loinc.org/ValueSet/LL355-9"
+              }
+            ],
+            "name": "GCS Eye Value Set",
+            "status": "active",
+            "description": "LOINC ANSWER LIST    (LL355-9)",
+            "compose": {
+              "include": [
+                {
+                  "system": "http://loinc.org",
+                  "concept": [
+                    {
+                      "code": "LA6553-7",
+                      "display": "No eye opening"
+                    },
+                    {
+                      "code": "LA6554-5",
+                      "display": "Eye opening to pain"
+                    },
+                    {
+                      "code": "LA6555-2",
+                      "display": "Eye opening to verbal command"
+                    },
+                    {
+                      "code": "LA6556-0",
+                      "display": "Eyes open spontaneously"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "url": "http://hl7.org/fhir/Questionnaire/gcs",
+        "title": "Glasgow Coma Score",
+        "status": "draft",
+        "subjectType": [
+          "Patient"
+        ],
+        "date": "2015-08-03",
+        "publisher": "FHIR Project team",
+        "code": [
+          {
+            "system": "http://loinc.org",
+            "code": "9269-2"
+          }
+        ],
+        "item": [
+          {
+            "linkId": "1.1",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "9270-0"
+              }
+            ],
+            "type": "choice",
+            "answerValueSet": "#verbal"
+          },
+          {
+            "linkId": "1.2",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "9268-4"
+              }
+            ],
+            "type": "choice",
+            "answerValueSet": "#motor"
+          },
+          {
+            "linkId": "1.3",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "9267-6"
+              }
+            ],
+            "type": "choice",
+            "answerValueSet": "#eye"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example instrument for assessing Zika virus exposure potential",
+      "document": {
+        "resourceType": "Questionnaire",
+        "id": "zika-virus-exposure-assessment",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <pre>\n      </pre>\n    </div>"
+        },
+        "url": "http://example.org/Questionnaire/zika-virus-exposure-assessment",
+        "name": "ExampleZikaVirusExposureAssessment",
+        "title": "Example Zika Virus Exposure Assessment",
+        "status": "draft",
+        "subjectType": [
+          "Patient"
+        ],
+        "date": "2016-11-14",
+        "description": "Example questionnaire to assess Zika virus exposure potential.",
+        "effectivePeriod": {
+          "start": "2016-11-14"
+        },
+        "item": [
+          {
+            "extension": [
+              {
+                "url": "http://example.org/additional-information",
+                "valueAttachment": {
+                  "url": "http://www.cdc.gov/zika/geo/index.html",
+                  "title": "Areas with active Zika virus transmission/exposure risk"
+                }
+              }
+            ],
+            "linkId": "1",
+            "code": [
+              {
+                "system": "http://example.org/questionnaires",
+                "code": "CDE: Resident of or Frequent Traveler to Zika Area"
+              }
+            ],
+            "text": "Are you a resident of, or do you travel frequently to, an area with active Zika transmission?",
+            "type": "boolean"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://example.org/additional-information",
+                "valueAttachment": {
+                  "url": "http://www.cdc.gov/zika/geo/index.html",
+                  "title": "Areas with active Zika virus transmission/exposure risk"
+                }
+              }
+            ],
+            "linkId": "2",
+            "code": [
+              {
+                "system": "http://example.org/questionnaires",
+                "code": "CDE: Recent Travel to Zika Area"
+              }
+            ],
+            "text": "Have you recently traveled to an area with active Zika transmission?",
+            "type": "boolean",
+            "enableWhen": [
+              {
+                "question": "1",
+                "operator": "=",
+                "answerBoolean": false
+              }
+            ]
+          },
+          {
+            "linkId": "3",
+            "code": [
+              {
+                "system": "http://example.org/questionnaires",
+                "code": "CDE: Time Since Returned From Travel"
+              }
+            ],
+            "text": "How long has it been since you returned?",
+            "type": "quantity",
+            "enableWhen": [
+              {
+                "question": "2",
+                "operator": "=",
+                "answerBoolean": true
+              }
+            ]
+          },
+          {
+            "extension": [
+              {
+                "url": "http://example.org/additional-information",
+                "valueAttachment": {
+                  "url": "http://www.cdc.gov/zika/geo/index.html",
+                  "title": "Areas with active Zika virus transmission/exposure risk"
+                }
+              }
+            ],
+            "linkId": "4",
+            "code": [
+              {
+                "system": "http://example.org/questionnaires",
+                "code": "CDE: Recent Sexual Encounter with Traveler to Zika Area"
+              }
+            ],
+            "text": "Have you recently had condomless sex with a partner that has travelled in an area with active Zika transmission?",
+            "type": "boolean",
+            "enableWhen": [
+              {
+                "question": "2",
+                "operator": "=",
+                "answerBoolean": false
+              }
+            ]
+          },
+          {
+            "linkId": "5",
+            "code": [
+              {
+                "system": "http://example.org/questionnaires",
+                "code": "CDE: Time Since Sexual Encounter"
+              }
+            ],
+            "text": "How long has it been since your last condomless sexual encounter?",
+            "type": "quantity",
+            "enableWhen": [
+              {
+                "question": "4",
+                "operator": "=",
+                "answerBoolean": true
+              }
+            ]
+          },
+          {
+            "extension": [
+              {
+                "url": "http://example.org/additional-information",
+                "valueAttachment": {
+                  "url": "http://www.cdc.gov/zika/geo/index.html",
+                  "title": "Areas with active Zika virus transmission/exposure risk"
+                }
+              }
+            ],
+            "linkId": "6",
+            "code": [
+              {
+                "system": "http://example.org/questionnaires",
+                "code": "CDE: Planned Travel to Zika Area"
+              }
+            ],
+            "text": "Do you plan to travel to an area with active Zika transmission?",
+            "type": "boolean",
+            "enableWhen": [
+              {
+                "question": "4",
+                "operator": "=",
+                "answerBoolean": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Questionnaire used to define the questions involved in the PHQ-9 health questionnaire",
+      "document": {
+        "resourceType": "Questionnaire",
+        "id": "phq-9-questionnaire",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/cqf-questionnaire"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">PHQ-9 Questionnaire with dynamic logic</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
+            "valueCanonical": "Library/phq-9-logic"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "value": "phq-9"
+          }
+        ],
+        "version": "1.0.0",
+        "title": "Patient Health Questionnaire (PHQ-9)",
+        "status": "draft",
+        "subjectType": [
+          "Patient"
+        ],
+        "code": [
+          {
+            "system": "http://loinc.org",
+            "code": "44249-1",
+            "display": "PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9"
+          }
+        ],
+        "item": [
+          {
+            "linkId": "LittleInterest",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44250-9"
+              }
+            ],
+            "text": "Little interest or pleasure in doing things",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "FeelingDown",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44255-8"
+              }
+            ],
+            "text": "Feeling down, depressed, or hopeless",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "TroubleSleeping",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44259-0"
+              }
+            ],
+            "text": "Trouble falling or staying asleep",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "FeelingTired",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44254-1"
+              }
+            ],
+            "text": "Feeling tired or having little energy",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "BadAppetite",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44251-7"
+              }
+            ],
+            "text": "Poor appetite or overeating",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "FeelingBadAboutSelf",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44258-2"
+              }
+            ],
+            "text": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "TroubleConcentrating",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44252-5"
+              }
+            ],
+            "text": "Trouble concentrating on things, such as reading the newspaper or watching television",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "linkId": "MovingSpeaking",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44253-3"
+              }
+            ],
+            "text": "Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "CalculateTotalScore"
+                }
+              }
+            ],
+            "linkId": "TotalScore",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44261-6"
+              }
+            ],
+            "text": "Total score",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "linkId": "Difficulty",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "44256-6"
+              }
+            ],
+            "text": "If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people",
+            "type": "choice",
+            "required": true,
+            "answerValueSet": "http://loinc.org/vs/LL358-3"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "2.37Resource Questionnaire - Content",
+    "introduction": "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.\nThis resource is referenced by CarePlan , Communication , Contract , FamilyMemberHistory , PlanDefinition , Procedure , itself and QuestionnaireResponse",
+    "Scope and Usage": "A Questionnaire is an organized collection of questions intended to solicit information from patients, providers or other individuals involved\r\nin the healthcare domain.  They may be simple flat lists of questions or can be hierarchically organized in\r\ngroups and sub-groups, each containing questions.  The Questionnaire defines the questions to be asked, how they are ordered and grouped, any\r\nintervening instructional text and what\r\nthe constraints are on the allowed answers.  The results of a Questionnaire can be communicated using the QuestionnaireResponse resource.\nQuestionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full\r\nclinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires define specifics about data capture -\r\nexactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions is part of the Questionnaire,\r\nand as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.  (Questionnaire questions can be linked to\r\nshared data elements using the Questionnaire.item.definition element.)\nExamples of Questionnaires include:\nPast medical history (PMH) Family diseases Social history Research questionnaires/Clinical research forms (CRFs) Quality and evaluation forms Patient intake form (e.g. clipboard) Forms to support insurance claims\nThis resource is limited in scope to support the characteristics of simple questionnaires.  However, common extensions have been defined to allow more\r\nsophisticated behavior.  This includes:\nQuestionnaire core extensions which defines the additional descriptive characteristics for questionnaires and their groups and questions Element extensions which can describe additional constraints on allowed answers for questionnaires such as string length and date and numeric ranges\nAdditional implementation guides, in particular the Structured Data Capture Questionnaire IG provide guidance, extensions and operations\r\nthat support additional capabilities and allow the definition of more sophisticated questionnaires and their corresponding responses.",
+    "Boundaries and Relationships": "Questionnaires differ from Lists because Lists group existing resources, while Questionnaires group\r\narbitrary questions.\r\nQuestionnaires are distinct from Observations and DiagnosticReports in that both of these resources are\r\nintended to capture only certain types of information (lab, imaging, vitals, etc.) and should not be used to capture the full breadth of healthcare information (allergies,\r\nmedications, care plans, etc.), while Questionnaires are able to capture any information at all.  More importantly, Observation and DiagnosticReport focus on capturing the\r\ndiscrete information in a standardized form so that the information can be used consistently regardless of where or how it is captured.  Questionnaire focuses on information\r\ncapture.  The same information can be captured using a wide variety of questionnaires with differently phrased questions organized in different manners.  As such, the\r\nQuestionnaire resource provides a means to standardize the information gathering process (how information is captured), but not how data is interoperably compared, analyzed\r\nor computed upon (typically managed using Observation, DiagnosticReport as well as other resources).\nQuestionnaire supports data-collection workflow to a limited extent, in that - once triggered - a Questionnaire can guide a user through a data collection process that ensures\r\nappropriate information is collected based on answers to particular questions.  However, Questionnaire doesn't provide support for capturing sets of information at different\r\ntimes or highly interactive data capture.  Broader workflow is typically managed using PlanDefinition and Task or using other mechanisms such as CDSHooks.\nQuestionnaires are similar to the notion of \"logical models\" supported by the StructureDefinition resource.  Both support the representation\r\nof a collection of data points with labels, data types and hierarchy.  It will be common to find the two of them mapped together.  The primary difference is that Questionnaire\r\nis focused on user-facing data collection.  It describes specific questions and includes information such as what number/label should be displayed beside each question,\r\nconditions in which questions should be displayed (or not), what instructions should be provided to the user, etc.  StructureDefinition, on the other hand, merely defines a\r\ndata structure with no guidance on display or rules around capture mechanism, only what data should exist in the end.  As well, logical models are not intended to capture\r\ndata directly.  Rather, they provide a basis for mapping between data capture structures.",
+    "Background and Context": "Groups and questions that make up a Questionnaire can use the definition element to refer to data elements in external code systems and StructureDefinitions .  In this way, it's possible to leverage standard definitions\r\nof questions and their associated data types and answer sets across questionnaires. This also allows extraction of the data from a questionnaire response into other data\r\nstructures (e.g. populating a ServiceRequest or CarePlan from information in a completed questionnaire response.\r\nIt can also support other sorts of post-processing of the data contained in a questionnaire response. However, use of the definition element is not required\r\nand Questionnaires may be quite loosely defined. The section Questionnaire versus Resources below discusses the issues of collecting data in such\r\nloosely defined Questionnaires versus collecting data as well-defined separate Resources.",
+    "Notes": "Questionnaires may be used to represent predefined forms or panels, referenced using items of type \"group\" Questions may be nested.  The Questionnaire resource supports nested items beneath both items of type \"group\" (which doesn't capture an answer of its own) as well as beneath questions Groups and Questions may have linkIds allowing groups and question answers captured in a QuestionnaireResponse to be associated with their corresponding group or question. Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires.\r\nIt explicitly does not try to standardize or streamline exchange of its contents outside its context of use, although exchanging partners may further\r\nconstrain its structure and flexibility using profiles to define standardized, reusable forms. Because of the lack of explicit support for Questionnaires in HL7 v3 , CDA Documents frequently used named sections with\r\nObservations to model Questionnaires. Such use cases should now use the Questionnaire Resource instead. The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture. Display items allow the inclusion of instructions, background information and similar content within a questionnaire. In cases where it is necessary or appropriate to capture the reason why a response is missing (that is, why a particular question was not answered), there should be an explicit child item defined for the relevant question(s) in the Questionnaire; e.g. add a child question of \"Reason not specified:\" with an enableWhen operator \"not exists\" to the parent question.\nThe base questionnaire resource is aimed at the capabilities of \"most\" healthcare systems that deal with forms and questionnaires.  While the resource structure\r\nsupports a reasonable degree of complexity, it doesn't provide the degree of control over rendering, question flow and data management needed by some portions \r\nof the healthcare space.  Many of these more sophisticated requirements are addressed by a supplemental implementation guide called Structured Data Capture (SDC) .  This implementation guide covers the following capabilities, plus several others:\nRendering grids of questions, multi-column drop-downs, multi-language questionnaires, and other 'advanced' formatting capabilities Advanced dynamic questionnaires including calculated scores, enabling of questions and groups based on complex logic, drop-downs driven by answers to other questions Support for populating questionnaires from existing clinical data based on the current patient, encounter, etc., including the ability to render the form as HTML or to redirect to a website to complete unanswered items Support for extracting information from a completed QuestionnaireResponse to generate other FHIR resources such as Observations, MedicationStatements, etc. Support for completing 'adaptive' questionnaires (see below)\nSome questionnaires might not provide a full listing of questions, instead relying on a service to interactively sending partially completed forms to a server which generates the next set of questions.  \r\nAs such, some questionnaires might be 'active' but have either no questions or an insufficient set of questions for their purpose.  Further guidance on the use of such forms, can be found in the SDC implementation guide.\nThere is considerable overlap between the information covered by Questionnaires and other Resources (especially FamilyMemberHistory , MedicationStatement , Observation , Procedure , etc.). Questionnaire's flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using Questionnaires or separate\r\nResources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to\r\ndistill separate resources from it and capturing the data in a Questionnaire would be most appropriate.\nHowever, data captured only in Questionnaires can be difficult to query after-the-fact. Queries against other Resources will not return data captured only in Questionnaires and querying against Questionnaires directly might not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians.\r\nMoreover, interoperability of such Questionnaires is limited, as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from\r\nsuch Questionnaires using more specific resources increases the availability of the information they contain.\nIt is entirely possible for data to exist in both QuestionnaireResponse and in other resources.  For example, data may be captured in QuestionnaireResponse as part of an intake questionnaire.  That data may then be propagated into the Patient resource (demographics), FamilyMemberHistory , AllergyIntolerance , MedicationStatement and Observation resources to allow the data to be queried and analyzed.  The original QuestionnaireResponse instance can be retained for traceability purposes.  If desired, a Provenance resource\r\ncan be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks \"what is your weight\", an Observation with the appropriate Observation.code and the specified answer as the Observation.valueQuantity can be created.\nA Questionnaire is built out of two components, Questionnaire and item:\nThe main component is Questionnaire, which holds information about the Questionnaire,\r\n  like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though these provide little computable information). Items have one of three sub-types, distinguished by the type element: display items convey text to be rendered on the form that won't capture data and which won't contain nested items.  This might include copyright or authorship information,\r\n        instructions or other background information. group items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child\r\n        'question' items which do. question items ask a specific question to which an answer may be given.  There isn't a single type for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', \r\n        then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or\r\n        other questions. This way, one can model \"panels\" of questions which would only be relevant (and thus would only be displayed)\r\n        depending on the answers of a parent question; e.g. a question \"Did the patient receive treatment in the past six months?\" would contain a nested\r\n        group of questions asking for further details about the treatment. See an example from\r\n        the Australian New South Wales blue book\nSpecific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and\r\nare handled using extensions.\nGroup text is intended to provide a \"label\" for a collection of nested items.  The text will often be rendered in a \"heading\" style.  As such, it should be kept relatively short.  \r\nDetailed instructions should be conveyed by a nested \"display\" item.  It's not necessary to create groups in order to relate an instruction to a collection of questions - you can simply intermix\r\ndisplay items and questions or groups, with the expectation that users will see the display text before encountering the following questions.\nThere are three different \"identifying\" elements within Questionnaire: identifier , id and linkId .  Each serves very distinct\r\npurposes:\nThe identifier element is used to reference the overall questionnaire in business terms.  It is the number printed across the top of the form or listed beside the form\r\n  when making a choice between alternate forms. The id attribute supported on each element is used for references within a resource, for example linking narrative to discrete elements.  Ids are not generally displayed to end users The linkId element on questions and groups establishes a link between elements in a QuestionnaireResponse and their\r\n  definition inside a Questionnaire.  This is the only way to link between the groups and questions in a Questionnaire and QuestionnaireResponse.  These are also not displayed to end users\nQuestionnaires can be crafted using any questions the author can conceive and can be phrased in whatever manner is appropriate or convenient.  However, standardization of\r\nquestions and the constraints enforced on the accompanying answers increases the ability to compare data gathered across questionnaires. \r\nItems can be directly linked to an ElementDefinition using Questionnaire.item.definition which provides details for the item. If a definition is provided, then the following element values can be derived from the definition:\nconcept (from ElementDefinition.code) type (from ElementDefinition.type) required (from ElementDefinition.min) repeats (from ElementDefinition.max) maxLength (from ElementDefinition.maxLength) answerValueSet (from ElementDefinition.binding.valueSet)\nAny information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc. \r\nThe url refers to an ElementDefinition in StructureDefinition , and always starts with the canonical URL for the target resource.\r\nWhen referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its\r\nid (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence\r\nof a fragment identifier, the first/root element definition in the target is the matching element definition. Examples:\nThe definitions may also be used to automatically pre-populate answers, or extract data from a corresponding pre-existing QuestionnaireResponse resource.\nNote that LOINC codes implicitly define logical models whose elements can be considered question definitions.\nNOTE: Even if a standard question definition is provided , information such as the question text,\r\ndata type and value set SHOULD still be declared for the question.  Systems processing the questionnaire might not have access to or support the ability to look\r\nup the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems might not be able to render\r\nor use the Questionnaire.\nIf an external definition is included along with question information such as question text, data type or\r\nvalue set, it is expected that the content for the question and the referenced definition would be in alignment.  However, FHIR does not dictate what degree of\r\nalignment is required; e.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?\r\nThese rules will need to be established within implementation environments.\nThe codes for the data type for each question are slightly different than the data types allowed in the QuestionnaireResponse resource.\r\nWhere the names are the same (ignoring case), the \"answer\" must use the specified type.  Where the names are different, the mappings are as follows:\nMany questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the item.answerValueSet or the item.answerOption element.\nThe \"answerOption\" mechanism is simplest - all possible answers are listed in-line with the question using the item.answerOption element.  Maintenance of the set of permitted question answers involves maintenance of\r\nthe questionnaire itself.\nThe \"answerValueSet\" mechanism is more sophisticated.  Rather than listing the possible answers directly, the item.answerValueSet element refers to a ValueSet resource.  This approach adds complexity for\r\nquestionnaires having a simple list of strings as choices for a question, but provides several benefits, including:\nQuestionnaires that reference codes from externally defined code systems have a means of doing so Answer sets can be shared across questions (and there are many questionnaires where this capability is useful) The full capability of value sets can be brought into play, including the ability to use ConceptMap to link and translate from questionnaire-specific codes to\r\n  other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, and the ability to allow choices from larger value sets\r\n  (e.g. \"all SNOMED CT procedure codes\")\nIn many cases, the set of code choices will be specific to a given questionnaire and should be maintained as part of the questionnaire.  In this case, the referenced\r\nValueSet can be included as a contained resource.  All contained ValueSets are listed together and then are referenced by the\r\nindividual questions as necessary.  Alternatively, the item.answerValueSet element can reference the value set in a version-specific manner.  This ensures that the Questionnaire\r\nwill not adopt a new version of the referenced value set without revising the Questionnaire to point to that new version - putting the author of the Questionnaire\r\nin control of any changes.\nMany questions have a common set of possible codes for their answer. These value sets may be useful to help,\r\nand when referenced by full URL, do not need to be provided as part of the questionnaire:\nYes | No | Don't Know : http://hl7.org/fhir/ValueSet/yesnodontknow\nIn some questionnaires, it may be possible to respond to a question with multiple types of answers.  For example, capturing a coded answer plus free text,\r\ncapturing a coded value plus a numeric priority, etc.  In FHIR, this is handled through nested questions.  Each question has a single data type.  However,\r\neach question can have nested child questions.  These nested child questions can have text (e.g. \"Please specify\") or can have no text at all if the appropriate\r\nguidance is provided by the parent question or group.\nMany questionnaires involve computations on questionnaire answers, e.g. tabulating scores.\r\n\r\nTo help with associating numeric values to coded answers, the ordinalValue extension can be used to define the numeric weighting of a code defined in a value set or in the questionnaire itself.\nIn addition, there are extensions for defining the dynamic value of an element using expressions. For more information, see the Using Expressions and Documentation Template topics in the Clinical Reasoning module.\nThe capabilities of the Questionnaire resource are fairly simple and try to adhere to what most systems that deal with questionnaires would be capable of.\r\nHowever, there are lots of systems that require more sophisticated capabilities, such as:\nGreater control over rendering, including tables, read-only values, hidden answers, multi-column drop-downs Greater control over question flow, including formula-based rules for conditional display of elements Ability to pre-populate forms with data found in the client system Ability to define how to convert a completed QuestionnaireResponse for a Questionnaire into a collection of Observations and/or other resources\nExtensions have been defined for all of these purposes and many more.  (Questionnaire has the most 'core' extensions of any resource to-date.)  A list of these\r\nextensions can be found here .  However, some of the extensions are complex and work together in particular\r\nways.  To support more advanced questionnaire implementation, the Structured Data Capture (SDC) implementation guide has been \r\ncreated to provide non-country-specific guidance on the use of most of these extensions and sets expectations for systems wishing to support more complex forms."
+  },
+  "definitions": "Questionnaire: a structured set of questions intended to guide the collection of answers from end-users. questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. [STOP]\nQuestionnaire.url: an absolute uri that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. this should be globally unique and should be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. this url can be the target of a canonical reference. it shall remain the same when the questionnaire is stored on different servers. [STOP]\nQuestionnaire.identifier: a formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance. [STOP]\nQuestionnaire.version: the identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. this is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. for example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. there is also no expectation that versions can be placed in a lexicographical sequence. [STOP]\nQuestionnaire.name: a natural language name identifying the questionnaire. this name should be usable as an identifier for the module by machine processing applications such as code generation. [STOP]\nQuestionnaire.title: a short, descriptive, user-friendly title for the questionnaire. [STOP]\nQuestionnaire.derivedFrom: the url of a questionnaire that this questionnaire is based on. [STOP]\nQuestionnaire.status: the status of this questionnaire. enables tracking the life-cycle of the content. [STOP]\nQuestionnaire.experimental: a boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage. [STOP]\nQuestionnaire.subjectType: the types of subjects that can be the subject of responses created for the questionnaire. [STOP]\nQuestionnaire.date: the date  (and optionally time) when the questionnaire was published. the date must change when the business version changes and it must change if the status code changes. in addition, it should change when the substantive content of the questionnaire changes. [STOP]\nQuestionnaire.publisher: the name of the organization or individual that published the questionnaire. [STOP]\nQuestionnaire.contact: contact details to assist a user in finding and communicating with the publisher. [STOP]\nQuestionnaire.description: a free text natural language description of the questionnaire from a consumer's perspective. [STOP]\nQuestionnaire.useContext: the content was developed with a focus and intent of supporting the contexts that are listed. these contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances. [STOP]\nQuestionnaire.jurisdiction: a legal or geographic region in which the questionnaire is intended to be used. [STOP]\nQuestionnaire.purpose: explanation of why this questionnaire is needed and why it has been designed as it has. [STOP]\nQuestionnaire.copyright: a copyright statement relating to the questionnaire and/or its contents. copyright statements are generally legal restrictions on the use and publishing of the questionnaire. [STOP]\nQuestionnaire.approvalDate: the date on which the resource content was approved by the publisher. approval happens once when the content is officially approved for usage. [STOP]\nQuestionnaire.lastReviewDate: the date on which the resource content was last reviewed. review happens periodically after approval but does not change the original approval date. [STOP]\nQuestionnaire.effectivePeriod: the period during which the questionnaire content was or is planned to be in active use. [STOP]\nQuestionnaire.code: an identifier for this question or group of questions in a particular terminology such as loinc. [STOP]\nQuestionnaire.item: a particular question, question grouping or display text that is part of the questionnaire. [STOP]\nQuestionnaire.item.linkId: an identifier that is unique within the questionnaire allowing linkage to the equivalent item in a questionnaireresponse resource. [STOP]\nQuestionnaire.item.definition: this element is a uri that refers to anelementdefinitionthat provides information about this item, including information that might otherwise be included in the instance of the questionnaire resource. a detailed description of the construction of the uri is shown in comments, below. if this element is present then the following element values may be derived from the element definition if the corresponding elements of this questionnaire resource instance have no value:code (elementdefinition.code)type (elementdefinition.type)required (elementdefinition.min)repeats (elementdefinition.max)maxlength (elementdefinition.maxlength)answervalueset (elementdefinition.binding)options (elementdefinition.binding). [STOP]\nQuestionnaire.item.code: a terminology code that corresponds to this group or question (e.g. a code from loinc, which defines many questions and answers). [STOP]\nQuestionnaire.item.prefix: a short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire. [STOP]\nQuestionnaire.item.text: the name of a section, the text of a question or text content for a display item. [STOP]\nQuestionnaire.item.type: the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.). [STOP]\nQuestionnaire.item.enableWhen: a constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true. [STOP]\nQuestionnaire.item.enableWhen.question: the linkid for the question whose answer (or lack of answer) governs whether this item is enabled. [STOP]\nQuestionnaire.item.enableWhen.operator: specifies the criteria by which the question is enabled. [STOP]\nQuestionnaire.item.enableWhen.answer[x]: a value that the referenced question is tested using the specified operator in order for the item to be enabled. [STOP]\nQuestionnaire.item.enableBehavior: controls how multiple enablewhen values are interpreted -  whether all or any must be true. [STOP]\nQuestionnaire.item.required: an indication, if true, that the item must be present in a \"completed\" questionnaireresponse.  if false, the item may be skipped when answering the questionnaire. [STOP]\nQuestionnaire.item.repeats: an indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups. [STOP]\nQuestionnaire.item.readOnly: an indication, when true, that the value cannot be changed by a human respondent to the questionnaire. [STOP]\nQuestionnaire.item.maxLength: the maximum number of characters that are permitted in the answer to be considered a \"valid\" questionnaireresponse. [STOP]\nQuestionnaire.item.answerValueSet: a reference to a value set containing a list of codes representing permitted answers for a \"choice\" or \"open-choice\" question. [STOP]\nQuestionnaire.item.answerOption: one of the permitted answers for a \"choice\" or \"open-choice\" question. [STOP]\nQuestionnaire.item.answerOption.value[x]: a potential answer that's allowed as the answer to this question. [STOP]\nQuestionnaire.item.answerOption.initialSelected: indicates whether the answer value is selected when the list of possible answers is initially shown. [STOP]\nQuestionnaire.item.initial: one or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input. [STOP]\nQuestionnaire.item.initial.value[x]: the actual value to for an initial answer. [STOP]\nQuestionnaire.item.item: text, questions and other groups to be nested beneath a question or group. [STOP]",
+  "documentation": {
+    "Questionnaire": "a structured set of questions intended to guide the collection of answers from end-users. questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.",
+    "Questionnaire.url": "an absolute uri that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. this should be globally unique and should be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. this url can be the target of a canonical reference. it shall remain the same when the questionnaire is stored on different servers.",
+    "Questionnaire.identifier": "a formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.",
+    "Questionnaire.version": "the identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. this is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. for example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. there is also no expectation that versions can be placed in a lexicographical sequence.",
+    "Questionnaire.name": "a natural language name identifying the questionnaire. this name should be usable as an identifier for the module by machine processing applications such as code generation.",
+    "Questionnaire.title": "a short, descriptive, user-friendly title for the questionnaire.",
+    "Questionnaire.derivedFrom": "the url of a questionnaire that this questionnaire is based on.",
+    "Questionnaire.status": "the status of this questionnaire. enables tracking the life-cycle of the content.",
+    "Questionnaire.experimental": "a boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.",
+    "Questionnaire.subjectType": "the types of subjects that can be the subject of responses created for the questionnaire.",
+    "Questionnaire.date": "the date  (and optionally time) when the questionnaire was published. the date must change when the business version changes and it must change if the status code changes. in addition, it should change when the substantive content of the questionnaire changes.",
+    "Questionnaire.publisher": "the name of the organization or individual that published the questionnaire.",
+    "Questionnaire.contact": "contact details to assist a user in finding and communicating with the publisher.",
+    "Questionnaire.description": "a free text natural language description of the questionnaire from a consumer's perspective.",
+    "Questionnaire.useContext": "the content was developed with a focus and intent of supporting the contexts that are listed. these contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances.",
+    "Questionnaire.jurisdiction": "a legal or geographic region in which the questionnaire is intended to be used.",
+    "Questionnaire.purpose": "explanation of why this questionnaire is needed and why it has been designed as it has.",
+    "Questionnaire.copyright": "a copyright statement relating to the questionnaire and/or its contents. copyright statements are generally legal restrictions on the use and publishing of the questionnaire.",
+    "Questionnaire.approvalDate": "the date on which the resource content was approved by the publisher. approval happens once when the content is officially approved for usage.",
+    "Questionnaire.lastReviewDate": "the date on which the resource content was last reviewed. review happens periodically after approval but does not change the original approval date.",
+    "Questionnaire.effectivePeriod": "the period during which the questionnaire content was or is planned to be in active use.",
+    "Questionnaire.code": "an identifier for this question or group of questions in a particular terminology such as loinc.",
+    "Questionnaire.item": "a particular question, question grouping or display text that is part of the questionnaire.",
+    "Questionnaire.item.linkId": "an identifier that is unique within the questionnaire allowing linkage to the equivalent item in a questionnaireresponse resource.",
+    "Questionnaire.item.definition": "this element is a uri that refers to anelementdefinitionthat provides information about this item, including information that might otherwise be included in the instance of the questionnaire resource. a detailed description of the construction of the uri is shown in comments, below. if this element is present then the following element values may be derived from the element definition if the corresponding elements of this questionnaire resource instance have no value:code (elementdefinition.code)type (elementdefinition.type)required (elementdefinition.min)repeats (elementdefinition.max)maxlength (elementdefinition.maxlength)answervalueset (elementdefinition.binding)options (elementdefinition.binding).",
+    "Questionnaire.item.code": "a terminology code that corresponds to this group or question (e.g. a code from loinc, which defines many questions and answers).",
+    "Questionnaire.item.prefix": "a short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.",
+    "Questionnaire.item.text": "the name of a section, the text of a question or text content for a display item.",
+    "Questionnaire.item.type": "the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).",
+    "Questionnaire.item.enableWhen": "a constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.",
+    "Questionnaire.item.enableWhen.question": "the linkid for the question whose answer (or lack of answer) governs whether this item is enabled.",
+    "Questionnaire.item.enableWhen.operator": "specifies the criteria by which the question is enabled.",
+    "Questionnaire.item.enableWhen.answer[x]": "a value that the referenced question is tested using the specified operator in order for the item to be enabled.",
+    "Questionnaire.item.enableBehavior": "controls how multiple enablewhen values are interpreted -  whether all or any must be true.",
+    "Questionnaire.item.required": "an indication, if true, that the item must be present in a \"completed\" questionnaireresponse.  if false, the item may be skipped when answering the questionnaire.",
+    "Questionnaire.item.repeats": "an indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups.",
+    "Questionnaire.item.readOnly": "an indication, when true, that the value cannot be changed by a human respondent to the questionnaire.",
+    "Questionnaire.item.maxLength": "the maximum number of characters that are permitted in the answer to be considered a \"valid\" questionnaireresponse.",
+    "Questionnaire.item.answerValueSet": "a reference to a value set containing a list of codes representing permitted answers for a \"choice\" or \"open-choice\" question.",
+    "Questionnaire.item.answerOption": "one of the permitted answers for a \"choice\" or \"open-choice\" question.",
+    "Questionnaire.item.answerOption.value[x]": "a potential answer that's allowed as the answer to this question.",
+    "Questionnaire.item.answerOption.initialSelected": "indicates whether the answer value is selected when the list of possible answers is initially shown.",
+    "Questionnaire.item.initial": "one or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.",
+    "Questionnaire.item.initial.value[x]": "the actual value to for an initial answer.",
+    "Questionnaire.item.item": "text, questions and other groups to be nested beneath a question or group."
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "resource": "guidanceresponse",
+  "examples": [
+    {
+      "name": "Example of guidanceresponse",
+      "document": {
+        "resourceType": "GuidanceResponse",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>contained</b>: </p><p><b>requestIdentifier</b>: guidanceRequest1</p><p><b>identifier</b>: guidanceResponse1</p><p><b>module</b>: <a>http://someguidelineprovider.org/radiology-appropriateness-guidelines.html</a></p><p><b>status</b>: success</p><p><b>subject</b>: <a>Patient/example</a></p><p><b>encounter</b>: <a>Encounter/example</a></p><p><b>occurrenceDateTime</b>: 10/03/2017 4:02:00 PM</p><p><b>performer</b>: <a>Device/software</a></p><p><b>reasonCode</b>: Guideline Appropriate Ordering Assessment <span>(Details )</span></p><p><b>outputParameters</b>: id: outputParameters1</p></div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Parameters",
+            "id": "outputParameters1",
+            "parameter": [
+              {
+                "name": "score",
+                "valueDecimal": 7
+              },
+              {
+                "name": "item-assessed",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://www.ama-assn.org/go/cpt",
+                      "code": "70450",
+                      "display": "CT, head, wo iv contrast"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "device",
+                "valueReference": {
+                  "reference": "Device/software"
+                }
+              },
+              {
+                "name": "guideline-followed",
+                "valueUri": "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html"
+              }
+            ]
+          }
+        ],
+        "requestIdentifier": {
+          "system": "http://example.org",
+          "value": "guidanceRequest1"
+        },
+        "identifier": [
+          {
+            "system": "http://example.org",
+            "value": "guidanceResponse1"
+          }
+        ],
+        "moduleUri": "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html",
+        "status": "success",
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "occurrenceDateTime": "2017-03-10T16:02:00Z",
+        "performer": {
+          "reference": "Device/software"
+        },
+        "reasonCode": [
+          {
+            "text": "Guideline Appropriate Ordering Assessment"
+          }
+        ],
+        "outputParameters": {
+          "reference": "#outputParameters1"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "14.12Resource GuidanceResponse - Content",
+    "introduction": "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.",
+    "Scope and Usage": "The GuidanceResponse resource is used to represent the result of invoking a decision support service. It provides a container for the status of the response, any warnings or messages returned by the service, as well as any output data from the service and any suggested actions to be performed.\nUse cases for the GuidanceResponse resource include:\nKeeping a record of past service requests, including the ability to reference the context of the request such as the disease state Representing additional data requirements for subsequent service requests Representing Public Health case reporting and recording Sharing the results of decision support guidance and determination of reportability with clinicians and public health agencies\nIn addition, the GuidanceResponse resource is aligned with the CDS Hooks response structure and so provides a mechanism to record the results of CDS Hooks interactions. For a detailed discussion of how the GuidanceResponse resource can be used for this purpose, refer to the Evaluation topic in the Clinical Reasoning module.",
+    "GuidanceResponse Search": "Although the GuidanceResponse resource does define search parameters, it is up to the individual decision support service whether or not historical records of guidance requests are preserved. A service might not support searching on GuidanceResponses at all, or it may support searching only for a pre-defined expiration period. The search parameters are defined to provide consumers with a consistent interface to searching if it is available for a specific service implementation. In any case, services should detail the support they do provide using a CapabilityStatement."
+  },
+  "definitions": "GuidanceResponse: a guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken. [STOP]\nGuidanceResponse.requestIdentifier: the identifier of the request associated with this response. if an identifier was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario. [STOP]\nGuidanceResponse.identifier: allows a service to provide  unique, business identifiers for the response. [STOP]\nGuidanceResponse.module[x]: an identifier, codeableconcept or canonical reference to the guidance that was requested. [STOP]\nGuidanceResponse.status: the status of the response. if the evaluation is completed successfully, the status will indicate success. however, in order to complete the evaluation, the engine may require more information. in this case, the status will be data-required, and the response will contain a description of the additional required information. if the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information. [STOP]\nGuidanceResponse.subject: the patient for which the request was processed. [STOP]\nGuidanceResponse.encounter: the encounter during which this response was created or to which the creation of this record is tightly associated. [STOP]\nGuidanceResponse.occurrenceDateTime: indicates when the guidance response was processed. [STOP]\nGuidanceResponse.performer: provides a reference to the device that performed the guidance. [STOP]\nGuidanceResponse.reasonCode: describes the reason for the guidance response in coded or textual form. [STOP]\nGuidanceResponse.reasonReference: indicates the reason the request was initiated. this is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response. [STOP]\nGuidanceResponse.note: provides a mechanism to communicate additional information about the response. [STOP]\nGuidanceResponse.evaluationMessage: messages resulting from the evaluation of the artifact or artifacts. as part of evaluating the request, the engine may produce informational or warning messages. these messages will be provided by this element. [STOP]\nGuidanceResponse.outputParameters: the output parameters of the evaluation, if any. many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. however, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element. [STOP]\nGuidanceResponse.result: the actions, if any, produced by the evaluation of the artifact. [STOP]\nGuidanceResponse.dataRequirement: if the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. a subsequent request to the service should include this data. [STOP]",
+  "documentation": {
+    "GuidanceResponse": "a guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.",
+    "GuidanceResponse.requestIdentifier": "the identifier of the request associated with this response. if an identifier was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.",
+    "GuidanceResponse.identifier": "allows a service to provide  unique, business identifiers for the response.",
+    "GuidanceResponse.module[x]": "an identifier, codeableconcept or canonical reference to the guidance that was requested.",
+    "GuidanceResponse.status": "the status of the response. if the evaluation is completed successfully, the status will indicate success. however, in order to complete the evaluation, the engine may require more information. in this case, the status will be data-required, and the response will contain a description of the additional required information. if the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.",
+    "GuidanceResponse.subject": "the patient for which the request was processed.",
+    "GuidanceResponse.encounter": "the encounter during which this response was created or to which the creation of this record is tightly associated.",
+    "GuidanceResponse.occurrenceDateTime": "indicates when the guidance response was processed.",
+    "GuidanceResponse.performer": "provides a reference to the device that performed the guidance.",
+    "GuidanceResponse.reasonCode": "describes the reason for the guidance response in coded or textual form.",
+    "GuidanceResponse.reasonReference": "indicates the reason the request was initiated. this is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.",
+    "GuidanceResponse.note": "provides a mechanism to communicate additional information about the response.",
+    "GuidanceResponse.evaluationMessage": "messages resulting from the evaluation of the artifact or artifacts. as part of evaluating the request, the engine may produce informational or warning messages. these messages will be provided by this element.",
+    "GuidanceResponse.outputParameters": "the output parameters of the evaluation, if any. many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. however, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element.",
+    "GuidanceResponse.result": "the actions, if any, produced by the evaluation of the artifact.",
+    "GuidanceResponse.dataRequirement": "if the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. a subsequent request to the service should include this data."
+  }
+}

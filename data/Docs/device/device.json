@@ -1,0 +1,92 @@
+{
+  "resource": "device",
+  "examples": [
+    {
+      "name": "General Device Example",
+      "document": {
+        "resourceType": "Device",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 345675</p></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://goodcare.org/devices/id",
+            "value": "345675"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Feeding Tube",
+      "document": {
+        "resourceType": "Device",
+        "id": "f001",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 12345</p><p><b>status</b>: active</p></div>"
+        },
+        "identifier": [
+          {
+            "system": "http:/goodhealthhospital/identifier/devices",
+            "value": "12345"
+          }
+        ],
+        "status": "active"
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.14Resource Device - Content",
+    "introduction": "A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.\nThis resource is referenced by Signature , Account , AdverseEvent , Appointment , AppointmentResponse , AuditEvent , CarePlan , CatalogEntry , ChargeItem , ChargeItemDefinition , Claim , Communication , CommunicationRequest , Composition , Consent , Contract , DetectedIssue , itself, DeviceMetric , DeviceRequest , DeviceUseStatement , DiagnosticReport , DocumentManifest , DocumentReference , ExplanationOfBenefit , Flag , Group , GuidanceResponse , ImagingStudy , Invoice , List , MeasureReport , Media , MedicationAdministration , MedicationDispense , MedicationRequest , MessageHeader , MolecularSequence , Observation , Procedure , Provenance , QuestionnaireResponse , RequestGroup , RiskAssessment , Schedule , ServiceRequest , Specimen , SupplyDelivery , SupplyRequest and Task",
+    "Scope and Usage": "This resource is an administrative resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, referenced when prescribing and dispensing devices for patient use or for ordering supplies, and used to record and transmit Unique Device Identifier (UDI) information about a device such as a patient's implant.",
+    "Boundaries and Relationships": "These are the device related resources\nDevice (this resource) DeviceDefinition - Describes a \"kind\" of device - not a physical instance, cut a \"catalog entry\" where a device is defined by the manufacturer, reseller, or regulator. DeviceMetric - Describes a measurement, calculation or setting  capability of a medical device.\nIn FHIR, the \"Device\" is the \"administrative\" resource for the device (it does not change much and has manufacturer information etc.), whereas the DeviceComponent and DeviceMetric (which is really a kind of DeviceComponent) model the physical part, including operation status and is much more volatile.\r\n\r\nThe physical composition of a Device is represented by the Devices pointing to their \"parent\".\nDevices differ from medications because they are not \"used up\" - they remain active in a patient in an ongoing fashion.  However, the specific boundary between medications and devices is defined at the implementation level and this standard does not enforce a boundary with the exception of devices that are implanted in a patient.   The Medication resource should not be used to represent implanted devices."
+  },
+  "definitions": "Device: a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. the device may be a medical or non-medical device. [STOP]\nDevice.identifier: unique instance identifiers assigned to a device by manufacturers other organizations or owners. [STOP]\nDevice.definition: the reference to the definition for the device. [STOP]\nDevice.udiCarrier: unique device identifier (udi) assigned to device label or package.  note that the device may include multiple udicarriers as it either may include just the udicarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold. [STOP]\nDevice.udiCarrier.deviceIdentifier: the device identifier (di) is a mandatory, fixed portion of a udi that identifies the labeler and the specific version or model of a device. [STOP]\nDevice.udiCarrier.issuer: organization that is charged with issuing udis for devices.  for example, the us fda issuers include :gs1:\r\nhttp://hl7.org/fhir/namingsystem/gs1-di,hibcc:\r\nhttp://hl7.org/fhir/namingsystem/hibcc-di,iccbba for blood containers:\r\nhttp://hl7.org/fhir/namingsystem/iccbba-blood-di,iccba for other devices:\r\nhttp://hl7.org/fhir/namingsystem/iccbba-other-di. [STOP]\nDevice.udiCarrier.jurisdiction: the identity of the authoritative source for udi generation within a  jurisdiction.  all udis are globally unique within a single namespace with the appropriate repository uri as the system.  for example,  udis of devices managed in the u.s. by the fda, the value is  http://hl7.org/fhir/namingsystem/fda-udi. [STOP]\nDevice.udiCarrier.carrierAIDC: the full udi carrier of the automatic identification and data capture (aidc) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or rfid.   because of limitations on character sets in xml and the need to round-trip json data through xml, aidc formatsshallbe base64 encoded. [STOP]\nDevice.udiCarrier.carrierHRF: the full udi carrier as the human readable form (hrf) representation of the barcode string as printed on the packaging of the device. [STOP]\nDevice.udiCarrier.entryType: a coded entry to indicate how the data was entered. [STOP]\nDevice.status: status of the device availability. [STOP]\nDevice.statusReason: reason for the dtatus of the device availability. [STOP]\nDevice.distinctIdentifier: the distinct identification string as required by regulation for a human cell, tissue, or cellular and tissue-based product. [STOP]\nDevice.manufacturer: a name of the manufacturer. [STOP]\nDevice.manufactureDate: the date and time when the device was manufactured. [STOP]\nDevice.expirationDate: the date and time beyond which this device is no longer valid or should not be used (if applicable). [STOP]\nDevice.lotNumber: lot number assigned by the manufacturer. [STOP]\nDevice.serialNumber: the serial number assigned by the organization when the device was manufactured. [STOP]\nDevice.deviceName: this represents the manufacturer's name of the device as provided by the device, from a udi label, or by a person describing the device.  this typically would be used when a person provides the name(s) or when the device represents one of the names available from devicedefinition. [STOP]\nDevice.deviceName.name: the name of the device. [STOP]\nDevice.deviceName.type: the type of devicename.\r\nudilabelname | userfriendlyname | patientreportedname | manufacturedevicename | modelname. [STOP]\nDevice.modelNumber: the model number for the device. [STOP]\nDevice.partNumber: the part number of the device. [STOP]\nDevice.type: the kind or type of device. [STOP]\nDevice.specialization: the capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication. [STOP]\nDevice.specialization.systemType: the standard that is used to operate and communicate. [STOP]\nDevice.specialization.version: the version of the standard that is used to operate and communicate. [STOP]\nDevice.version: the actual design of the device or software version running on the device. [STOP]\nDevice.version.type: the type of the device version. [STOP]\nDevice.version.component: a single component of the device version. [STOP]\nDevice.version.value: the version text. [STOP]\nDevice.property: the actual configuration settings of a device as it actually operates, e.g., regulation status, time properties. [STOP]\nDevice.property.type: code that specifies the property devicedefinitionpropetycode (extensible). [STOP]\nDevice.property.valueQuantity: property value as a quantity. [STOP]\nDevice.property.valueCode: property value as a code, e.g., ntp4 (synced to ntp). [STOP]\nDevice.patient: patient information, if the device is affixed to a person. [STOP]\nDevice.owner: an organization that is responsible for the provision and ongoing maintenance of the device. [STOP]\nDevice.contact: contact details for an organization or a particular human that is responsible for the device. [STOP]\nDevice.location: the place where the device can be found. [STOP]\nDevice.url: a network address on which the device may be contacted directly. [STOP]\nDevice.note: descriptive information, usage information or implantation information that is not captured in an existing element. [STOP]\nDevice.safety: provides additional safety characteristics about a medical device.  for example devices containing latex. [STOP]\nDevice.parent: the parent device. [STOP]",
+  "documentation": {
+    "Device": "a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. the device may be a medical or non-medical device.",
+    "Device.identifier": "unique instance identifiers assigned to a device by manufacturers other organizations or owners.",
+    "Device.definition": "the reference to the definition for the device.",
+    "Device.udiCarrier": "unique device identifier (udi) assigned to device label or package.  note that the device may include multiple udicarriers as it either may include just the udicarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold.",
+    "Device.udiCarrier.deviceIdentifier": "the device identifier (di) is a mandatory, fixed portion of a udi that identifies the labeler and the specific version or model of a device.",
+    "Device.udiCarrier.issuer": "organization that is charged with issuing udis for devices.  for example, the us fda issuers include :gs1:\r\nhttp://hl7.org/fhir/namingsystem/gs1-di,hibcc:\r\nhttp://hl7.org/fhir/namingsystem/hibcc-di,iccbba for blood containers:\r\nhttp://hl7.org/fhir/namingsystem/iccbba-blood-di,iccba for other devices:\r\nhttp://hl7.org/fhir/namingsystem/iccbba-other-di.",
+    "Device.udiCarrier.jurisdiction": "the identity of the authoritative source for udi generation within a  jurisdiction.  all udis are globally unique within a single namespace with the appropriate repository uri as the system.  for example,  udis of devices managed in the u.s. by the fda, the value is  http://hl7.org/fhir/namingsystem/fda-udi.",
+    "Device.udiCarrier.carrierAIDC": "the full udi carrier of the automatic identification and data capture (aidc) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or rfid.   because of limitations on character sets in xml and the need to round-trip json data through xml, aidc formatsshallbe base64 encoded.",
+    "Device.udiCarrier.carrierHRF": "the full udi carrier as the human readable form (hrf) representation of the barcode string as printed on the packaging of the device.",
+    "Device.udiCarrier.entryType": "a coded entry to indicate how the data was entered.",
+    "Device.status": "status of the device availability.",
+    "Device.statusReason": "reason for the dtatus of the device availability.",
+    "Device.distinctIdentifier": "the distinct identification string as required by regulation for a human cell, tissue, or cellular and tissue-based product.",
+    "Device.manufacturer": "a name of the manufacturer.",
+    "Device.manufactureDate": "the date and time when the device was manufactured.",
+    "Device.expirationDate": "the date and time beyond which this device is no longer valid or should not be used (if applicable).",
+    "Device.lotNumber": "lot number assigned by the manufacturer.",
+    "Device.serialNumber": "the serial number assigned by the organization when the device was manufactured.",
+    "Device.deviceName": "this represents the manufacturer's name of the device as provided by the device, from a udi label, or by a person describing the device.  this typically would be used when a person provides the name(s) or when the device represents one of the names available from devicedefinition.",
+    "Device.deviceName.name": "the name of the device.",
+    "Device.deviceName.type": "the type of devicename.\r\nudilabelname | userfriendlyname | patientreportedname | manufacturedevicename | modelname.",
+    "Device.modelNumber": "the model number for the device.",
+    "Device.partNumber": "the part number of the device.",
+    "Device.type": "the kind or type of device.",
+    "Device.specialization": "the capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication.",
+    "Device.specialization.systemType": "the standard that is used to operate and communicate.",
+    "Device.specialization.version": "the version of the standard that is used to operate and communicate.",
+    "Device.version": "the actual design of the device or software version running on the device.",
+    "Device.version.type": "the type of the device version.",
+    "Device.version.component": "a single component of the device version.",
+    "Device.version.value": "the version text.",
+    "Device.property": "the actual configuration settings of a device as it actually operates, e.g., regulation status, time properties.",
+    "Device.property.type": "code that specifies the property devicedefinitionpropetycode (extensible).",
+    "Device.property.valueQuantity": "property value as a quantity.",
+    "Device.property.valueCode": "property value as a code, e.g., ntp4 (synced to ntp).",
+    "Device.patient": "patient information, if the device is affixed to a person.",
+    "Device.owner": "an organization that is responsible for the provision and ongoing maintenance of the device.",
+    "Device.contact": "contact details for an organization or a particular human that is responsible for the device.",
+    "Device.location": "the place where the device can be found.",
+    "Device.url": "a network address on which the device may be contacted directly.",
+    "Device.note": "descriptive information, usage information or implantation information that is not captured in an existing element.",
+    "Device.safety": "provides additional safety characteristics about a medical device.  for example devices containing latex.",
+    "Device.parent": "the parent device."
+  }
+}

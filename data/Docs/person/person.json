@@ -1,0 +1,399 @@
+{
+  "resource": "person",
+  "examples": [
+    {
+      "name": "General Person Example",
+      "document": {
+        "resourceType": "Person",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name</td>\n            <td>Peter James <b>Chalmers</b> (&quot;Jim&quot;)</td>\n          </tr>\n          <tr>\n            <td>Address</td>\n            <td>534 Erewhon, Pleasantville, Vic, 3999</td>\n          </tr>\n          <tr>\n            <td>Contacts</td>\n            <td>Home: unknown. Work: (03) 5555 6473</td>\n          </tr>\n          <tr>\n            <td>Id</td>\n            <td>MRN: 12345 (Acme Healthcare)</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.36.146.595.217.0.1",
+            "value": "12345",
+            "period": {
+              "start": "2001-05-06"
+            },
+            "assigner": {
+              "display": "Acme Healthcare"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Chalmers",
+            "given": [
+              "Peter",
+              "James"
+            ]
+          },
+          {
+            "use": "usual",
+            "given": [
+              "Jim"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "(03) 5555 6473",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "Jim@example.org",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "534 Erewhon St"
+            ],
+            "city": "PleasantVille",
+            "state": "Vic",
+            "postalCode": "3999"
+          }
+        ],
+        "active": true,
+        "link": [
+          {
+            "target": {
+              "reference": "RelatedPerson/peter",
+              "display": "Peter Chalmers"
+            }
+          },
+          {
+            "target": {
+              "reference": "Patient/example",
+              "display": "Peter Chalmers"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grahame's person resource",
+      "document": {
+        "resourceType": "Person",
+        "id": "grahame",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name</td>\n            <td>Peter James <b>Chalmers</b> (&quot;Jim&quot;)</td>\n          </tr>\n          <tr>\n            <td>Address</td>\n            <td>534 Erewhon, Pleasantville, Vic, 3999</td>\n          </tr>\n          <tr>\n            <td>Contacts</td>\n            <td>Home: unknown. Work: (03) 5555 6473</td>\n          </tr>\n          <tr>\n            <td>Id</td>\n            <td>MRN: 12345 (Acme Healthcare)</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.36.146.595.217.0.1",
+            "value": "12345",
+            "period": {
+              "start": "2001-05-06"
+            },
+            "assigner": {
+              "display": "Acme Healthcare"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Chalmers",
+            "given": [
+              "Peter",
+              "James"
+            ]
+          },
+          {
+            "use": "usual",
+            "given": [
+              "Jim"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "(03) 5555 6473",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "534 Erewhon St"
+            ],
+            "city": "PleasantVille",
+            "state": "Vic",
+            "postalCode": "3999"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/1"
+        },
+        "active": true
+      }
+    },
+    {
+      "name": "Patient Portal Example",
+      "document": {
+        "resourceType": "Person",
+        "id": "pp",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name</td>\n            <td>Eve Marie <b>Everywoman</b></td>\n          </tr>\n          <tr>\n            <td>Address</td>\n            <td>2086 College St, Sandusky, OH, 44870</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "DL"
+                }
+              ],
+              "text": "Ohio driver license"
+            },
+            "system": "urn:oid:2.16.840.1.113883.4.3.39",
+            "value": "TL545786",
+            "period": {
+              "start": "2041-09-23"
+            },
+            "assigner": {
+              "display": "Ohio Bureau of Motor Vehicles"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Everywoman",
+            "given": [
+              "Eve",
+              "Marie"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(621)-479-9743",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1974-03-07",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "2086 College St"
+            ],
+            "city": "Sandusky",
+            "state": "OH",
+            "postalCode": "44870",
+            "country": "USA"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "http://www.goodhealth.com/Organization/12",
+          "display": "Goodhealth Patient Portal"
+        },
+        "active": true,
+        "link": [
+          {
+            "target": {
+              "reference": "http://www.goodhealth.com/Patient/98574",
+              "display": "Eve Everywoman"
+            },
+            "assurance": "level3"
+          },
+          {
+            "target": {
+              "reference": "http://www.acme-medical.com/Patient/ab34d",
+              "display": "Eve Marie Everywoman"
+            },
+            "assurance": "level2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Provider Directory Example",
+      "document": {
+        "resourceType": "Person",
+        "id": "pd",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name</td>\n            <td>\n              Harold <b>Hippocrates</b>\n            </td>\n          </tr>\n          <tr>\n            <td>Address</td>\n            <td>1003 Healthcare Drive, Northfield, MN</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SS"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "444444444"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Hippocrates",
+            "given": [
+              "Harold"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-555-1003",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1959-04-22",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1003 Healthcare Drive"
+            ],
+            "city": "Northfield",
+            "state": "MN"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "http://www.northfield-regional.com/Organization/2",
+          "display": "Northfield Regional Physician Directory"
+        },
+        "active": true,
+        "link": [
+          {
+            "target": {
+              "reference": "http://www.goodhealth.com/Practitioner/98574",
+              "display": "Dr. Harold Hippocrates"
+            },
+            "assurance": "level2"
+          },
+          {
+            "target": {
+              "reference": "http://www.acme-medical.com/Practitioner/ab34d",
+              "display": "Harold Hippocrates, MD"
+            },
+            "assurance": "level2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Same person from RelatedPerson",
+      "document": {
+        "resourceType": "Person",
+        "id": "f002",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n     Ariadne Bor-Jansma\n    </div>"
+        },
+        "name": [
+          {
+            "use": "usual",
+            "text": "Ariadne Bor-Jansma"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+31201234567",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1963",
+        "photo": {
+          "contentType": "image/jpeg",
+          "data": "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"
+        },
+        "active": true,
+        "link": [
+          {
+            "target": {
+              "reference": "RelatedPerson/f002",
+              "display": "Ariadne Bor-Jansma"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.18Resource Person - Content",
+    "introduction": "Demographics and administrative information about a person independent of a specific health-related context.\nThis resource is referenced by itself",
+    "Scope and Usage": "The Person resource serves as a linkage resource that may provide a reference set of common demographics \r\n  for an individual (human or animal) across multiple roles. This linkage can be direct to role-specific FHIR resources (Patient, Practitioner and RelatedPerson)\r\n  residing on the same or possibly distinct FHIR systems/applications, or indirectly through the use of\r\n  business identifiers.\nThe Person resource may be used in many situations/contexts, including:\nA set of demographics that can be used to co-ordinate the maintenance of this\r\n  de-normalized information across practitioners, patients and/or related persons e.g. link known resources of the different types together within a system A state/network based Master Person Index e.g. A National Identifier Index or a Network membership/subscriber list A central register that links patient resources from multiple servers, indicating they\r\n  all correspond to the same individual e.g. Within a large organization with many systems to be able to link the various records, \r\n  without having to modify the source information with external links A support for access monitoring software that is able to assert what practitioner, \r\n  patient and related person records correspond to the same human being to assist in \r\n  detecting improper querying. e.g. asserting that a Patient A is the same individual as a RelatedPerson B who is\r\n  related to Patient C, who is also Practitioner D.  As such, monitoring for Practitioner\r\n  Dâs accesses to Patient Aâs records should be carefully scrutinized. Local record(s) on a mobile device listing links to remote server patient resources e.g. A mobile phone application storing references to the hospitals they have access to",
+    "Boundaries and Relationships": "Person resources may have references to Patient, RelatedPerson and/or Practitioner resources. \r\n    These linkages assert that all the records relate to the same individual.\nPerson instances are never directly referenced as actors (authors, subjects, performers, etc.)\r\n    Individual actors are always identified as either Patient, Practitioner or RelatedPerson, depending on the role\r\n    of the individual when undertaking the action. Therefore this resource SHALL NOT be referenced by any\r\n    other clinical or administrative resources.  \r\n    E.g. it can be the focus of an operation or message or included in a Bundle, \r\n    but cannot be a member of a List or Group, the subject of an Observation, or other similar non-infrastructural usage.\nIn some use cases the linkages will be indirect, and through business Identifiers, such as in the case of\r\n    the various types of Master Person Indexes, where the records are not there for the purpose of healthcare, \r\n    but simply describing a population of people, and has other purposes and not just to represent a population patients.",
+    "De-normalized Data": "Most of the properties of the Person resource are replicated within the other resources that they\r\n    are shared with. This is intentional and highlights the loose coupling of the resources.\nNot many systems implement a shared Person record, and as such the values DO become out of\r\n    sync with each other. The inclusion of this resource does permit a capability for systems to identify\r\n    other instances of this actual person's data via a centralized registry that can assist in keeping things\r\n    up to date.",
+    "Person and Linking": "The link element is used to relate resources under a common person record. \r\n  This element supports two primary scenarios where other resources refer to the same person resource.\nThe link element cannot be used to link to RelatedPerson entries, so we can use a Person\r\n    resource to relate these elements together identifying them as the same individual.",
+    "Cross-Domain Patient Directory": "In a data sharing network, finding the location of patient records across different systems is a \r\n    necessary pre-requisite for accessing external patient data. Using the link element, systems associate\r\n    patient resources from different organizations. The assuranceLevel associated with the link provides\r\n    a way for a system to qualify its confidence in the asserted link . For example, a relationship from\r\n    the person to a patient using a probabilistic matching algorithm may be represented using a link with\r\n    an assurance level of level1, while a relationship established using a government-issued photo ID may\r\n    be created with an assurance level of level3.",
+    "Cross-Domain Provider Directory": "Similarly, providers working in multiple healthcare service settings may be linked across different \r\n    organizations using the link element. The various practitioner resources can be related using a common \r\n    person resource with a link for each of the practitioner resources located in other organizations.",
+    "Person Master Index": "Many national and state programs maintain a central register of people, and their key Identifiers.\r\n  These systems do not store any health related information, they are purely a validated set data, often\r\n  provided by government departments. These may contain identifiers for patients, practitioners from various\r\n  departments for various purposes. Access to these systems typically requires some form of professional\r\n  role or permission, such as those in healthcare, law enforcement, or other internal government uses.\nThese may also operate outside of government in the private sector, such as associations or networks\r\n  that a person may be involved with and may work in the same was as they do inside government.\r\n  The usage of the data into the healthcare environment is not the only use of the register.",
+    "Client Portal": "Client Portals provide consumer access to a window of their data locked up in healthcare systems. \r\n    In many cases these systems are externally integrated and do not have access to the legacy CIS/PAS systems.\nIn contrast to most systems where a user has access to multiple patients depending on their roles and permissions,\r\n    a client portal provides a consumer with direct access to their data (with permissions applied).\r\n    This can also include not just their data (via the Person.link Patient entries), but also to information that they\r\n    have entered, or were involved with (via the Person.link RelatedPerson entries), such as observations that they \r\n    entered. With appropriate permissions/consent applied, the user could have access to other Patient records linked via \r\n    a RelatedPerson.",
+    "Security and Privacy Considerations": "The Person resource may contain identifying and demographic information about an individual, therefore it must\r\n    be protected as Identifying Information.\nThe Person resource may contain references to the individual's other various Patient, Practitioner,\r\n    and RelatedPerson resources, where the referenced record might be to very sensitive information.\r\n    The access to the linked sensitive Resource may be protected, but the link itself may expose information. For example where a Practitioner and Patient resource are linked through a Person resource, inspecting the\r\n    Patient URL could reveal that the Practitioner has a record at a sensitive medical health clinic (e.g. Drug Rehabilitation Clinic).\nWhen implementing the Person resource consideration should be given to the security and privacy\r\n    of this information. Some mitigations to these risks include higher access control protections, filling\r\n    out the Person resource as sparsely as practical for the given use-cases, and masking some data elements for\r\n    certain users of the information. Additional security guidance can be found on the security page ."
+  },
+  "definitions": "Person: demographics and administrative information about a person independent of a specific health-related context. [STOP]\nPerson.identifier: identifier for a person within a particular scope. [STOP]\nPerson.name: a name associated with the person. [STOP]\nPerson.telecom: a contact detail for the person, e.g. a telephone number or an email address. [STOP]\nPerson.gender: administrative gender. [STOP]\nPerson.birthDate: the birth date for the person. [STOP]\nPerson.address: one or more addresses for the person. [STOP]\nPerson.photo: an image that can be displayed as a thumbnail of the person to enhance the identification of the individual. [STOP]\nPerson.managingOrganization: the organization that is the custodian of the person record. [STOP]\nPerson.active: whether this person's record is in active use. [STOP]\nPerson.link: link to a resource that concerns the same actual person. [STOP]\nPerson.link.target: the resource to which this actual person is associated. [STOP]\nPerson.link.assurance: level of assurance that this link is associated with the target resource. [STOP]",
+  "documentation": {
+    "Person": "demographics and administrative information about a person independent of a specific health-related context.",
+    "Person.identifier": "identifier for a person within a particular scope.",
+    "Person.name": "a name associated with the person.",
+    "Person.telecom": "a contact detail for the person, e.g. a telephone number or an email address.",
+    "Person.gender": "administrative gender.",
+    "Person.birthDate": "the birth date for the person.",
+    "Person.address": "one or more addresses for the person.",
+    "Person.photo": "an image that can be displayed as a thumbnail of the person to enhance the identification of the individual.",
+    "Person.managingOrganization": "the organization that is the custodian of the person record.",
+    "Person.active": "whether this person's record is in active use.",
+    "Person.link": "link to a resource that concerns the same actual person.",
+    "Person.link.target": "the resource to which this actual person is associated.",
+    "Person.link.assurance": "level of assurance that this link is associated with the target resource."
+  }
+}

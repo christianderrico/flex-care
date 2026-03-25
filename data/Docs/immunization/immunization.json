@@ -1,0 +1,554 @@
+{
+  "resource": "immunization",
+  "examples": [
+    {
+      "name": "Example of Immunization",
+      "document": {
+        "resourceType": "Immunization",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234</p><p><b>status</b>: completed</p><p><b>vaccineCode</b>: Fluvax (Influenza) <span>(Details : {urn:oid:1.2.36.1.2001.1005.17 code 'FLUVAX' = 'Fluvax)</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>encounter</b>: <a>Encounter/example</a></p><p><b>occurrence</b>: 10/01/2013</p><p><b>primarySource</b>: true</p><p><b>location</b>: <a>Location/1</a></p><p><b>manufacturer</b>: <a>Organization/hl7</a></p><p><b>lotNumber</b>: AAJN11K</p><p><b>expirationDate</b>: 15/02/2015</p><p><b>site</b>: left arm <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-ActSite code 'LA' = 'left arm', given as 'left arm'})</span></p><p><b>route</b>: Injection, intramuscular <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration code 'IM' = 'Injection, intramuscular', given as 'Injection, intramuscular'})</span></p><p><b>doseQuantity</b>: 5 mg<span> (Details: UCUM code mg = 'mg')</span></p><blockquote><p><b>performer</b></p><p><b>function</b>: Ordering Provider <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0443 code 'OP' = 'Ordering Provider)</span></p><p><b>actor</b>: <a>Practitioner/example</a></p></blockquote><blockquote><p><b>performer</b></p><p><b>function</b>: Administering Provider <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0443 code 'AP' = 'Administering Provider)</span></p><p><b>actor</b>: <a>Practitioner/example</a></p></blockquote><p><b>note</b>: Notes on adminstration of vaccine</p><p><b>reasonCode</b>: Procedure to meet occupational requirement <span>(Details : {SNOMED CT code '429060002' = 'Procedure to meet occupational requirement)</span></p><p><b>isSubpotent</b>: true</p><h3>Educations</h3><table><tr><td>-</td><td><b>DocumentType</b></td><td><b>PublicationDate</b></td><td><b>PresentationDate</b></td></tr><tr><td>*</td><td>253088698300010311120702</td><td>02/07/2012</td><td>10/01/2013</td></tr></table><p><b>programEligibility</b>: Not Eligible <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-program-eligibility code 'ineligible' = 'Not Eligible)</span></p><p><b>fundingSource</b>: Private <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-funding-source code 'private' = 'Private)</span></p></div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"
+          }
+        ],
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "urn:oid:1.2.36.1.2001.1005.17",
+              "code": "FLUVAX"
+            }
+          ],
+          "text": "Fluvax (Influenza)"
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "occurrenceDateTime": "2013-01-10",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/1"
+        },
+        "manufacturer": {
+          "reference": "Organization/hl7"
+        },
+        "lotNumber": "AAJN11K",
+        "expirationDate": "2015-02-15",
+        "site": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActSite",
+              "code": "LA",
+              "display": "left arm"
+            }
+          ]
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+              "code": "IM",
+              "display": "Injection, intramuscular"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 5,
+          "system": "http://unitsofmeasure.org",
+          "code": "mg"
+        },
+        "performer": [
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "OP"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/example"
+            }
+          },
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "AP"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/example"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Notes on adminstration of vaccine"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "429060002"
+              }
+            ]
+          }
+        ],
+        "isSubpotent": true,
+        "education": [
+          {
+            "documentType": "253088698300010311120702",
+            "publicationDate": "2012-07-02",
+            "presentationDate": "2013-01-10"
+          }
+        ],
+        "programEligibility": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
+                "code": "ineligible"
+              }
+            ]
+          }
+        ],
+        "fundingSource": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
+              "code": "private"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Not Given Immunization Example",
+      "document": {
+        "resourceType": "Immunization",
+        "id": "notGiven",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: notGiven</p><p><b>status</b>: not-done</p><p><b>statusReason</b>: medical precaution <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-ActReason code 'MEDPREC' = 'medical precaution', given as 'medical precaution'})</span></p><p><b>vaccineCode</b>: DTP <span>(Details : {http://hl7.org/fhir/sid/cvx code '01' = 'DTP', given as 'DTP'})</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>occurrence</b>: 10/01/2013</p><p><b>primarySource</b>: true</p></div>"
+        },
+        "status": "not-done",
+        "statusReason": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "MEDPREC",
+              "display": "medical precaution"
+            }
+          ]
+        },
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "01",
+              "display": "DTP"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "occurrenceDateTime": "2013-01-10",
+        "primarySource": true
+      }
+    },
+    {
+      "name": "Example of a Historical Example",
+      "document": {
+        "resourceType": "Immunization",
+        "id": "historical",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: historical</p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234</p><p><b>status</b>: completed</p><p><b>vaccineCode</b>: Influenza <span>(Details : {urn:oid:1.2.36.1.2001.1005.17 code 'GNFLU' = 'Influenza)</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>occurrence</b>: January 2012</p><p><b>primarySource</b>: false</p><p><b>reportOrigin</b>: Written Record <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-origin code 'record' = 'Written Record)</span></p><p><b>location</b>: <a>Location/1</a></p><p><b>note</b>: Notes on adminstration of a historical vaccine</p></div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"
+          }
+        ],
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "urn:oid:1.2.36.1.2001.1005.17",
+              "code": "GNFLU"
+            }
+          ],
+          "text": "Influenza"
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "occurrenceString": "January 2012",
+        "primarySource": false,
+        "reportOrigin": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/immunization-origin",
+              "code": "record"
+            }
+          ],
+          "text": "Written Record"
+        },
+        "location": {
+          "reference": "Location/1"
+        },
+        "note": [
+          {
+            "text": "Notes on adminstration of a historical vaccine"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of a Subpotent Dose",
+      "document": {
+        "resourceType": "Immunization",
+        "id": "subpotent",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: subpotent</p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234</p><p><b>status</b>: completed</p><p><b>vaccineCode</b>: Hepatitis B <span>(Details : {urn:oid:1.2.36.1.2001.1005.17 code 'GNHEP' = 'Hepatitis B)</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>encounter</b>: <a>Encounter/example</a></p><p><b>occurrence</b>: 15/01/2015</p><p><b>primarySource</b>: true</p><p><b>location</b>: <a>Location/1</a></p><p><b>manufacturer</b>: <a>Organization/hl7</a></p><p><b>lotNumber</b>: AAJN11K</p><p><b>expirationDate</b>: 28/02/2015</p><p><b>site</b>: left thigh <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-ActSite code 'LT' = 'left thigh', given as 'left thigh'})</span></p><p><b>route</b>: Injection, intramuscular <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration code 'IM' = 'Injection, intramuscular', given as 'Injection, intramuscular'})</span></p><p><b>doseQuantity</b>: 0.5 ml<span> (Details: UCUM code ml = 'ml')</span></p><blockquote><p><b>performer</b></p><p><b>function</b>: Ordering Provider <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0443 code 'OP' = 'Ordering Provider)</span></p><p><b>actor</b>: <a>Practitioner/example</a></p></blockquote><blockquote><p><b>performer</b></p><p><b>function</b>: Administering Provider <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0443 code 'AP' = 'Administering Provider)</span></p><p><b>actor</b>: <a>Practitioner/example</a></p></blockquote><p><b>note</b>: Notes on adminstration of vaccine</p><p><b>isSubpotent</b>: false</p><p><b>subpotentReason</b>: Partial Dose <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason code 'partial' = 'Partial Dose)</span></p><h3>Educations</h3><table><tr><td>-</td><td><b>DocumentType</b></td><td><b>PublicationDate</b></td><td><b>PresentationDate</b></td></tr><tr><td>*</td><td>253088698300010311120702</td><td>02/07/2012</td><td>10/01/2013</td></tr></table><p><b>programEligibility</b>: Not Eligible <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-program-eligibility code 'ineligible' = 'Not Eligible)</span></p><p><b>fundingSource</b>: Private <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-funding-source code 'private' = 'Private)</span></p></div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"
+          }
+        ],
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "urn:oid:1.2.36.1.2001.1005.17",
+              "code": "GNHEP"
+            }
+          ],
+          "text": "Hepatitis B"
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "occurrenceDateTime": "2015-01-15",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/1"
+        },
+        "manufacturer": {
+          "reference": "Organization/hl7"
+        },
+        "lotNumber": "AAJN11K",
+        "expirationDate": "2015-02-28",
+        "site": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActSite",
+              "code": "LT",
+              "display": "left thigh"
+            }
+          ]
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+              "code": "IM",
+              "display": "Injection, intramuscular"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 0.5,
+          "system": "http://unitsofmeasure.org",
+          "code": "ml"
+        },
+        "performer": [
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "OP"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/example"
+            }
+          },
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "AP"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/example"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Notes on adminstration of vaccine"
+          }
+        ],
+        "isSubpotent": false,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "partial"
+              }
+            ]
+          }
+        ],
+        "education": [
+          {
+            "documentType": "253088698300010311120702",
+            "publicationDate": "2012-07-02",
+            "presentationDate": "2013-01-10"
+          }
+        ],
+        "programEligibility": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
+                "code": "ineligible"
+              }
+            ]
+          }
+        ],
+        "fundingSource": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
+              "code": "private"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Example where the provider indicates the protocol being followed",
+      "document": {
+        "resourceType": "Immunization",
+        "id": "protocol",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: protocol</p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234</p><p><b>status</b>: completed</p><p><b>vaccineCode</b>: Twinrix (HepA/HepB) <span>(Details : {http://hl7.org/fhir/sid/cvx code '104' = 'Hep A-Hep B)</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>encounter</b>: <a>Encounter/example</a></p><p><b>occurrence</b>: 18/06/2018</p><p><b>primarySource</b>: true</p><p><b>location</b>: <a>Location/1</a></p><p><b>manufacturer</b>: <a>Organization/hl7</a></p><p><b>lotNumber</b>: PT123F</p><p><b>expirationDate</b>: 15/12/2018</p><p><b>site</b>: left arm <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-ActSite code 'LA' = 'left arm', given as 'left arm'})</span></p><p><b>route</b>: Injection, intramuscular <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration code 'IM' = 'Injection, intramuscular', given as 'Injection, intramuscular'})</span></p><p><b>doseQuantity</b>: 5 mg<span> (Details: UCUM code mg = 'mg')</span></p><blockquote><p><b>performer</b></p><p><b>function</b>: Ordering Provider <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0443 code 'OP' = 'Ordering Provider)</span></p><p><b>actor</b>: <a>Practitioner/example</a></p></blockquote><blockquote><p><b>performer</b></p><p><b>function</b>: Administering Provider <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0443 code 'AP' = 'Administering Provider)</span></p><p><b>actor</b>: <a>Practitioner/example</a></p></blockquote><p><b>isSubpotent</b>: false</p><p><b>programEligibility</b>: Not Eligible <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-program-eligibility code 'ineligible' = 'Not Eligible)</span></p><p><b>fundingSource</b>: Private <span>(Details : {http://terminology.hl7.org/CodeSystem/immunization-funding-source code 'private' = 'Private)</span></p><blockquote><p><b>protocolApplied</b></p><p><b>series</b>: 2-dose</p><p><b>targetDisease</b>: Viral hepatitis, type A <span>(Details : {SNOMED CT code '40468003' = 'Viral hepatitis, type A)</span></p><p><b>doseNumber</b>: 1</p></blockquote><blockquote><p><b>protocolApplied</b></p><p><b>series</b>: 3-dose</p><p><b>targetDisease</b>: Type B viral hepatitis <span>(Details : {SNOMED CT code '66071002' = 'Type B viral hepatitis)</span></p><p><b>doseNumber</b>: 2</p></blockquote></div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"
+          }
+        ],
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "104"
+            }
+          ],
+          "text": "Twinrix (HepA/HepB)"
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "occurrenceDateTime": "2018-06-18",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/1"
+        },
+        "manufacturer": {
+          "reference": "Organization/hl7"
+        },
+        "lotNumber": "PT123F",
+        "expirationDate": "2018-12-15",
+        "site": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActSite",
+              "code": "LA",
+              "display": "left arm"
+            }
+          ]
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+              "code": "IM",
+              "display": "Injection, intramuscular"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 5,
+          "system": "http://unitsofmeasure.org",
+          "code": "mg"
+        },
+        "performer": [
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "OP"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/example"
+            }
+          },
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "AP"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/example"
+            }
+          }
+        ],
+        "isSubpotent": false,
+        "programEligibility": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
+                "code": "ineligible"
+              }
+            ]
+          }
+        ],
+        "fundingSource": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
+              "code": "private"
+            }
+          ]
+        },
+        "protocolApplied": [
+          {
+            "series": "2-dose",
+            "targetDisease": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "40468003"
+                  }
+                ]
+              }
+            ],
+            "doseNumberPositiveInt": 1
+          },
+          {
+            "series": "3-dose",
+            "targetDisease": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "66071002"
+                  }
+                ]
+              }
+            ],
+            "doseNumberPositiveInt": 2
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "11.7Resource Immunization - Content",
+    "introduction": "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.\nThis resource is referenced by AdverseEvent , ChargeItem , ImmunizationEvaluation , ImmunizationRecommendation and Observation",
+    "Scope and Usage": "The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim to have immunological effects.  While the terms \"immunization\" and \"vaccination\" are not clinically identical, for the purposes of the FHIR resources, the terms are used synonymously.\nAdditionally, the Immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the Public Health work group - is believed to meet key use cases and information requirements as defined in the existing HL7 v2 immunization implementation guide, HL7 v3 POIZ domain and Immunization Domain Analysis Model.",
+    "Boundaries and Relationships": "Administration of vaccines is intended to be handled using the Immunization resource. MedicationAdministration is intended for tracking the administration of non-vaccine medications.  Some systems treat immunizations in the same way as any other medication administration.  Such systems SHOULD use an immunization resource to represent these.  If systems need to use a MedicationAdministration resource to capture vaccinations for workflow or other reasons, they SHOULD also expose an equivalent Immunization instance.\nImmunization.reaction may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate AllergyIntolerance resource instance should be created to indicate it, as most systems will not query against past Immunization.reaction."
+  },
+  "definitions": "Immunization: describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party. [STOP]\nImmunization.identifier: a unique identifier assigned to this immunization record. [STOP]\nImmunization.status: indicates the current status of the immunization event. [STOP]\nImmunization.statusReason: indicates the reason the immunization event was not performed. [STOP]\nImmunization.vaccineCode: vaccine that was administered or was to be administered. [STOP]\nImmunization.patient: the patient who either received or did not receive the immunization. [STOP]\nImmunization.encounter: the visit or admission or other contact between patient and health care provider the immunization was performed as part of. [STOP]\nImmunization.occurrence[x]: date vaccine administered or was to be administered. [STOP]\nImmunization.recorded: the date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event. [STOP]\nImmunization.primarySource: an indication that the content of the record is based on information from the person who administered the vaccine. this reflects the context under which the data was originally recorded. [STOP]\nImmunization.reportOrigin: the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine. [STOP]\nImmunization.location: the service delivery location where the vaccine administration occurred. [STOP]\nImmunization.manufacturer: name of vaccine manufacturer. [STOP]\nImmunization.lotNumber: lot number of the  vaccine product. [STOP]\nImmunization.expirationDate: date vaccine batch expires. [STOP]\nImmunization.site: body site where vaccine was administered. [STOP]\nImmunization.route: the path by which the vaccine product is taken into the body. [STOP]\nImmunization.doseQuantity: the quantity of vaccine product that was administered. [STOP]\nImmunization.performer: indicates who performed the immunization event. [STOP]\nImmunization.performer.function: describes the type of performance (e.g. ordering provider, administering provider, etc.). [STOP]\nImmunization.performer.actor: the practitioner or organization who performed the action. [STOP]\nImmunization.note: extra information about the immunization that is not conveyed by the other attributes. [STOP]\nImmunization.reasonCode: reasons why the vaccine was administered. [STOP]\nImmunization.reasonReference: condition, observation or diagnosticreport that supports why the immunization was administered. [STOP]\nImmunization.isSubpotent: indication if a dose is considered to be subpotent. by default, a dose should be considered to be potent. [STOP]\nImmunization.subpotentReason: reason why a dose is considered to be subpotent. [STOP]\nImmunization.education: educational material presented to the patient (or guardian) at the time of vaccine administration. [STOP]\nImmunization.education.documentType: identifier of the material presented to the patient. [STOP]\nImmunization.education.reference: reference pointer to the educational material given to the patient if the information was on line. [STOP]\nImmunization.education.publicationDate: date the educational material was published. [STOP]\nImmunization.education.presentationDate: date the educational material was given to the patient. [STOP]\nImmunization.programEligibility: indicates a patient's eligibility for a funding program. [STOP]\nImmunization.fundingSource: indicates the source of the vaccine actually administered. this may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered). [STOP]\nImmunization.reaction: categorical data indicating that an adverse event is associated in time to an immunization. [STOP]\nImmunization.reaction.date: date of reaction to the immunization. [STOP]\nImmunization.reaction.detail: details of the reaction. [STOP]\nImmunization.reaction.reported: self-reported indicator. [STOP]\nImmunization.protocolApplied: the protocol (set of recommendations) being followed by the provider who administered the dose. [STOP]\nImmunization.protocolApplied.series: one possible path to achieve presumed immunity against a disease - within the context of an authority. [STOP]\nImmunization.protocolApplied.authority: indicates the authority who published the protocol (e.g. acip) that is being followed. [STOP]\nImmunization.protocolApplied.targetDisease: the vaccine preventable disease the dose is being administered against. [STOP]\nImmunization.protocolApplied.doseNumber[x]: nominal position in a series. [STOP]\nImmunization.protocolApplied.seriesDoses[x]: the recommended number of doses to achieve immunity. [STOP]",
+  "documentation": {
+    "Immunization": "describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.",
+    "Immunization.identifier": "a unique identifier assigned to this immunization record.",
+    "Immunization.status": "indicates the current status of the immunization event.",
+    "Immunization.statusReason": "indicates the reason the immunization event was not performed.",
+    "Immunization.vaccineCode": "vaccine that was administered or was to be administered.",
+    "Immunization.patient": "the patient who either received or did not receive the immunization.",
+    "Immunization.encounter": "the visit or admission or other contact between patient and health care provider the immunization was performed as part of.",
+    "Immunization.occurrence[x]": "date vaccine administered or was to be administered.",
+    "Immunization.recorded": "the date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.",
+    "Immunization.primarySource": "an indication that the content of the record is based on information from the person who administered the vaccine. this reflects the context under which the data was originally recorded.",
+    "Immunization.reportOrigin": "the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.",
+    "Immunization.location": "the service delivery location where the vaccine administration occurred.",
+    "Immunization.manufacturer": "name of vaccine manufacturer.",
+    "Immunization.lotNumber": "lot number of the  vaccine product.",
+    "Immunization.expirationDate": "date vaccine batch expires.",
+    "Immunization.site": "body site where vaccine was administered.",
+    "Immunization.route": "the path by which the vaccine product is taken into the body.",
+    "Immunization.doseQuantity": "the quantity of vaccine product that was administered.",
+    "Immunization.performer": "indicates who performed the immunization event.",
+    "Immunization.performer.function": "describes the type of performance (e.g. ordering provider, administering provider, etc.).",
+    "Immunization.performer.actor": "the practitioner or organization who performed the action.",
+    "Immunization.note": "extra information about the immunization that is not conveyed by the other attributes.",
+    "Immunization.reasonCode": "reasons why the vaccine was administered.",
+    "Immunization.reasonReference": "condition, observation or diagnosticreport that supports why the immunization was administered.",
+    "Immunization.isSubpotent": "indication if a dose is considered to be subpotent. by default, a dose should be considered to be potent.",
+    "Immunization.subpotentReason": "reason why a dose is considered to be subpotent.",
+    "Immunization.education": "educational material presented to the patient (or guardian) at the time of vaccine administration.",
+    "Immunization.education.documentType": "identifier of the material presented to the patient.",
+    "Immunization.education.reference": "reference pointer to the educational material given to the patient if the information was on line.",
+    "Immunization.education.publicationDate": "date the educational material was published.",
+    "Immunization.education.presentationDate": "date the educational material was given to the patient.",
+    "Immunization.programEligibility": "indicates a patient's eligibility for a funding program.",
+    "Immunization.fundingSource": "indicates the source of the vaccine actually administered. this may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).",
+    "Immunization.reaction": "categorical data indicating that an adverse event is associated in time to an immunization.",
+    "Immunization.reaction.date": "date of reaction to the immunization.",
+    "Immunization.reaction.detail": "details of the reaction.",
+    "Immunization.reaction.reported": "self-reported indicator.",
+    "Immunization.protocolApplied": "the protocol (set of recommendations) being followed by the provider who administered the dose.",
+    "Immunization.protocolApplied.series": "one possible path to achieve presumed immunity against a disease - within the context of an authority.",
+    "Immunization.protocolApplied.authority": "indicates the authority who published the protocol (e.g. acip) that is being followed.",
+    "Immunization.protocolApplied.targetDisease": "the vaccine preventable disease the dose is being administered against.",
+    "Immunization.protocolApplied.doseNumber[x]": "nominal position in a series.",
+    "Immunization.protocolApplied.seriesDoses[x]": "the recommended number of doses to achieve immunity."
+  }
+}

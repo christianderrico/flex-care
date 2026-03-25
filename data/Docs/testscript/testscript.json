@@ -1,0 +1,1616 @@
+{
+  "resource": "testscript",
+  "examples": [
+    {
+      "name": "General TestScript Example",
+      "document": {
+        "resourceType": "TestScript",
+        "id": "testscript-example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: testscript-example</p><p><b>url</b>: <b>http://hl7.org/fhir/TestScript/testscript-example</b></p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.9876</p><p><b>version</b>: 1.0</p><p><b>name</b>: TestScript Example</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>date</b>: 18/01/2017</p><p><b>publisher</b>: HL7</p><p><b>contact</b>: </p><p><b>description</b>: TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts.</p><p><b>useContext</b>: </p><p><b>jurisdiction</b>: United States of America (the) <span>(Details : {urn:iso:std:iso:3166 code 'US' = 'United States of America', given as 'United States of America (the)'})</span></p><p><b>purpose</b>: Patient Conditional Create (Update), Read and Delete Operations</p><p><b>copyright</b>: © HL7.org 2011+</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/fhir/patient.html</a></td><td>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</td></tr></table><h3>Capabilities</h3><table><tr><td>-</td><td><b>Required</b></td><td><b>Validated</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Capabilities</b></td></tr><tr><td>*</td><td>true</td><td>false</td><td>Patient Update, Read and Delete Operations</td><td><a>http://hl7.org/fhir/http.html#delete</a></td><td><a>CapabilityStatement/example</a></td></tr></table></blockquote><blockquote><p><b>fixture</b></p><p><b>autocreate</b>: false</p><p><b>autodelete</b>: false</p><p><b>resource</b>: <a>Peter Chalmers</a></p></blockquote><blockquote><p><b>fixture</b></p><p><b>autocreate</b>: false</p><p><b>autodelete</b>: false</p><p><b>resource</b>: <a>Peter Chalmers (minimum)</a></p></blockquote><p><b>profile</b>: <a>Generated Summary: url: http://hl7.org/fhir/StructureDefinition/Patient; version: 4.0.1; name: Patient; ACTIVE; date: 01/11/2019 9:29:23 AM; publisher: Health Level Seven International (Patient Administration); description: Demographics and other administrative information about an individual or animal receiving care or other health-related services.; purpose: Tracking patient is the center of the healthcare process.; 4.0.1; RESOURCE; type: Patient; baseDefinition: http://hl7.org/fhir/StructureDefinition/DomainResource; SPECIALIZATION</a></p><h3>Variables</h3><table><tr><td>-</td><td><b>Name</b></td><td><b>Path</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>createResourceId</td><td>Patient/id</td><td>fixture-patient-create</td></tr></table><blockquote><p><b>setup</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td></tr><tr><td>*</td><td>Delete (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code delete = 'Delete', stated as 'null')</td><td>Patient</td><td>SetupDeletePatient</td><td>Execute a delete operation to insure the patient does not exist on the server.</td><td>json</td><td>true</td><td>/${createResourceId}</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>Operator</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 200(OK) or 204(No Content).</td><td>response</td><td>in</td><td>200,204</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>ContentType</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>Update (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code update = 'Update', stated as 'null')</td><td>Patient</td><td>SetupCreatePatient</td><td>Create patient resource on test server using the contents of fixture-patient-create</td><td>json</td><td>json</td><td>true</td><td>/${createResourceId}</td><td>fixture-patient-create</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 201(Created).</td><td>response</td><td>201</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Description</b></td><td><b>EncodeRequestUrl</b></td><td><b>TargetId</b></td></tr><tr><td>*</td><td>Read (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code read = 'Read', stated as 'null')</td><td>Patient</td><td>Read the created patient resource on the test server using the id from fixture-patient-create. Verify contents.</td><td>true</td><td>fixture-patient-create</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>Response</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 200(OK).</td><td>response</td><td>okay</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>CompareToSourceId</b></td><td><b>CompareToSourceExpression</b></td><td><b>Operator</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient.</td><td>fixture-patient-create</td><td>Patient.name.first().family</td><td>equals</td><td>false</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Read Patient</p><p><b>description</b>: Read a Patient and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>teardown</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div>"
+        },
+        "url": "http://hl7.org/fhir/TestScript/testscript-example",
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9876"
+        },
+        "version": "1.0",
+        "name": "TestScript Example",
+        "status": "draft",
+        "experimental": true,
+        "date": "2017-01-18",
+        "publisher": "HL7",
+        "contact": [
+          {
+            "name": "Support",
+            "telecom": [
+              {
+                "system": "email",
+                "value": "support@HL7.org",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "description": "TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts.",
+        "useContext": [
+          {
+            "code": {
+              "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+              "code": "focus"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/variant-state",
+                  "code": "positive"
+                }
+              ]
+            }
+          }
+        ],
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America (the)"
+              }
+            ]
+          }
+        ],
+        "purpose": "Patient Conditional Create (Update), Read and Delete Operations",
+        "copyright": "© HL7.org 2011+",
+        "metadata": {
+          "link": [
+            {
+              "url": "http://hl7.org/fhir/patient.html",
+              "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services."
+            }
+          ],
+          "capability": [
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Update, Read and Delete Operations",
+              "link": [
+                "http://hl7.org/fhir/http.html#delete",
+                "http://hl7.org/fhir/http.html#read",
+                "http://hl7.org/fhir/http.html#update"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            }
+          ]
+        },
+        "fixture": [
+          {
+            "id": "fixture-patient-create",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/example",
+              "display": "Peter Chalmers"
+            }
+          },
+          {
+            "id": "fixture-patient-minimum",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/example",
+              "display": "Peter Chalmers (minimum)"
+            }
+          }
+        ],
+        "profile": [
+          {
+            "id": "patient-profile",
+            "reference": "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "variable": [
+          {
+            "name": "createResourceId",
+            "path": "Patient/id",
+            "sourceId": "fixture-patient-create"
+          }
+        ],
+        "setup": {
+          "action": [
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "delete"
+                },
+                "resource": "Patient",
+                "label": "SetupDeletePatient",
+                "description": "Execute a delete operation to insure the patient does not exist on the server.",
+                "accept": "json",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 200(OK) or 204(No Content).",
+                "direction": "response",
+                "operator": "in",
+                "responseCode": "200,204",
+                "warningOnly": false
+              }
+            },
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "update"
+                },
+                "resource": "Patient",
+                "label": "SetupCreatePatient",
+                "description": "Create patient resource on test server using the contents of fixture-patient-create",
+                "accept": "json",
+                "contentType": "json",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}",
+                "sourceId": "fixture-patient-create"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 201(Created).",
+                "direction": "response",
+                "responseCode": "201",
+                "warningOnly": false
+              }
+            },
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "read"
+                },
+                "resource": "Patient",
+                "description": "Read the created patient resource on the test server using the id from fixture-patient-create. Verify contents.",
+                "encodeRequestUrl": true,
+                "targetId": "fixture-patient-create"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 200(OK).",
+                "direction": "response",
+                "response": "okay",
+                "warningOnly": false
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient.",
+                "compareToSourceId": "fixture-patient-create",
+                "compareToSourceExpression": "Patient.name.first().family",
+                "operator": "equals",
+                "warningOnly": false
+              }
+            }
+          ]
+        },
+        "test": [
+          {
+            "id": "01-ReadPatient",
+            "name": "Read Patient",
+            "description": "Read a Patient and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Read the patient resource on the test server using the id from fixture-patient-create. Prevent URL encoding of the request.",
+                  "encodeRequestUrl": false,
+                  "responseId": "fixture-patient-read",
+                  "targetId": "fixture-patient-create"
+                }
+              },
+              {
+                "assert": {
+                  "label": "01-ReadPatientOK",
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "direction": "response",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning.",
+                  "direction": "response",
+                  "headerField": "Last-Modified",
+                  "operator": "notEmpty",
+                  "warningOnly": true
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Patient.",
+                  "resource": "Patient",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Patient conforms to the base FHIR specification.",
+                  "validateProfileId": "patient-profile",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit sourceId reference to read responseId fixture.",
+                  "operator": "equals",
+                  "path": "fhir:Patient/fhir:name/fhir:family/@value",
+                  "sourceId": "fixture-patient-read",
+                  "value": "Chalmers",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Patient contains the expected given name 'Peter'. Uses explicit sourceId reference to read responseId fixture.",
+                  "operator": "equals",
+                  "path": "fhir:Patient/fhir:name/fhir:given/@value",
+                  "sourceId": "fixture-patient-read",
+                  "value": "Peter",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and implicit reference to read response payload.",
+                  "compareToSourceId": "fixture-patient-create",
+                  "compareToSourcePath": "fhir:Patient/fhir:name/fhir:family/@value",
+                  "operator": "equals",
+                  "path": "fhir:Patient/fhir:name/fhir:family/@value",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and explicit reference to read response payload and default operator of 'equals'.",
+                  "compareToSourceId": "fixture-patient-create",
+                  "compareToSourcePath": "fhir:Patient/fhir:name/fhir:given/@value",
+                  "path": "fhir:Patient/fhir:name/fhir:given/@value",
+                  "sourceId": "fixture-patient-read",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource contains the expected retained elements and values. Warning only to provide users with reviewable results.",
+                  "minimumId": "fixture-patient-minimum",
+                  "warningOnly": true
+                }
+              }
+            ]
+          }
+        ],
+        "teardown": {
+          "action": [
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "delete"
+                },
+                "resource": "Patient",
+                "description": "Delete the patient resource on the test server using the id from fixture-patient-create.",
+                "encodeRequestUrl": true,
+                "targetId": "fixture-patient-create"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "History TestScript Example",
+      "document": {
+        "resourceType": "TestScript",
+        "id": "testscript-example-history",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: testscript-example-history</p><p><b>url</b>: <b>http://hl7.org/fhir/TestScript/testscript-example-history</b></p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.9877</p><p><b>version</b>: 1.0</p><p><b>name</b>: TestScript Example History</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>date</b>: 18/01/2017</p><p><b>publisher</b>: HL7</p><p><b>contact</b>: </p><p><b>description</b>: TestScript example resource with setup to delete if present and create a new instance of a Patient then update that Patient to create a minimum history; and single test definition to get the history of that Patient with various asserts.</p><p><b>jurisdiction</b>: United States of America (the) <span>(Details : {urn:iso:std:iso:3166 code 'US' = 'United States of America', given as 'United States of America (the)'})</span></p><p><b>purpose</b>: Patient (Conditional) Create, Update, Delete and History (Instance) Operations</p><p><b>copyright</b>: © HL7.org 2011+</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/fhir/patient.html</a></td><td>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</td></tr></table><h3>Capabilities</h3><table><tr><td>-</td><td><b>Required</b></td><td><b>Validated</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Capabilities</b></td></tr><tr><td>*</td><td>true</td><td>false</td><td>Patient Update, Delete and History (Instance) Operations</td><td><a>http://hl7.org/fhir/http.html#update</a></td><td><a>CapabilityStatement/example</a></td></tr></table></blockquote><blockquote><p><b>fixture</b></p><p><b>autocreate</b>: false</p><p><b>autodelete</b>: false</p><p><b>resource</b>: <a>Peter Chalmers</a></p></blockquote><blockquote><p><b>fixture</b></p><p><b>autocreate</b>: false</p><p><b>autodelete</b>: false</p><p><b>resource</b>: <a>Donald Duck</a></p></blockquote><p><b>profile</b>: <a>Generated Summary: url: http://hl7.org/fhir/StructureDefinition/Bundle; version: 4.0.1; name: Bundle; ACTIVE; date: 01/11/2019 9:29:23 AM; publisher: Health Level Seven International (FHIR Infrastructure); description: A container for a collection of resources.; 4.0.1; RESOURCE; type: Bundle; baseDefinition: http://hl7.org/fhir/StructureDefinition/Resource; SPECIALIZATION</a></p><h3>Variables</h3><table><tr><td>-</td><td><b>Name</b></td><td><b>Path</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>createResourceId</td><td>Patient/id</td><td>fixture-patient-create</td></tr></table><blockquote><p><b>setup</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td></tr><tr><td>*</td><td>Delete (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code delete = 'Delete', stated as 'null')</td><td>Patient</td><td>SetupDeletePatient</td><td>Execute a delete operation to insure the patient does not exist on the server.</td><td>json</td><td>true</td><td>/${createResourceId}</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>Operator</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 200(OK) or 204(No Content).</td><td>response</td><td>in</td><td>200,204</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>ContentType</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>Update (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code update = 'Update', stated as 'null')</td><td>Patient</td><td>SetupCreatePatient</td><td>Create patient resource on test server using the contents of fixture-patient-create</td><td>json</td><td>json</td><td>true</td><td>/${createResourceId}</td><td>fixture-patient-create</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 201(Created).</td><td>response</td><td>201</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>ContentType</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>Update (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code update = 'Update', stated as 'null')</td><td>Patient</td><td>SetupUpdatePatient</td><td>Update patient resource on test server using the contents of fixture-patient-update</td><td>json</td><td>json</td><td>true</td><td>/${createResourceId}</td><td>fixture-patient-update</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 200(OK).</td><td>response</td><td>200</td><td>false</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: History Patient</p><p><b>description</b>: Get the history for a known Patient and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div>"
+        },
+        "url": "http://hl7.org/fhir/TestScript/testscript-example-history",
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9877"
+        },
+        "version": "1.0",
+        "name": "TestScript Example History",
+        "status": "draft",
+        "experimental": true,
+        "date": "2017-01-18",
+        "publisher": "HL7",
+        "contact": [
+          {
+            "name": "Support",
+            "telecom": [
+              {
+                "system": "email",
+                "value": "support@HL7.org",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "description": "TestScript example resource with setup to delete if present and create a new instance of a Patient then update that Patient to create a minimum history; and single test definition to get the history of that Patient with various asserts.",
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America (the)"
+              }
+            ]
+          }
+        ],
+        "purpose": "Patient (Conditional) Create, Update, Delete and History (Instance) Operations",
+        "copyright": "© HL7.org 2011+",
+        "metadata": {
+          "link": [
+            {
+              "url": "http://hl7.org/fhir/patient.html",
+              "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services."
+            }
+          ],
+          "capability": [
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Update, Delete and History (Instance) Operations",
+              "link": [
+                "http://hl7.org/fhir/http.html#update",
+                "http://hl7.org/fhir/http.html#delete",
+                "http://hl7.org/fhir/http.html#history"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            }
+          ]
+        },
+        "fixture": [
+          {
+            "id": "fixture-patient-create",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/example",
+              "display": "Peter Chalmers"
+            }
+          },
+          {
+            "id": "fixture-patient-update",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/pat1",
+              "display": "Donald Duck"
+            }
+          }
+        ],
+        "profile": [
+          {
+            "id": "bundle-profile",
+            "reference": "http://hl7.org/fhir/StructureDefinition/Bundle"
+          }
+        ],
+        "variable": [
+          {
+            "name": "createResourceId",
+            "path": "Patient/id",
+            "sourceId": "fixture-patient-create"
+          }
+        ],
+        "setup": {
+          "action": [
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "delete"
+                },
+                "resource": "Patient",
+                "label": "SetupDeletePatient",
+                "description": "Execute a delete operation to insure the patient does not exist on the server.",
+                "accept": "json",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 200(OK) or 204(No Content).",
+                "direction": "response",
+                "operator": "in",
+                "responseCode": "200,204",
+                "warningOnly": false
+              }
+            },
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "update"
+                },
+                "resource": "Patient",
+                "label": "SetupCreatePatient",
+                "description": "Create patient resource on test server using the contents of fixture-patient-create",
+                "accept": "json",
+                "contentType": "json",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}",
+                "sourceId": "fixture-patient-create"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 201(Created).",
+                "direction": "response",
+                "responseCode": "201",
+                "warningOnly": false
+              }
+            },
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "update"
+                },
+                "resource": "Patient",
+                "label": "SetupUpdatePatient",
+                "description": "Update patient resource on test server using the contents of fixture-patient-update",
+                "accept": "json",
+                "contentType": "json",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}",
+                "sourceId": "fixture-patient-update"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 200(OK).",
+                "direction": "response",
+                "responseCode": "200",
+                "warningOnly": false
+              }
+            }
+          ]
+        },
+        "test": [
+          {
+            "id": "01-HistoryPatient",
+            "name": "History Patient",
+            "description": "Get the history for a known Patient and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "history"
+                  },
+                  "resource": "Patient",
+                  "description": "Get the Patient history on the test server using the id from fixture-patient-create.",
+                  "accept": "json",
+                  "contentType": "json",
+                  "encodeRequestUrl": true,
+                  "targetId": "fixture-patient-create"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "direction": "response",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Bundle.",
+                  "resource": "Bundle",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Bundle conforms to the base FHIR specification.",
+                  "validateProfileId": "bundle-profile",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Bundle type equals 'history'.",
+                  "operator": "equals",
+                  "path": "fhir:Bundle/fhir:type/@value",
+                  "value": "history",
+                  "warningOnly": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Multisystem TestScript Example",
+      "document": {
+        "resourceType": "TestScript",
+        "id": "testscript-example-multisystem",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: testscript-example-multisystem</p><p><b>url</b>: <b>http://hl7.org/fhir/TestScript/testscript-example-multisystem</b></p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878</p><p><b>version</b>: 1.0</p><p><b>name</b>: testscript-example-multisystem</p><p><b>title</b>: Multisystem Test Script</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>date</b>: 18/01/2017</p><p><b>publisher</b>: HL7</p><p><b>contact</b>: </p><p><b>description</b>: TestScript example resource showing use of origin and destination for multisystem support. The single origin will execute a Patient read against the two destination systems using user defined dynamic variables. The test engine will wait at each operation action with a defined origin and destination for the origin test system to send the expected FHIR operation to the destination test system. Once the expected request and response is observed, the test engine will continue with the test execution.</p><p><b>jurisdiction</b>: United States of America (the) <span>(Details : {urn:iso:std:iso:3166 code 'US' = 'United States of America', given as 'United States of America (the)'})</span></p><p><b>purpose</b>: Patient Read Operation</p><p><b>copyright</b>: © HL7.org 2011+</p><h3>Origins</h3><table><tr><td>-</td><td><b>Index</b></td><td><b>Profile</b></td></tr><tr><td>*</td><td>1</td><td>FHIR-Client (Details: [not stated] code FHIR-Client = 'FHIR-Client', stated as 'null')</td></tr></table><blockquote><p><b>destination</b></p><p><b>index</b>: 1</p><p><b>profile</b>: FHIR-Server (Details: [not stated] code FHIR-Server = 'FHIR-Server', stated as 'null')</p></blockquote><blockquote><p><b>destination</b></p><p><b>index</b>: 2</p><p><b>profile</b>: FHIR-Server (Details: [not stated] code FHIR-Server = 'FHIR-Server', stated as 'null')</p></blockquote><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/fhir/patient.html</a></td><td>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</td></tr></table><blockquote><p><b>capability</b></p><p><b>required</b>: true</p><p><b>validated</b>: false</p><p><b>description</b>: Patient Read Operation</p><p><b>origin</b>: 1</p><p><b>destination</b>: 1</p><p><b>link</b>: <a>http://hl7.org/fhir/http.html#read</a></p><p><b>capabilities</b>: <a>CapabilityStatement/example</a></p></blockquote><blockquote><p><b>capability</b></p><p><b>required</b>: true</p><p><b>validated</b>: false</p><p><b>description</b>: Patient Read Operation</p><p><b>origin</b>: 1</p><p><b>destination</b>: 2</p><p><b>link</b>: <a>http://hl7.org/fhir/http.html#read</a></p><p><b>capabilities</b>: <a>CapabilityStatement/example</a></p></blockquote></blockquote><blockquote><p><b>variable</b></p><p><b>name</b>: Dest1PatientResourceId</p><p><b>defaultValue</b>: example</p></blockquote><blockquote><p><b>variable</b></p><p><b>name</b>: Dest2PatientResourceId</p><p><b>defaultValue</b>: example</p></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: ReadPatient-Destination1</p><p><b>description</b>: Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: ReadPatient-Destination2</p><p><b>description</b>: Read a Patient from the second destination test system using the user defined dynamic variable ${Dest2PatientResourceId}. Perform basic validation.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div>"
+        },
+        "url": "http://hl7.org/fhir/TestScript/testscript-example-multisystem",
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878"
+        },
+        "version": "1.0",
+        "name": "testscript-example-multisystem",
+        "title": "Multisystem Test Script",
+        "status": "draft",
+        "experimental": true,
+        "date": "2017-01-18",
+        "publisher": "HL7",
+        "contact": [
+          {
+            "name": "Support",
+            "telecom": [
+              {
+                "system": "email",
+                "value": "support@HL7.org",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "description": "TestScript example resource showing use of origin and destination for multisystem support. The single origin will execute a Patient read against the two destination systems using user defined dynamic variables. The test engine will wait at each operation action with a defined origin and destination for the origin test system to send the expected FHIR operation to the destination test system. Once the expected request and response is observed, the test engine will continue with the test execution.",
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America (the)"
+              }
+            ]
+          }
+        ],
+        "purpose": "Patient Read Operation",
+        "copyright": "© HL7.org 2011+",
+        "origin": [
+          {
+            "index": 1,
+            "profile": {
+              "code": "FHIR-Client"
+            }
+          }
+        ],
+        "destination": [
+          {
+            "index": 1,
+            "profile": {
+              "code": "FHIR-Server"
+            }
+          },
+          {
+            "index": 2,
+            "profile": {
+              "code": "FHIR-Server"
+            }
+          }
+        ],
+        "metadata": {
+          "link": [
+            {
+              "url": "http://hl7.org/fhir/patient.html",
+              "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services."
+            }
+          ],
+          "capability": [
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Read Operation",
+              "origin": [
+                1
+              ],
+              "destination": 1,
+              "link": [
+                "http://hl7.org/fhir/http.html#read"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            },
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Read Operation",
+              "origin": [
+                1
+              ],
+              "destination": 2,
+              "link": [
+                "http://hl7.org/fhir/http.html#read"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            }
+          ]
+        },
+        "variable": [
+          {
+            "name": "Dest1PatientResourceId",
+            "defaultValue": "example"
+          },
+          {
+            "name": "Dest2PatientResourceId",
+            "defaultValue": "example"
+          }
+        ],
+        "test": [
+          {
+            "id": "01-ReadPatient-Destination1",
+            "name": "ReadPatient-Destination1",
+            "description": "Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Read a Patient from the first destination test system and perform basic validation.",
+                  "accept": "xml",
+                  "contentType": "xml",
+                  "destination": 1,
+                  "encodeRequestUrl": true,
+                  "origin": 1,
+                  "params": "/${Dest1PatientResourceId}",
+                  "requestId": "request-read-patient-01"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the request method GET was sent by the client system under test.",
+                  "requestMethod": "get",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the client requested an Accept of xml.",
+                  "direction": "request",
+                  "headerField": "Accept",
+                  "operator": "contains",
+                  "value": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "direction": "response",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned format is XML.",
+                  "direction": "response",
+                  "contentType": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Patient.",
+                  "direction": "response",
+                  "resource": "Patient",
+                  "warningOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "02-ReadPatient-Destination2",
+            "name": "ReadPatient-Destination2",
+            "description": "Read a Patient from the second destination test system using the user defined dynamic variable ${Dest2PatientResourceId}. Perform basic validation.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Read a Patient from the second destination test system and perform basic validation.",
+                  "accept": "xml",
+                  "contentType": "xml",
+                  "destination": 2,
+                  "encodeRequestUrl": true,
+                  "origin": 1,
+                  "params": "/${Dest2PatientResourceId}",
+                  "requestHeader": [
+                    {
+                      "field": "Accept-Charset",
+                      "value": "utf-8"
+                    }
+                  ]
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the client requested an Accept of xml.",
+                  "direction": "request",
+                  "headerField": "Accept",
+                  "operator": "contains",
+                  "value": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "direction": "response",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned format is XML.",
+                  "direction": "response",
+                  "contentType": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Patient.",
+                  "direction": "response",
+                  "resource": "Patient",
+                  "warningOnly": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Read TestScript Example",
+      "document": {
+        "resourceType": "TestScript",
+        "id": "testscript-example-readtest",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: testscript-example-readtest</p><p><b>url</b>: <b>http://hl7.org/fhir/TestScript/testscript-example-readtest</b></p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.9879</p><p><b>version</b>: 1.0</p><p><b>name</b>: TestScript Example Read Test</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>date</b>: 18/01/2017</p><p><b>publisher</b>: HL7</p><p><b>contact</b>: </p><p><b>description</b>: TestScript example resource with ported Sprinkler basic read tests R001, R002, R003, R004. The read tests will utilize user defined dynamic variables that will hold the Patient resource id values.</p><p><b>jurisdiction</b>: United States of America (the) <span>(Details : {urn:iso:std:iso:3166 code 'US' = 'United States of America', given as 'United States of America (the)'})</span></p><p><b>purpose</b>: Patient Read Operation</p><p><b>copyright</b>: © HL7.org 2011+</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/fhir/patient.html</a></td><td>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</td></tr></table><h3>Capabilities</h3><table><tr><td>-</td><td><b>Required</b></td><td><b>Validated</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Capabilities</b></td></tr><tr><td>*</td><td>true</td><td>false</td><td>Patient Read Operation</td><td><a>http://hl7.org/fhir/http.html#read</a></td><td><a>CapabilityStatement/example</a></td></tr></table></blockquote><p><b>profile</b>: <a>Generated Summary: url: http://hl7.org/fhir/StructureDefinition/Patient; version: 4.0.1; name: Patient; ACTIVE; date: 01/11/2019 9:29:23 AM; publisher: Health Level Seven International (Patient Administration); description: Demographics and other administrative information about an individual or animal receiving care or other health-related services.; purpose: Tracking patient is the center of the healthcare process.; 4.0.1; RESOURCE; type: Patient; baseDefinition: http://hl7.org/fhir/StructureDefinition/DomainResource; SPECIALIZATION</a></p><blockquote><p><b>variable</b></p><p><b>name</b>: KnownPatientResourceId</p><p><b>defaultValue</b>: example</p></blockquote><blockquote><p><b>variable</b></p><p><b>name</b>: NonExistsPatientResourceId</p><p><b>defaultValue</b>: does-not-exist</p></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Sprinkler Read Test R001</p><p><b>description</b>: Read a known Patient and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Sprinkler Read Test R002</p><p><b>description</b>: Read an unknown Resource Type and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Sprinkler Read Test R003</p><p><b>description</b>: Read a known, non-existing Patient and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Sprinkler Read Test R004</p><p><b>description</b>: Read a Patient using a known bad formatted resource id and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div>"
+        },
+        "url": "http://hl7.org/fhir/TestScript/testscript-example-readtest",
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9879"
+        },
+        "version": "1.0",
+        "name": "TestScript Example Read Test",
+        "status": "draft",
+        "experimental": true,
+        "date": "2017-01-18",
+        "publisher": "HL7",
+        "contact": [
+          {
+            "name": "Support",
+            "telecom": [
+              {
+                "system": "email",
+                "value": "support@HL7.org",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "description": "TestScript example resource with ported Sprinkler basic read tests R001, R002, R003, R004. The read tests will utilize user defined dynamic variables that will hold the Patient resource id values.",
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America (the)"
+              }
+            ]
+          }
+        ],
+        "purpose": "Patient Read Operation",
+        "copyright": "© HL7.org 2011+",
+        "metadata": {
+          "link": [
+            {
+              "url": "http://hl7.org/fhir/patient.html",
+              "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services."
+            }
+          ],
+          "capability": [
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Read Operation",
+              "link": [
+                "http://hl7.org/fhir/http.html#read"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            }
+          ]
+        },
+        "profile": [
+          {
+            "id": "patient-profile",
+            "reference": "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "variable": [
+          {
+            "name": "KnownPatientResourceId",
+            "defaultValue": "example"
+          },
+          {
+            "name": "NonExistsPatientResourceId",
+            "defaultValue": "does-not-exist"
+          }
+        ],
+        "test": [
+          {
+            "id": "R001",
+            "name": "Sprinkler Read Test R001",
+            "description": "Read a known Patient and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Read the known Patient resource on the destination test system using the user defined dynamic variable ${KnownPatientResourceId}.",
+                  "accept": "xml",
+                  "encodeRequestUrl": true,
+                  "params": "/${KnownPatientResourceId}"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned format is XML.",
+                  "contentType": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning.",
+                  "headerField": "Last-Modified",
+                  "operator": "notEmpty",
+                  "warningOnly": true
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Patient.",
+                  "resource": "Patient",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Patient conforms to the base FHIR specification.",
+                  "validateProfileId": "patient-profile",
+                  "warningOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "R002",
+            "name": "Sprinkler Read Test R002",
+            "description": "Read an unknown Resource Type and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Attempt to read the Parameters resource type. What we really want here is an illegal type but the build process won't allow that. Parameters is a valid resource which doesn't have an end-point so, this should fail.",
+                  "accept": "xml",
+                  "encodeRequestUrl": true,
+                  "params": "/1"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 404(Not Found).",
+                  "response": "notFound",
+                  "warningOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "R003",
+            "name": "Sprinkler Read Test R003",
+            "description": "Read a known, non-existing Patient and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Attempt to read the non-existing Patient resource on the destination test system using the user defined dynamic variable ${NonExistsPatientResourceId}.",
+                  "accept": "xml",
+                  "encodeRequestUrl": true,
+                  "params": "/${NonExistsPatientResourceId}"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 404(Not Found).",
+                  "response": "notFound",
+                  "warningOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "R004",
+            "name": "Sprinkler Read Test R004",
+            "description": "Read a Patient using a known bad formatted resource id and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "resource": "Patient",
+                  "description": "Attempt to read a Patient resource on the destination test system using known bad formatted resource id.",
+                  "accept": "xml",
+                  "encodeRequestUrl": true,
+                  "params": "/ID-may-not-contain-CAPITALS"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 400(Bad Request).",
+                  "response": "bad",
+                  "warningOnly": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Search TestScript Example",
+      "document": {
+        "resourceType": "TestScript",
+        "id": "testscript-example-search",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: testscript-example-search</p><p><b>url</b>: <b>http://hl7.org/fhir/TestScript/testscript-example-search</b></p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.9881</p><p><b>version</b>: 1.0</p><p><b>name</b>: TestScript Example Search</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>date</b>: 18/01/2017</p><p><b>publisher</b>: HL7</p><p><b>contact</b>: </p><p><b>description</b>: TestScript example resource with simple Patient search test. The read tests will utilize user defined dynamic variables that will hold the Patient search parameter values.</p><p><b>jurisdiction</b>: United States of America (the) <span>(Details : {urn:iso:std:iso:3166 code 'US' = 'United States of America', given as 'United States of America (the)'})</span></p><p><b>purpose</b>: Patient Search Operation</p><p><b>copyright</b>: © HL7.org 2011+</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/fhir/patient.html</a></td><td>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</td></tr></table><h3>Capabilities</h3><table><tr><td>-</td><td><b>Required</b></td><td><b>Validated</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Capabilities</b></td></tr><tr><td>*</td><td>true</td><td>false</td><td>Patient Search Operation</td><td><a>http://hl7.org/fhir/http.html#search</a></td><td><a>CapabilityStatement/example</a></td></tr></table></blockquote><h3>Fixtures</h3><table><tr><td>-</td><td><b>Autocreate</b></td><td><b>Autodelete</b></td><td><b>Resource</b></td></tr><tr><td>*</td><td>false</td><td>false</td><td><a>Peter Chalmers</a></td></tr></table><p><b>profile</b>: <a>Generated Summary: url: http://hl7.org/fhir/StructureDefinition/Bundle; version: 4.0.1; name: Bundle; ACTIVE; date: 01/11/2019 9:29:23 AM; publisher: Health Level Seven International (FHIR Infrastructure); description: A container for a collection of resources.; 4.0.1; RESOURCE; type: Bundle; baseDefinition: http://hl7.org/fhir/StructureDefinition/Resource; SPECIALIZATION</a></p><blockquote><p><b>variable</b></p><p><b>name</b>: PatientCreateLocation</p><p><b>headerField</b>: Location</p><p><b>sourceId</b>: PatientCreateResponse</p></blockquote><blockquote><p><b>variable</b></p><p><b>name</b>: PatientSearchFamilyName</p><p><b>description</b>: Enter patient search criteria for a known family name on the target system</p><p><b>hint</b>: [Family name]</p></blockquote><blockquote><p><b>variable</b></p><p><b>name</b>: PatientSearchGivenName</p><p><b>description</b>: Enter patient search criteria for a known given name on the target system</p><p><b>hint</b>: [Given name]</p></blockquote><blockquote><p><b>variable</b></p><p><b>name</b>: PatientSearchBundleTotal</p><p><b>description</b>: Evaluate the returned Patient searchset Bundle.total value</p><p><b>expression</b>: Bundle.total.toInteger()</p></blockquote><blockquote><p><b>setup</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td></tr><tr><td>*</td><td>Search (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code search = 'Search', stated as 'null')</td><td>Patient</td><td>Test simple search to verify server support.</td><td>xml</td><td>true</td><td>?family=DONTEXPECTAMATCH&amp;given=DONTEXPECTAMATCH</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>Operator</b></td><td><b>RequestURL</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the request url contains the family search parameter.</td><td>request</td><td>contains</td><td>family</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 200(OK).</td><td>response</td><td>200</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Resource</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned resource type is Bundle.</td><td>Bundle</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>NavigationLinks</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned Bundle correctly defines the navigation links.</td><td>true</td><td>false</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Patient Create Search</p><p><b>description</b>: Create a Patient resource and capture the returned HTTP Header Location. Then search for (read) that Patient using the Location URL value and validate the response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Patient Search Dynamic</p><p><b>description</b>: Search for Patient resources using the user defined dynamic variables ${PatientSearchFamilyName} and ${PatientSearchGivenName} and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div>"
+        },
+        "url": "http://hl7.org/fhir/TestScript/testscript-example-search",
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9881"
+        },
+        "version": "1.0",
+        "name": "TestScript Example Search",
+        "status": "draft",
+        "experimental": true,
+        "date": "2017-01-18",
+        "publisher": "HL7",
+        "contact": [
+          {
+            "name": "Support",
+            "telecom": [
+              {
+                "system": "email",
+                "value": "support@HL7.org",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "description": "TestScript example resource with simple Patient search test. The read tests will utilize user defined dynamic variables that will hold the Patient search parameter values.",
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America (the)"
+              }
+            ]
+          }
+        ],
+        "purpose": "Patient Search Operation",
+        "copyright": "© HL7.org 2011+",
+        "metadata": {
+          "link": [
+            {
+              "url": "http://hl7.org/fhir/patient.html",
+              "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services."
+            }
+          ],
+          "capability": [
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Search Operation",
+              "link": [
+                "http://hl7.org/fhir/http.html#search"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            }
+          ]
+        },
+        "fixture": [
+          {
+            "id": "fixture-patient-create",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/example",
+              "display": "Peter Chalmers"
+            }
+          }
+        ],
+        "profile": [
+          {
+            "id": "bundle-profile",
+            "reference": "http://hl7.org/fhir/StructureDefinition/Bundle"
+          }
+        ],
+        "variable": [
+          {
+            "name": "PatientCreateLocation",
+            "headerField": "Location",
+            "sourceId": "PatientCreateResponse"
+          },
+          {
+            "name": "PatientSearchFamilyName",
+            "description": "Enter patient search criteria for a known family name on the target system",
+            "hint": "[Family name]"
+          },
+          {
+            "name": "PatientSearchGivenName",
+            "description": "Enter patient search criteria for a known given name on the target system",
+            "hint": "[Given name]"
+          },
+          {
+            "name": "PatientSearchBundleTotal",
+            "description": "Evaluate the returned Patient searchset Bundle.total value",
+            "expression": "Bundle.total.toInteger()"
+          }
+        ],
+        "setup": {
+          "action": [
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "search"
+                },
+                "resource": "Patient",
+                "description": "Test simple search to verify server support.",
+                "accept": "xml",
+                "encodeRequestUrl": true,
+                "params": "?family=DONTEXPECTAMATCH&given=DONTEXPECTAMATCH"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the request url contains the family search parameter.",
+                "direction": "request",
+                "operator": "contains",
+                "requestURL": "family",
+                "warningOnly": false
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 200(OK).",
+                "direction": "response",
+                "responseCode": "200",
+                "warningOnly": false
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned resource type is Bundle.",
+                "resource": "Bundle",
+                "warningOnly": false
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned Bundle correctly defines the navigation links.",
+                "navigationLinks": true,
+                "warningOnly": false
+              }
+            }
+          ]
+        },
+        "test": [
+          {
+            "id": "01-PatientCreateSearch",
+            "name": "Patient Create Search",
+            "description": "Create a Patient resource and capture the returned HTTP Header Location. Then search for (read) that Patient using the Location URL value and validate the response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "create"
+                  },
+                  "resource": "Patient",
+                  "description": "Create a Patient resource and capture the returned HTTP Header Location.",
+                  "accept": "xml",
+                  "contentType": "xml",
+                  "encodeRequestUrl": true,
+                  "responseId": "PatientCreateResponse",
+                  "sourceId": "fixture-patient-create"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 201(Created).",
+                  "response": "created",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP Header Location is present.",
+                  "direction": "response",
+                  "headerField": "Location",
+                  "operator": "notEmpty",
+                  "warningOnly": false
+                }
+              },
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "read"
+                  },
+                  "description": "Read the created Patient using the captured Location URL value.",
+                  "accept": "xml",
+                  "encodeRequestUrl": true,
+                  "url": "${PatientCreateLocation}"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Patient.",
+                  "resource": "Patient",
+                  "warningOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "02-PatientSearchDynamic",
+            "name": "Patient Search Dynamic",
+            "description": "Search for Patient resources using the user defined dynamic variables ${PatientSearchFamilyName} and ${PatientSearchGivenName} and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "search"
+                  },
+                  "resource": "Patient",
+                  "description": "Search for Patient resources on the destination test system.",
+                  "accept": "xml",
+                  "encodeRequestUrl": true,
+                  "params": "?family=${PatientSearchFamilyName}&given=${PatientSearchGivenName}"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned format is XML.",
+                  "contentType": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned resource type is Bundle.",
+                  "resource": "Bundle",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Bundle conforms to the base FHIR specification.",
+                  "validateProfileId": "bundle-profile",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Bundle type equals 'searchset'.",
+                  "operator": "equals",
+                  "path": "fhir:Bundle/fhir:type/@value",
+                  "value": "searchset",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned Bundle total is greater than or equal to the number of returned entries.",
+                  "expression": "Bundle.total.toInteger() >= entry.count()",
+                  "warningOnly": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Update TestScript Example",
+      "document": {
+        "resourceType": "TestScript",
+        "id": "testscript-example-update",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: testscript-example-update</p><p><b>url</b>: <b>http://hl7.org/fhir/TestScript/testscript-example-update</b></p><p><b>identifier</b>: urn:oid:1.3.6.1.4.1.21367.2005.3.7.9882</p><p><b>version</b>: 1.0</p><p><b>name</b>: TestScript Example Update</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>date</b>: 18/01/2017</p><p><b>publisher</b>: HL7</p><p><b>contact</b>: </p><p><b>description</b>: TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to update that Patient with various asserts.</p><p><b>jurisdiction</b>: United States of America (the) <span>(Details : {urn:iso:std:iso:3166 code 'US' = 'United States of America', given as 'United States of America (the)'})</span></p><p><b>purpose</b>: Patient (Conditional) Create, Update, Delete Operations</p><p><b>copyright</b>: © HL7.org 2011+</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/fhir/patient.html</a></td><td>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</td></tr></table><h3>Capabilities</h3><table><tr><td>-</td><td><b>Required</b></td><td><b>Validated</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Capabilities</b></td></tr><tr><td>*</td><td>true</td><td>false</td><td>Patient Update and Delete Operations</td><td><a>http://hl7.org/fhir/http.html#update</a></td><td><a>CapabilityStatement/example</a></td></tr></table></blockquote><blockquote><p><b>fixture</b></p><p><b>autocreate</b>: false</p><p><b>autodelete</b>: false</p><p><b>resource</b>: <a>Peter Chalmers</a></p></blockquote><blockquote><p><b>fixture</b></p><p><b>autocreate</b>: false</p><p><b>autodelete</b>: false</p><p><b>resource</b>: <a>Donald Duck</a></p></blockquote><p><b>profile</b>: <a>Generated Summary: url: http://hl7.org/fhir/StructureDefinition/Patient; version: 4.0.1; name: Patient; ACTIVE; date: 01/11/2019 9:29:23 AM; publisher: Health Level Seven International (Patient Administration); description: Demographics and other administrative information about an individual or animal receiving care or other health-related services.; purpose: Tracking patient is the center of the healthcare process.; 4.0.1; RESOURCE; type: Patient; baseDefinition: http://hl7.org/fhir/StructureDefinition/DomainResource; SPECIALIZATION</a></p><h3>Variables</h3><table><tr><td>-</td><td><b>Name</b></td><td><b>Path</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>createResourceId</td><td>Patient/id</td><td>fixture-patient-create</td></tr></table><blockquote><p><b>setup</b></p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td></tr><tr><td>*</td><td>Delete (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code delete = 'Delete', stated as 'null')</td><td>Patient</td><td>SetupDeletePatient</td><td>Execute a delete operation to insure the patient does not exist on the server.</td><td>xml</td><td>true</td><td>/${createResourceId}</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>Operator</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 200(OK) or 204(No Content).</td><td>response</td><td>in</td><td>200,204</td><td>false</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Label</b></td><td><b>Description</b></td><td><b>Accept</b></td><td><b>ContentType</b></td><td><b>EncodeRequestUrl</b></td><td><b>Params</b></td><td><b>SourceId</b></td></tr><tr><td>*</td><td>Update (Details: http://terminology.hl7.org/CodeSystem/testscript-operation-codes code update = 'Update', stated as 'null')</td><td>Patient</td><td>SetupCreatePatient</td><td>Create patient resource on test server using the contents of fixture-patient-create</td><td>xml</td><td>xml</td><td>true</td><td>/${createResourceId}</td><td>fixture-patient-create</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td><td><b>Description</b></td><td><b>Direction</b></td><td><b>ResponseCode</b></td><td><b>WarningOnly</b></td></tr><tr><td>*</td><td>Confirm that the returned HTTP status is 201(Created).</td><td>response</td><td>201</td><td>false</td></tr></table></blockquote></blockquote><blockquote><p><b>test</b></p><p><b>name</b>: Update Patient</p><p><b>description</b>: Update a Patient and validate response.</p><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div>"
+        },
+        "url": "http://hl7.org/fhir/TestScript/testscript-example-update",
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9882"
+        },
+        "version": "1.0",
+        "name": "TestScript Example Update",
+        "status": "draft",
+        "experimental": true,
+        "date": "2017-01-18",
+        "publisher": "HL7",
+        "contact": [
+          {
+            "name": "Support",
+            "telecom": [
+              {
+                "system": "email",
+                "value": "support@HL7.org",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "description": "TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to update that Patient with various asserts.",
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America (the)"
+              }
+            ]
+          }
+        ],
+        "purpose": "Patient (Conditional) Create, Update, Delete Operations",
+        "copyright": "© HL7.org 2011+",
+        "metadata": {
+          "link": [
+            {
+              "url": "http://hl7.org/fhir/patient.html",
+              "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services."
+            }
+          ],
+          "capability": [
+            {
+              "required": true,
+              "validated": false,
+              "description": "Patient Update and Delete Operations",
+              "link": [
+                "http://hl7.org/fhir/http.html#update",
+                "http://hl7.org/fhir/http.html#delete"
+              ],
+              "capabilities": "CapabilityStatement/example"
+            }
+          ]
+        },
+        "fixture": [
+          {
+            "id": "fixture-patient-create",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/example",
+              "display": "Peter Chalmers"
+            }
+          },
+          {
+            "id": "fixture-patient-update",
+            "autocreate": false,
+            "autodelete": false,
+            "resource": {
+              "reference": "Patient/pat1",
+              "display": "Donald Duck"
+            }
+          }
+        ],
+        "profile": [
+          {
+            "id": "patient-profile",
+            "reference": "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "variable": [
+          {
+            "name": "createResourceId",
+            "path": "Patient/id",
+            "sourceId": "fixture-patient-create"
+          }
+        ],
+        "setup": {
+          "action": [
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "delete"
+                },
+                "resource": "Patient",
+                "label": "SetupDeletePatient",
+                "description": "Execute a delete operation to insure the patient does not exist on the server.",
+                "accept": "xml",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 200(OK) or 204(No Content).",
+                "direction": "response",
+                "operator": "in",
+                "responseCode": "200,204",
+                "warningOnly": false
+              }
+            },
+            {
+              "operation": {
+                "type": {
+                  "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                  "code": "update"
+                },
+                "resource": "Patient",
+                "label": "SetupCreatePatient",
+                "description": "Create patient resource on test server using the contents of fixture-patient-create",
+                "accept": "xml",
+                "contentType": "xml",
+                "encodeRequestUrl": true,
+                "params": "/${createResourceId}",
+                "sourceId": "fixture-patient-create"
+              }
+            },
+            {
+              "assert": {
+                "description": "Confirm that the returned HTTP status is 201(Created).",
+                "direction": "response",
+                "responseCode": "201",
+                "warningOnly": false
+              }
+            }
+          ]
+        },
+        "test": [
+          {
+            "id": "01-UpdatePatient",
+            "name": "Update Patient",
+            "description": "Update a Patient and validate response.",
+            "action": [
+              {
+                "operation": {
+                  "type": {
+                    "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+                    "code": "update"
+                  },
+                  "resource": "Patient",
+                  "label": "SetupUpdatePatient",
+                  "description": "Update patient resource on test server using the contents of fixture-patient-update",
+                  "accept": "xml",
+                  "contentType": "xml",
+                  "encodeRequestUrl": true,
+                  "params": "/${createResourceId}",
+                  "sourceId": "fixture-patient-update"
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP status is 200(OK).",
+                  "response": "okay",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned format is XML.",
+                  "contentType": "xml",
+                  "warningOnly": false
+                }
+              },
+              {
+                "assert": {
+                  "description": "Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning.",
+                  "headerField": "Last-Modified",
+                  "operator": "notEmpty",
+                  "warningOnly": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "7.3Resource TestScript - Content",
+    "introduction": "A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.\nThis resource is referenced by TestReport",
+    "Scope and Usage": "The TestScript resource is used to define tests that can be executed on one or more FHIR servers. The TestScript resource would typically contain a list of fixtures (required resources used in the tests) setup procedures a suite of thematically related tests teardown procedures\nFor example, one TestScript might feature a set of tests focusing on searching Patients and validating the Bundle responses. The fixtures for such a test would contain a list of Patient resources that are required for the test\r\nto complete successfully. The setup procedures create the fixtures on the FHIR server being tested. A series\r\nof tests execute various search parameters and search for the fixtures in the results. The teardown procedures would then clean up (delete) the fixtures on FHIR server that were created during the setup procedures.\nThe purpose of the TestScript is to encode in an executable representation tests that can be used to determine whether a given FHIR server adheres to the FHIR specification and determine whether two or more FHIR servers implement capabilities in a compatible or interoperable manner. It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange Bundles of Resources (such as returned from the Patient $everything operation ).\n",
+    "Boundaries and Relationships": "The TestScript resource should NOT be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept.\r\nThe TestScript resource is an infrastructure support resource used to represent standardized tests to determine an\r\nimplementation's level of adherence to the FHIR specification.\nTestScript is a part of the conformance framework and is used to validate the behavior of FHIR systems, specifically their correct\r\nimplementation of StructureDefinition, ValueSet, OperationDefinition, CapabilityStatement and other FHIR resources that govern system behavior.\r\nTestScript instances may be included as part of ImplementationGuides to help define and test the desired behavior of systems that\r\nchoose to comply with the implementation guide.\nThe following resources represent the FHIR conformance framework that are used to express the expected behavior of a FHIR compliant system:\nValueSet ConceptMap StructureDefinition CapabilityStatement OperationDefinition SearchParameter ImplementationGuide",
+    "Background and Context": "The TestScript resource is designed to establish testing as a first class artifact within the FHIR specification.  This resource allows defining a suite of tests that can be executed on one or more FHIR servers and clients.\nImplementers should be familiar with the testing concepts and descriptions found in Testing FHIR before working with this resource.",
+    "Notes": "Please refer to the Testing FHIR - How Tos for examples on working with this resource."
+  },
+  "definitions": "TestScript: a structured set of tests against a fhir server or client implementation to determine compliance against the fhir specification. [STOP]\nTestScript.url: an absolute uri that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. this should be globally unique and should be a literal address at which at which an authoritative instance of this test script is (or will be) published. this url can be the target of a canonical reference. it shall remain the same when the test script is stored on different servers. [STOP]\nTestScript.identifier: a formal identifier that is used to identify this test script when it is represented in other formats, or referenced in a specification, model, design or an instance. [STOP]\nTestScript.version: the identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. this is an arbitrary value managed by the test script author and is not expected to be globally unique. for example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. there is also no expectation that versions can be placed in a lexicographical sequence. [STOP]\nTestScript.name: a natural language name identifying the test script. this name should be usable as an identifier for the module by machine processing applications such as code generation. [STOP]\nTestScript.title: a short, descriptive, user-friendly title for the test script. [STOP]\nTestScript.status: the status of this test script. enables tracking the life-cycle of the content. [STOP]\nTestScript.experimental: a boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage. [STOP]\nTestScript.date: the date  (and optionally time) when the test script was published. the date must change when the business version changes and it must change if the status code changes. in addition, it should change when the substantive content of the test script changes. [STOP]\nTestScript.publisher: the name of the organization or individual that published the test script. [STOP]\nTestScript.contact: contact details to assist a user in finding and communicating with the publisher. [STOP]\nTestScript.description: a free text natural language description of the test script from a consumer's perspective. [STOP]\nTestScript.useContext: the content was developed with a focus and intent of supporting the contexts that are listed. these contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate test script instances. [STOP]\nTestScript.jurisdiction: a legal or geographic region in which the test script is intended to be used. [STOP]\nTestScript.purpose: explanation of why this test script is needed and why it has been designed as it has. [STOP]\nTestScript.copyright: a copyright statement relating to the test script and/or its contents. copyright statements are generally legal restrictions on the use and publishing of the test script. [STOP]\nTestScript.origin: an abstract server used in operations within this test script in the origin element. [STOP]\nTestScript.origin.index: abstract name given to an origin server in this test script.  the name is provided as a number starting at 1. [STOP]\nTestScript.origin.profile: the type of origin profile the test system supports. [STOP]\nTestScript.destination: an abstract server used in operations within this test script in the destination element. [STOP]\nTestScript.destination.index: abstract name given to a destination server in this test script.  the name is provided as a number starting at 1. [STOP]\nTestScript.destination.profile: the type of destination profile the test system supports. [STOP]\nTestScript.metadata: the required capability must exist and are assumed to function correctly on the fhir server being tested. [STOP]\nTestScript.metadata.link: a link to the fhir specification that this test is covering. [STOP]\nTestScript.metadata.link.url: url to a particular requirement or feature within the fhir specification. [STOP]\nTestScript.metadata.link.description: short description of the link. [STOP]\nTestScript.metadata.capability: capabilities that must exist and are assumed to function correctly on the fhir server being tested. [STOP]\nTestScript.metadata.capability.required: whether or not the test execution will require the given capabilities of the server in order for this test script to execute. [STOP]\nTestScript.metadata.capability.validated: whether or not the test execution will validate the given capabilities of the server in order for this test script to execute. [STOP]\nTestScript.metadata.capability.description: description of the capabilities that this test script is requiring the server to support. [STOP]\nTestScript.metadata.capability.origin: which origin server these requirements apply to. [STOP]\nTestScript.metadata.capability.destination: which server these requirements apply to. [STOP]\nTestScript.metadata.capability.link: links to the fhir specification that describes this interaction and the resources involved in more detail. [STOP]\nTestScript.metadata.capability.capabilities: minimum capabilities required of server for test script to execute successfully.   if server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped. [STOP]\nTestScript.fixture: fixture in the test script - by reference (uri). all fixtures are required for the test script to execute. [STOP]\nTestScript.fixture.autocreate: whether or not to implicitly create the fixture during setup. if true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the testscript.setup section. [STOP]\nTestScript.fixture.autodelete: whether or not to implicitly delete the fixture during teardown. if true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the testscript.teardown section. [STOP]\nTestScript.fixture.resource: reference to the resource (containing the contents of the resource needed for operations). [STOP]\nTestScript.profile: reference to the profile to be used for validation. [STOP]\nTestScript.variable: variable is set based either on element value in response body or on header field value in the response headers. [STOP]\nTestScript.variable.name: descriptive name for this variable. [STOP]\nTestScript.variable.defaultValue: a default, hard-coded, or user-defined value for this variable. [STOP]\nTestScript.variable.description: a free text natural language description of the variable and its purpose. [STOP]\nTestScript.variable.expression: the fhirpath expression to evaluate against the fixture body. when variables are defined, only one of either expression, headerfield or path must be specified. [STOP]\nTestScript.variable.headerField: will be used to grab the http header field value from the headers that sourceid is pointing to. [STOP]\nTestScript.variable.hint: displayable text string with hint help information to the user when entering a default value. [STOP]\nTestScript.variable.path: xpath or jsonpath to evaluate against the fixture body.  when variables are defined, only one of either expression, headerfield or path must be specified. [STOP]\nTestScript.variable.sourceId: fixture to evaluate the xpath/jsonpath expression or the headerfield  against within this variable. [STOP]\nTestScript.setup: a series of required setup operations before tests are executed. [STOP]\nTestScript.setup.action: action would contain either an operation or an assertion. [STOP]\nTestScript.setup.action.operation: the operation to perform. [STOP]\nTestScript.setup.action.operation.type: server interaction or operation type. [STOP]\nTestScript.setup.action.operation.resource: the type of the resource.  see http://build.fhir.org/resourcelist.html. [STOP]\nTestScript.setup.action.operation.label: the label would be used for tracking/logging purposes by test engines. [STOP]\nTestScript.setup.action.operation.description: the description would be used by test engines for tracking and reporting purposes. [STOP]\nTestScript.setup.action.operation.accept: the mime-type to use for restful operation in the 'accept' header. [STOP]\nTestScript.setup.action.operation.contentType: the mime-type to use for restful operation in the 'content-type' header. [STOP]\nTestScript.setup.action.operation.destination: the server where the request message is destined for.  must be one of the server numbers listed in testscript.destination section. [STOP]\nTestScript.setup.action.operation.encodeRequestUrl: whether or not to implicitly send the request url in encoded format. the default is true to match the standard restful client behavior. set to false when communicating with a server that does not support encoded url paths. [STOP]\nTestScript.setup.action.operation.method: the http method the test engine must use for this operation regardless of any other operation details. [STOP]\nTestScript.setup.action.operation.origin: the server where the request message originates from.  must be one of the server numbers listed in testscript.origin section. [STOP]\nTestScript.setup.action.operation.params: path plus parameters after [type].  used to set parts of the request url explicitly. [STOP]\nTestScript.setup.action.operation.requestHeader: header elements would be used to set http headers. [STOP]\nTestScript.setup.action.operation.requestHeader.field: the http header field e.g. \"accept\". [STOP]\nTestScript.setup.action.operation.requestHeader.value: the value of the header e.g. \"application/fhir+xml\". [STOP]\nTestScript.setup.action.operation.requestId: the fixture id (maybe new) to map to the request. [STOP]\nTestScript.setup.action.operation.responseId: the fixture id (maybe new) to map to the response. [STOP]\nTestScript.setup.action.operation.sourceId: the id of the fixture used as the body of a put or post request. [STOP]\nTestScript.setup.action.operation.targetId: id of fixture used for extracting the [id],  [type], and [vid] for get requests. [STOP]\nTestScript.setup.action.operation.url: complete request url. [STOP]\nTestScript.setup.action.assert: evaluates the results of previous operations to determine if the server under test behaves appropriately. [STOP]\nTestScript.setup.action.assert.label: the label would be used for tracking/logging purposes by test engines. [STOP]\nTestScript.setup.action.assert.description: the description would be used by test engines for tracking and reporting purposes. [STOP]\nTestScript.setup.action.assert.direction: the direction to use for the assertion. [STOP]\nTestScript.setup.action.assert.compareToSourceId: id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceid/path\" definition. [STOP]\nTestScript.setup.action.assert.compareToSourceExpression: the fhirpath expression to evaluate against the source fixture. when comparetosourceid is defined, either comparetosourceexpression or comparetosourcepath must be defined, but not both. [STOP]\nTestScript.setup.action.assert.compareToSourcePath: xpath or jsonpath expression to evaluate against the source fixture. when comparetosourceid is defined, either comparetosourceexpression or comparetosourcepath must be defined, but not both. [STOP]\nTestScript.setup.action.assert.contentType: the mime-type contents to compare against the request or response message 'content-type' header. [STOP]\nTestScript.setup.action.assert.expression: the fhirpath expression to be evaluated against the request or response message contents - http headers and payload. [STOP]\nTestScript.setup.action.assert.headerField: the http header field name e.g. 'location'. [STOP]\nTestScript.setup.action.assert.minimumId: the id of a fixture.  asserts that the response contains at a minimum the fixture specified by minimumid. [STOP]\nTestScript.setup.action.assert.navigationLinks: whether or not the test execution performs validation on the bundle navigation links. [STOP]\nTestScript.setup.action.assert.operator: the operator type defines the conditional behavior of the assert. if not defined, the default is equals. [STOP]\nTestScript.setup.action.assert.path: the xpath or jsonpath expression to be evaluated against the fixture representing the response received from server. [STOP]\nTestScript.setup.action.assert.requestMethod: the request method or http operation code to compare against that used by the client system under test. [STOP]\nTestScript.setup.action.assert.requestURL: the value to use in a comparison against the request url path string. [STOP]\nTestScript.setup.action.assert.resource: the type of the resource.  see http://build.fhir.org/resourcelist.html. [STOP]\nTestScript.setup.action.assert.response: okay | created | nocontent | notmodified | bad | forbidden | notfound | methodnotallowed | conflict | gone | preconditionfailed | unprocessable. [STOP]\nTestScript.setup.action.assert.responseCode: the value of the http response code to be tested. [STOP]\nTestScript.setup.action.assert.sourceId: fixture to evaluate the xpath/jsonpath expression or the headerfield  against. [STOP]\nTestScript.setup.action.assert.validateProfileId: the id of the profile to validate against. [STOP]\nTestScript.setup.action.assert.value: the value to compare to. [STOP]\nTestScript.setup.action.assert.warningOnly: whether or not the test execution will produce a warning only on error for this assert. [STOP]\nTestScript.test: a test in this script. [STOP]\nTestScript.test.name: the name of this test used for tracking/logging purposes by test engines. [STOP]\nTestScript.test.description: a short description of the test used by test engines for tracking and reporting purposes. [STOP]\nTestScript.test.action: action would contain either an operation or an assertion. [STOP]\nTestScript.test.action.operation: an operation would involve a rest request to a server. [STOP]\nTestScript.test.action.assert: evaluates the results of previous operations to determine if the server under test behaves appropriately. [STOP]\nTestScript.teardown: a series of operations required to clean up after all the tests are executed (successfully or otherwise). [STOP]\nTestScript.teardown.action: the teardown action will only contain an operation. [STOP]\nTestScript.teardown.action.operation: an operation would involve a rest request to a server. [STOP]",
+  "documentation": {
+    "TestScript": "a structured set of tests against a fhir server or client implementation to determine compliance against the fhir specification.",
+    "TestScript.url": "an absolute uri that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. this should be globally unique and should be a literal address at which at which an authoritative instance of this test script is (or will be) published. this url can be the target of a canonical reference. it shall remain the same when the test script is stored on different servers.",
+    "TestScript.identifier": "a formal identifier that is used to identify this test script when it is represented in other formats, or referenced in a specification, model, design or an instance.",
+    "TestScript.version": "the identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. this is an arbitrary value managed by the test script author and is not expected to be globally unique. for example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. there is also no expectation that versions can be placed in a lexicographical sequence.",
+    "TestScript.name": "a natural language name identifying the test script. this name should be usable as an identifier for the module by machine processing applications such as code generation.",
+    "TestScript.title": "a short, descriptive, user-friendly title for the test script.",
+    "TestScript.status": "the status of this test script. enables tracking the life-cycle of the content.",
+    "TestScript.experimental": "a boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.",
+    "TestScript.date": "the date  (and optionally time) when the test script was published. the date must change when the business version changes and it must change if the status code changes. in addition, it should change when the substantive content of the test script changes.",
+    "TestScript.publisher": "the name of the organization or individual that published the test script.",
+    "TestScript.contact": "contact details to assist a user in finding and communicating with the publisher.",
+    "TestScript.description": "a free text natural language description of the test script from a consumer's perspective.",
+    "TestScript.useContext": "the content was developed with a focus and intent of supporting the contexts that are listed. these contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate test script instances.",
+    "TestScript.jurisdiction": "a legal or geographic region in which the test script is intended to be used.",
+    "TestScript.purpose": "explanation of why this test script is needed and why it has been designed as it has.",
+    "TestScript.copyright": "a copyright statement relating to the test script and/or its contents. copyright statements are generally legal restrictions on the use and publishing of the test script.",
+    "TestScript.origin": "an abstract server used in operations within this test script in the origin element.",
+    "TestScript.origin.index": "abstract name given to an origin server in this test script.  the name is provided as a number starting at 1.",
+    "TestScript.origin.profile": "the type of origin profile the test system supports.",
+    "TestScript.destination": "an abstract server used in operations within this test script in the destination element.",
+    "TestScript.destination.index": "abstract name given to a destination server in this test script.  the name is provided as a number starting at 1.",
+    "TestScript.destination.profile": "the type of destination profile the test system supports.",
+    "TestScript.metadata": "the required capability must exist and are assumed to function correctly on the fhir server being tested.",
+    "TestScript.metadata.link": "a link to the fhir specification that this test is covering.",
+    "TestScript.metadata.link.url": "url to a particular requirement or feature within the fhir specification.",
+    "TestScript.metadata.link.description": "short description of the link.",
+    "TestScript.metadata.capability": "capabilities that must exist and are assumed to function correctly on the fhir server being tested.",
+    "TestScript.metadata.capability.required": "whether or not the test execution will require the given capabilities of the server in order for this test script to execute.",
+    "TestScript.metadata.capability.validated": "whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.",
+    "TestScript.metadata.capability.description": "description of the capabilities that this test script is requiring the server to support.",
+    "TestScript.metadata.capability.origin": "which origin server these requirements apply to.",
+    "TestScript.metadata.capability.destination": "which server these requirements apply to.",
+    "TestScript.metadata.capability.link": "links to the fhir specification that describes this interaction and the resources involved in more detail.",
+    "TestScript.metadata.capability.capabilities": "minimum capabilities required of server for test script to execute successfully.   if server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.",
+    "TestScript.fixture": "fixture in the test script - by reference (uri). all fixtures are required for the test script to execute.",
+    "TestScript.fixture.autocreate": "whether or not to implicitly create the fixture during setup. if true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the testscript.setup section.",
+    "TestScript.fixture.autodelete": "whether or not to implicitly delete the fixture during teardown. if true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the testscript.teardown section.",
+    "TestScript.fixture.resource": "reference to the resource (containing the contents of the resource needed for operations).",
+    "TestScript.profile": "reference to the profile to be used for validation.",
+    "TestScript.variable": "variable is set based either on element value in response body or on header field value in the response headers.",
+    "TestScript.variable.name": "descriptive name for this variable.",
+    "TestScript.variable.defaultValue": "a default, hard-coded, or user-defined value for this variable.",
+    "TestScript.variable.description": "a free text natural language description of the variable and its purpose.",
+    "TestScript.variable.expression": "the fhirpath expression to evaluate against the fixture body. when variables are defined, only one of either expression, headerfield or path must be specified.",
+    "TestScript.variable.headerField": "will be used to grab the http header field value from the headers that sourceid is pointing to.",
+    "TestScript.variable.hint": "displayable text string with hint help information to the user when entering a default value.",
+    "TestScript.variable.path": "xpath or jsonpath to evaluate against the fixture body.  when variables are defined, only one of either expression, headerfield or path must be specified.",
+    "TestScript.variable.sourceId": "fixture to evaluate the xpath/jsonpath expression or the headerfield  against within this variable.",
+    "TestScript.setup": "a series of required setup operations before tests are executed.",
+    "TestScript.setup.action": "action would contain either an operation or an assertion.",
+    "TestScript.setup.action.operation": "the operation to perform.",
+    "TestScript.setup.action.operation.type": "server interaction or operation type.",
+    "TestScript.setup.action.operation.resource": "the type of the resource.  see http://build.fhir.org/resourcelist.html.",
+    "TestScript.setup.action.operation.label": "the label would be used for tracking/logging purposes by test engines.",
+    "TestScript.setup.action.operation.description": "the description would be used by test engines for tracking and reporting purposes.",
+    "TestScript.setup.action.operation.accept": "the mime-type to use for restful operation in the 'accept' header.",
+    "TestScript.setup.action.operation.contentType": "the mime-type to use for restful operation in the 'content-type' header.",
+    "TestScript.setup.action.operation.destination": "the server where the request message is destined for.  must be one of the server numbers listed in testscript.destination section.",
+    "TestScript.setup.action.operation.encodeRequestUrl": "whether or not to implicitly send the request url in encoded format. the default is true to match the standard restful client behavior. set to false when communicating with a server that does not support encoded url paths.",
+    "TestScript.setup.action.operation.method": "the http method the test engine must use for this operation regardless of any other operation details.",
+    "TestScript.setup.action.operation.origin": "the server where the request message originates from.  must be one of the server numbers listed in testscript.origin section.",
+    "TestScript.setup.action.operation.params": "path plus parameters after [type].  used to set parts of the request url explicitly.",
+    "TestScript.setup.action.operation.requestHeader": "header elements would be used to set http headers.",
+    "TestScript.setup.action.operation.requestHeader.field": "the http header field e.g. \"accept\".",
+    "TestScript.setup.action.operation.requestHeader.value": "the value of the header e.g. \"application/fhir+xml\".",
+    "TestScript.setup.action.operation.requestId": "the fixture id (maybe new) to map to the request.",
+    "TestScript.setup.action.operation.responseId": "the fixture id (maybe new) to map to the response.",
+    "TestScript.setup.action.operation.sourceId": "the id of the fixture used as the body of a put or post request.",
+    "TestScript.setup.action.operation.targetId": "id of fixture used for extracting the [id],  [type], and [vid] for get requests.",
+    "TestScript.setup.action.operation.url": "complete request url.",
+    "TestScript.setup.action.assert": "evaluates the results of previous operations to determine if the server under test behaves appropriately.",
+    "TestScript.setup.action.assert.label": "the label would be used for tracking/logging purposes by test engines.",
+    "TestScript.setup.action.assert.description": "the description would be used by test engines for tracking and reporting purposes.",
+    "TestScript.setup.action.assert.direction": "the direction to use for the assertion.",
+    "TestScript.setup.action.assert.compareToSourceId": "id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceid/path\" definition.",
+    "TestScript.setup.action.assert.compareToSourceExpression": "the fhirpath expression to evaluate against the source fixture. when comparetosourceid is defined, either comparetosourceexpression or comparetosourcepath must be defined, but not both.",
+    "TestScript.setup.action.assert.compareToSourcePath": "xpath or jsonpath expression to evaluate against the source fixture. when comparetosourceid is defined, either comparetosourceexpression or comparetosourcepath must be defined, but not both.",
+    "TestScript.setup.action.assert.contentType": "the mime-type contents to compare against the request or response message 'content-type' header.",
+    "TestScript.setup.action.assert.expression": "the fhirpath expression to be evaluated against the request or response message contents - http headers and payload.",
+    "TestScript.setup.action.assert.headerField": "the http header field name e.g. 'location'.",
+    "TestScript.setup.action.assert.minimumId": "the id of a fixture.  asserts that the response contains at a minimum the fixture specified by minimumid.",
+    "TestScript.setup.action.assert.navigationLinks": "whether or not the test execution performs validation on the bundle navigation links.",
+    "TestScript.setup.action.assert.operator": "the operator type defines the conditional behavior of the assert. if not defined, the default is equals.",
+    "TestScript.setup.action.assert.path": "the xpath or jsonpath expression to be evaluated against the fixture representing the response received from server.",
+    "TestScript.setup.action.assert.requestMethod": "the request method or http operation code to compare against that used by the client system under test.",
+    "TestScript.setup.action.assert.requestURL": "the value to use in a comparison against the request url path string.",
+    "TestScript.setup.action.assert.resource": "the type of the resource.  see http://build.fhir.org/resourcelist.html.",
+    "TestScript.setup.action.assert.response": "okay | created | nocontent | notmodified | bad | forbidden | notfound | methodnotallowed | conflict | gone | preconditionfailed | unprocessable.",
+    "TestScript.setup.action.assert.responseCode": "the value of the http response code to be tested.",
+    "TestScript.setup.action.assert.sourceId": "fixture to evaluate the xpath/jsonpath expression or the headerfield  against.",
+    "TestScript.setup.action.assert.validateProfileId": "the id of the profile to validate against.",
+    "TestScript.setup.action.assert.value": "the value to compare to.",
+    "TestScript.setup.action.assert.warningOnly": "whether or not the test execution will produce a warning only on error for this assert.",
+    "TestScript.test": "a test in this script.",
+    "TestScript.test.name": "the name of this test used for tracking/logging purposes by test engines.",
+    "TestScript.test.description": "a short description of the test used by test engines for tracking and reporting purposes.",
+    "TestScript.test.action": "action would contain either an operation or an assertion.",
+    "TestScript.test.action.operation": "an operation would involve a rest request to a server.",
+    "TestScript.test.action.assert": "evaluates the results of previous operations to determine if the server under test behaves appropriately.",
+    "TestScript.teardown": "a series of operations required to clean up after all the tests are executed (successfully or otherwise).",
+    "TestScript.teardown.action": "the teardown action will only contain an operation.",
+    "TestScript.teardown.action.operation": "an operation would involve a rest request to a server."
+  }
+}

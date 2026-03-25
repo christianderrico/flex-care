@@ -1,0 +1,219 @@
+{
+  "resource": "immunizationrecommendation",
+  "examples": [
+    {
+      "name": "Example of immunizationrecommendation using a vaccine code",
+      "document": {
+        "resourceType": "ImmunizationRecommendation",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "date": "2015-02-09T11:04:15.817-05:00",
+        "authority": {
+          "reference": "Organization/hl7"
+        },
+        "recommendation": [
+          {
+            "vaccineCode": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "14745005",
+                    "display": "Hepatitis A vaccine"
+                  }
+                ]
+              }
+            ],
+            "forecastStatus": {
+              "text": "Not Complete"
+            },
+            "dateCriterion": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+                      "code": "earliest",
+                      "display": "Earliest Date"
+                    }
+                  ]
+                },
+                "value": "2015-12-01T00:00:00-05:00"
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+                      "code": "recommended",
+                      "display": "Recommended"
+                    }
+                  ]
+                },
+                "value": "2015-12-01T00:00:00-05:00"
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+                      "code": "overdue",
+                      "display": "Past Due Date"
+                    }
+                  ]
+                },
+                "value": "2016-12-28T00:00:00-05:00"
+              }
+            ],
+            "description": "First sequence in protocol",
+            "series": "Vaccination Series 1",
+            "doseNumberPositiveInt": 1,
+            "seriesDosesPositiveInt": 3,
+            "supportingImmunization": [
+              {
+                "reference": "Immunization/example"
+              }
+            ],
+            "supportingPatientInformation": [
+              {
+                "reference": "Observation/example"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of immunizationrecommendation using a target disease",
+      "document": {
+        "resourceType": "ImmunizationRecommendation",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "date": "2015-02-09T11:04:15.817-05:00",
+        "authority": {
+          "reference": "Organization/hl7"
+        },
+        "recommendation": [
+          {
+            "targetDisease": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "40468003"
+                }
+              ]
+            },
+            "forecastStatus": {
+              "text": "Not Complete"
+            },
+            "dateCriterion": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://loinc.org",
+                      "code": "30981-5",
+                      "display": "Earliest date to give"
+                    }
+                  ]
+                },
+                "value": "2015-12-01T00:00:00-05:00"
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+                      "code": "recommended",
+                      "display": "Recommended"
+                    }
+                  ]
+                },
+                "value": "2015-12-01T00:00:00-05:00"
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+                      "code": "overdue",
+                      "display": "Past Due Date"
+                    }
+                  ]
+                },
+                "value": "2016-12-28T00:00:00-05:00"
+              }
+            ],
+            "description": "First sequence in protocol",
+            "series": "Vaccination Series 1",
+            "doseNumberPositiveInt": 1,
+            "seriesDosesPositiveInt": 3,
+            "supportingImmunization": [
+              {
+                "reference": "Immunization/example"
+              }
+            ],
+            "supportingPatientInformation": [
+              {
+                "reference": "Observation/example"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "11.9Resource ImmunizationRecommendation - Content",
+    "introduction": "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.\nThis resource is referenced by Appointment , DiagnosticReport , Encounter , MedicationRequest and Observation",
+    "Scope and Usage": "The ImmunizationRecommendation resource is intended to cover communication of a specified patient's immunization recommendations and status across all healthcare disciplines in all care settings and all regions. The set of customized (for the patient) recommendations is based on the comparison of the patient's immunization history with a set of published recommendations (protocols).\nAdditionally, the ImmunizationRecommendation resource is expected to cover key concepts related to the querying of a patient's immunization recommendations and status. This resource - through consultation with the Public Health work group - is believed to meet key use cases and information requirements as defined in the existing HL7 v3 POIZ domain and Immunization Domain Analysis Model.",
+    "Boundaries and Relationships": "This resource references the following resources:\nPatient Organization Immunization ImmunizationEvaluation"
+  },
+  "definitions": "ImmunizationRecommendation: a patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification. [STOP]\nImmunizationRecommendation.identifier: a unique identifier assigned to this particular recommendation record. [STOP]\nImmunizationRecommendation.patient: the patient the recommendation(s) are for. [STOP]\nImmunizationRecommendation.date: the date the immunization recommendation(s) were created. [STOP]\nImmunizationRecommendation.authority: indicates the authority who published the protocol (e.g. acip). [STOP]\nImmunizationRecommendation.recommendation: vaccine administration recommendations. [STOP]\nImmunizationRecommendation.recommendation.vaccineCode: vaccine(s) or vaccine group that pertain to the recommendation. [STOP]\nImmunizationRecommendation.recommendation.targetDisease: the targeted disease for the recommendation. [STOP]\nImmunizationRecommendation.recommendation.contraindicatedVaccineCode: vaccine(s) which should not be used to fulfill the recommendation. [STOP]\nImmunizationRecommendation.recommendation.forecastStatus: indicates the patient status with respect to the path to immunity for the target disease. [STOP]\nImmunizationRecommendation.recommendation.forecastReason: the reason for the assigned forecast status. [STOP]\nImmunizationRecommendation.recommendation.dateCriterion: vaccine date recommendations.  for example, earliest date to administer, latest date to administer, etc. [STOP]\nImmunizationRecommendation.recommendation.dateCriterion.code: date classification of recommendation.  for example, earliest date to give, latest date to give, etc. [STOP]\nImmunizationRecommendation.recommendation.dateCriterion.value: the date whose meaning is specified by datecriterion.code. [STOP]\nImmunizationRecommendation.recommendation.description: contains the description about the protocol under which the vaccine was administered. [STOP]\nImmunizationRecommendation.recommendation.series: one possible path to achieve presumed immunity against a disease - within the context of an authority. [STOP]\nImmunizationRecommendation.recommendation.doseNumber[x]: nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose). [STOP]\nImmunizationRecommendation.recommendation.seriesDoses[x]: the recommended number of doses to achieve immunity. [STOP]\nImmunizationRecommendation.recommendation.supportingImmunization: immunization event history and/or evaluation that supports the status and recommendation. [STOP]\nImmunizationRecommendation.recommendation.supportingPatientInformation: patient information that supports the status and recommendation.  this includes patient observations, adverse reactions and allergy/intolerance information. [STOP]",
+  "documentation": {
+    "ImmunizationRecommendation": "a patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.",
+    "ImmunizationRecommendation.identifier": "a unique identifier assigned to this particular recommendation record.",
+    "ImmunizationRecommendation.patient": "the patient the recommendation(s) are for.",
+    "ImmunizationRecommendation.date": "the date the immunization recommendation(s) were created.",
+    "ImmunizationRecommendation.authority": "indicates the authority who published the protocol (e.g. acip).",
+    "ImmunizationRecommendation.recommendation": "vaccine administration recommendations.",
+    "ImmunizationRecommendation.recommendation.vaccineCode": "vaccine(s) or vaccine group that pertain to the recommendation.",
+    "ImmunizationRecommendation.recommendation.targetDisease": "the targeted disease for the recommendation.",
+    "ImmunizationRecommendation.recommendation.contraindicatedVaccineCode": "vaccine(s) which should not be used to fulfill the recommendation.",
+    "ImmunizationRecommendation.recommendation.forecastStatus": "indicates the patient status with respect to the path to immunity for the target disease.",
+    "ImmunizationRecommendation.recommendation.forecastReason": "the reason for the assigned forecast status.",
+    "ImmunizationRecommendation.recommendation.dateCriterion": "vaccine date recommendations.  for example, earliest date to administer, latest date to administer, etc.",
+    "ImmunizationRecommendation.recommendation.dateCriterion.code": "date classification of recommendation.  for example, earliest date to give, latest date to give, etc.",
+    "ImmunizationRecommendation.recommendation.dateCriterion.value": "the date whose meaning is specified by datecriterion.code.",
+    "ImmunizationRecommendation.recommendation.description": "contains the description about the protocol under which the vaccine was administered.",
+    "ImmunizationRecommendation.recommendation.series": "one possible path to achieve presumed immunity against a disease - within the context of an authority.",
+    "ImmunizationRecommendation.recommendation.doseNumber[x]": "nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).",
+    "ImmunizationRecommendation.recommendation.seriesDoses[x]": "the recommended number of doses to achieve immunity.",
+    "ImmunizationRecommendation.recommendation.supportingImmunization": "immunization event history and/or evaluation that supports the status and recommendation.",
+    "ImmunizationRecommendation.recommendation.supportingPatientInformation": "patient information that supports the status and recommendation.  this includes patient observations, adverse reactions and allergy/intolerance information."
+  }
+}

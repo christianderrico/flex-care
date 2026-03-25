@@ -1,0 +1,162 @@
+{
+  "resource": "communicationrequest",
+  "examples": [
+    {
+      "name": "An example of an alert message",
+      "document": {
+        "resourceType": "CommunicationRequest",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>"
+        },
+        "status": "active",
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        }
+      }
+    },
+    {
+      "name": "An example of a request for additional information",
+      "document": {
+        "resourceType": "CommunicationRequest",
+        "id": "fm-solicit",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Request for Accident Report</div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Organization",
+            "id": "provider",
+            "identifier": [
+              {
+                "system": "http://www.jurisdiction.com/provideroffices",
+                "value": "3456"
+              }
+            ]
+          },
+          {
+            "resourceType": "Organization",
+            "id": "payor",
+            "identifier": [
+              {
+                "system": "http://www.jurisdiction.com/insurer",
+                "value": "123456"
+              }
+            ]
+          },
+          {
+            "resourceType": "Practitioner",
+            "id": "requester",
+            "identifier": [
+              {
+                "value": "6789"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://www.jurisdiction.com/insurer/123456",
+            "value": "ABC123"
+          }
+        ],
+        "basedOn": [
+          {
+            "display": "EligibilityRequest"
+          }
+        ],
+        "replaces": [
+          {
+            "display": "prior CommunicationRequest"
+          }
+        ],
+        "groupIdentifier": {
+          "value": "12345"
+        },
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://acme.org/messagetypes",
+                "code": "SolicitedAttachmentRequest"
+              }
+            ]
+          }
+        ],
+        "priority": "routine",
+        "medium": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+                "code": "WRITTEN",
+                "display": "written"
+              }
+            ],
+            "text": "written"
+          }
+        ],
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "payload": [
+          {
+            "contentString": "Please provide the accident report and any associated pictures to support your Claim# DEF5647."
+          }
+        ],
+        "occurrenceDateTime": "2016-06-10T11:01:10-08:00",
+        "authoredOn": "2016-06-10T11:01:10-08:00",
+        "requester": {
+          "reference": "#requester"
+        },
+        "recipient": [
+          {
+            "reference": "#provider"
+          }
+        ],
+        "sender": {
+          "reference": "#payor"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.21Resource CommunicationRequest - Content",
+    "introduction": "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.\nThis resource is referenced by CarePlan , ClaimResponse and itself",
+    "Scope and Usage": "CommunicationRequest is one of the request resources in the FHIR workflow specification.\nThis resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The requester requests the sender to send the payload to the recipient. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include:\nA computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider A physician requesting notification from the nurse if a patient's temperature exceeds a value A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a communicable disease reportable to the public health agency A computer-based decision-support system proposes to send educational material to a patient",
+    "Boundaries and Relationships": "This resource is a record of a request. It does not represent the actual flow of communication.\nThe use of CommunicationRequest excludes requests for referrals and requests for therapy or counseling which would be handled by the ServiceRequest resource.\r\nThe performance of a CommunicationRequest may result in a Communication resource."
+  },
+  "definitions": "CommunicationRequest: a request to convey information; e.g. the cds system proposes that an alert be sent to a responsible provider, the cds system proposes that the public health agency be notified about a reportable condition. [STOP]\nCommunicationRequest.identifier: business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server. [STOP]\nCommunicationRequest.basedOn: a plan or proposal that is fulfilled in whole or in part by this request. [STOP]\nCommunicationRequest.replaces: completed or terminated request(s) whose function is taken by this new request. [STOP]\nCommunicationRequest.groupIdentifier: a shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form. [STOP]\nCommunicationRequest.status: the status of the proposal or order. [STOP]\nCommunicationRequest.statusReason: captures the reason for the current state of the communicationrequest. [STOP]\nCommunicationRequest.category: the type of message to be sent such as alert, notification, reminder, instruction, etc. [STOP]\nCommunicationRequest.priority: characterizes how quickly the proposed act must be initiated. includes concepts such as stat, urgent, routine. [STOP]\nCommunicationRequest.doNotPerform: if true indicates that the communicationrequest is asking for the specified action tonotoccur. [STOP]\nCommunicationRequest.medium: a channel that was used for this communication (e.g. email, fax). [STOP]\nCommunicationRequest.subject: the patient or group that is the focus of this communication request. [STOP]\nCommunicationRequest.about: other resources that pertain to this communication request and to which this communication request should be associated. [STOP]\nCommunicationRequest.encounter: the encounter during which this communicationrequest was created or to which the creation of this record is tightly associated. [STOP]\nCommunicationRequest.payload: text, attachment(s), or resource(s) to be communicated to the recipient. [STOP]\nCommunicationRequest.payload.content[x]: the communicated content (or for multi-part communications, one portion of the communication). [STOP]\nCommunicationRequest.occurrence[x]: the time when this communication is to occur. [STOP]\nCommunicationRequest.authoredOn: for draft requests, indicates the date of initial creation.  for requests with other statuses, indicates the date of activation. [STOP]\nCommunicationRequest.requester: the device, individual, or organization who initiated the request and has responsibility for its activation. [STOP]\nCommunicationRequest.recipient: the entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication. [STOP]\nCommunicationRequest.sender: the entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication. [STOP]\nCommunicationRequest.reasonCode: describes why the request is being made in coded or textual form. [STOP]\nCommunicationRequest.reasonReference: indicates another resource whose existence justifies this request. [STOP]\nCommunicationRequest.note: comments made about the request by the requester, sender, recipient, subject or other participants. [STOP]",
+  "documentation": {
+    "CommunicationRequest": "a request to convey information; e.g. the cds system proposes that an alert be sent to a responsible provider, the cds system proposes that the public health agency be notified about a reportable condition.",
+    "CommunicationRequest.identifier": "business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server.",
+    "CommunicationRequest.basedOn": "a plan or proposal that is fulfilled in whole or in part by this request.",
+    "CommunicationRequest.replaces": "completed or terminated request(s) whose function is taken by this new request.",
+    "CommunicationRequest.groupIdentifier": "a shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.",
+    "CommunicationRequest.status": "the status of the proposal or order.",
+    "CommunicationRequest.statusReason": "captures the reason for the current state of the communicationrequest.",
+    "CommunicationRequest.category": "the type of message to be sent such as alert, notification, reminder, instruction, etc.",
+    "CommunicationRequest.priority": "characterizes how quickly the proposed act must be initiated. includes concepts such as stat, urgent, routine.",
+    "CommunicationRequest.doNotPerform": "if true indicates that the communicationrequest is asking for the specified action tonotoccur.",
+    "CommunicationRequest.medium": "a channel that was used for this communication (e.g. email, fax).",
+    "CommunicationRequest.subject": "the patient or group that is the focus of this communication request.",
+    "CommunicationRequest.about": "other resources that pertain to this communication request and to which this communication request should be associated.",
+    "CommunicationRequest.encounter": "the encounter during which this communicationrequest was created or to which the creation of this record is tightly associated.",
+    "CommunicationRequest.payload": "text, attachment(s), or resource(s) to be communicated to the recipient.",
+    "CommunicationRequest.payload.content[x]": "the communicated content (or for multi-part communications, one portion of the communication).",
+    "CommunicationRequest.occurrence[x]": "the time when this communication is to occur.",
+    "CommunicationRequest.authoredOn": "for draft requests, indicates the date of initial creation.  for requests with other statuses, indicates the date of activation.",
+    "CommunicationRequest.requester": "the device, individual, or organization who initiated the request and has responsibility for its activation.",
+    "CommunicationRequest.recipient": "the entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.",
+    "CommunicationRequest.sender": "the entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.",
+    "CommunicationRequest.reasonCode": "describes why the request is being made in coded or textual form.",
+    "CommunicationRequest.reasonReference": "indicates another resource whose existence justifies this request.",
+    "CommunicationRequest.note": "comments made about the request by the requester, sender, recipient, subject or other participants."
+  }
+}

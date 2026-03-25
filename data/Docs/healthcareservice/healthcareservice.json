@@ -1,0 +1,275 @@
+{
+  "resource": "healthcareservice",
+  "examples": [
+    {
+      "name": "Example of healthcareservice",
+      "document": {
+        "resourceType": "HealthcareService",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t25 Dec 2013 9:15am - 9:30am: <b>Busy</b> Physiotherapy\n\t\t</div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Location",
+            "id": "DenBurg",
+            "description": "Greater Denburg area",
+            "mode": "instance",
+            "physicalType": {
+              "coding": [
+                {
+                  "code": "area",
+                  "display": "Area"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://example.org/shared-ids",
+            "value": "HS-12"
+          }
+        ],
+        "active": true,
+        "providedBy": {
+          "reference": "Organization/f001",
+          "display": "Burgers University Medical Center"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/service-category",
+                "code": "8",
+                "display": "Counselling"
+              }
+            ],
+            "text": "Counselling"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394913002",
+                "display": "Psychotherapy"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394587001",
+                "display": "Psychiatry"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "47505003",
+                "display": "Posttraumatic stress disorder"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/1"
+          }
+        ],
+        "name": "Consulting psychologists and/or psychology services",
+        "comment": "Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues",
+        "extraDetails": "Several assessments are required for these specialist services, and the waiting times can be greater than 3 months at times. Existing patients are prioritized when requesting appointments on the schedule.",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(555) silent",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "directaddress@example.com",
+            "use": "work"
+          }
+        ],
+        "coverageArea": [
+          {
+            "reference": "#DenBurg",
+            "display": "Greater Denburg area"
+          }
+        ],
+        "serviceProvisionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/service-provision-conditions",
+                "code": "cost",
+                "display": "Fees apply"
+              }
+            ]
+          }
+        ],
+        "eligibility": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "display": "DVA Required"
+                }
+              ]
+            },
+            "comment": "Evidence of application for DVA status may be sufficient for commencing assessment"
+          }
+        ],
+        "program": [
+          {
+            "text": "PTSD outreach"
+          }
+        ],
+        "characteristic": [
+          {
+            "coding": [
+              {
+                "display": "Wheelchair access"
+              }
+            ]
+          }
+        ],
+        "referralMethod": [
+          {
+            "coding": [
+              {
+                "code": "phone",
+                "display": "Phone"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "fax",
+                "display": "Fax"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "elec",
+                "display": "Secure Messaging"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "semail",
+                "display": "Secure Email"
+              }
+            ]
+          }
+        ],
+        "appointmentRequired": false,
+        "availableTime": [
+          {
+            "daysOfWeek": [
+              "wed"
+            ],
+            "allDay": true
+          },
+          {
+            "daysOfWeek": [
+              "mon",
+              "tue",
+              "thu",
+              "fri"
+            ],
+            "availableStartTime": "08:30:00",
+            "availableEndTime": "05:30:00"
+          },
+          {
+            "daysOfWeek": [
+              "sat",
+              "fri"
+            ],
+            "availableStartTime": "09:30:00",
+            "availableEndTime": "04:30:00"
+          }
+        ],
+        "notAvailable": [
+          {
+            "description": "Christmas/Boxing Day",
+            "during": {
+              "start": "2015-12-25",
+              "end": "2015-12-26"
+            }
+          },
+          {
+            "description": "New Years Day",
+            "during": {
+              "start": "2016-01-01",
+              "end": "2016-01-01"
+            }
+          }
+        ],
+        "availabilityExceptions": "Reduced capacity is available during the Christmas period",
+        "endpoint": [
+          {
+            "reference": "Endpoint/example"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.8Resource HealthcareService - Content",
+    "introduction": "The details of a healthcare service available at a location.\nThis resource is referenced by UsageContext , Account , Appointment , AppointmentResponse , CarePlan , CatalogEntry , Communication , CommunicationRequest , DeviceRequest , OrganizationAffiliation , PractitionerRole , Schedule , ServiceRequest , SupplyRequest and Task",
+    "Scope and Usage": "The HealthcareService resource is used to describe a single healthcare service or\r\n\t\t\tcategory of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services.\nCommon examples of HealthcareServices resources are:\nAllied Health Clinical Neuropsychologist Podiatry Service Smallville Hospital Emergency Services Respite care provided at a nursing home or hostel 24hr crisis telephone counseling service Information, advice and/or referral services; Disability, Telecommunications Rural TeleHealth Services Hospital in the home Yellow Cabs Pharmacy Active Rehab Social Support Drug and/or alcohol counseling Day Programs, Adult Training & Support Services Consulting psychologists and/or psychology services Group Hydrotherapy Little River Home Maintenance\nHealthcareService resources do not represent Computer related Services (not SOA)\nExample uses of HealthcareService resources are:\nNational Services Directory - Consumer Focus National Services Directory - Practitioner Referrals Searching Organization's Client Portal - to locate services / book appointments Address book of services for Referrals including references to Questionnaires for assessments that are required as part of the referral Health Network internal directory Used for tracking available services offered internally,\r\n\t\t\t\t\tand also those offered by business partners. This information may also include costing information.",
+    "Boundaries and Relationships": "The HealthcareService resource can be used with the Schedule resource to define actual availability\r\n\t\t\tof the service. This would be done by using the Schedule's Actor property.\nWhen creating an Appointment, the HealthcareService is to be assigned to one of the participants. It is up to the scheduling system to determine if the service is available and can be accepted.\nThe HealthcareService resource is used with the following resources:\nOrganization : The organization provides the services, the healthcareservice describes the services ServiceRequest : This is a subject specific request for a specific service, it may be to a specific healthcare service, and/or simply a coded service value. The granularity included in the request codes may be finer than defined in the healthcare service. OrganizationAffiliation : Might constrain a list of healthcare services that are available between 2 organizations Location : Specifies the place where the service(s) are offered/available within.",
+    "Notes": "The HealthcareService could be mapped to components of the IHE Care Services Directory, and/or the OMG ServD standards"
+  },
+  "definitions": "HealthcareService: the details of a healthcare service available at a location. [STOP]\nHealthcareService.identifier: external identifiers for this item. [STOP]\nHealthcareService.active: this flag is used to mark the record to not be used. this is not used when a center is closed for maintenance, or for holidays, the notavailable period is to be used for this. [STOP]\nHealthcareService.providedBy: the organization that provides this healthcare service. [STOP]\nHealthcareService.category: identifies the broad category of service being performed or delivered. [STOP]\nHealthcareService.type: the specific type of service that may be delivered or performed. [STOP]\nHealthcareService.specialty: collection of specialties handled by the service site. this is more of a medical term. [STOP]\nHealthcareService.location: the location(s) where this healthcare service may be provided. [STOP]\nHealthcareService.name: further description of the service as it would be presented to a consumer while searching. [STOP]\nHealthcareService.comment: any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the servicename. [STOP]\nHealthcareService.extraDetails: extra details about the service that can't be placed in the other fields. [STOP]\nHealthcareService.photo: if there is a photo/symbol associated with this healthcareservice, it may be included here to facilitate quick identification of the service in a list. [STOP]\nHealthcareService.telecom: list of contacts related to this specific healthcare service. [STOP]\nHealthcareService.coverageArea: the location(s) that this service is available to (not where the service is provided). [STOP]\nHealthcareService.serviceProvisionCode: the code(s) that detail the conditions under which the healthcare service is available/offered. [STOP]\nHealthcareService.eligibility: does this service have specific eligibility requirements that need to be met in order to use the service? [STOP]\nHealthcareService.eligibility.code: coded value for the eligibility. [STOP]\nHealthcareService.eligibility.comment: describes the eligibility conditions for the service. [STOP]\nHealthcareService.program: programs that this service is applicable to. [STOP]\nHealthcareService.characteristic: collection of characteristics (attributes). [STOP]\nHealthcareService.communication: some services are specifically made available in multiple languages, this property permits a directory to declare the languages this is offered in. typically this is only provided where a service operates in communities with mixed languages used. [STOP]\nHealthcareService.referralMethod: ways that the service accepts referrals, if this is not provided then it is implied that no referral is required. [STOP]\nHealthcareService.appointmentRequired: indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the organization. indicates if an appointment is required for access to this service. [STOP]\nHealthcareService.availableTime: a collection of times that the service site is available. [STOP]\nHealthcareService.availableTime.daysOfWeek: indicates which days of the week are available between the start and end times. [STOP]\nHealthcareService.availableTime.allDay: is this always available? (hence times are irrelevant) e.g. 24 hour service. [STOP]\nHealthcareService.availableTime.availableStartTime: the opening time of day. note: if the allday flag is set, then this time is ignored. [STOP]\nHealthcareService.availableTime.availableEndTime: the closing time of day. note: if the allday flag is set, then this time is ignored. [STOP]\nHealthcareService.notAvailable: the healthcareservice is not available during this period of time due to the provided reason. [STOP]\nHealthcareService.notAvailable.description: the reason that can be presented to the user as to why this time is not available. [STOP]\nHealthcareService.notAvailable.during: service is not available (seasonally or for a public holiday) from this date. [STOP]\nHealthcareService.availabilityExceptions: a description of site availability exceptions, e.g. public holiday availability. succinctly describing all possible exceptions to normal site availability as details in the available times and not available times. [STOP]\nHealthcareService.endpoint: technical endpoints providing access to services operated for the specific healthcare services defined at this resource. [STOP]",
+  "documentation": {
+    "HealthcareService": "the details of a healthcare service available at a location.",
+    "HealthcareService.identifier": "external identifiers for this item.",
+    "HealthcareService.active": "this flag is used to mark the record to not be used. this is not used when a center is closed for maintenance, or for holidays, the notavailable period is to be used for this.",
+    "HealthcareService.providedBy": "the organization that provides this healthcare service.",
+    "HealthcareService.category": "identifies the broad category of service being performed or delivered.",
+    "HealthcareService.type": "the specific type of service that may be delivered or performed.",
+    "HealthcareService.specialty": "collection of specialties handled by the service site. this is more of a medical term.",
+    "HealthcareService.location": "the location(s) where this healthcare service may be provided.",
+    "HealthcareService.name": "further description of the service as it would be presented to a consumer while searching.",
+    "HealthcareService.comment": "any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the servicename.",
+    "HealthcareService.extraDetails": "extra details about the service that can't be placed in the other fields.",
+    "HealthcareService.photo": "if there is a photo/symbol associated with this healthcareservice, it may be included here to facilitate quick identification of the service in a list.",
+    "HealthcareService.telecom": "list of contacts related to this specific healthcare service.",
+    "HealthcareService.coverageArea": "the location(s) that this service is available to (not where the service is provided).",
+    "HealthcareService.serviceProvisionCode": "the code(s) that detail the conditions under which the healthcare service is available/offered.",
+    "HealthcareService.eligibility": "does this service have specific eligibility requirements that need to be met in order to use the service?",
+    "HealthcareService.eligibility.code": "coded value for the eligibility.",
+    "HealthcareService.eligibility.comment": "describes the eligibility conditions for the service.",
+    "HealthcareService.program": "programs that this service is applicable to.",
+    "HealthcareService.characteristic": "collection of characteristics (attributes).",
+    "HealthcareService.communication": "some services are specifically made available in multiple languages, this property permits a directory to declare the languages this is offered in. typically this is only provided where a service operates in communities with mixed languages used.",
+    "HealthcareService.referralMethod": "ways that the service accepts referrals, if this is not provided then it is implied that no referral is required.",
+    "HealthcareService.appointmentRequired": "indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the organization. indicates if an appointment is required for access to this service.",
+    "HealthcareService.availableTime": "a collection of times that the service site is available.",
+    "HealthcareService.availableTime.daysOfWeek": "indicates which days of the week are available between the start and end times.",
+    "HealthcareService.availableTime.allDay": "is this always available? (hence times are irrelevant) e.g. 24 hour service.",
+    "HealthcareService.availableTime.availableStartTime": "the opening time of day. note: if the allday flag is set, then this time is ignored.",
+    "HealthcareService.availableTime.availableEndTime": "the closing time of day. note: if the allday flag is set, then this time is ignored.",
+    "HealthcareService.notAvailable": "the healthcareservice is not available during this period of time due to the provided reason.",
+    "HealthcareService.notAvailable.description": "the reason that can be presented to the user as to why this time is not available.",
+    "HealthcareService.notAvailable.during": "service is not available (seasonally or for a public holiday) from this date.",
+    "HealthcareService.availabilityExceptions": "a description of site availability exceptions, e.g. public holiday availability. succinctly describing all possible exceptions to normal site availability as details in the available times and not available times.",
+    "HealthcareService.endpoint": "technical endpoints providing access to services operated for the specific healthcare services defined at this resource."
+  }
+}

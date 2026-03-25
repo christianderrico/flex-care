@@ -1,0 +1,163 @@
+{
+  "resource": "detectedissue",
+  "examples": [
+    {
+      "name": "Drug-drug interaction between prescription and medication statement",
+      "document": {
+        "resourceType": "DetectedIssue",
+        "id": "ddi",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p><b>Severity: High</b> - Risk of internal bleeding</p>\n      <p>Those who take acetaminophen along with the widely used blood-thinning drug warfarin may face the risk of serious internal bleeding. People on warfarin who take acetaminophen for at least seven days in a row should be closely watched for bleeding.</p>\n      <ul>\n        <li><a href=\"MedicationStatement/tylenol\">500 mg Acetaminophen tablet 1/day, PRN since 2010</a></li>\n        <li><a href=\"MedicationRequest/warfarin\">Warfarin 1 MG TAB prescribed Jan. 5, 2014</a></li>\n      </ul>\n      <p>Mitigation: Jan 5, 2014 by Dr. Adam Careful: </p>\n      <p>Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring</p>\n    </div>"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DRG",
+              "display": "Drug Interaction Alert"
+            }
+          ]
+        },
+        "severity": "high",
+        "identifiedDateTime": "2014-01-05",
+        "author": {
+          "reference": "Device/software"
+        },
+        "implicated": [
+          {
+            "reference": "MedicationStatement/example001",
+            "display": "500 mg Acetaminophen tablet 1/day, PRN since 2010"
+          },
+          {
+            "reference": "MedicationRequest/medrx0331",
+            "display": "Warfarin 1 MG TAB prescribed Jan. 15, 2015"
+          }
+        ],
+        "detail": "Risk of internal bleeding.  Those who take acetaminophen along with the widely used blood-thinning drug warfarin may face the risk of serious internal bleeding. People on warfarin who take acetaminophen for at least seven days in a row should be closely watched for bleeding.",
+        "mitigation": [
+          {
+            "action": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                  "code": "13",
+                  "display": "Stopped Concurrent Therapy"
+                }
+              ],
+              "text": "Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring"
+            },
+            "date": "2014-01-05",
+            "author": {
+              "reference": "Practitioner/example",
+              "display": "Dr. Adam Careful"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Diagnostic order is placed when a recent image of the same body site already exists",
+      "document": {
+        "resourceType": "DetectedIssue",
+        "id": "duplicate",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Similar test was performed within the past 14 days</p>\n      <ul>\n        <li>\n          <a href=\"ServiceRequest/id\">Chest CT - ordered May 8, 2013 by Dr. Adam Careful</a>\n        </li>\n        <li>\n          <a href=\"ImagingStudy/example\">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</a>\n        </li>\n      </ul>\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://example.org",
+            "value": "12345"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DUPTHPY",
+              "display": "Duplicate Therapy Alert"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/dicom"
+        },
+        "identifiedDateTime": "2013-05-08",
+        "author": {
+          "reference": "Device/software"
+        },
+        "implicated": [
+          {
+            "reference": "ServiceRequest/di",
+            "display": "Chest CT - ordered May 8, 2013 by Dr. Adam Careful"
+          },
+          {
+            "reference": "ImagingStudy/example",
+            "display": "Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM"
+          }
+        ],
+        "detail": "Similar test was performed within the past 14 days",
+        "reference": "http://www.tmhp.com/RadiologyClinicalDecisionSupport/2011/CHEST%20IMAGING%20GUIDELINES%202011.pdf"
+      }
+    },
+    {
+      "name": "Patient is allergic to an inactive ingredient in an ordered medication",
+      "document": {
+        "resourceType": "DetectedIssue",
+        "id": "allergy",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+        },
+        "status": "final"
+      }
+    },
+    {
+      "name": "Lab order is contraindicated based on a patient's existing medication",
+      "document": {
+        "resourceType": "DetectedIssue",
+        "id": "lab",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+        },
+        "status": "final"
+      }
+    }
+  ],
+  "sections": {
+    "title": "9.10Resource DetectedIssue - Content",
+    "introduction": "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.\nThis resource is referenced by MedicationDispense , MedicationKnowledge and MedicationRequest",
+    "Scope and Usage": "This resource is an event resource from a FHIR workflow perspective - see Workflow , specifically Event .\nThis resource applies to various circumstances where there is a concern about an existing or proposed set of clinical activity.  The issue could relate to single, proposed, or multiple actions.  \r\nIt does not apply to technical issues (e.g. lack of user permissions) but could relate to violation of patient consent limitations.  Examples include:\nDrug-drug interactions Inappropriate therapy (wrong dose, frequency, body site) Duplicate therapy\nThis resource represents a specific instance of a potential issue for a particular patient. It is not intended to represent general patient-independent knowledge. This resource is also not intended to be used in defining general prohibitions on actions such as \"No NSAIDs\", \"No solid oral dose forms\" or \"No MRIs - metallic tattoos\".  \r\nThese guidelines can be captured using the AllergyIntolerance , and/or Flag resources.  \r\nSimilarly, this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using Condition , Procedure or other resources.",
+    "Boundaries and Relationships": "This resource only applies to documenting a risk associated with a specific planned or ongoing action, or the lack of an action which should be planned - not a general propensity to risk. The latter would be handled using AllergyIntolerance for substance-specific issues or Flag for other types of issues. In addition, the resource represents patient-specific and time-bound risk manifestations, not generic knowledge statements about risks that can exist.\nThis resource is limited to clinical issues associated with a proposed or ongoing action.  It does not cover technical issues such as lack of permission, duplicate identifiers, insufficient data, and other business rule violations. Technical issues are conveyed using the OperationOutcome resource.  \r\nIt is possible to have both OperationOutcome and DetectedIssue together, where the OperationOutcome might \r\nindicate that a requested action was rejected due to a clinical issue and the DetectedIssue provides the details of the issue.",
+    "Background and Context": "Detected issues are typically identified by decision support systems.  However, they may also be captured directly by clinicians.  The latter typically happens for one of two reasons:\nA clinician wishes to communicate an issue to another clinician whose responsibility would be to resolve it (e.g. a pharmacist identifying an issue with a prescription prior to putting it on hold) A clinician wishes to pre-emptively identify that an issue is known and is being managed (to avoid red flags being raised as part of downstream workflow); e.g. Submitting a new order and including a link to \r\n  a \"duplicate therapy\" issue with mitigation indicating that the therapy is not considered to be duplicate.\nDecision-support generated issues can result from calling a decision-support engine directly (e.g. via a custom OperationDefinition ) or as part of an attempt to perform some other function (creating an order, submitting an insurance claim, capturing a medication list).  When the issues are generated as a by-product of performing some other sort of action, they may be included in the \"response\" to the requested action in the same manner as an OperationOutcome .  In fact, both may be present - the OperationOutcome indicating that there was a warning or error associated with the request and a DetectedIssue providing the clinical details.  (The OperationOutcome could point to the DetectedIssue via an extension.)\nIn those circumstances where requested operations are rejected as a result of a detected issue, the workflow may support allowing the operation to be re-tried, provided that the identified issue is included as part of the submission (possibly also including a mitigation).  In doing so, the sender acknowledges the issue and takes responsibility for it, thus allowing the requested operation to proceed.  See Linking to Detected Issues for guidance on how a DetectedIssue instance might be included as part of another operation.\nSystems that require such workflows should document expected behavior as part of their CapabilityStatement declarations.",
+    "Linking to Detected Issues": "DetectedIssue follows the pattern of linking from the resource created \"second\".  As DetectedIssue originates in response to one or more other existing records, it points to those records rather than being pointed to from them.\nIn some cases, a detected issue might be associated with a single record.  When this occurs, it may be stored as a contained resource within the implicated resource provided that there is no expected need to search for the detected issue directly.  However, with detected issues that implicate multiple records, containment is more problematic.  In some workflows, a detected issue might be deemed to be \"owned\" by the record whose creation triggers the contraindication being created - i.e. the \"second\" or \"last\" record.  However, where multiple actions are proposed as part of a single submission, there can be no single owner and containment will not be feasible.\nIf there is a strong need to point from an implicated resource to DetectedIssue and containment is not appropriate, an extension can be used.",
+    "Workflow Challenges": "DetectedIssue is a resource that is frequently associated with workflow challenges where frequent alerts that are not clinically relevant result in clinicians tuning out (or turning off) the content and thus missing relevant alerts. Give consideration to this issue before making heavy use of this resource.",
+    "Open Issues": "Are author, reference and/or mitigation (and its various parts) all part of the 80%?"
+  },
+  "definitions": "DetectedIssue: indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. drug-drug interaction, ineffective treatment frequency, procedure-condition conflict, etc. [STOP]\nDetectedIssue.identifier: business identifier associated with the detected issue record. [STOP]\nDetectedIssue.status: indicates the status of the detected issue. [STOP]\nDetectedIssue.code: identifies the general type of issue identified. [STOP]\nDetectedIssue.severity: indicates the degree of importance associated with the identified issue based on the potential impact on the patient. [STOP]\nDetectedIssue.patient: indicates the patient whose record the detected issue is associated with. [STOP]\nDetectedIssue.identified[x]: the date or period when the detected issue was initially identified. [STOP]\nDetectedIssue.author: individual or device responsible for the issue being raised.  for example, a decision support application or a pharmacist conducting a medication review. [STOP]\nDetectedIssue.implicated: indicates the resource representing the current activity or proposed activity that is potentially problematic. [STOP]\nDetectedIssue.evidence: supporting evidence or manifestations that provide the basis for identifying the detected issue such as a guidanceresponse or measurereport. [STOP]\nDetectedIssue.evidence.code: a manifestation that led to the recording of this detected issue. [STOP]\nDetectedIssue.evidence.detail: links to resources that constitute evidence for the detected issue such as a guidanceresponse or measurereport. [STOP]\nDetectedIssue.detail: a textual explanation of the detected issue. [STOP]\nDetectedIssue.reference: the literature, knowledge-base or similar reference that describes the propensity for the detected issue identified. [STOP]\nDetectedIssue.mitigation: indicates an action that has been taken or is committed to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action. [STOP]\nDetectedIssue.mitigation.action: describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue. [STOP]\nDetectedIssue.mitigation.date: indicates when the mitigating action was documented. [STOP]\nDetectedIssue.mitigation.author: identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring. [STOP]",
+  "documentation": {
+    "DetectedIssue": "indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. drug-drug interaction, ineffective treatment frequency, procedure-condition conflict, etc.",
+    "DetectedIssue.identifier": "business identifier associated with the detected issue record.",
+    "DetectedIssue.status": "indicates the status of the detected issue.",
+    "DetectedIssue.code": "identifies the general type of issue identified.",
+    "DetectedIssue.severity": "indicates the degree of importance associated with the identified issue based on the potential impact on the patient.",
+    "DetectedIssue.patient": "indicates the patient whose record the detected issue is associated with.",
+    "DetectedIssue.identified[x]": "the date or period when the detected issue was initially identified.",
+    "DetectedIssue.author": "individual or device responsible for the issue being raised.  for example, a decision support application or a pharmacist conducting a medication review.",
+    "DetectedIssue.implicated": "indicates the resource representing the current activity or proposed activity that is potentially problematic.",
+    "DetectedIssue.evidence": "supporting evidence or manifestations that provide the basis for identifying the detected issue such as a guidanceresponse or measurereport.",
+    "DetectedIssue.evidence.code": "a manifestation that led to the recording of this detected issue.",
+    "DetectedIssue.evidence.detail": "links to resources that constitute evidence for the detected issue such as a guidanceresponse or measurereport.",
+    "DetectedIssue.detail": "a textual explanation of the detected issue.",
+    "DetectedIssue.reference": "the literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.",
+    "DetectedIssue.mitigation": "indicates an action that has been taken or is committed to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.",
+    "DetectedIssue.mitigation.action": "describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue.",
+    "DetectedIssue.mitigation.date": "indicates when the mitigating action was documented.",
+    "DetectedIssue.mitigation.author": "identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring."
+  }
+}

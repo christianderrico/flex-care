@@ -1,0 +1,353 @@
+{
+  "resource": "appointment",
+  "examples": [
+    {
+      "name": "General Person Example",
+      "document": {
+        "resourceType": "Appointment",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>"
+        },
+        "status": "booked",
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "system": "http://example.org/service-category",
+                "code": "gp",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "code": "52",
+                "display": "General Discussion"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394814009",
+                "display": "General practice"
+              }
+            ]
+          }
+        ],
+        "appointmentType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+              "code": "FOLLOWUP",
+              "display": "A follow up visit from a previous appointment"
+            }
+          ]
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/example",
+            "display": "Severe burn of left ear"
+          }
+        ],
+        "priority": 5,
+        "description": "Discussion on the results of your recent MRI",
+        "start": "2013-12-10T09:00:00Z",
+        "end": "2013-12-10T11:00:00Z",
+        "created": "2013-10-10",
+        "comment": "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/myringotomy"
+          }
+        ],
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/example",
+              "display": "Peter James Chalmers"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND"
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/example",
+              "display": "Dr Adam Careful"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/1",
+              "display": "South Wing, second floor"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Appointment between 2 doctors to discuss MRI results",
+      "document": {
+        "resourceType": "Appointment",
+        "id": "2docs",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>"
+        },
+        "status": "booked",
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "system": "http://example.org/service-category",
+                "code": "gp",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "code": "52",
+                "display": "General Discussion"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394814009",
+                "display": "General practice"
+              }
+            ]
+          }
+        ],
+        "appointmentType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+              "code": "WALKIN",
+              "display": "A previously unscheduled walk-in visit"
+            }
+          ]
+        },
+        "priority": 5,
+        "description": "Discussion about Peter Chalmers MRI results",
+        "supportingInformation": [
+          {
+            "reference": "DiagnosticReport/ultrasound"
+          }
+        ],
+        "start": "2013-12-09T09:00:00Z",
+        "end": "2013-12-09T11:00:00Z",
+        "comment": "Clarify the results of the MRI to ensure context of test was correct",
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/example",
+              "display": "Peter James Chalmers"
+            },
+            "required": "information-only",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Practitioner/example",
+              "display": "Dr Adam Careful"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Practitioner/f202",
+              "display": "Luigi Maas"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "display": "Phone Call"
+            },
+            "required": "information-only",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Appointment request",
+      "document": {
+        "resourceType": "Appointment",
+        "id": "examplereq",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://example.org/sampleappointment-identifier",
+            "value": "123"
+          }
+        ],
+        "status": "proposed",
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "system": "http://example.org/service-category",
+                "code": "gp",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394814009",
+                "display": "General practice"
+              }
+            ]
+          }
+        ],
+        "appointmentType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+              "code": "WALKIN",
+              "display": "A previously unscheduled walk-in visit"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "413095006"
+              }
+            ],
+            "text": "Clinical Review"
+          }
+        ],
+        "priority": 5,
+        "description": "Discussion on the results of your recent MRI",
+        "minutesDuration": 15,
+        "slot": [
+          {
+            "reference": "Slot/example"
+          }
+        ],
+        "created": "2015-12-02",
+        "comment": "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/example",
+              "display": "Peter James Chalmers"
+            },
+            "required": "required",
+            "status": "needs-action"
+          },
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND"
+                  }
+                ]
+              }
+            ],
+            "required": "required",
+            "status": "needs-action"
+          },
+          {
+            "actor": {
+              "reference": "Location/1",
+              "display": "South Wing, second floor"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ],
+        "requestedPeriod": [
+          {
+            "start": "2016-06-02",
+            "end": "2016-06-09"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.10Resource Appointment - Content",
+    "introduction": "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).\nThis resource is referenced by AppointmentResponse , CarePlan , Encounter and ImagingStudy",
+    "Scope and Usage": "Appointment resources are used to provide information about\r\n\t\t\ta planned meeting that may be in the future or past. The resource only describes a single meeting,\r\n\t\t\ta series of repeating visits would require multiple appointment resources to be created for each instance.\r\n\t\t\tExamples include a scheduled surgery, a follow-up for a\r\n\t\t\tclinical visit, a scheduled conference call between clinicians to discuss a case, the reservation\r\n\t\t\tof a piece of diagnostic equipment for a particular use, etc.\r\n\t\t\tThe visit scheduled by an appointment\r\n\t\t\tmay be in person or remote (by phone, video conference, etc.)  All that matters is that the time and\r\n\t\t\tusage of one or more individuals, locations and/or pieces of equipment is being fully or partially\r\n\t\t\treserved for a designated period of time.\nThis definition takes the concepts of appointments in a clinical setting and also extends\r\n\t\t\tthem to be relevant in the community healthcare space, and to ease exposure to other\r\n\t\t\tappointment / calendar standards widely used outside of healthcare.\nDiscovery/Addressing Before an appointment can be made, the address/endpoint details of the resource that we want \r\n\t\t\t\t\tto schedule an appointment with must be determined. This is often based on the healthcare service type\r\n\t\t\t\t\tand any formatting information which indicates how to make the request.\r\n\t\t\t\t\tThis is typically handled via the Schedule resource. Checking Availability on the Schedule (optional) This optional step permits the checking of any existing available times \r\n\t\t\t\t\t( Slot resources associated with a selected Schedule ) that can be booked against.\r\n\t\t\t\t\tJust because a time is indicated as available doesn't guarantee that an appointment can be made.\r\n\t\t\t\t\tThe booking system that is going to process the request may make other qualifying decisions to\r\n\t\t\t\t\tdetermine if the appointment can be made, such as permissions, assessments, availability of other\r\n\t\t\t\t\tresources, etc. This step is optional, as the creation of the appointment is never a guaranteed action.\r\n\t\t\t\t\tBut by performing this availability check, you can increase the chances of making a successful\r\n\t\t\t\t\tbooking. Making the Appointment Request When an appointment is required, a requester creates new Appointment resource with the Appointment.status=\"proposed\". All included participants (optional or mandatory) should have the status=\"needs-action\" to allow filtering and displaying\r\n\t\t\t\t\tappointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules,\r\n\t\t\t\t\tcertain statuses may be automatically updated, for example: \"reject because the requested participant is on vacation\" or \r\n\t\t\t\t\t\"this type of user is not allowed to request those specific appointments\". Replying to the request The reply process is simply performed by the person/system handing the requests, updating\r\n\t\t\t\t\tthe participant statuses on the appointment as needed. If there are multiple systems involved, then these\r\n\t\t\t\t\twill create AppointmentResponse entries with the desired statuses. Once all participants have their participation status created/updated\r\n\t\t\t\t\t(and the main system marking the appointment participant records with the AppointmentResponse\r\n\t\t\t\t\tstatuses) then the overall status of the Appointment is updated. Checking the overall status (Requester) The requester (organizer) of the appointment checks for the overall status of the appointment\r\n\t\t\t\t\t(and appointment responses, where applicable) using FHIR pub-sub techniques. Where the participant statuses indicate that a re-scheduling is required, then the process may\r\n\t\t\t\t\tstart again, with other systems replying to a new set of times. Waitlisting the Appointment (optional) This optional step permits creating a waitlisted appointment. This could occur if an\r\n\t\t\t\t\tappointment needs to be booked into a time that is not ideal for the patient due to lack of available\r\n\t\t\t\t\ttime slots.  In this workflow, there would be two appointments, the booked appointment in the time \r\n\t\t\t\t\tslot that is currently available, and the waitlisted appointment with a requestedPeriod spanning the\r\n\t\t\t\t\ttime that the patient would prefer if new slots become available. If new time slots become available during the requestedPeriod, the scheduling system, or staff\r\n\t\t\t\t\tat the scheduling organization, can notify the patient that a new time slot is available.  If the patient\r\n\t\t\t\t\tchooses, the waitlisted appointment would then be booked into that specific slot, and the previously booked \r\n\t\t\t\t\tappointment would be canceled.  The specific business process for notifying patients of new availability is not\r\n\t\t\t\t\tspecified, and is up to the implementing system to determine.\nOutlook Style - Community These types of requests are typically handled by selecting a specific time from a list of available slots,\r\n\t\t\t\t\tthen making the request for that timeslot. Hospital Scheduling - Clinical Clinical scheduling is often far more complex in its requirements and processing.\r\n\t\t\t\t\tOften this involves checking multiple availabilities across multiple systems and\r\n\t\t\t\t\ttiming with other internal systems, not just those exposed by the Slot resources. Consideration should be given to situations where scheduling needs to be handled\r\n\t\t\t\t\tin more of a queue-like process. Implementation Note: Note: This type of clinical appointment scheduling has not been specifically covered\r\n\t\t\t\t\t\twith this definition of the Appointment resource (and other related resources), however if you\r\n\t\t\t\t\t\twould like to contribute to the modification of this resource to cover these use cases,\r\n\t\t\t\t\t\tplease contact the HL7 Patient Administration work-group.",
+    "Boundaries and Relationships": "When using a request-response style of appointment this is done using Appointment \r\n\t\t\tand AppointmentResponse resources. The request is made in the form of an Appointment with a proposed or pending status,\r\n\t\t\tand the list of actors with a participation status of \"needs-action\".\nParticipants in the appointment respond with their acceptance (or not) to the appointment\r\n\t\t\tby creating AppointmentResponse resources. Once all the participants have replied, then the Appointment resource is able to be\r\n\t\t\tupdated with an overall status which collates the results of all the participants\r\n\t\t\tand presents the approved details of the appointment.\nThe participant type property can be used to represent a specific role that a practitioner \r\n\t\t\tis required to perform for the appointment. This could be specified without an actor when the actual\r\n\t\t\tpractitioner is not known, and will be filled in closer to the scheduled time. This property must be the same between the Appointment-participant and the AppointmentResponse\r\n\t\t\tso that the appropriate values can be allocated.\r\n\t\t\tIf you need multiple actors of a specific type, then multiple participants with that type value\r\n\t\t\tare included on the appointment.\nAppointments can be considered as Administrative only, and the Encounter is expected to have\r\n      clinical implications.\nIn general, it is expected that appointments will result in the creation of an Encounter.\r\n      The encounter is typically created when the service starts, not when the patient arrives.\r\n      When the patient arrives, an appointment can be marked with a status of Arrived.\nIn an Emergency Room context, the appointment Resource is probably not appropriate to be used.\r\n      In these cases, an Encounter should be created.\nThe Appointment request pattern used is different from the order-response pattern used elsewhere in FHIR. This is due to the close relationship to the iCal standard. Many non-clinical systems use generic\r\n      non-health appointment systems which implement this standard, and the desire to integrate\r\n      with the consumer who has no access to health based software is highly desirable. The mappings to the iCal standard have been provided to guide implementation of gateways between\r\n      FHIR servers and iCal systems.\nThe location of the appointment is to be defined by using a participant that references a Location\r\n\t\t\tor HealthcareService resource. This permits the location to also have its availability checked via a schedule and any\r\n\t\t\tconflicts more easily managed.",
+    "Notes": "Placer/Filler ( HL7 v2 ) The appointment information is effectively the same between the filler and placer, and given the nature of the\r\n\t\t\tFHIR resource, there is only a single resource for both purposes. The placer is the actor that performs the\r\n\t\t\tPUT or POST operation on the resource, and the filler is the actor that receives these resource messages and\r\n\t\t\tprocesses the information and makes a decision if the appointment can be used. Terminology - ServiceCategory, ServiceType and Specialty The 3 core clinical terminologies associated with the appointment may have relationships with each other\r\n\t\t\tthrough the terminology server, but not these might not be visible in the actual appointment resource or profile. Interaction with other Standards The strong desire is that implementers of this resource should consider providing this resource\r\n\t\t\tin the iCalendar format as an alternative representation. Many 3rd party applications and component providers\r\n\t\t\thave parsers and user interface controls to display this information.\r\n\t\t\tThis may lower the entry point to integrate outside the health-care specific applications, and into the\r\n\t\t\tconsumer space. This would permit the easier creation of a mobile application that creates appointments\r\n\t\t\tin the devices native calendar. The iCalendar specification can be found at http://www.ietf.org/rfc/rfc2445.txt ."
+  },
+  "definitions": "Appointment: a booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. this may result in one or more encounter(s). [STOP]\nAppointment.identifier: this records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct url reference to the resource itself is not appropriate (e.g. in cda documents, or in written / printed documentation). [STOP]\nAppointment.status: the overall status of the appointment. each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status. [STOP]\nAppointment.cancelationReason: the coded reason for the appointment being cancelled. this is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply. [STOP]\nAppointment.serviceCategory: a broad categorization of the service that is to be performed during this appointment. [STOP]\nAppointment.serviceType: the specific service that is to be performed during this appointment. [STOP]\nAppointment.specialty: the specialty of a practitioner that would be required to perform the service requested in this appointment. [STOP]\nAppointment.appointmentType: the style of appointment or patient that has been booked in the slot (not service type). [STOP]\nAppointment.reasonCode: the coded reason that this appointment is being scheduled. this is more clinical than administrative. [STOP]\nAppointment.reasonReference: reason the appointment has been scheduled to take place, as specified using information from another resource. when the patient arrives and the encounter begins it may be used as the admission diagnosis. the indication will typically be a condition (with other resources referenced in the evidence.detail), or a procedure. [STOP]\nAppointment.priority: the priority of the appointment. can be used to make informed decisions if needing to re-prioritize appointments. (the ical standard specifies 0 as undefined, 1 as highest, 9 as lowest priority). [STOP]\nAppointment.description: the brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. detailed or expanded information should be put in the comment field. [STOP]\nAppointment.supportingInformation: additional information to support the appointment provided when making the appointment. [STOP]\nAppointment.start: date/time that the appointment is to take place. [STOP]\nAppointment.end: date/time that the appointment is to conclude. [STOP]\nAppointment.minutesDuration: number of minutes that the appointment is to take. this can be less than the duration between the start and end times.  for example, where the actual time of appointment is only an estimate or if a 30 minute appointment is being requested, but any time would work.  also, if there is, for example, a planned 15 minute break in the middle of a long appointment, the duration may be 15 minutes less than the difference between the start and end. [STOP]\nAppointment.slot: the slots from the participants' schedules that will be filled by the appointment. [STOP]\nAppointment.created: the date that this appointment was initially created. this could be different to the meta.lastmodified value on the initial entry, as this could have been before the resource was created on the fhir server, and should remain unchanged over the lifespan of the appointment. [STOP]\nAppointment.comment: additional comments about the appointment. [STOP]\nAppointment.patientInstruction: while appointment.comment contains information for internal use, appointment.patientinstructions is used to capture patient facing information about the appointment (e.g. please bring your referral or fast from 8pm night before). [STOP]\nAppointment.basedOn: the service request this appointment is allocated to assess (e.g. incoming referral or procedure request). [STOP]\nAppointment.participant: list of participants involved in the appointment. [STOP]\nAppointment.participant.type: role of participant in the appointment. [STOP]\nAppointment.participant.actor: a person, location/healthcareservice or device that is participating in the appointment. [STOP]\nAppointment.participant.required: whether this participant is required to be present at the meeting. this covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present. [STOP]\nAppointment.participant.status: participation status of the actor. [STOP]\nAppointment.participant.period: participation period of the actor. [STOP]\nAppointment.requestedPeriod: a set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.the duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. however, in other situations the duration may be calculated by the scheduling system. [STOP]",
+  "documentation": {
+    "Appointment": "a booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. this may result in one or more encounter(s).",
+    "Appointment.identifier": "this records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct url reference to the resource itself is not appropriate (e.g. in cda documents, or in written / printed documentation).",
+    "Appointment.status": "the overall status of the appointment. each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+    "Appointment.cancelationReason": "the coded reason for the appointment being cancelled. this is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply.",
+    "Appointment.serviceCategory": "a broad categorization of the service that is to be performed during this appointment.",
+    "Appointment.serviceType": "the specific service that is to be performed during this appointment.",
+    "Appointment.specialty": "the specialty of a practitioner that would be required to perform the service requested in this appointment.",
+    "Appointment.appointmentType": "the style of appointment or patient that has been booked in the slot (not service type).",
+    "Appointment.reasonCode": "the coded reason that this appointment is being scheduled. this is more clinical than administrative.",
+    "Appointment.reasonReference": "reason the appointment has been scheduled to take place, as specified using information from another resource. when the patient arrives and the encounter begins it may be used as the admission diagnosis. the indication will typically be a condition (with other resources referenced in the evidence.detail), or a procedure.",
+    "Appointment.priority": "the priority of the appointment. can be used to make informed decisions if needing to re-prioritize appointments. (the ical standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).",
+    "Appointment.description": "the brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. detailed or expanded information should be put in the comment field.",
+    "Appointment.supportingInformation": "additional information to support the appointment provided when making the appointment.",
+    "Appointment.start": "date/time that the appointment is to take place.",
+    "Appointment.end": "date/time that the appointment is to conclude.",
+    "Appointment.minutesDuration": "number of minutes that the appointment is to take. this can be less than the duration between the start and end times.  for example, where the actual time of appointment is only an estimate or if a 30 minute appointment is being requested, but any time would work.  also, if there is, for example, a planned 15 minute break in the middle of a long appointment, the duration may be 15 minutes less than the difference between the start and end.",
+    "Appointment.slot": "the slots from the participants' schedules that will be filled by the appointment.",
+    "Appointment.created": "the date that this appointment was initially created. this could be different to the meta.lastmodified value on the initial entry, as this could have been before the resource was created on the fhir server, and should remain unchanged over the lifespan of the appointment.",
+    "Appointment.comment": "additional comments about the appointment.",
+    "Appointment.patientInstruction": "while appointment.comment contains information for internal use, appointment.patientinstructions is used to capture patient facing information about the appointment (e.g. please bring your referral or fast from 8pm night before).",
+    "Appointment.basedOn": "the service request this appointment is allocated to assess (e.g. incoming referral or procedure request).",
+    "Appointment.participant": "list of participants involved in the appointment.",
+    "Appointment.participant.type": "role of participant in the appointment.",
+    "Appointment.participant.actor": "a person, location/healthcareservice or device that is participating in the appointment.",
+    "Appointment.participant.required": "whether this participant is required to be present at the meeting. this covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.",
+    "Appointment.participant.status": "participation status of the actor.",
+    "Appointment.participant.period": "participation period of the actor.",
+    "Appointment.requestedPeriod": "a set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.the duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. however, in other situations the duration may be calculated by the scheduling system."
+  }
+}

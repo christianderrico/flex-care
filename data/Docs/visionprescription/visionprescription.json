@@ -1,0 +1,198 @@
+{
+  "resource": "visionprescription",
+  "examples": [
+    {
+      "name": "General Glasses Example",
+      "document": {
+        "resourceType": "VisionPrescription",
+        "id": "33123",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>OD -2.00 SPH         +2.00 add    0.5 p.d. BD</p>\n\t\t\t<p>OS -1.00 -0.50 x 180 +2.00 add    0.5 p.d. BU</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://www.happysight.com/prescription",
+            "value": "15013"
+          }
+        ],
+        "status": "active",
+        "created": "2014-06-15",
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "dateWritten": "2014-06-15",
+        "prescriber": {
+          "reference": "Practitioner/example"
+        },
+        "lensSpecification": [
+          {
+            "product": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
+                  "code": "lens"
+                }
+              ]
+            },
+            "eye": "right",
+            "sphere": -2.0,
+            "prism": [
+              {
+                "amount": 0.5,
+                "base": "down"
+              }
+            ],
+            "add": 2.0
+          },
+          {
+            "product": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
+                  "code": "lens"
+                }
+              ]
+            },
+            "eye": "left",
+            "sphere": -1.0,
+            "cylinder": -0.5,
+            "axis": 180,
+            "prism": [
+              {
+                "amount": 0.5,
+                "base": "up"
+              }
+            ],
+            "add": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "General Contacts Example",
+      "document": {
+        "resourceType": "VisionPrescription",
+        "id": "33124",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Sample Contract Lens prescription</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://www.happysight.com/prescription",
+            "value": "15014"
+          }
+        ],
+        "status": "active",
+        "created": "2014-06-15",
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/f001"
+        },
+        "dateWritten": "2014-06-15",
+        "prescriber": {
+          "reference": "Practitioner/example"
+        },
+        "lensSpecification": [
+          {
+            "product": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
+                  "code": "contact"
+                }
+              ]
+            },
+            "eye": "right",
+            "cylinder": -2.25,
+            "axis": 160,
+            "add": 1.75,
+            "power": -2.75,
+            "backCurve": 8.7,
+            "diameter": 14.0,
+            "duration": {
+              "value": 1,
+              "unit": "month",
+              "system": "http://unitsofmeasure.org",
+              "code": "month"
+            },
+            "color": "green",
+            "brand": "OphthaGuard",
+            "note": [
+              {
+                "text": "Shade treatment for extreme light sensitivity"
+              }
+            ]
+          },
+          {
+            "product": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
+                  "code": "contact"
+                }
+              ]
+            },
+            "eye": "left",
+            "cylinder": -3.5,
+            "axis": 160,
+            "add": 1.75,
+            "power": -2.75,
+            "backCurve": 8.7,
+            "diameter": 14.0,
+            "duration": {
+              "value": 1,
+              "unit": "month",
+              "system": "http://unitsofmeasure.org",
+              "code": "month"
+            },
+            "color": "green",
+            "brand": "OphthaGuard",
+            "note": [
+              {
+                "text": "Shade treatment for extreme light sensitivity"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.16Resource VisionPrescription - Content",
+    "introduction": "An authorization for the provision of glasses and/or contact lenses to a patient.\nThis resource is referenced by CarePlan , Claim and ExplanationOfBenefit",
+    "Scope and Usage": "The VisionPrescription resource is intended to support the information requirements for a prescription for glasses and contact lenses for a patient.\r\nCorrective optical lenses are considered a controlled substance and therefore a prescription is typically required for the provision of \r\npatient-specific lenses.\nVision prescriptions may only be issued by providers who have optical diagnosis within their scope of practice, typically ophthalmologists  \r\nand optometrists. The prescription is a time-limited, typically two years, authorization for the provision of an unlimited number of lenses, \r\nglasses or contacts, which conform to the authorized specification by providers which have lens provision within their scope of practice, typically ophthalmologists  \r\n, optometrists and opticians.\nHealth insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the\r\n power of the lenses exceeds some minimum, such as +- 0.75 diopters, to qualify for reimbursement under the insurance coverage.\nThe VisionPrescription resource is an \"request\" resource from a FHIR workflow perspective - see Workflow Request.\nAdditional information regarding resources conveying electronic claims content and usage may be found at:\nFinancial Resource Status Lifecycle : how .status is used in the financial resources.",
+    "Boundaries and Relationships": "The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts which \r\n\t\thave well known and internationally consistent requirements, which is distinct from other types of health care authorizations detailed below."
+  },
+  "definitions": "VisionPrescription: an authorization for the provision of glasses and/or contact lenses to a patient. [STOP]\nVisionPrescription.identifier: a unique identifier assigned to this vision prescription. [STOP]\nVisionPrescription.status: the status of the resource instance. [STOP]\nVisionPrescription.created: the date this resource was created. [STOP]\nVisionPrescription.patient: a resource reference to the person to whom the vision prescription applies. [STOP]\nVisionPrescription.encounter: a reference to a resource that identifies the particular occurrence of contact between patient and health care provider during which the prescription was issued. [STOP]\nVisionPrescription.dateWritten: the date (and perhaps time) when the prescription was written. [STOP]\nVisionPrescription.prescriber: the healthcare professional responsible for authorizing the prescription. [STOP]\nVisionPrescription.lensSpecification: contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals. [STOP]\nVisionPrescription.lensSpecification.product: identifies the type of vision correction product which is required for the patient. [STOP]\nVisionPrescription.lensSpecification.eye: the eye for which the lens specification applies. [STOP]\nVisionPrescription.lensSpecification.sphere: lens power measured in dioptres (0.25 units). [STOP]\nVisionPrescription.lensSpecification.cylinder: power adjustment for astigmatism measured in dioptres (0.25 units). [STOP]\nVisionPrescription.lensSpecification.axis: adjustment for astigmatism measured in integer degrees. [STOP]\nVisionPrescription.lensSpecification.prism: allows for adjustment on two axis. [STOP]\nVisionPrescription.lensSpecification.prism.amount: amount of prism to compensate for eye alignment in fractional units. [STOP]\nVisionPrescription.lensSpecification.prism.base: the relative base, or reference lens edge, for the prism. [STOP]\nVisionPrescription.lensSpecification.add: power adjustment for multifocal lenses measured in dioptres (0.25 units). [STOP]\nVisionPrescription.lensSpecification.power: contact lens power measured in dioptres (0.25 units). [STOP]\nVisionPrescription.lensSpecification.backCurve: back curvature measured in millimetres. [STOP]\nVisionPrescription.lensSpecification.diameter: contact lens diameter measured in millimetres. [STOP]\nVisionPrescription.lensSpecification.duration: the recommended maximum wear period for the lens. [STOP]\nVisionPrescription.lensSpecification.color: special color or pattern. [STOP]\nVisionPrescription.lensSpecification.brand: brand recommendations or restrictions. [STOP]\nVisionPrescription.lensSpecification.note: notes for special requirements such as coatings and lens materials. [STOP]",
+  "documentation": {
+    "VisionPrescription": "an authorization for the provision of glasses and/or contact lenses to a patient.",
+    "VisionPrescription.identifier": "a unique identifier assigned to this vision prescription.",
+    "VisionPrescription.status": "the status of the resource instance.",
+    "VisionPrescription.created": "the date this resource was created.",
+    "VisionPrescription.patient": "a resource reference to the person to whom the vision prescription applies.",
+    "VisionPrescription.encounter": "a reference to a resource that identifies the particular occurrence of contact between patient and health care provider during which the prescription was issued.",
+    "VisionPrescription.dateWritten": "the date (and perhaps time) when the prescription was written.",
+    "VisionPrescription.prescriber": "the healthcare professional responsible for authorizing the prescription.",
+    "VisionPrescription.lensSpecification": "contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals.",
+    "VisionPrescription.lensSpecification.product": "identifies the type of vision correction product which is required for the patient.",
+    "VisionPrescription.lensSpecification.eye": "the eye for which the lens specification applies.",
+    "VisionPrescription.lensSpecification.sphere": "lens power measured in dioptres (0.25 units).",
+    "VisionPrescription.lensSpecification.cylinder": "power adjustment for astigmatism measured in dioptres (0.25 units).",
+    "VisionPrescription.lensSpecification.axis": "adjustment for astigmatism measured in integer degrees.",
+    "VisionPrescription.lensSpecification.prism": "allows for adjustment on two axis.",
+    "VisionPrescription.lensSpecification.prism.amount": "amount of prism to compensate for eye alignment in fractional units.",
+    "VisionPrescription.lensSpecification.prism.base": "the relative base, or reference lens edge, for the prism.",
+    "VisionPrescription.lensSpecification.add": "power adjustment for multifocal lenses measured in dioptres (0.25 units).",
+    "VisionPrescription.lensSpecification.power": "contact lens power measured in dioptres (0.25 units).",
+    "VisionPrescription.lensSpecification.backCurve": "back curvature measured in millimetres.",
+    "VisionPrescription.lensSpecification.diameter": "contact lens diameter measured in millimetres.",
+    "VisionPrescription.lensSpecification.duration": "the recommended maximum wear period for the lens.",
+    "VisionPrescription.lensSpecification.color": "special color or pattern.",
+    "VisionPrescription.lensSpecification.brand": "brand recommendations or restrictions.",
+    "VisionPrescription.lensSpecification.note": "notes for special requirements such as coatings and lens materials."
+  }
+}

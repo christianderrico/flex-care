@@ -1,0 +1,82 @@
+{
+  "resource": "appointmentresponse",
+  "examples": [
+    {
+      "name": "General Person Example",
+      "document": {
+        "resourceType": "AppointmentResponse",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>"
+        },
+        "appointment": {
+          "reference": "Appointment/example",
+          "display": "Brian MRI results discussion"
+        },
+        "actor": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "participantStatus": "accepted"
+      }
+    },
+    {
+      "name": "Response to renegotiate an appointmet request",
+      "document": {
+        "resourceType": "AppointmentResponse",
+        "id": "exampleresp",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://example.org/sampleappointmentresponse-identifier",
+            "value": "response123"
+          }
+        ],
+        "appointment": {
+          "reference": "Appointment/examplereq",
+          "display": "Brian MRI results discussion"
+        },
+        "start": "2013-12-25T13:15:00Z",
+        "end": "2013-12-25T13:30:00Z",
+        "participantType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "ATND"
+              }
+            ]
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/example",
+          "display": "Dr Adam Careful"
+        },
+        "participantStatus": "tentative",
+        "comment": "can't we try for this time, can't do mornings"
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.11Resource AppointmentResponse - Content",
+    "introduction": "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.\nThis resource is referenced by ImagingStudy",
+    "Scope and Usage": "Appointment resources are used to provide information about \r\n\t\ta planned meeting that may be in the future or past.  They may be for a single meeting or\r\n\t\tfor a series of repeating visits.  Examples include a scheduled surgery, a follow-up for a\r\n\t\tclinical visit, a scheduled conference call between clinicians to discuss a case, the reservation\r\n\t\tof a piece of diagnostic equipment for a particular use, etc.  The visit scheduled by an appointment\r\n\t\tmay be in person or remote (by phone, video conference, etc.)  All that matters is that the time and\r\n\t\tusage of one or more individuals, locations and/or pieces of equipment is being fully or partially\r\n\t\treserved for a designated period of time.\nThis definition takes the concepts of appointments in a clinical setting and also extends\r\n\t\tthem to be relevant in the community healthcare space, and also ease exposure to other\r\n\t\tappointment / calendar standards widely used outside of Healthcare.\nMaking the Appointment Request When an appointment is required, a requester creates new Appointment resource with the Appointment.status=\"proposed\". All included participants (optional or mandatory) should have the status=\"needs-action\" to allow filtering and displaying\r\n\t\t\t\t\tappointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules,\r\n\t\t\t\t\tcertain statuses may be automatically updated, for example: \"reject because the requested participant is on vacation\" or \r\n\t\t\t\t\t\"this type of user is not allowed to request those specific appointments\". Replying to the request The reply process is simply performed by the person/system handing the requests updating\r\n\t\t\t\t\tthe participant statuses as needed. If there are multiple systems involved, then these\r\n\t\t\t\t\twill create AppointmentResponse entries with the desired statuses. Once all participants have their participation status created/updated\r\n\t\t\t\t\t(and the main system marking the appointment participant records with the AppointmentResponse\r\n\t\t\t\t\tstatuses) then the overall status of the Appointment is updated.",
+    "Notes": "Recurring appointments need to have the time zone defined in which the values were entered.\r\n    Knowing that the start time was at 9:00:00Z+10 does not mean that the same time in 2 weeks is actually the same.\nFor example, if this was a time in Brisbane Australia, this time would be the same (in respect to its offset from UTC),\r\n    however if this was for Melbourne Australia, during the daylight savings period Melbourne time zone becomes +11.\r\n    So, without the additional information as to which time zone it was created in, scheduling a 9am appointment every\r\n    Wednesday would not be possible."
+  },
+  "definitions": "AppointmentResponse: a reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection. [STOP]\nAppointmentResponse.identifier: this records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct url reference to the resource itself is not appropriate. [STOP]\nAppointmentResponse.appointment: appointment that this response is replying to. [STOP]\nAppointmentResponse.start: date/time that the appointment is to take place, or requested new start time. [STOP]\nAppointmentResponse.end: this may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time. [STOP]\nAppointmentResponse.participantType: role of participant in the appointment. [STOP]\nAppointmentResponse.actor: a person, location, healthcareservice, or device that is participating in the appointment. [STOP]\nAppointmentResponse.participantStatus: participation status of the participant. when the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. when the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty. [STOP]\nAppointmentResponse.comment: additional comments about the appointment. [STOP]",
+  "documentation": {
+    "AppointmentResponse": "a reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.",
+    "AppointmentResponse.identifier": "this records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct url reference to the resource itself is not appropriate.",
+    "AppointmentResponse.appointment": "appointment that this response is replying to.",
+    "AppointmentResponse.start": "date/time that the appointment is to take place, or requested new start time.",
+    "AppointmentResponse.end": "this may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.",
+    "AppointmentResponse.participantType": "role of participant in the appointment.",
+    "AppointmentResponse.actor": "a person, location, healthcareservice, or device that is participating in the appointment.",
+    "AppointmentResponse.participantStatus": "participation status of the participant. when the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. when the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.",
+    "AppointmentResponse.comment": "additional comments about the appointment."
+  }
+}

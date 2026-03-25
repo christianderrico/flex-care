@@ -1,0 +1,621 @@
+{
+  "resource": "organization",
+  "examples": [
+    {
+      "name": "HL7 itself",
+      "document": {
+        "resourceType": "Organization",
+        "id": "hl7",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      Health Level Seven International\n      <br/>\n\t\t\t\t3300 Washtenaw Avenue, Suite 227\n      <br/>\n\t\t\t\tAnn Arbor, MI 48104\n      <br/>\n\t\t\t\tUSA\n      <br/>\n\t\t\t\t(+1) 734-677-7777 (phone)\n      <br/>\n\t\t\t\t(+1) 734-677-6622 (fax)\n      <br/>\n\t\t\t\tE-mail:  \n      <a href=\"mailto:hq@HL7.org\">hq@HL7.org</a>\n    \n    </div>"
+        },
+        "name": "Health Level Seven International",
+        "alias": [
+          "HL7 International"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(+1) 734-677-7777"
+          },
+          {
+            "system": "fax",
+            "value": "(+1) 734-677-6622"
+          },
+          {
+            "system": "email",
+            "value": "hq@HL7.org"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "3300 Washtenaw Avenue, Suite 227"
+            ],
+            "city": "Ann Arbor",
+            "state": "MI",
+            "postalCode": "48104",
+            "country": "USA"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/example"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gastroenterology team at ACME Healthcare",
+      "document": {
+        "resourceType": "Organization",
+        "id": "1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Gastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: \n        <a href=\"mailto:gastro@acme.org\">gastro@acme.org</a>\n      </p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "http://www.acme.org.au/units",
+            "value": "Gastro"
+          }
+        ],
+        "name": "Gastroenterology",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+1 555 234 3523",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "gastro@acme.org",
+            "use": "work"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Clinical Laboratory at ACME Healthcare",
+      "document": {
+        "resourceType": "Organization",
+        "id": "1832473e-2fe0-452d-abe9-3cdb9879522f",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Clinical Laboratory @ Acme Hospital. ph: +1 555 234 1234, email: \n        <a href=\"mailto:contact@labs.acme.org\">contact@labs.acme.org</a>\n      </p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "http://www.acme.org.au/units",
+            "value": "ClinLab"
+          }
+        ],
+        "name": "Clinical Lab",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+1 555 234 1234",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "contact@labs.acme.org",
+            "use": "work"
+          }
+        ]
+      }
+    },
+    {
+      "name": "XYZ Insurance",
+      "document": {
+        "resourceType": "Organization",
+        "id": "2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>XYZ Insurance</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.19.2.3",
+            "value": "666666"
+          }
+        ],
+        "name": "XYZ Insurance",
+        "alias": [
+          "ABC Insurance"
+        ]
+      }
+    },
+    {
+      "name": "Good Health Clinic",
+      "document": {
+        "resourceType": "Organization",
+        "id": "2.16.840.1.113883.19.5",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Good Health Clinic</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "2.16.840.1.113883.19.5"
+          }
+        ],
+        "name": "Good Health Clinic"
+      }
+    },
+    {
+      "name": "Real-world organization example (Burgers MC)",
+      "document": {
+        "resourceType": "Organization",
+        "id": "f001",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 91654 (OFFICIAL), 17-0112278 (USUAL)</p><p><b>type</b>: University Medical Hospital <span>(Details : {urn:oid:2.16.840.1.113883.2.4.15.1060 code 'V6' = 'V6', given as 'University Medical Hospital'}; {http://terminology.hl7.org/CodeSystem/organization-type code 'prov' = 'Healthcare Provider', given as 'Healthcare Provider'})</span></p><p><b>name</b>: Burgers University Medical Center</p><p><b>telecom</b>: ph: 022-655 2300(WORK)</p><p><b>address</b>: </p><ul><li>Galapagosweg 91 Den Burg 9105 PZ NLD (WORK)</li><li>PO Box 2311 Den Burg 9100 AA NLD (WORK)</li></ul><blockquote><p><b>contact</b></p><p><b>purpose</b>: Press <span>(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'PRESS' = 'Press)</span></p><p><b>telecom</b>: ph: 022-655 2334</p></blockquote><blockquote><p><b>contact</b></p><p><b>purpose</b>: Patient <span>(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'PATINF' = 'Patient)</span></p><p><b>telecom</b>: ph: 022-655 2335</p></blockquote></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:oid:2.16.528.1",
+            "value": "91654"
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:2.16.840.1.113883.2.4.6.1",
+            "value": "17-0112278"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "urn:oid:2.16.840.1.113883.2.4.15.1060",
+                "code": "V6",
+                "display": "University Medical Hospital"
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "Burgers University Medical Center",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "022-655 2300",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "Galapagosweg 91"
+            ],
+            "city": "Den Burg",
+            "postalCode": "9105 PZ",
+            "country": "NLD"
+          },
+          {
+            "use": "work",
+            "line": [
+              "PO Box 2311"
+            ],
+            "city": "Den Burg",
+            "postalCode": "9100 AA",
+            "country": "NLD"
+          }
+        ],
+        "contact": [
+          {
+            "purpose": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+                  "code": "PRESS"
+                }
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "022-655 2334"
+              }
+            ]
+          },
+          {
+            "purpose": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+                  "code": "PATINF"
+                }
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "022-655 2335"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world organization example (Burgers MC Cardiology)",
+      "document": {
+        "resourceType": "Organization",
+        "id": "f002",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f002</p><p><b>active</b>: true</p><p><b>type</b>: Hospital Department <span>(Details : {http://terminology.hl7.org/CodeSystem/organization-type code 'dept' = 'Hospital Department', given as 'Hospital Department'})</span></p><p><b>name</b>: Burgers UMC Cardiology unit</p><p><b>telecom</b>: ph: 022-655 2320</p><p><b>address</b>: South Wing, floor 2 </p><p><b>partOf</b>: <a>Organization/f001</a></p><h3>Contacts</h3><table><tr><td>-</td><td><b>Purpose</b></td><td><b>Name</b></td><td><b>Telecom</b></td><td><b>Address</b></td></tr><tr><td>*</td><td>Administrative <span>(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'ADMIN' = 'Administrative)</span></td><td>mevr. D. de Haan</td><td>ph: 022-655 2321</td><td>South Wing, floor 2 </td></tr></table></div>"
+        },
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "dept",
+                "display": "Hospital Department"
+              }
+            ]
+          }
+        ],
+        "name": "Burgers UMC Cardiology unit",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "022-655 2320"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "South Wing, floor 2"
+            ]
+          }
+        ],
+        "partOf": {
+          "reference": "Organization/f001"
+        },
+        "contact": [
+          {
+            "purpose": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+                  "code": "ADMIN"
+                }
+              ]
+            },
+            "name": {
+              "text": "mevr. D. de Haan"
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "022-655 2321"
+              },
+              {
+                "system": "email",
+                "value": "cardio@burgersumc.nl"
+              },
+              {
+                "system": "fax",
+                "value": "022-655 2322"
+              }
+            ],
+            "address": {
+              "line": [
+                "South Wing, floor 2"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world organization example (Artis UMC)",
+      "document": {
+        "resourceType": "Organization",
+        "id": "f201",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>identifier</b>: Artis University Medical Center (OFFICIAL)</p><p><b>active</b>: true</p><p><b>type</b>: Academic Medical Center <span>(Details : {SNOMED CT code '405608006' = 'Academic medical centre', given as 'Academic Medical Center'}; {urn:oid:2.16.840.1.113883.2.4.15.1060 code 'V6' = 'V6', given as 'University Medical Hospital'}; {http://terminology.hl7.org/CodeSystem/organization-type code 'prov' = 'Healthcare Provider', given as 'Healthcare Provider'})</span></p><p><b>name</b>: Artis University Medical Center (AUMC)</p><p><b>telecom</b>: ph: +31715269111(WORK)</p><p><b>address</b>: Walvisbaai 3 Den Helder 2333ZA NLD (WORK)</p><h3>Contacts</h3><table><tr><td>-</td><td><b>Name</b></td><td><b>Telecom</b></td><td><b>Address</b></td></tr><tr><td>*</td><td>Professor Brand(OFFICIAL)</td><td>ph: +31715269702(WORK)</td><td>Walvisbaai 3 Gebouw 2 Den helder 2333ZA NLD </td></tr></table></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://www.zorgkaartnederland.nl/",
+            "value": "Artis University Medical Center"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "405608006",
+                "display": "Academic Medical Center"
+              },
+              {
+                "system": "urn:oid:2.16.840.1.113883.2.4.15.1060",
+                "code": "V6",
+                "display": "University Medical Hospital"
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "Artis University Medical Center (AUMC)",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+31715269111",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "Walvisbaai 3"
+            ],
+            "city": "Den Helder",
+            "postalCode": "2333ZA",
+            "country": "NLD"
+          }
+        ],
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "text": "Professor Brand",
+              "family": "Brand",
+              "given": [
+                "Ronald"
+              ],
+              "prefix": [
+                "Prof.Dr."
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+31715269702",
+                "use": "work"
+              }
+            ],
+            "address": {
+              "line": [
+                "Walvisbaai 3",
+                "Gebouw 2"
+              ],
+              "city": "Den helder",
+              "postalCode": "2333ZA",
+              "country": "NLD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world organization example (Blijdorp MC)",
+      "document": {
+        "resourceType": "Organization",
+        "id": "f203",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f203</p><p><b>identifier</b>: Zorginstelling naam = Blijdorp MC (OFFICIAL)</p><p><b>active</b>: true</p><p><b>type</b>: Academic Medical Center <span>(Details : {SNOMED CT code '405608006' = 'Academic medical centre', given as 'Academic Medical Center'}; {http://terminology.hl7.org/CodeSystem/organization-type code 'prov' = 'Healthcare Provider)</span></p><p><b>name</b>: Blijdorp Medisch Centrum (BUMC)</p><p><b>telecom</b>: ph: +31107040704(WORK)</p><p><b>address</b>: apenrots 230 Blijdorp 3056BE NLD (WORK)</p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "text": "Zorginstelling naam"
+            },
+            "system": "http://www.zorgkaartnederland.nl/",
+            "value": "Blijdorp MC"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "405608006",
+                "display": "Academic Medical Center"
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov"
+              }
+            ]
+          }
+        ],
+        "name": "Blijdorp Medisch Centrum (BUMC)",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+31107040704",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "apenrots 230"
+            ],
+            "city": "Blijdorp",
+            "postalCode": "3056BE",
+            "country": "NLD"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world organization example (ENT)",
+      "document": {
+        "resourceType": "Organization",
+        "id": "f003",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f003</p><p><b>active</b>: true</p><p><b>type</b>: Hospital Department <span>(Details : {http://terminology.hl7.org/CodeSystem/organization-type code 'dept' = 'Hospital Department', given as 'Hospital Department'})</span></p><p><b>name</b>: Burgers UMC Ear,Nose,Throat unit</p><p><b>telecom</b>: ph: 022-655 6780</p><p><b>address</b>: West Wing, floor 5 </p><p><b>partOf</b>: <a>Organization/f001</a></p><h3>Contacts</h3><table><tr><td>-</td><td><b>Purpose</b></td><td><b>Name</b></td><td><b>Telecom</b></td><td><b>Address</b></td></tr><tr><td>*</td><td>Administrative <span>(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'ADMIN' = 'Administrative)</span></td><td>mr. F. de Hond</td><td>ph: 022-655 7654</td><td>West Wing, floor 5 </td></tr></table></div>"
+        },
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "dept",
+                "display": "Hospital Department"
+              }
+            ]
+          }
+        ],
+        "name": "Burgers UMC Ear,Nose,Throat unit",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "022-655 6780"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "West Wing, floor 5"
+            ]
+          }
+        ],
+        "partOf": {
+          "reference": "Organization/f001"
+        },
+        "contact": [
+          {
+            "purpose": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+                  "code": "ADMIN"
+                }
+              ]
+            },
+            "name": {
+              "text": "mr. F. de Hond"
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "022-655 7654"
+              },
+              {
+                "system": "email",
+                "value": "KNO@burgersumc.nl"
+              },
+              {
+                "system": "fax",
+                "value": "022-655 0998"
+              }
+            ],
+            "address": {
+              "line": [
+                "West Wing, floor 5"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Medication Manufacturer",
+      "document": {
+        "resourceType": "Organization",
+        "id": "mmanu",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Acme Corporation, Proud member of the pharma industry</p>\n    </div>"
+        },
+        "active": true,
+        "name": "Acme Corporation",
+        "address": [
+          {
+            "country": "Swizterland"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Government Department of Health",
+      "document": {
+        "resourceType": "Organization",
+        "id": "3",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Michigan Helth</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "http://michigan.gov/state-dept-ids",
+            "value": "25"
+          }
+        ],
+        "name": "Michigan Health",
+        "alias": [
+          "Michigan State Department of Health"
+        ]
+      }
+    },
+    {
+      "name": "HL7 Payer Network",
+      "document": {
+        "resourceType": "Organization",
+        "id": "hl7pay",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>HL7 Payer Network</p>\n    \n    </div>"
+        },
+        "name": "HL7 Payer network"
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.6Resource Organization - Content",
+    "introduction": "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.\nThis resource is referenced by Annotation , Identifier , Signature , UsageContext , Account , AuditEvent , Basic , BiologicallyDerivedProduct , CapabilityStatement , CarePlan , CareTeam , CatalogEntry , ChargeItem , Claim , ClaimResponse , Communication , CommunicationRequest , Composition , Consent , Contract , Coverage , CoverageEligibilityRequest , CoverageEligibilityResponse , Device , DeviceDefinition , DeviceRequest , DiagnosticReport , DocumentManifest , DocumentReference , Encounter , Endpoint , EnrollmentRequest , EnrollmentResponse , EpisodeOfCare , ExplanationOfBenefit , Flag , Goal , Group , HealthcareService , ImagingStudy , Immunization , ImmunizationEvaluation , ImmunizationRecommendation , InsurancePlan , Invoice , Linkage , Location , MeasureReport , Media , Medication , MedicationDispense , MedicationKnowledge , MedicationRequest , MedicationStatement , MedicinalProduct , MedicinalProductAuthorization , MedicinalProductIngredient , MedicinalProductManufactured , MedicinalProductPackaged , MessageHeader , MolecularSequence , Observation , itself, OrganizationAffiliation , Patient , PaymentNotice , PaymentReconciliation , Person , Practitioner , PractitionerRole , Procedure , Provenance , QuestionnaireResponse , ResearchStudy , ServiceRequest , SupplyDelivery , SupplyRequest , Task and VerificationResult",
+    "Scope and Usage": "This resource may be used in a shared registry of contact and other information for various organizations or it can be used merely as a support\r\nfor other resources that need to reference organizations, perhaps as a document , message or \r\nas a contained resource.  If using a registry approach, it's entirely possible for multiple registries to exist, each dealing\r\nwith different types or levels of organization.",
+    "Boundaries and Relationships": "The Organization resource is used for collections of people that have come together to achieve an objective.  \r\nThe Group resource is used to identify a collection of people (or animals, devices, etc.) \r\nthat are gathered for the purpose of analysis or acting upon, but are not expected to act themselves.\nThe Organization resource often exists as a hierarchy of organization resources, using the part-of property to provide\r\n\t\tthe association of the child to its parent organization. This organizational hierarchy helps communicate the conceptual structure, whereas the Location resource provides the physical\r\n\t\trepresentation of the hierarchy. The linkage between Organization and Location is from each point in the location hierarchy to the appropriate level in the \r\n\t\tOrganization hierarchy. These links don't all have to be to the top level Organization. When populating the organization and location hierarchies there is often not a clear distinction between these 2, however\r\n\t\tto assist in making the decision, Locations are always used for recording where a service occurs, and hence where encounters\r\n\t\tand observations are associated. The Organization property on these resources might not be the location where the service took place.",
+    "Notes": "There are two places for contact information: one on Organization itself and zero or more using the ContactEntity construct.\r\n\t\t\tThe first one is to be used for the generic, public organization point of contact. The ContactEntity is to be used for\r\n\t\t\treaching a person or party that has been designated by the organization to be contacted for a specific purpose or goal.",
+    "Example Organization Hierarchy": "An example organization hierarchy should help give some guidance as to one example\r\n\t\tof how a location hierarchy could look within a fictitious Medical Organization. (The nesting here would be the \"part-of\" structure of the Organization resource)\nNote that physical structures of this hierarchy are not present - these are defined by a Location hierarchy."
+  },
+  "definitions": "Organization: a formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc. [STOP]\nOrganization.identifier: identifier for the organization that is used to identify the organization across multiple disparate systems. [STOP]\nOrganization.active: whether the organization's record is still in active use. [STOP]\nOrganization.type: the kind(s) of organization that this is. [STOP]\nOrganization.name: a name associated with the organization. [STOP]\nOrganization.alias: a list of alternate names that the organization is known as, or was known as in the past. [STOP]\nOrganization.telecom: a contact detail for the organization. [STOP]\nOrganization.address: an address for the organization. [STOP]\nOrganization.partOf: the organization of which this organization forms a part. [STOP]\nOrganization.contact: contact for the organization for a certain purpose. [STOP]\nOrganization.contact.purpose: indicates a purpose for which the contact can be reached. [STOP]\nOrganization.contact.name: a name associated with the contact. [STOP]\nOrganization.contact.telecom: a contact detail (e.g. a telephone number or an email address) by which the party may be contacted. [STOP]\nOrganization.contact.address: visiting or postal addresses for the contact. [STOP]\nOrganization.endpoint: technical endpoints providing access to services operated for the organization. [STOP]",
+  "documentation": {
+    "Organization": "a formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.",
+    "Organization.identifier": "identifier for the organization that is used to identify the organization across multiple disparate systems.",
+    "Organization.active": "whether the organization's record is still in active use.",
+    "Organization.type": "the kind(s) of organization that this is.",
+    "Organization.name": "a name associated with the organization.",
+    "Organization.alias": "a list of alternate names that the organization is known as, or was known as in the past.",
+    "Organization.telecom": "a contact detail for the organization.",
+    "Organization.address": "an address for the organization.",
+    "Organization.partOf": "the organization of which this organization forms a part.",
+    "Organization.contact": "contact for the organization for a certain purpose.",
+    "Organization.contact.purpose": "indicates a purpose for which the contact can be reached.",
+    "Organization.contact.name": "a name associated with the contact.",
+    "Organization.contact.telecom": "a contact detail (e.g. a telephone number or an email address) by which the party may be contacted.",
+    "Organization.contact.address": "visiting or postal addresses for the contact.",
+    "Organization.endpoint": "technical endpoints providing access to services operated for the organization."
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "resource": "flag",
+  "examples": [
+    {
+      "name": "Example of flag",
+      "document": {
+        "resourceType": "Flag",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Large Dog warning for Peter Patient</div>"
+        },
+        "identifier": [
+          {
+            "value": "12345"
+          }
+        ],
+        "status": "inactive",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+                "code": "safety",
+                "display": "Safety"
+              }
+            ],
+            "text": "Safety"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://example.org/local",
+              "code": "bigdog",
+              "display": "Big dog"
+            }
+          ],
+          "text": "Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures"
+        },
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Peter Patient"
+        },
+        "period": {
+          "start": "2015-01-17",
+          "end": "2016-12-01"
+        },
+        "author": {
+          "reference": "Practitioner/example",
+          "display": "Nancy Nurse"
+        }
+      }
+    },
+    {
+      "name": "Encounter Specific Alert",
+      "document": {
+        "resourceType": "Flag",
+        "id": "example-encounter",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Follow Infection Control Level 3 Protocol</div>"
+        },
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://example.org/local",
+                "code": "infection",
+                "display": "Infection Control Level"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://example.org/local/if1",
+              "code": "l3",
+              "display": "Follow Level 3 Protocol"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Peter Patient"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.13Resource Flag - Content",
+    "introduction": "Prospective warnings of potential issues when providing care to the patient.",
+    "Scope and Usage": "A flag is a warning or notification of some sort presented to the user - who may be a clinician or some other person involve in patient care. It usually represents\r\nsomething of sufficient significance to warrant a special display of some sort - rather than just a note in the resource.\r\n\r\nA flag has a subject representing the resource that will trigger its display. This subject can be of different types, as described in the examples below:\nA note that a patient has an overdue account, which the provider may wish to discuss with them - in case of hardship for example (subject = Patient) An outbreak of Ebola in a particular region (subject=Location) so that all patients from that region have a higher risk of having that condition A particular provider is unavailable for referrals over a given period (subject = Practitioner) A patient who is enrolled in a clinical trial (subject=Group) Special guidance or caveats to be aware of when following a protocol (subject=PlanDefinition) Warnings about using a drug in a formulary requires special approval (subject=Medication) etc.\nA flag is typically presented as a label in a prominent location in the record to notify the clinician of the potential issues, \r\nthough it may also appear in other contexts; e.g. notes applicable to a radiology technician, or to a clinician performing a home visit. \r\n\r\nFor patients, the information in the flag will often be derived from the record, and therefore, for a thorough and careful clinician, who has the time to review the\r\nnotes will be redundant.  \r\nHowever, given the volume of information frequently found in patients' records and the potentially serious consequences of losing sight of some facts, this \r\nredundancy is deemed appropriate.  As well, some flags may reflect information not captured by any other resource in the record.  \r\n(E.g. \"Patient has large dog at home\")\nIn line with its purpose, a flag is concise, highlighting a small set of high-priority issues among the much larger set of \r\ndata in the chart. Readers who want more detail should consult the chart or other source of information.  Caution should be exercised in creating Flag instances.\r\nIf entries are created for information that could be gleaned in a sufficiently timely fashion by reviewing the patient record, \r\nthe flag list will itself become overwhelming and will cease to serve its intended purpose.\nFlags are expected to persist in a record for some period of time and are, at most, targeted to particular types of practitioners\r\nor to practitioners in particular system.\nExamples of Patient related issues that might appear in flags:\nRisks to the patient (functional risk of falls, spousal restraining order, latex allergy) Patient's needs for special accommodations (hard of hearing, need for easy-open caps) Risks to providers (dog in house, patient may bite, infection control precautions) Administrative concerns (incomplete information, pre-payment required due to credit risk)\nExamples of issues that should not appear only in flags:\nPotential allergy or drug interaction to planned therapy (use DetectedIssue ) Known adverse reaction to a substance (use AllergyIntolerance )\nNote that we include \"latex allergy\" in the \"in scope\" list, and \"allergy\" in the \"not in scope\" list. The Flag resource is not \r\ndesigned to replace the normal order checking process, and one should not expect to see all allergies in Flags. However, if there \r\nis an activity that might occur prior to careful evaluation of the record (e.g. donning of latex gloves) and that activity might \r\npose a risk to the patient, that is the sort of eventuality the Flag is intended to support.\nSpecific guidelines about what type of information is appropriate to expose using Flag, as well as what categories of individuals \r\nshould see particular flags, will vary by interoperability community.",
+    "Boundaries and Relationships": "Flags may highlight a highly condensed view of information found in the AllergyIntolerance , Condition , Observation , Procedure and possibly \r\nother resources.  A common extension allows the linkage of a Flag to the supporting detail resource.\r\nThe purpose of these other resources is to provide detailed clinical information.  The purpose of a Flag is to alert practitioners to \r\ninformation that is important to influence their interaction with a Patient prior to detailed review of the record.\nFlags are not used to convey information to a specific individual or organization (e.g. an abnormal lab result reported to the ordering \r\nclinician, reporting of an adverse reaction to a regulatory authority).  These are handled using the CommunicationRequest and the Communication resources.\nFlags are not raised as a result of a reported or proposed action (e.g. drug-drug interactions, duplicate therapy warnings).  \r\nThese would be handled using DetectedIssue .",
+    "Notes": "The Flag resource is sometimes used as \"patient notes\" and MAY be used to warn of issues such as:\nIssues that impact on the patient's ability to receive/respond to care the care provision process itself (e.g., poor language comprehension, low compliance expected) Issues that impact on the ability to provide care (e.g., patient has a big dog at home) Financial matters (e.g., patient is a bad debtor)"
+  },
+  "definitions": "Flag: prospective warnings of potential issues when providing care to the patient. [STOP]\nFlag.identifier: business identifiers assigned to this flag by the performer or other systems which remain constant as the resource is updated and propagates from server to server. [STOP]\nFlag.status: supports basic workflow. [STOP]\nFlag.category: allows a flag to be divided into different categories like clinical, administrative etc. intended to be used as a means of filtering which flags are displayed to particular user or in a given context. [STOP]\nFlag.code: the coded value or textual component of the flag to display to the user. [STOP]\nFlag.subject: the patient, location, group, organization, or practitioner etc. this is about record this flag is associated with. [STOP]\nFlag.period: the period of time from the activation of the flag to inactivation of the flag. if the flag is active, the end of the period should be unspecified. [STOP]\nFlag.encounter: this alert is only relevant during the encounter. [STOP]\nFlag.author: the person, organization or device that created the flag. [STOP]",
+  "documentation": {
+    "Flag": "prospective warnings of potential issues when providing care to the patient.",
+    "Flag.identifier": "business identifiers assigned to this flag by the performer or other systems which remain constant as the resource is updated and propagates from server to server.",
+    "Flag.status": "supports basic workflow.",
+    "Flag.category": "allows a flag to be divided into different categories like clinical, administrative etc. intended to be used as a means of filtering which flags are displayed to particular user or in a given context.",
+    "Flag.code": "the coded value or textual component of the flag to display to the user.",
+    "Flag.subject": "the patient, location, group, organization, or practitioner etc. this is about record this flag is associated with.",
+    "Flag.period": "the period of time from the activation of the flag to inactivation of the flag. if the flag is active, the end of the period should be unspecified.",
+    "Flag.encounter": "this alert is only relevant during the encounter.",
+    "Flag.author": "the person, organization or device that created the flag."
+  }
+}

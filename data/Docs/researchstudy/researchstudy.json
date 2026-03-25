@@ -1,0 +1,56 @@
+{
+  "resource": "researchstudy",
+  "examples": [
+    {
+      "name": "Placeholder example",
+      "document": {
+        "resourceType": "ResearchStudy",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+        },
+        "status": "completed"
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.22Resource ResearchStudy - Content",
+    "introduction": "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.\nThis resource is referenced by UsageContext , AdverseEvent , MedicinalProduct , itself and ResearchSubject",
+    "Scope and Usage": "This resource is an definition resource from a FHIR workflow perspective - see Workflow .\nA research study is a scientific way to improve or develop new methods of health care. Studies are designed to answer specific questions on how to prevent, diagnose, or treat diseases and disorders. The ResearchStudy resource describes essential information about the study, including the purpose, objective, sponsor, investigator, therapy, condition being studied, schedule of activities, and other key items.\nUses for the ResearchStudy resource include:\nRegistering a clinical trial in trial registry such as clinicaltrials.gov Communicating study protocol information between study stakeholders Supporting study set up of sites, forms Grouping Observation resources by study Setting up a Schedule of Activities for the study and its subjects",
+    "ResearchStudy State Machine": "The following diagram reflects the \"typical\" state machine for ResearchStudy."
+  },
+  "definitions": "ResearchStudy: a process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  this includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  a researchstudy involves the gathering of information about human or animal subjects. [STOP]\nResearchStudy.identifier: identifiers assigned to this research study by the sponsor or other systems. [STOP]\nResearchStudy.title: a short, descriptive user-friendly label for the study. [STOP]\nResearchStudy.protocol: the set of steps expected to be performed as part of the execution of the study. [STOP]\nResearchStudy.partOf: a larger research study of which this particular study is a component or step. [STOP]\nResearchStudy.status: the current state of the study. [STOP]\nResearchStudy.primaryPurposeType: the type of study based upon the intent of the study's activities. a classification of the intent of the study. [STOP]\nResearchStudy.phase: the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation. [STOP]\nResearchStudy.category: codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc. [STOP]\nResearchStudy.focus: the medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about. [STOP]\nResearchStudy.condition: the condition that is the focus of the study.  for example, in a study to examine risk factors for lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a lupus snomed code. [STOP]\nResearchStudy.contact: contact details to assist a user in learning more about or engaging with the study. [STOP]\nResearchStudy.relatedArtifact: citations, references and other related documents. [STOP]\nResearchStudy.keyword: key terms to aid in searching for or filtering the study. [STOP]\nResearchStudy.location: indicates a country, state or other region where the study is taking place. [STOP]\nResearchStudy.description: a full description of how the study is being conducted. [STOP]\nResearchStudy.enrollment: reference to a group that defines the criteria for and quantity of subjects participating in the study.  e.g. \" 200 female europeans between the ages of 20 and 45 with early onset diabetes\". [STOP]\nResearchStudy.period: identifies the start date and the expected (or actual, depending on status) end date for the study. [STOP]\nResearchStudy.sponsor: an organization that initiates the investigation and is legally responsible for the study. [STOP]\nResearchStudy.principalInvestigator: a researcher in a study who oversees multiple aspects of the study, such as concept development, protocol writing, protocol submission for irb approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation. [STOP]\nResearchStudy.site: a facility in which study activities are conducted. [STOP]\nResearchStudy.reasonStopped: a description and/or code explaining the premature termination of the study. [STOP]\nResearchStudy.note: comments made about the study by the performer, subject or other participants. [STOP]\nResearchStudy.arm: describes an expected sequence of events for one of the participants of a study.  e.g. exposure to drug a, wash-out, exposure to drug b, wash-out, follow-up. [STOP]\nResearchStudy.arm.name: unique, human-readable label for this arm of the study. [STOP]\nResearchStudy.arm.type: categorization of study arm, e.g. experimental, active comparator, placebo comparater. [STOP]\nResearchStudy.arm.description: a succinct description of the path through the study that would be followed by a subject adhering to this arm. [STOP]\nResearchStudy.objective: a goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study. [STOP]\nResearchStudy.objective.name: unique, human-readable label for this objective of the study. [STOP]\nResearchStudy.objective.type: the kind of study objective. [STOP]",
+  "documentation": {
+    "ResearchStudy": "a process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  this includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  a researchstudy involves the gathering of information about human or animal subjects.",
+    "ResearchStudy.identifier": "identifiers assigned to this research study by the sponsor or other systems.",
+    "ResearchStudy.title": "a short, descriptive user-friendly label for the study.",
+    "ResearchStudy.protocol": "the set of steps expected to be performed as part of the execution of the study.",
+    "ResearchStudy.partOf": "a larger research study of which this particular study is a component or step.",
+    "ResearchStudy.status": "the current state of the study.",
+    "ResearchStudy.primaryPurposeType": "the type of study based upon the intent of the study's activities. a classification of the intent of the study.",
+    "ResearchStudy.phase": "the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.",
+    "ResearchStudy.category": "codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.",
+    "ResearchStudy.focus": "the medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.",
+    "ResearchStudy.condition": "the condition that is the focus of the study.  for example, in a study to examine risk factors for lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a lupus snomed code.",
+    "ResearchStudy.contact": "contact details to assist a user in learning more about or engaging with the study.",
+    "ResearchStudy.relatedArtifact": "citations, references and other related documents.",
+    "ResearchStudy.keyword": "key terms to aid in searching for or filtering the study.",
+    "ResearchStudy.location": "indicates a country, state or other region where the study is taking place.",
+    "ResearchStudy.description": "a full description of how the study is being conducted.",
+    "ResearchStudy.enrollment": "reference to a group that defines the criteria for and quantity of subjects participating in the study.  e.g. \" 200 female europeans between the ages of 20 and 45 with early onset diabetes\".",
+    "ResearchStudy.period": "identifies the start date and the expected (or actual, depending on status) end date for the study.",
+    "ResearchStudy.sponsor": "an organization that initiates the investigation and is legally responsible for the study.",
+    "ResearchStudy.principalInvestigator": "a researcher in a study who oversees multiple aspects of the study, such as concept development, protocol writing, protocol submission for irb approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation.",
+    "ResearchStudy.site": "a facility in which study activities are conducted.",
+    "ResearchStudy.reasonStopped": "a description and/or code explaining the premature termination of the study.",
+    "ResearchStudy.note": "comments made about the study by the performer, subject or other participants.",
+    "ResearchStudy.arm": "describes an expected sequence of events for one of the participants of a study.  e.g. exposure to drug a, wash-out, exposure to drug b, wash-out, follow-up.",
+    "ResearchStudy.arm.name": "unique, human-readable label for this arm of the study.",
+    "ResearchStudy.arm.type": "categorization of study arm, e.g. experimental, active comparator, placebo comparater.",
+    "ResearchStudy.arm.description": "a succinct description of the path through the study that would be followed by a subject adhering to this arm.",
+    "ResearchStudy.objective": "a goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study.",
+    "ResearchStudy.objective.name": "unique, human-readable label for this objective of the study.",
+    "ResearchStudy.objective.type": "the kind of study objective."
+  }
+}

@@ -1,0 +1,2892 @@
+{
+  "resource": "questionnaireresponse",
+  "examples": [
+    {
+      "name": "General questionnaire response example",
+      "document": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "3141",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <pre>\n            Comorbidity? YES\n              Cardial Comorbidity? YES\n                Angina? YES\n                MI? NO\n              Vascular Comorbidity?\n                (no answers)\n              ...\n            Histopathology\n              Abdominal\n                pT category: 1a\n              ...\n          </pre>\n    </div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Patient",
+            "id": "patsub",
+            "identifier": [
+              {
+                "system": "http://cancer.questionnaire.org/systems/id/patientnr",
+                "value": "A34442332"
+              },
+              {
+                "type": {
+                  "text": "Dutch BSN"
+                },
+                "system": "urn:oid:2.16.840.1.113883.2.4.6.3",
+                "value": "188912345"
+              }
+            ],
+            "gender": "male",
+            "birthDate": "1972-11-30"
+          },
+          {
+            "resourceType": "ServiceRequest",
+            "id": "order",
+            "status": "unknown",
+            "intent": "order",
+            "subject": {
+              "reference": "#patsub"
+            },
+            "requester": {
+              "reference": "Practitioner/example"
+            }
+          },
+          {
+            "resourceType": "Practitioner",
+            "id": "questauth",
+            "identifier": [
+              {
+                "type": {
+                  "text": "AUMC, Den Helder"
+                },
+                "system": "http://cancer.questionnaire.org/systems/id/org",
+                "value": "AUMC"
+              }
+            ]
+          }
+        ],
+        "identifier": {
+          "system": "http://example.org/fhir/NamingSystem/questionnaire-ids",
+          "value": "Q12349876"
+        },
+        "basedOn": [
+          {
+            "reference": "#order"
+          }
+        ],
+        "partOf": [
+          {
+            "reference": "Procedure/f201"
+          }
+        ],
+        "status": "completed",
+        "subject": {
+          "reference": "#patsub"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "authored": "2013-02-19T14:15:00-05:00",
+        "author": {
+          "reference": "#questauth"
+        },
+        "item": [
+          {
+            "linkId": "1",
+            "item": [
+              {
+                "linkId": "1.1",
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "system": "http://cancer.questionnaire.org/system/code/yesno",
+                      "code": "1",
+                      "display": "Yes"
+                    },
+                    "item": [
+                      {
+                        "linkId": "1.1.1",
+                        "item": [
+                          {
+                            "linkId": "1.1.1.1",
+                            "answer": [
+                              {
+                                "valueCoding": {
+                                  "system": "http://cancer.questionnaire.org/system/code/yesno",
+                                  "code": "1"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "linkId": "1.1.1.2",
+                            "answer": [
+                              {
+                                "valueCoding": {
+                                  "system": "http://cancer.questionnaire.org/system/code/yesno",
+                                  "code": "1"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "linkId": "1.1.1.3",
+                            "answer": [
+                              {
+                                "valueCoding": {
+                                  "system": "http://cancer.questionnaire.org/system/code/yesno",
+                                  "code": "0"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world lifelines questionnaire response (fictively taken from the patient)",
+      "document": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "f201",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>status</b>: completed</p><p><b>subject</b>: <a>Roel</a></p><p><b>authored</b>: 18/06/2013 12:00:00 AM</p><p><b>author</b>: <a>Practitioner/f201</a></p><p><b>source</b>: <a>Practitioner/f201</a></p><blockquote><p><b>item</b></p><p><b>linkId</b>: 1</p><h3>Items</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 2</p><p><b>text</b>: General questions</p><h3>Items</h3><table><tr><td>-</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 3</p><p><b>text</b>: Intoxications</p><h3>Items</h3><table><tr><td>-</td></tr><tr><td>*</td></tr><tr><td>*</td></tr></table></blockquote></div>"
+        },
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/f201",
+          "display": "Roel"
+        },
+        "authored": "2013-06-18T00:00:00+01:00",
+        "author": {
+          "reference": "Practitioner/f201"
+        },
+        "source": {
+          "reference": "Practitioner/f201"
+        },
+        "item": [
+          {
+            "linkId": "1",
+            "item": [
+              {
+                "linkId": "1.1",
+                "text": "Do you have allergies?",
+                "answer": [
+                  {
+                    "valueString": "I am allergic to house dust"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "2",
+            "text": "General questions",
+            "item": [
+              {
+                "linkId": "2.1",
+                "text": "What is your gender?",
+                "answer": [
+                  {
+                    "valueString": "Male"
+                  }
+                ]
+              },
+              {
+                "linkId": "2.2",
+                "text": "What is your date of birth?",
+                "answer": [
+                  {
+                    "valueDate": "1960-03-13"
+                  }
+                ]
+              },
+              {
+                "linkId": "2.3",
+                "text": "What is your country of birth?",
+                "answer": [
+                  {
+                    "valueString": "The Netherlands"
+                  }
+                ]
+              },
+              {
+                "linkId": "2.4",
+                "text": "What is your marital status?",
+                "answer": [
+                  {
+                    "valueString": "married"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "3",
+            "text": "Intoxications",
+            "item": [
+              {
+                "linkId": "3.1",
+                "text": "Do you smoke?",
+                "answer": [
+                  {
+                    "valueString": "No"
+                  }
+                ]
+              },
+              {
+                "linkId": "3.2",
+                "text": "Do you drink alchohol?",
+                "answer": [
+                  {
+                    "valueString": "No, but I used to drink"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world NSW My Personal Health Record example",
+      "document": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "bb",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <pre>\n        Cathy Jones, female. Birth weight 3.25 kg at 44.3 cm. \n        Injection of Vitamin K given on 1972-11-30 (first dose) and 1972-12-11 (second dose)\n        Note: Was able to speak Chinese at birth.\n      </pre>\n    </div>"
+        },
+        "status": "completed",
+        "subject": {
+          "reference": "http://hl7.org/fhir/Patient/1",
+          "type": "Patient"
+        },
+        "authored": "2013-02-19T14:15:00+10:00",
+        "author": {
+          "reference": "http://hl7.org/fhir/Practitioner/example",
+          "type": "Practitioner"
+        },
+        "item": [
+          {
+            "linkId": "birthDetails",
+            "text": "Birth details - To be completed by health professional",
+            "item": [
+              {
+                "linkId": "group",
+                "item": [
+                  {
+                    "linkId": "nameOfChild",
+                    "text": "Name of child",
+                    "answer": [
+                      {
+                        "valueString": "Cathy Jones"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "sex",
+                    "text": "Sex",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "code": "f"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "neonatalInformation",
+                "text": "Neonatal Information",
+                "item": [
+                  {
+                    "linkId": "birthWeight",
+                    "text": "Birth weight (kg)",
+                    "answer": [
+                      {
+                        "valueDecimal": 3.25
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "birthLength",
+                    "text": "Birth length (cm)",
+                    "answer": [
+                      {
+                        "valueDecimal": 44.3
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "vitaminKgiven",
+                    "text": "Vitamin K given",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "code": "INJECTION"
+                        },
+                        "item": [
+                          {
+                            "linkId": "vitaminKgivenDoses",
+                            "item": [
+                              {
+                                "linkId": "vitaminKDose1",
+                                "text": "1st dose",
+                                "answer": [
+                                  {
+                                    "valueDate": "1972-11-30"
+                                  }
+                                ]
+                              },
+                              {
+                                "linkId": "vitaminKDose2",
+                                "text": "2nd dose",
+                                "answer": [
+                                  {
+                                    "valueDate": "1972-12-11"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "hepBgiven",
+                    "text": "Hep B given y / n",
+                    "answer": [
+                      {
+                        "valueBoolean": true,
+                        "item": [
+                          {
+                            "linkId": "hepBgivenDate",
+                            "text": "Date given",
+                            "answer": [
+                              {
+                                "valueDate": "1972-12-04"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "abnormalitiesAtBirth",
+                    "text": "Abnormalities noted at birth",
+                    "answer": [
+                      {
+                        "valueString": "Already able to speak Chinese"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Glasgow Coma Score example answers",
+      "document": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "gcs",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: gcs</p><p><b>questionnaire</b>: <a>Questionnaire/gcs</a></p><p><b>status</b>: completed</p><p><b>subject</b>: <a>Peter James Chalmers</a></p><p><b>authored</b>: 11/12/2014 4:44:16 AM</p><p><b>source</b>: <a>Practitioner/f007</a></p><blockquote><p><b>item</b></p><p><b>linkId</b>: 1.1</p><h3>Answers</h3><table><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Confused (Details: LOINC code LA6560-2 = 'Confused', stated as 'Confused')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 1.2</p><h3>Answers</h3><table><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Localizing pain (Details: LOINC code LA6566-9 = 'Localizing pain', stated as 'Localizing pain')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 1.3</p><h3>Answers</h3><table><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Eyes open spontaneously (Details: LOINC code LA6556-0 = 'Eyes open spontaneously', stated as 'Eyes open spontaneously')</td></tr></table></blockquote></div>"
+        },
+        "questionnaire": "Questionnaire/gcs",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "authored": "2014-12-11T04:44:16Z",
+        "source": {
+          "reference": "Practitioner/f007"
+        },
+        "item": [
+          {
+            "linkId": "1.1",
+            "answer": [
+              {
+                "valueCoding": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                      "valueDecimal": 4
+                    }
+                  ],
+                  "system": "http://loinc.org",
+                  "code": "LA6560-2",
+                  "display": "Confused"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "1.2",
+            "answer": [
+              {
+                "valueCoding": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                      "valueDecimal": 5
+                    }
+                  ],
+                  "system": "http://loinc.org",
+                  "code": "LA6566-9",
+                  "display": "Localizing pain"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "1.3",
+            "answer": [
+              {
+                "valueCoding": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                      "valueDecimal": 4
+                    }
+                  ],
+                  "system": "http://loinc.org",
+                  "code": "LA6556-0",
+                  "display": "Eyes open spontaneously"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example response to the SDC-LOINC USSG Family History questionnaire",
+      "document": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "ussg-fht-answers",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: ussg-fht-answers</p><p><b>questionnaire</b>: <a>Questionnaire/ussg-fht</a></p><p><b>status</b>: in-progress</p><p><b>subject</b>: <a>http://hl7.org/fhir/Patient/proband</a></p><p><b>authored</b>: 17/01/2008</p><blockquote><p><b>item</b></p><p><b>linkId</b>: 0</p><h3>Items</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 1</p><p><b>definition</b>: <a>http://loinc.org/fhir/DataElement/54126-8</a></p><p><b>text</b>: Your health information</p><h3>Items</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: 2</p><p><b>definition</b>: <a>http://loinc.org/fhir/DataElement/54114-4</a></p><p><b>text</b>: Family member health information</p><h3>Items</h3><table><tr><td>-</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr><tr><td>*</td></tr></table></blockquote></div>"
+        },
+        "questionnaire": "Questionnaire/ussg-fht",
+        "status": "in-progress",
+        "subject": {
+          "reference": "http://hl7.org/fhir/Patient/proband",
+          "type": "Patient"
+        },
+        "authored": "2008-01-17",
+        "item": [
+          {
+            "linkId": "0",
+            "item": [
+              {
+                "linkId": "0.1",
+                "text": "Date Done",
+                "answer": [
+                  {
+                    "valueDate": "2008-01-17"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "1",
+            "definition": "http://loinc.org/fhir/DataElement/54126-8",
+            "text": "Your health information",
+            "item": [
+              {
+                "linkId": "1.1",
+                "item": [
+                  {
+                    "linkId": "1.1.1",
+                    "definition": "http://loinc.org/fhir/DataElement/54125-0",
+                    "text": "Name",
+                    "answer": [
+                      {
+                        "valueString": "Annie Proband"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.2",
+                    "definition": "http://loinc.org/fhir/DataElement/54131-8",
+                    "text": "Gender",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA3-6",
+                          "display": "Female"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.3",
+                    "definition": "http://loinc.org/fhir/DataElement/21112-8",
+                    "text": "Date of Birth",
+                    "answer": [
+                      {
+                        "valueDate": "1966-04-04"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.4",
+                    "definition": "http://loinc.org/fhir/DataElement/54132-6",
+                    "text": "Were you born a twin?",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA32-8",
+                          "display": "No"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.5",
+                    "definition": "http://loinc.org/fhir/DataElement/54128-4",
+                    "text": "Were you adopted?",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA32-8",
+                          "display": "No"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.6",
+                    "definition": "http://loinc.org/fhir/DataElement/54135-9",
+                    "text": "Are your parents related to each other in any way other than marriage?",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA32-8",
+                          "display": "No"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.7",
+                    "definition": "http://loinc.org/fhir/DataElement/8302-2",
+                    "text": "Height",
+                    "answer": [
+                      {
+                        "valueDecimal": 63,
+                        "item": [
+                          {
+                            "linkId": "1.1.7.1",
+                            "item": [
+                              {
+                                "linkId": "1.1.7.1.1",
+                                "text": "Units",
+                                "answer": [
+                                  {
+                                    "valueCoding": {
+                                      "system": "http://unitsofmeasure.org",
+                                      "code": "[in_i]",
+                                      "display": "inches"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.8",
+                    "definition": "http://loinc.org/fhir/DataElement/29463-7",
+                    "text": "Weight",
+                    "answer": [
+                      {
+                        "valueDecimal": 127,
+                        "item": [
+                          {
+                            "linkId": "1.1.8.1",
+                            "item": [
+                              {
+                                "linkId": "1.1.8.1.1",
+                                "text": "Units",
+                                "answer": [
+                                  {
+                                    "valueCoding": {
+                                      "system": "http://unitsofmeasure.org",
+                                      "code": "[lb_av]",
+                                      "display": "pounds"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.9",
+                    "definition": "http://loinc.org/fhir/DataElement/39156-5",
+                    "text": "Body mass index (BMI) [Ratio]",
+                    "answer": [
+                      {
+                        "valueDecimal": 22.5
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.10",
+                    "definition": "http://loinc.org/fhir/DataElement/54134-2",
+                    "text": "Race",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA4457-3",
+                          "display": "White"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "1.1.11",
+                    "definition": "http://loinc.org/fhir/DataElement/54133-4",
+                    "text": "Ethnicity",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA10602-3",
+                          "display": "-- Mexican"
+                        }
+                      },
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA10606-4",
+                          "display": "-- South American"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "2",
+            "definition": "http://loinc.org/fhir/DataElement/54114-4",
+            "text": "Family member health information",
+            "item": [
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1.1",
+                    "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                    "text": "Relationship to you",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA10405-1",
+                          "display": "Daughter"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.1.2",
+                    "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                    "text": "Name",
+                    "answer": [
+                      {
+                        "valueString": "Susan"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.1.3",
+                    "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                    "text": "Gender",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA3-6",
+                          "display": "Female"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.1.4",
+                    "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                    "text": "Living?",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA33-6",
+                          "display": "Yes"
+                        },
+                        "item": [
+                          {
+                            "linkId": "2.1.1.4.2",
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2.2",
+                                "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                "text": "Age",
+                                "answer": [
+                                  {
+                                    "valueDecimal": 17
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.1.5",
+                    "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                    "text": "Was this person born a twin?",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA32-8",
+                          "display": "No"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.1.6",
+                    "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                    "text": "Was this person adopted?",
+                    "answer": [
+                      {
+                        "valueCoding": {
+                          "system": "http://loinc.org",
+                          "code": "LA32-8",
+                          "display": "No"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10415-0",
+                              "display": "Brother"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Brian"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 32
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10550-4",
+                              "display": "-- Other Cancer"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10397-0",
+                              "display": "30-39"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10418-4",
+                              "display": "Sister"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Janet"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 36
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10536-3",
+                              "display": "-- Breast Cancer"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10397-0",
+                              "display": "30-39"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10419-2",
+                              "display": "Nephew"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Ian"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 16
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10420-0",
+                              "display": "Niece"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Helen"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 15
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10416-8",
+                              "display": "Father"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Donald"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 52
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10425-9",
+                              "display": "Paternal Uncle"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Eric"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 56
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10421-8",
+                              "display": "Paternal Aunt"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Fiona"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 57
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10543-9",
+                              "display": "-- Skin Cancer"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10423-4",
+                              "display": "Paternal Grandfather"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Bob"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.1",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.1.1",
+                                    "definition": "http://loinc.org/fhir/DataElement/54112-8",
+                                    "text": "Cause of Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10537-1",
+                                          "display": "-- Colon Cancer"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "linkId": "2.1.1.4.1.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54113-6",
+                                    "text": "Age at Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10400-2",
+                                          "display": "OVER 60"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10537-1",
+                              "display": "-- Colon Cancer"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10400-2",
+                              "display": "OVER 60"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10424-2",
+                              "display": "Paternal Grandmother"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Claire"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.1",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.1.1",
+                                    "definition": "http://loinc.org/fhir/DataElement/54112-8",
+                                    "text": "Cause of Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10589-2",
+                                          "display": "-- Other/Unexpected"
+                                        },
+                                        "item": [
+                                          {
+                                            "linkId": "2.1.1.4.1.1.1",
+                                            "text": "Please specify",
+                                            "answer": [
+                                              {
+                                                "valueString": "Lou Gehrigs"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "linkId": "2.1.1.4.1.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54113-6",
+                                    "text": "Age at Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10400-2",
+                                          "display": "OVER 60"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10417-6",
+                              "display": "Mother"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Harriet"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.1",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.1.1",
+                                    "definition": "http://loinc.org/fhir/DataElement/54112-8",
+                                    "text": "Cause of Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10539-7",
+                                          "display": "-- Ovarian Cancer"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "linkId": "2.1.1.4.1.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54113-6",
+                                    "text": "Age at Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10399-6",
+                                          "display": "50-59"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10539-7",
+                              "display": "-- Ovarian Cancer"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10398-8",
+                              "display": "40-49"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10414-3",
+                              "display": "Maternal Uncle"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Rudy"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 60
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10410-1",
+                              "display": "Maternal Aunt"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Julie"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 57
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10412-7",
+                              "display": "Maternal Grandfather"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Ian"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA2-8",
+                              "display": "Male"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.1",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.1.1",
+                                    "definition": "http://loinc.org/fhir/DataElement/54112-8",
+                                    "text": "Cause of Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10558-7",
+                                          "display": "-- Heart Attack"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "linkId": "2.1.1.4.1.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54113-6",
+                                    "text": "Age at Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10400-2",
+                                          "display": "OVER 60"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10413-5",
+                              "display": "Maternal Grandmother"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Gladys"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.1",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.1.1",
+                                    "definition": "http://loinc.org/fhir/DataElement/54112-8",
+                                    "text": "Cause of Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10571-0",
+                                          "display": "-- Other/Unknown"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "linkId": "2.1.1.4.1.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54113-6",
+                                    "text": "Age at Death",
+                                    "answer": [
+                                      {
+                                        "valueCoding": {
+                                          "system": "http://loinc.org",
+                                          "code": "LA10400-2",
+                                          "display": "OVER 60"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10536-3",
+                              "display": "-- Breast Cancer"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10399-6",
+                              "display": "50-59"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10564-5",
+                              "display": "-- Asthma"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10395-4",
+                              "display": "Childhood"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10411-9",
+                              "display": "Maternal Cousin"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Karren"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 30
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "2.1.2",
+                    "text": "This family member's history of disease",
+                    "item": [
+                      {
+                        "linkId": "2.1.2.1",
+                        "text": "Disease or Condition",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10536-3",
+                              "display": "-- Breast Cancer"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.2.2",
+                        "text": "Age at Diagnosis",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10397-0",
+                              "display": "30-39"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "2.1",
+                "item": [
+                  {
+                    "linkId": "2.1.1",
+                    "item": [
+                      {
+                        "linkId": "2.1.1.1",
+                        "definition": "http://loinc.org/fhir/DataElement/54136-7",
+                        "text": "Relationship to you",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA10411-9",
+                              "display": "Maternal Cousin"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.2",
+                        "definition": "http://loinc.org/fhir/DataElement/54138-3",
+                        "text": "Name",
+                        "answer": [
+                          {
+                            "valueString": "Mary"
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.3",
+                        "definition": "http://loinc.org/fhir/DataElement/54123-5",
+                        "text": "Gender",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA3-6",
+                              "display": "Female"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.4",
+                        "definition": "http://loinc.org/fhir/DataElement/54139-1",
+                        "text": "Living?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA33-6",
+                              "display": "Yes"
+                            },
+                            "item": [
+                              {
+                                "linkId": "2.1.1.4.2",
+                                "item": [
+                                  {
+                                    "linkId": "2.1.1.4.2.2",
+                                    "definition": "http://loinc.org/fhir/DataElement/54141-7",
+                                    "text": "Age",
+                                    "answer": [
+                                      {
+                                        "valueDecimal": 31
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.5",
+                        "definition": "http://loinc.org/fhir/DataElement/54121-9",
+                        "text": "Was this person born a twin?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "linkId": "2.1.1.6",
+                        "definition": "http://loinc.org/fhir/DataElement/54122-7",
+                        "text": "Was this person adopted?",
+                        "answer": [
+                          {
+                            "valueCoding": {
+                              "system": "http://loinc.org",
+                              "code": "LA32-8",
+                              "display": "No"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "2.38Resource QuestionnaireResponse - Content",
+    "introduction": "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.\nThis resource is referenced by ClinicalImpression , Consent , Contract , DeviceUseStatement , FamilyMemberHistory and Observation",
+    "Scope and Usage": "QuestionnaireResponse provides a complete or partial list of answers to a set of questions filled when responding to a questionnaire.  \r\nThe questions may be included directly or by\r\nreference to a Questionnaire resource that defines the questions as well as the constraints on the allowed answers.  In\r\nsome cases, both formal rules for editing the questionnaire (via link to Questionnaire ) as\r\nwell as sufficient local information to allow rendering of the questionnaire may be provided.\nEach time a questionnaire is completed for a different subject or at a different time, a distinct QuestionnaireResponse is generated, though it may be\r\npossible for a previously entered set of answers to be edited or updated.\nQuestionnaire responses cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full\r\nclinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaire responses record specifics about data capture -\r\nexactly what questions were asked, in what order, what answers were given, etc. Each of these questions is part of the Questionnaire, \r\nand as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.\nExamples of Questionnaires include:\nPast medical history (PMH) Family diseases Social history Research questionnaires and Case report forms (CRFs) Quality and evaluation forms Patient intake form (e.g. clipboard) Insurance claim form\nQuestionnaireResponse resources can be validated against their corresponding Questionnaire to verify that required\r\ngroups and questions are answered and that answers fit constraints in terms of cardinality, data type, etc.",
+    "Boundaries and Relationships": "The QuestionnaireResponse resource captures the responses to a questionnaire, while Questionnaire represents\r\nthe definition of the questionnaire form, including what questions are asked, how they're organized and the constraints on the allowed answers.\nWhile Observation , with its nested relatedObservation structure, can create complex hierarchies of \r\nquestions and answers, the focus is different.  First, Observation is used primarily for capturing data elements that\r\nare \"true\" observations - lab measurements, vital signs, social assessments, etc., while QuestionnaireResponse can be used to capture\r\nany types of data, including data that would typically map to other resources ( Procedure , Patient , MedicationStatement , etc.).  Second, the focus of QuestionnaireResponse includes the specific phrasing\r\nand organization of the questions.  All data must be explicitly captured as a question.  With Observation , the focus is\r\nonly on the meaning of the answer, not what question was asked (assuming a question was even asked at all).  Additional information such as normal\r\nranges, interpretation, date, etc., may also be captured.",
+    "Notes": "QuestionnaireResponses can be authored by clinicians, patients, or patients' relatives (or even owners in the case of animals). Clinicians\r\nmay author questionnaire responses, where the answers are provided by others on behalf of the patient. Additionally, information gathered on behalf of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, QuestionnaireResponse makes a distinction between the author,\r\nthe subject and the source of information. The QuestionnaireResponse's encounter element can be used to link to the encounter when the questionnaire response was authored. This can be relevant since the\r\nencounter gives context to the answers and can be used to relate information in the QuestionnaireResponse to orders and observations that were done during the same Encounter. The QuestionnaireResponse's language element can be used to indicte the language in which the patient completed the survey/questionnaire The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.  The hierarchy items within the Questionnaire SHALL mirror \r\nthe hierarchy of the corresponding Questionnaire (if any). For use of QuestionnaireResponse.item.definition, see notes on Questionnaire Because of the lack of explicit support for Questionnaires in HL7 v3 , CDA Documents frequently used named sections with\r\nObservations to model questionnaires. Such use cases should now utilize the QuestionnaireResponse resource instead.\nRefer to additional guidance provided in the Questionnaire resource dealing with the design of questionnaires.\nA QuestionnaireResponse may be stand-alone or may point to the definition of the questions in Questionnaire .  \r\nIf the QuestionnaireResponse refers to a Questionnaire:\nThe QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc. The linkage between the questions and groups in the two resources is established using the linkId element When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse \r\n   if they are relevant to the interpretation of the  answers, including items of type = display . This might also include items \r\n   that were >not enabled when the Questionnaire was answered, though of course these will not have answers\nQuestionnaireResponse resources can have answers with values of type Attachment.  These attachments will typically be selected by the user answering the questionnaire and\r\nthis selection may be done in an uncontrolled environment.  Systems should ensure that the attachment is of the desired type and should take precautions before\r\nrendering or executing any attached content.\nFor most resources, the type of information that can be conveyed in the resource is determined by the resource, and the key attributes that\r\ndetermine the sensitivity level of the information are also known; e.g., drug, observation type, clinical trial randomization status, etc.  However, for QuestionnaireResponse, the\r\nsensitivity of an instance is dependent on what type of Questionnaire it is associated with.  And the data elements that determine that\r\nsensitivity could be the answers to any of the questions.  This makes automatically enforcing access control rules more challenging.  Designers\r\nshould take these challenges into account and may need to place stricter access controls around QuestionnaireResponse to ensure that access to\r\ninformation is not granted improperly."
+  },
+  "definitions": "QuestionnaireResponse: a structured set of questions and their answers. the questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to. [STOP]\nQuestionnaireResponse.identifier: a business identifier assigned to a particular completed (or partially completed) questionnaire. [STOP]\nQuestionnaireResponse.basedOn: the order, proposal or plan that is fulfilled in whole or in part by this questionnaireresponse.  for example, a servicerequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression. [STOP]\nQuestionnaireResponse.partOf: a procedure or observation that this questionnaire was performed as part of the execution of.  for example, the surgery a checklist was executed as part of. [STOP]\nQuestionnaireResponse.questionnaire: the questionnaire that defines and organizes the questions for which answers are being provided. [STOP]\nQuestionnaireResponse.status: the position of the questionnaire response within its overall lifecycle. [STOP]\nQuestionnaireResponse.subject: the subject of the questionnaire response.  this could be a patient, organization, practitioner, device, etc.  this is who/what the answers apply to, but is not necessarily the source of information. [STOP]\nQuestionnaireResponse.encounter: the encounter during which this questionnaire response was created or to which the creation of this record is tightly associated. [STOP]\nQuestionnaireResponse.authored: the date and/or time that this set of answers were last changed. [STOP]\nQuestionnaireResponse.author: person who received the answers to the questions in the questionnaireresponse and recorded them in the system. [STOP]\nQuestionnaireResponse.source: the person who answered the questions about the subject. [STOP]\nQuestionnaireResponse.item: a group or question item from the original questionnaire for which answers are provided. [STOP]\nQuestionnaireResponse.item.linkId: the item from the questionnaire that corresponds to this item in the questionnaireresponse resource. [STOP]\nQuestionnaireResponse.item.definition: a reference to anelementdefinitionthat provides the details for the item. [STOP]\nQuestionnaireResponse.item.text: text that is displayed above the contents of the group or as the text of the question being answered. [STOP]\nQuestionnaireResponse.item.answer: the respondent's answer(s) to the question. [STOP]\nQuestionnaireResponse.item.answer.value[x]: the answer (or one of the answers) provided by the respondent to the question. [STOP]\nQuestionnaireResponse.item.answer.item: nested groups and/or questions found within this particular answer. [STOP]\nQuestionnaireResponse.item.item: questions or sub-groups nested beneath a question or group. [STOP]",
+  "documentation": {
+    "QuestionnaireResponse": "a structured set of questions and their answers. the questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.",
+    "QuestionnaireResponse.identifier": "a business identifier assigned to a particular completed (or partially completed) questionnaire.",
+    "QuestionnaireResponse.basedOn": "the order, proposal or plan that is fulfilled in whole or in part by this questionnaireresponse.  for example, a servicerequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.",
+    "QuestionnaireResponse.partOf": "a procedure or observation that this questionnaire was performed as part of the execution of.  for example, the surgery a checklist was executed as part of.",
+    "QuestionnaireResponse.questionnaire": "the questionnaire that defines and organizes the questions for which answers are being provided.",
+    "QuestionnaireResponse.status": "the position of the questionnaire response within its overall lifecycle.",
+    "QuestionnaireResponse.subject": "the subject of the questionnaire response.  this could be a patient, organization, practitioner, device, etc.  this is who/what the answers apply to, but is not necessarily the source of information.",
+    "QuestionnaireResponse.encounter": "the encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.",
+    "QuestionnaireResponse.authored": "the date and/or time that this set of answers were last changed.",
+    "QuestionnaireResponse.author": "person who received the answers to the questions in the questionnaireresponse and recorded them in the system.",
+    "QuestionnaireResponse.source": "the person who answered the questions about the subject.",
+    "QuestionnaireResponse.item": "a group or question item from the original questionnaire for which answers are provided.",
+    "QuestionnaireResponse.item.linkId": "the item from the questionnaire that corresponds to this item in the questionnaireresponse resource.",
+    "QuestionnaireResponse.item.definition": "a reference to anelementdefinitionthat provides the details for the item.",
+    "QuestionnaireResponse.item.text": "text that is displayed above the contents of the group or as the text of the question being answered.",
+    "QuestionnaireResponse.item.answer": "the respondent's answer(s) to the question.",
+    "QuestionnaireResponse.item.answer.value[x]": "the answer (or one of the answers) provided by the respondent to the question.",
+    "QuestionnaireResponse.item.answer.item": "nested groups and/or questions found within this particular answer.",
+    "QuestionnaireResponse.item.item": "questions or sub-groups nested beneath a question or group."
+  }
+}

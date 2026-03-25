@@ -1,0 +1,120 @@
+{
+  "resource": "careteam",
+  "examples": [
+    {
+      "name": "Care Team to address obesity",
+      "document": {
+        "resourceType": "CareTeam",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Practitioner",
+            "id": "pr1",
+            "name": [
+              {
+                "family": "Dietician",
+                "given": [
+                  "Dorothy"
+                ]
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "12345"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "LA27976-2",
+                "display": "Encounter-focused care team"
+              }
+            ]
+          }
+        ],
+        "name": "Peter James Charlmers Care Plan for Inpatient Encounter",
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "period": {
+          "end": "2013-01-01"
+        },
+        "participant": [
+          {
+            "role": [
+              {
+                "text": "responsiblePerson"
+              }
+            ],
+            "member": {
+              "reference": "Patient/example",
+              "display": "Peter James Chalmers"
+            }
+          },
+          {
+            "role": [
+              {
+                "text": "adviser"
+              }
+            ],
+            "member": {
+              "reference": "#pr1",
+              "display": "Dorothy Dietition"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/f001"
+            },
+            "period": {
+              "end": "2013-01-01"
+            }
+          }
+        ],
+        "managingOrganization": [
+          {
+            "reference": "Organization/f001"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "9.7Resource CareTeam - Content",
+    "introduction": "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.\nThis resource is referenced by CarePlan , itself, ChargeItem , Communication , CommunicationRequest , Consent , Contract , DeviceRequest , DiagnosticReport , EpisodeOfCare , ImagingStudy , Media , MedicationRequest , Observation , ServiceRequest and Task",
+    "Scope and Usage": "The CareTeam includes all the people, teams, and organizations who plan to participate in the coordination and delivery of care for a single patient or a group (such as a married couple in therapy or a support group).  CareTeam can also be organizationally assigned without a subject in context, such as a code blue team or emergency response team. This is not limited to practitioners, but may include other caregivers such as family members, guardians, the patient themself, or others. \r\n\r\nThe Care Team, depending on where used, may include care team members specific to a particular care plan, an episode, an encounter, or may reflect all known team members across these perspectives. An individual's CareTeam can be dynamic over time, such that there can be transience of team members, such as a rehabilitation team.",
+    "Boundaries and Relationships": "Care Team is distinct from Group. Group is patient-independent and identifies an undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc.) The CareTeam resource establishes a set of relationships and roles and is specific to a particular Patient.  The actors are the individual members or organized group of individuals.   \r\n\r\nCareTeam can be referenced by EpisodeOfCare, Encounter, or CarePlan to identify the set of individuals (and their respective roles) who are intended to be involved in providing the care defined by those resources."
+  },
+  "definitions": "CareTeam: the care team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient. [STOP]\nCareTeam.identifier: business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server. [STOP]\nCareTeam.status: indicates the current state of the care team. [STOP]\nCareTeam.category: identifies what kind of team.  this is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team. [STOP]\nCareTeam.name: a label for human use intended to distinguish like teams.  e.g. the \"red\" vs. \"green\" trauma teams. [STOP]\nCareTeam.subject: identifies the patient or group whose intended care is handled by the team. [STOP]\nCareTeam.encounter: the encounter during which this careteam was created or to which the creation of this record is tightly associated. [STOP]\nCareTeam.period: indicates when the team did (or is intended to) come into effect and end. [STOP]\nCareTeam.participant: identifies all people and organizations who are expected to be involved in the care team. [STOP]\nCareTeam.participant.role: indicates specific responsibility of an individual within the care team, such as \"primary care physician\", \"trained social worker counselor\", \"caregiver\", etc. [STOP]\nCareTeam.participant.member: the specific person or organization who is participating/expected to participate in the care team. [STOP]\nCareTeam.participant.onBehalfOf: the organization of the practitioner. [STOP]\nCareTeam.participant.period: indicates when the specific member or organization did (or is intended to) come into effect and end. [STOP]\nCareTeam.reasonCode: describes why the care team exists. [STOP]\nCareTeam.reasonReference: condition(s) that this care team addresses. [STOP]\nCareTeam.managingOrganization: the organization responsible for the care team. [STOP]\nCareTeam.telecom: a central contact detail for the care team (that applies to all members). [STOP]\nCareTeam.note: comments made about the careteam. [STOP]",
+  "documentation": {
+    "CareTeam": "the care team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.",
+    "CareTeam.identifier": "business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server.",
+    "CareTeam.status": "indicates the current state of the care team.",
+    "CareTeam.category": "identifies what kind of team.  this is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.",
+    "CareTeam.name": "a label for human use intended to distinguish like teams.  e.g. the \"red\" vs. \"green\" trauma teams.",
+    "CareTeam.subject": "identifies the patient or group whose intended care is handled by the team.",
+    "CareTeam.encounter": "the encounter during which this careteam was created or to which the creation of this record is tightly associated.",
+    "CareTeam.period": "indicates when the team did (or is intended to) come into effect and end.",
+    "CareTeam.participant": "identifies all people and organizations who are expected to be involved in the care team.",
+    "CareTeam.participant.role": "indicates specific responsibility of an individual within the care team, such as \"primary care physician\", \"trained social worker counselor\", \"caregiver\", etc.",
+    "CareTeam.participant.member": "the specific person or organization who is participating/expected to participate in the care team.",
+    "CareTeam.participant.onBehalfOf": "the organization of the practitioner.",
+    "CareTeam.participant.period": "indicates when the specific member or organization did (or is intended to) come into effect and end.",
+    "CareTeam.reasonCode": "describes why the care team exists.",
+    "CareTeam.reasonReference": "condition(s) that this care team addresses.",
+    "CareTeam.managingOrganization": "the organization responsible for the care team.",
+    "CareTeam.telecom": "a central contact detail for the care team (that applies to all members).",
+    "CareTeam.note": "comments made about the careteam."
+  }
+}

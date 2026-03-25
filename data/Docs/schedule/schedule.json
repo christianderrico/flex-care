@@ -1,0 +1,211 @@
+{
+  "resource": "schedule",
+  "examples": [
+    {
+      "name": "Example of an Schedule resource",
+      "document": {
+        "resourceType": "Schedule",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      Burgers UMC, South Wing, second floor Physiotherapy Schedule\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://example.org/scheduleid",
+            "value": "45"
+          }
+        ],
+        "active": true,
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "17",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "code": "57",
+                "display": "Immunization"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "code": "408480009",
+                "display": "Clinical immunology"
+              }
+            ]
+          }
+        ],
+        "actor": [
+          {
+            "reference": "Location/1",
+            "display": "Burgers UMC, South Wing, second floor"
+          }
+        ],
+        "planningHorizon": {
+          "start": "2013-12-25T09:15:00Z",
+          "end": "2013-12-25T09:30:00Z"
+        },
+        "comment": "The slots attached to this schedule should be specialized to cover immunizations within the clinic"
+      }
+    },
+    {
+      "name": "Example 1 of a Schedule resource with a composite schedulable resource",
+      "document": {
+        "resourceType": "Schedule",
+        "id": "exampleloc1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      Dr. Beverly Crusher - USS Enterprise-D Sickbay Schedule\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://example.org/scheduleid",
+            "value": "46"
+          }
+        ],
+        "active": true,
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "17",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "code": "75",
+                "display": "Genetic Counselling"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "code": "394580004",
+                "display": "Clinical genetics"
+              }
+            ]
+          }
+        ],
+        "actor": [
+          {
+            "reference": "Practitioner/1",
+            "display": "Dr. Beverly Crusher"
+          },
+          {
+            "reference": "Location/3",
+            "display": "USS Enterprise-D Sickbay"
+          }
+        ],
+        "planningHorizon": {
+          "start": "2017-12-25T09:15:00Z",
+          "end": "2017-12-25T09:30:00Z"
+        },
+        "comment": "The slots attached to this schedule are for genetic counselling in the USS Enterprise-D Sickbay."
+      }
+    },
+    {
+      "name": "Example 2 of a Schedule resource with a composite schedulable resource",
+      "document": {
+        "resourceType": "Schedule",
+        "id": "exampleloc2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      Dr. Beverly Crusher - Starfleet HQ Sickbay Schedule\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://example.org/scheduleid",
+            "value": "47"
+          }
+        ],
+        "active": true,
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "31",
+                "display": "Specialist Surgical"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "code": "221",
+                "display": "Surgery - General"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "code": "394610002",
+                "display": "Surgery-Neurosurgery"
+              }
+            ]
+          }
+        ],
+        "actor": [
+          {
+            "reference": "Practitioner/1",
+            "display": "Dr. Beverly Crusher"
+          },
+          {
+            "reference": "Location/2",
+            "display": "Starfleet HQ Sickbay"
+          }
+        ],
+        "planningHorizon": {
+          "start": "2017-12-25T09:15:00Z",
+          "end": "2017-12-25T09:30:00Z"
+        },
+        "comment": "The slots attached to this schedule are for neurosurgery operations at Starfleet HQ only."
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.12Resource Schedule - Content",
+    "introduction": "A container for slots of time that may be available for booking appointments.\nThis resource is referenced by TriggerDefinition and Slot",
+    "Scope and Usage": "Schedule resources provide a container for time-slots that can be booked using an appointment.\r\n\t\t\tIt provides the window of time (period) that slots are defined for and what type of appointments can be booked. The schedule does not provide any information about actual appointments. This separation greatly assists where\r\n\t\t\taccess to the appointments would not be permitted for security or privacy reasons, while still being able\r\n\t\t\tto determine if an appointment might be available.\nNote: A schedule is not used for the delivery of medication, the Timing data type should be used for that purpose.\nA schedule controls the dates and times available for the performance of a service\r\n      and/or the use of a resource.  One schedule applies to one service or resource, since\r\n      each service or resource can be reserved independently of the others. If two or more services, people, locations, or things cannot be reserved independently\r\n      of one another, they are considered to be one activity or resource.\nA schedule consists of slots of time during which the controlled service or resource is potentially available\r\n\t\t\tfor provision or use.  Slots are categorized as open, booked, or blocked.  An open slot\r\n\t\t\ton a schedule indicates that the service or resource is available for provision or use\r\n\t\t\tduring that period of time.  A booked slot indicates that the service or resource is not\r\n\t\t\tavailable during the time period, because an appointment has been scheduled.  A blocked\r\n\t\t\tslot indicates that a service or resource is unavailable for reasons other than a scheduled\r\n\t\t\tappointment.\nThe real-world, non-automated analogue of the schedule described above is a standard\r\n\t\t\tappointment book.  These books are generally organized with rows of time slots, during\r\n\t\t\twhich a service or resource is available.\nA slot is one unit on a schedule.  A slot represents the smallest unit of time or quantity\r\n\t\t\tthat a service or resource may be booked.  Depending on the nature of the service or\r\n\t\t\tresource, there may be more than one defined slot at a given instant of time.\r\n\t\t\tFor example, if a service is an open group therapy session with twelve available seats,\r\n\t\t\tthen there are twelve slots for the given block of time.\nThe schedule belongs to a single instance of a service or resource. This is normally a HealthcareService, \r\n\t\t\tPractitioner, Location or Device.  In the case where a single resource can provide \r\n\t\t\tdifferent services, potentially at different location, then the schedulable resource is considered the composite \r\n\t\t\tof the actors. For example, if a practitioner can provide services at multiple locations, they might have one schedule per location,\r\n\t\t\twhere each schedule includes both the practitioner and location actors.  \r\n\t\t\t\r\n\t\t\tWhen booking an appointment with multiple schedulable resources, multiple schedules may need to be checked \r\n\t\t\tdepending on the configuration of the system.\nIf an appointment has two practitioners, a specific medical device and a room then there could be a schedule for\r\n\t\t\teach of these resources that may need to be consulted to ensure that no collisions occur. If the schedule needed to be consulted, then there would be one created covering the planning horizon for the\r\n\t\t\ttime of the appointment.\nWhen checking availability for an appointment, the creator of the appointment should determine\r\n\t\t\twhich schedules are applicable, then check for available slots within each schedule.\nDetermining which schedules should be consulted often will involve searching via the properties of the referenced actors, \r\n\t\t\tsuch as the ServiceCategory on the HealthcareService, or the Address on a Location.\nThe type parameter can be used to filter the type of services that can be booked within the associated slots.\nIf all slots are busy, the caller may attempt to book an appointment into an already-booked slot, but the server business rules\r\n\t\t\twill dictate whether overbooking is allowed, or whether the appointment may be given a higher precedence and allocated \r\n\t\t\tthe overbooked slot.",
+    "Notes": "There is a strong desire that implementers of this resource should consider providing the resource\r\n\t\tin the iCalendar format as an alternative representation. Many 3rd party applications and component providers\r\n\t\thave parsers and user interface controls to display this information.\r\n\t\tThis may lower the entry point to integrate outside the health-care specific applications, and into the\r\n\t\tconsumer space. This would permit the easier creation of a mobile application that creates appointments\r\n\t\tin the devices native calendar. The iCalendar specification can be found at http://www.ietf.org/rfc/rfc2445.txt .\nDue to the dynamic nature of slots they are not included as a part of this resource.\nIt is anticipated that this resource is likely to be updated intermittently when the scope\r\n\t\tof slots is changed, i.e. to change the period of slots in the planning horizon.\r\n\t\tThis could be performed each night to move the start and end date forward to\r\n\t\tkeep the planning horizon as exactly 4 weeks.\nThe slot resource however is anticipated to be updated very regularly as the appointments\r\n\t\tthat reference them are created/updated/cancelled."
+  },
+  "definitions": "Schedule: a container for slots of time that may be available for booking appointments. [STOP]\nSchedule.identifier: external ids for this item. [STOP]\nSchedule.active: whether this schedule record is in active use or should not be used (such as was entered in error). [STOP]\nSchedule.serviceCategory: a broad categorization of the service that is to be performed during this appointment. [STOP]\nSchedule.serviceType: the specific service that is to be performed during this appointment. [STOP]\nSchedule.specialty: the specialty of a practitioner that would be required to perform the service requested in this appointment. [STOP]\nSchedule.actor: slots that reference this schedule resource provide the availability details to these referenced resource(s). [STOP]\nSchedule.planningHorizon: the period of time that the slots that reference this schedule resource cover (even if none exist). these  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. this does not define a \"template\" for planning outside these dates. [STOP]\nSchedule.comment: comments on the availability to describe any extended information. such as custom constraints on the slots that may be associated. [STOP]",
+  "documentation": {
+    "Schedule": "a container for slots of time that may be available for booking appointments.",
+    "Schedule.identifier": "external ids for this item.",
+    "Schedule.active": "whether this schedule record is in active use or should not be used (such as was entered in error).",
+    "Schedule.serviceCategory": "a broad categorization of the service that is to be performed during this appointment.",
+    "Schedule.serviceType": "the specific service that is to be performed during this appointment.",
+    "Schedule.specialty": "the specialty of a practitioner that would be required to perform the service requested in this appointment.",
+    "Schedule.actor": "slots that reference this schedule resource provide the availability details to these referenced resource(s).",
+    "Schedule.planningHorizon": "the period of time that the slots that reference this schedule resource cover (even if none exist). these  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. this does not define a \"template\" for planning outside these dates.",
+    "Schedule.comment": "comments on the availability to describe any extended information. such as custom constraints on the slots that may be associated."
+  }
+}

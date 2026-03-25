@@ -1,0 +1,144 @@
+{
+  "resource": "practitionerrole",
+  "examples": [
+    {
+      "name": "Dr Adam Careful's role at the Acme Hospital",
+      "document": {
+        "resourceType": "PractitionerRole",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\tDr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar\n\t\t\t\t2012\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://www.acme.org/practitioners",
+            "value": "23"
+          }
+        ],
+        "active": true,
+        "period": {
+          "start": "2012-01-01",
+          "end": "2012-03-31"
+        },
+        "practitioner": {
+          "reference": "Practitioner/example",
+          "display": "Dr Adam Careful"
+        },
+        "organization": {
+          "reference": "Organization/f001"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "RP"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "408443003",
+                "display": "General medical practice"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/1",
+            "display": "South Wing, second floor"
+          }
+        ],
+        "healthcareService": [
+          {
+            "reference": "HealthcareService/example"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(03) 5555 6473",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "adam.southern@example.org",
+            "use": "work"
+          }
+        ],
+        "availableTime": [
+          {
+            "daysOfWeek": [
+              "mon",
+              "tue",
+              "wed"
+            ],
+            "availableStartTime": "09:00:00",
+            "availableEndTime": "16:30:00"
+          },
+          {
+            "daysOfWeek": [
+              "thu",
+              "fri"
+            ],
+            "availableStartTime": "09:00:00",
+            "availableEndTime": "12:00:00"
+          }
+        ],
+        "notAvailable": [
+          {
+            "description": "Adam will be on extended leave during May 2017",
+            "during": {
+              "start": "2017-05-01",
+              "end": "2017-05-20"
+            }
+          }
+        ],
+        "availabilityExceptions": "Adam is generally unavailable on public holidays and during the Christmas/New Year break",
+        "endpoint": [
+          {
+            "reference": "Endpoint/example"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.5Resource PractitionerRole - Content",
+    "introduction": "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.\nThis resource is referenced by Signature , Account , AdverseEvent , AllergyIntolerance , Appointment , AppointmentResponse , AuditEvent , Basic , BiologicallyDerivedProduct , CarePlan , CareTeam , CatalogEntry , ChargeItem , Claim , ClaimResponse , ClinicalImpression , Communication , CommunicationRequest , Composition , Condition , Consent , Contract , CoverageEligibilityRequest , CoverageEligibilityResponse , DetectedIssue , DeviceRequest , DeviceUseStatement , DiagnosticReport , DocumentManifest , DocumentReference , Encounter , EnrollmentRequest , EnrollmentResponse , EpisodeOfCare , ExplanationOfBenefit , Flag , Goal , Group , ImagingStudy , Immunization , Invoice , Linkage , List , MeasureReport , Media , MedicationAdministration , MedicationDispense , MedicationRequest , MedicationStatement , MedicinalProduct , MessageHeader , NutritionOrder , Observation , Patient , PaymentNotice , PaymentReconciliation , Procedure , Provenance , QuestionnaireResponse , RequestGroup , ResearchStudy , RiskAssessment , Schedule , ServiceRequest , Specimen , SupplyDelivery , SupplyRequest , Task , VerificationResult and VisionPrescription",
+    "Scope and Usage": "PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide\r\nfor an organization.\nThe role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances\r\nof the PractitionerRole. Some systems record a collection of service values for a single location, others record the \r\nsingle service and the list of locations it is available. Both are acceptable options for representing this data. Where availability, telecom, or other details are not the same across all healthcareservices, or locations \r\na seperate PractitionerRole instance should be created.",
+    "Boundaries and Relationships": "Qualifications (from the Practitioner resource) do not imply a Role, but might be considered when an Organization \r\n  allocates practitioners to roles within their organization, and could provide useful information (such as expiry information)\r\n  which could need to be tracked in some situations to ensure they continue to be eligible for a specific role.\nThe CareTeam resource is also often used to provide details of a role that a practitioner is\r\n  allocated to perform, but is usually scoped to a much finer granularity of care, and often within the specific context\r\n  of a Patient , or functional role (e.g. Crisis planning team). In contrast the PractitionerRole\r\n  is used in a more general sense to cover all the places that the practitioner is allocated to work (and specific details\r\n  relevant to that role - such as a specific contact number, or electronic services endpoint).",
+    "Background and Context": "Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, \r\nit may be necessary to maintain a specific Practitioner Resource for each such role or have a single Practitioner with multiple roles.\r\nThe role can be limited to a specific period, after which authorization for this role ends. Note that the represented organization\r\nneed not necessarily be the (direct) employer of a Practitioner.",
+    "Notes": "There is no address on the PractitionerRole as the location that is defined here contains the address. This prevents having to duplicate the address values across multiple resources."
+  },
+  "definitions": "PractitionerRole: a specific set of roles/locations/specialties/services that a practitioner may perform at an organization for a period of time. [STOP]\nPractitionerRole.identifier: business identifiers that are specific to a role/location. [STOP]\nPractitionerRole.active: whether this practitioner role record is in active use. [STOP]\nPractitionerRole.period: the period during which the person is authorized to act as a practitioner in these role(s) for the organization. [STOP]\nPractitionerRole.practitioner: practitioner that is able to provide the defined services for the organization. [STOP]\nPractitionerRole.organization: the organization where the practitioner performs the roles associated. [STOP]\nPractitionerRole.code: roles which this practitioner is authorized to perform for the organization. [STOP]\nPractitionerRole.specialty: specific specialty of the practitioner. [STOP]\nPractitionerRole.location: the location(s) at which this practitioner provides care. [STOP]\nPractitionerRole.healthcareService: the list of healthcare services that this worker provides for this role's organization/location(s). [STOP]\nPractitionerRole.telecom: contact details that are specific to the role/location/service. [STOP]\nPractitionerRole.availableTime: a collection of times the practitioner is available or performing this role at the location and/or healthcareservice. [STOP]\nPractitionerRole.availableTime.daysOfWeek: indicates which days of the week are available between the start and end times. [STOP]\nPractitionerRole.availableTime.allDay: is this always available? (hence times are irrelevant) e.g. 24 hour service. [STOP]\nPractitionerRole.availableTime.availableStartTime: the opening time of day. note: if the allday flag is set, then this time is ignored. [STOP]\nPractitionerRole.availableTime.availableEndTime: the closing time of day. note: if the allday flag is set, then this time is ignored. [STOP]\nPractitionerRole.notAvailable: the practitioner is not available or performing this role during this period of time due to the provided reason. [STOP]\nPractitionerRole.notAvailable.description: the reason that can be presented to the user as to why this time is not available. [STOP]\nPractitionerRole.notAvailable.during: service is not available (seasonally or for a public holiday) from this date. [STOP]\nPractitionerRole.availabilityExceptions: a description of site availability exceptions, e.g. public holiday availability. succinctly describing all possible exceptions to normal site availability as details in the available times and not available times. [STOP]\nPractitionerRole.endpoint: technical endpoints providing access to services operated for the practitioner with this role. [STOP]",
+  "documentation": {
+    "PractitionerRole": "a specific set of roles/locations/specialties/services that a practitioner may perform at an organization for a period of time.",
+    "PractitionerRole.identifier": "business identifiers that are specific to a role/location.",
+    "PractitionerRole.active": "whether this practitioner role record is in active use.",
+    "PractitionerRole.period": "the period during which the person is authorized to act as a practitioner in these role(s) for the organization.",
+    "PractitionerRole.practitioner": "practitioner that is able to provide the defined services for the organization.",
+    "PractitionerRole.organization": "the organization where the practitioner performs the roles associated.",
+    "PractitionerRole.code": "roles which this practitioner is authorized to perform for the organization.",
+    "PractitionerRole.specialty": "specific specialty of the practitioner.",
+    "PractitionerRole.location": "the location(s) at which this practitioner provides care.",
+    "PractitionerRole.healthcareService": "the list of healthcare services that this worker provides for this role's organization/location(s).",
+    "PractitionerRole.telecom": "contact details that are specific to the role/location/service.",
+    "PractitionerRole.availableTime": "a collection of times the practitioner is available or performing this role at the location and/or healthcareservice.",
+    "PractitionerRole.availableTime.daysOfWeek": "indicates which days of the week are available between the start and end times.",
+    "PractitionerRole.availableTime.allDay": "is this always available? (hence times are irrelevant) e.g. 24 hour service.",
+    "PractitionerRole.availableTime.availableStartTime": "the opening time of day. note: if the allday flag is set, then this time is ignored.",
+    "PractitionerRole.availableTime.availableEndTime": "the closing time of day. note: if the allday flag is set, then this time is ignored.",
+    "PractitionerRole.notAvailable": "the practitioner is not available or performing this role during this period of time due to the provided reason.",
+    "PractitionerRole.notAvailable.description": "the reason that can be presented to the user as to why this time is not available.",
+    "PractitionerRole.notAvailable.during": "service is not available (seasonally or for a public holiday) from this date.",
+    "PractitionerRole.availabilityExceptions": "a description of site availability exceptions, e.g. public holiday availability. succinctly describing all possible exceptions to normal site availability as details in the available times and not available times.",
+    "PractitionerRole.endpoint": "technical endpoints providing access to services operated for the practitioner with this role."
+  }
+}

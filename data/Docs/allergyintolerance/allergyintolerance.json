@@ -1,0 +1,417 @@
+{
+  "resource": "allergyintolerance",
+  "examples": [
+    {
+      "name": "A typical Food Allergy",
+      "document": {
+        "resourceType": "AllergyIntolerance",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 49476534</p><p><b>clinicalStatus</b>: Active <span>(Details : {http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical code 'active' = 'Active', given as 'Active'})</span></p><p><b>verificationStatus</b>: Confirmed <span>(Details : {http://terminology.hl7.org/CodeSystem/allergyintolerance-verification code 'confirmed' = 'Confirmed', given as 'Confirmed'})</span></p><p><b>type</b>: allergy</p><p><b>category</b>: food</p><p><b>criticality</b>: high</p><p><b>code</b>: Cashew nuts <span>(Details : {SNOMED CT code '227493005' = 'Cashew nuts', given as 'Cashew nuts'})</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>onset</b>: 01/01/2004</p><p><b>recordedDate</b>: 09/10/2014 2:58:00 PM</p><p><b>recorder</b>: <a>Practitioner/example</a></p><p><b>asserter</b>: <a>Patient/example</a></p><p><b>lastOccurrence</b>: 01/06/2012</p><p><b>note</b>: The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.</p><blockquote><p><b>reaction</b></p><p><b>substance</b>: cashew nut allergenic extract Injectable Product <span>(Details : {RxNorm code '1160593' = 'cashew nut allergenic extract Injectable Product', given as 'cashew nut allergenic extract Injectable Product'})</span></p><p><b>manifestation</b>: Anaphylactic reaction <span>(Details : {SNOMED CT code '39579001' = 'Anaphylaxis', given as 'Anaphylactic reaction'})</span></p><p><b>description</b>: Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered</p><p><b>onset</b>: 12/06/2012</p><p><b>severity</b>: severe</p><p><b>exposureRoute</b>: Subcutaneous route <span>(Details : {SNOMED CT code '34206005' = 'Subcutaneous route', given as 'Subcutaneous route'})</span></p></blockquote><blockquote><p><b>reaction</b></p><p><b>manifestation</b>: Urticaria <span>(Details : {SNOMED CT code '64305001' = 'Urticaria', given as 'Urticaria'})</span></p><p><b>onset</b>: 01/01/2004</p><p><b>severity</b>: moderate</p><p><b>note</b>: The patient reports that the onset of urticaria was within 15 minutes of eating cashews.</p></blockquote></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://acme.com/ids/patients/risks",
+            "value": "49476534"
+          }
+        ],
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "allergy",
+        "category": [
+          "food"
+        ],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "227493005",
+              "display": "Cashew nuts"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "onsetDateTime": "2004",
+        "recordedDate": "2014-10-09T14:58:00+11:00",
+        "recorder": {
+          "reference": "Practitioner/example"
+        },
+        "asserter": {
+          "reference": "Patient/example"
+        },
+        "lastOccurrence": "2012-06",
+        "note": [
+          {
+            "text": "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract."
+          }
+        ],
+        "reaction": [
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "1160593",
+                  "display": "cashew nut allergenic extract Injectable Product"
+                }
+              ]
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "39579001",
+                    "display": "Anaphylactic reaction"
+                  }
+                ]
+              }
+            ],
+            "description": "Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered",
+            "onset": "2012-06-12",
+            "severity": "severe",
+            "exposureRoute": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "34206005",
+                  "display": "Subcutaneous route"
+                }
+              ]
+            }
+          },
+          {
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64305001",
+                    "display": "Urticaria"
+                  }
+                ]
+              }
+            ],
+            "onset": "2004",
+            "severity": "moderate",
+            "note": [
+              {
+                "text": "The patient reports that the onset of urticaria was within 15 minutes of eating cashews."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "A typical Medication allergy from a clinical system",
+      "document": {
+        "resourceType": "AllergyIntolerance",
+        "id": "medication",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: medication</p><p><b>clinicalStatus</b>: Active <span>(Details : {http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical code 'active' = 'Active', given as 'Active'})</span></p><p><b>verificationStatus</b>: Unconfirmed <span>(Details : {http://terminology.hl7.org/CodeSystem/allergyintolerance-verification code 'unconfirmed' = 'Unconfirmed', given as 'Unconfirmed'})</span></p><p><b>category</b>: medication</p><p><b>criticality</b>: high</p><p><b>code</b>: Penicillin G <span>(Details : {RxNorm code '7980' = 'Penicillin G', given as 'Penicillin G'})</span></p><p><b>patient</b>: <a>Patient/example</a></p><p><b>recordedDate</b>: 01/03/2010</p><p><b>recorder</b>: <a>Practitioner/13</a></p><h3>Reactions</h3><table><tr><td>-</td><td><b>Manifestation</b></td></tr><tr><td>*</td><td>Hives <span>(Details : {SNOMED CT code '247472004' = 'Weal', given as 'Hives'})</span></td></tr></table></div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "unconfirmed",
+              "display": "Unconfirmed"
+            }
+          ]
+        },
+        "category": [
+          "medication"
+        ],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "Penicillin G"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "recordedDate": "2010-03-01",
+        "recorder": {
+          "reference": "Practitioner/13"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "247472004",
+                    "display": "Hives"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "An allergy to a substance with additional details in notes",
+      "document": {
+        "resourceType": "AllergyIntolerance",
+        "id": "fishallergy",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>allergy is to fresh fish. Tolerates canned fish</p>\n      <p>recordedDate:2015-08-06T00:00:00-06:00</p>\n      <p>substance:Fish - dietary (substance)</p>\n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "http://acme.com/ids/patients/risks",
+            "value": "49476535"
+          }
+        ],
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          "food"
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "227037002",
+              "display": "Fish - dietary (substance)"
+            }
+          ],
+          "text": "Allergic to fresh fish. Tolerates canned fish"
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "recordedDate": "2015-08-06T15:37:31-06:00",
+        "recorder": {
+          "reference": "Practitioner/example"
+        }
+      }
+    },
+    {
+      "name": "No Known Allergy",
+      "document": {
+        "resourceType": "AllergyIntolerance",
+        "id": "nka",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>No Known Allergy</p>\n      <p>recordedDate:2015-08-06</p>\n    </div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "716186003",
+              "display": "No Known Allergy (situation)"
+            }
+          ],
+          "text": "NKA"
+        },
+        "patient": {
+          "reference": "Patient/mom"
+        },
+        "recordedDate": "2015-08-06T15:37:31-06:00",
+        "recorder": {
+          "reference": "Practitioner/example"
+        }
+      }
+    },
+    {
+      "name": "No Known Drug Allergy",
+      "document": {
+        "resourceType": "AllergyIntolerance",
+        "id": "nkda",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>No Known Drug Allergy</p>\n      <p>recordedDate:2015-08-06</p>\n    </div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "409137002",
+              "display": "No Known Drug Allergy (situation)"
+            }
+          ],
+          "text": "NKDA"
+        },
+        "patient": {
+          "reference": "Patient/mom"
+        },
+        "recordedDate": "2015-08-06T15:37:31-06:00",
+        "recorder": {
+          "reference": "Practitioner/example"
+        }
+      }
+    },
+    {
+      "name": "No Known Latext Allergy",
+      "document": {
+        "resourceType": "AllergyIntolerance",
+        "id": "nkla",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>No Known Latex Allergy</p>\n      <p>recordedDate:2015-08-06</p>\n    </div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "716184000",
+              "display": "No Known Latex Allergy (situation)"
+            }
+          ],
+          "text": "No Known Latex Allergy"
+        },
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "recordedDate": "2015-08-06T15:37:31-06:00",
+        "recorder": {
+          "reference": "Practitioner/example"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "9.1Resource AllergyIntolerance - Content",
+    "introduction": "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.\nThis resource is referenced by AdverseEvent , ClinicalImpression , FamilyMemberHistory and NutritionOrder",
+    "Scope and Usage": "A record of a clinical assessment of an allergy or intolerance; a propensity, or a potential risk \r\nto an individual, to have an adverse reaction on future exposure to the specified substance, or class \r\nof substance.\nWhere a propensity is identified, to record information or evidence about a reaction event \r\nthat is characterized by any harmful or undesirable physiological response that is specific \r\nto the individual and triggered by exposure of an individual to the identified substance \r\nor class of substance.\nSubstances include, but are not limited to: a therapeutic substance administered correctly \r\nat an appropriate dosage for the individual; food; material derived from plants or animals; \r\nor venom from insect stings.\nNote for Reviewers\nPresently open issues for this resource:\nThis resource represents a condition of susceptibility to a substance, with a list of supporting events and/or symptoms,\r\n   and has no direct relationship to an event reporting framework; this will be re-assessed when adverse event reporting resource(s) and/or profiles are added to FHIR Other HL7 models and the openEHR archetype have \"exposure date\" but this is not found in any surveyed systems, so this is left as an extension (more appropriate for adverse event reporting)",
+    "Boundaries and Relationships": "This resource is used to provide a single place within the health record to document a range of clinical statements about adverse reactions to substances/products, including:\nrecord a clinical assessment of the individual's propensity to a potential future reaction upon re-exposure record cumulative information about the reaction to each exposure, including 'no reaction' if appropriate\nUse to record information about the positive presence of the risk of an adverse reaction:\nto support direct clinical care of an individual as part of a managed adverse reaction or allergy/intolerance list to support exchange of information about the propensity and events related to adverse reactions to inform adverse reaction reporting to assist computerized knowledge-based activities such as clinical decision support and alerts\nUse to record information about adverse reactions to a broad range of substances, including: biological \r\n& blood products; incipients and excipients in medicinal preparations; foods; metal salts; and organic chemical compounds.\nAdverse reactions may be:\nan allergy (typically type I hypersensitivity, plus other \"allergy-like\" reactions, including pseudoallergy) an intolerance (typically non-immune adverse reactions that are not determined or perceived to be allergic or \"allergy-like\", and are to some degree idiosyncratic and/or individually specific [i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances])\nIn clinical practice distinguishing between allergy and intolerance is difficult and might not be practical. Often the term \"allergy\" is used rather generically and may overlap with \"intolerance\", and the boundaries between these concepts might not be well-defined or understood. As noted above, the term \"intolerance\" should generally be applied to a propensity for adverse reactions which is either determined (to the extent that is possible) or perceived to not be allergic or \"allergy-like\".  If it is not possible to determine whether a particular propensity condition is an allergy or an intolerance, then the type element should be omitted from the resource.  Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, which is better expressed in the documentation of the clinical manifestation and the assessment of criticality.\nThe sensitivity in the case of either an allergy or intolerance is unique to the individual, and is distinguished from those reactions that are a property of the circumstance, such as toxicity of a food or drug, overdose, drug-drug, drug-food, or drug-disease interaction (which are reactions that would be expected to occur for any individual given the same circumstances).\nThe risk of an adverse reaction event or manifestation should not be recorded without identifying a proposed causative \r\nsubstance (including pharmaceutical products) or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be recorded using the 'verificationStatus' data element. If there are multiple possible substances that may have caused a reaction/manifestation, each substance should be recorded using a separate instance of this resource with the \r\n'verificationStatus' set to an initial state of 'unconfirmed' so that adverse reaction checking can be supported in clinical systems. \r\nIf a substance, agent or class is later proven not to be the cause for a given reaction then the 'verificationStatus' can be modified \r\nto 'refuted'.\nThis resource has been designed to allow recording of information about a specific substance (e.g., amoxicillin, \r\noysters, or bee sting venom) or pharmaceutical product or, alternatively, a class of substance (e.g., penicillins). If a class of substance is recorded, \r\nthen identification of the exact substance can be recorded on a per exposure basis.\nThe scope of this FHIR resource has deliberately focused on identifying a pragmatic data set that is used in \r\nmost clinical systems or will be suitable for most common clinical scenarios; extensions\r\ncan be used to add additional detail if required. Examples of clinical situations where the extension may \r\nbe required include: a detailed allergist/immunologist assessment, for reporting to regulatory bodies or use \r\nin a clinical trial.\nThe act of recording any adverse reaction in a health record involves the clinical assessment that a potential hazard \r\nexists for an individual if they are exposed to the same substance/product/class in the future - that is, a relative \r\ncontraindication - and, in the absence of additional information indicating a higher level of potential risk, the default 'criticality' value should be set to 'Low Risk'. If a clinician considers that it is not safe for the individual to be deliberately re-exposed to the substance/product again, for example, following a manifestation of a life-threatening anaphylaxis, then the 'criticality' data element should be amended to 'High Risk'.\nA formal adverse event report to regulatory bodies is a document that will contain a broad range of information in \r\naddition to the specific details about the adverse reaction. The report could utilize parts of this resource plus \r\ninclude additional data as required per jurisdiction.\nAn adverse reaction or allergy/intolerance list is a record of all identified propensities for an adverse reaction \r\nfor the individual upon future exposure to the substance/product or class, plus provides potential access to the evidence \r\nprovided by details about each reaction event, such as manifestation.\nValuable first-level information that could be presented to the clinician when they need to assess propensity for \r\nfuture reactions are:\nstatements about previous clinical manifestations following exposure source of the information/reporter the 'criticality' flag\nSecond-level information can be drawn from each exposure event and links to additional detailed information \r\nsuch as history, examination and diagnoses stored elsewhere in the record, if it is available.\nAllergyIntolerance and RiskAssessment\nAllergyIntolerance describes a specific type of risk - propensity to reaction to a substance/product while RiskAssessment describes general risks to a subject, not generally based on a reaction.\nAllergyIntolerance and Immunization.reaction\nImmunization.reaction may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate AllergyIntolerance record should be created to indicate it, as most systems will not query against past immunization.reactions.\nMisuse\nThe allergy/intolerance list exists as a patient safety tool to inform decision support around ordering of medications and nutrition and to guide clinical treatment.  Other reactions triggered by physical stimuli -- light, heat, cold, pressure, vibration, which may mimic allergic or intolerance reactions, should be recorded as Condition on the problem list, not using AllergyIntolerance. Not to be used to record adverse events, including failures of clinical process, interventions or products. For example, abnormal use or mistakes/errors made in maladministration of an agent or substance, incorrect dosage, mislabeling, harm or injury caused by an intervention or procedure, overdose/poisoning, etc. Not to be used as a proxy for an adverse event report. See above for how it may be used as one component of an adverse event report. Not to be used for recording alerts. Alerts are handled using Flag or - where event-specific, DetectedIssue . Not to be used for recording failed therapy."
+  },
+  "definitions": "AllergyIntolerance: risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance. [STOP]\nAllergyIntolerance.identifier: business identifiers assigned to this allergyintolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server. [STOP]\nAllergyIntolerance.clinicalStatus: the clinical status of the allergy or intolerance. [STOP]\nAllergyIntolerance.verificationStatus: assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product). [STOP]\nAllergyIntolerance.type: identification of the underlying physiological mechanism for the reaction risk. [STOP]\nAllergyIntolerance.category: category of the identified substance. [STOP]\nAllergyIntolerance.criticality: estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance. [STOP]\nAllergyIntolerance.code: code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  this may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"latex\"), an allergy or intolerance condition (e.g., \"latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"no latex allergy\") or a general or categorical negated statement (e.g.,  \"no known allergy\", \"no known drug allergies\").  note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. for instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. it must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  if a receiving system is unable to confirm that allergyintolerance.reaction.substance falls within the semantic scope of allergyintolerance.code, then the receiving system should ignore allergyintolerance.reaction.substance. [STOP]\nAllergyIntolerance.patient: the patient who has the allergy or intolerance. [STOP]\nAllergyIntolerance.encounter: the encounter when the allergy or intolerance was asserted. [STOP]\nAllergyIntolerance.onset[x]: estimated or actual date,  date-time, or age when allergy or intolerance was identified. [STOP]\nAllergyIntolerance.recordedDate: the recordeddate represents when this particular allergyintolerance record was created in the system, which is often a system-generated date. [STOP]\nAllergyIntolerance.recorder: individual who recorded the record and takes responsibility for its content. [STOP]\nAllergyIntolerance.asserter: the source of the information about the allergy that is recorded. [STOP]\nAllergyIntolerance.lastOccurrence: represents the date and/or time of the last known occurrence of a reaction event. [STOP]\nAllergyIntolerance.note: additional narrative about the propensity for the adverse reaction, not captured in other fields. [STOP]\nAllergyIntolerance.reaction: details about each adverse reaction event linked to exposure to the identified substance. [STOP]\nAllergyIntolerance.reaction.substance: identification of the specific substance (or pharmaceutical product) considered to be responsible for the adverse reaction event. note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. for instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. it must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  if a receiving system is unable to confirm that allergyintolerance.reaction.substance falls within the semantic scope of allergyintolerance.code, then the receiving system should ignore allergyintolerance.reaction.substance. [STOP]\nAllergyIntolerance.reaction.manifestation: clinical symptoms and/or signs that are observed or associated with the adverse reaction event. [STOP]\nAllergyIntolerance.reaction.description: text description about the reaction as a whole, including details of the manifestation if required. [STOP]\nAllergyIntolerance.reaction.onset: record of the date and/or time of the onset of the reaction. [STOP]\nAllergyIntolerance.reaction.severity: clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations. [STOP]\nAllergyIntolerance.reaction.exposureRoute: identification of the route by which the subject was exposed to the substance. [STOP]\nAllergyIntolerance.reaction.note: additional text about the adverse reaction event not captured in other fields. [STOP]",
+  "documentation": {
+    "AllergyIntolerance": "risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.",
+    "AllergyIntolerance.identifier": "business identifiers assigned to this allergyintolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.",
+    "AllergyIntolerance.clinicalStatus": "the clinical status of the allergy or intolerance.",
+    "AllergyIntolerance.verificationStatus": "assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).",
+    "AllergyIntolerance.type": "identification of the underlying physiological mechanism for the reaction risk.",
+    "AllergyIntolerance.category": "category of the identified substance.",
+    "AllergyIntolerance.criticality": "estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.",
+    "AllergyIntolerance.code": "code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  this may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"latex\"), an allergy or intolerance condition (e.g., \"latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"no latex allergy\") or a general or categorical negated statement (e.g.,  \"no known allergy\", \"no known drug allergies\").  note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. for instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. it must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  if a receiving system is unable to confirm that allergyintolerance.reaction.substance falls within the semantic scope of allergyintolerance.code, then the receiving system should ignore allergyintolerance.reaction.substance.",
+    "AllergyIntolerance.patient": "the patient who has the allergy or intolerance.",
+    "AllergyIntolerance.encounter": "the encounter when the allergy or intolerance was asserted.",
+    "AllergyIntolerance.onset[x]": "estimated or actual date,  date-time, or age when allergy or intolerance was identified.",
+    "AllergyIntolerance.recordedDate": "the recordeddate represents when this particular allergyintolerance record was created in the system, which is often a system-generated date.",
+    "AllergyIntolerance.recorder": "individual who recorded the record and takes responsibility for its content.",
+    "AllergyIntolerance.asserter": "the source of the information about the allergy that is recorded.",
+    "AllergyIntolerance.lastOccurrence": "represents the date and/or time of the last known occurrence of a reaction event.",
+    "AllergyIntolerance.note": "additional narrative about the propensity for the adverse reaction, not captured in other fields.",
+    "AllergyIntolerance.reaction": "details about each adverse reaction event linked to exposure to the identified substance.",
+    "AllergyIntolerance.reaction.substance": "identification of the specific substance (or pharmaceutical product) considered to be responsible for the adverse reaction event. note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. for instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. it must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  if a receiving system is unable to confirm that allergyintolerance.reaction.substance falls within the semantic scope of allergyintolerance.code, then the receiving system should ignore allergyintolerance.reaction.substance.",
+    "AllergyIntolerance.reaction.manifestation": "clinical symptoms and/or signs that are observed or associated with the adverse reaction event.",
+    "AllergyIntolerance.reaction.description": "text description about the reaction as a whole, including details of the manifestation if required.",
+    "AllergyIntolerance.reaction.onset": "record of the date and/or time of the onset of the reaction.",
+    "AllergyIntolerance.reaction.severity": "clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.",
+    "AllergyIntolerance.reaction.exposureRoute": "identification of the route by which the subject was exposed to the substance.",
+    "AllergyIntolerance.reaction.note": "additional text about the adverse reaction event not captured in other fields."
+  }
+}

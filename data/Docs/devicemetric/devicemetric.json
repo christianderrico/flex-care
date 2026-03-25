@@ -1,0 +1,87 @@
+{
+  "resource": "devicemetric",
+  "examples": [
+    {
+      "name": "General DeviceMetric example",
+      "document": {
+        "resourceType": "DeviceMetric",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 345675</p><p><b>type</b>: MDC_PULS_OXIM_SAT_O2 <span>(Details : {urn:iso:std:iso:11073:10101 code '150456' = '150456', given as 'MDC_PULS_OXIM_SAT_O2'})</span></p><p><b>unit</b>: MDC_DIM_PERCENT <span>(Details : {urn:iso:std:iso:11073:10101 code '262688' = '262688', given as 'MDC_DIM_PERCENT'})</span></p><p><b>source</b>: <a>Device/dev1</a></p><p><b>parent</b>: <a>DeviceDefinition/dc102</a></p><p><b>operationalStatus</b>: on</p><p><b>color</b>: blue</p><p><b>category</b>: measurement</p><p><b>measurementPeriod</b>: Do Once per 1 seconds</p><h3>Calibrations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>State</b></td><td><b>Time</b></td></tr><tr><td>*</td><td>two-point</td><td>calibrated</td><td>28/12/2016 9:03:04 AM</td></tr></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://goodcare.org/devicemetric/id",
+            "value": "345675"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "urn:iso:std:iso:11073:10101",
+              "code": "150456",
+              "display": "MDC_PULS_OXIM_SAT_O2"
+            }
+          ]
+        },
+        "unit": {
+          "coding": [
+            {
+              "system": "urn:iso:std:iso:11073:10101",
+              "code": "262688",
+              "display": "MDC_DIM_PERCENT"
+            }
+          ]
+        },
+        "source": {
+          "reference": "Device/dev1"
+        },
+        "parent": {
+          "reference": "DeviceDefinition/dc102"
+        },
+        "operationalStatus": "on",
+        "color": "blue",
+        "category": "measurement",
+        "measurementPeriod": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "s"
+          }
+        },
+        "calibration": [
+          {
+            "type": "two-point",
+            "state": "calibrated",
+            "time": "2016-12-28T09:03:04-05:00"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.16Resource DeviceMetric - Content",
+    "introduction": "Describes a measurement, calculation or setting capability of a medical device.\nThis resource is referenced by Media and Observation",
+    "Scope and Usage": "The DeviceMetric resource describes mandatory static properties that characterize a direct or derived, quantitative or qualitative biosignal measurement, setting, or calculation produced by a medical device. \r\nThe DeviceMetric resource can also be used to describe the non-static but highly relevant properties to the metric such as metric status, metric last calibration time and type, measurement mode, color, reference link to the parent DeviceComponent to where it belongs, and any capabilities that the metric offers (for example: setting the metric label).\nNote:\nFor the initial scope, this DeviceMetric resource is only applicable to describe a single metric node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.",
+    "Boundaries and Relationships": "There are two related resources\nDevice - The physical device that this DeviceMetric belongs to.",
+    "Notes": "The correct codes for the metric types are registered in \r\n the RTM Management service , but \r\n this is not required. See Terminology \r\n Systems for the correct representation of these codes in a Coding data type."
+  },
+  "definitions": "DeviceMetric: describes a measurement, calculation or setting capability of a medical device. [STOP]\nDeviceMetric.identifier: unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. for example: handle id. [STOP]\nDeviceMetric.type: describes the type of the metric. for example: heart rate, peep setting, etc. [STOP]\nDeviceMetric.unit: describes the unit that an observed value determined for this metric will have. for example: percent, seconds, etc. [STOP]\nDeviceMetric.source: describes the link to the  device that this devicemetric belongs to and that contains administrative device information such as manufacturer, serial number, etc. [STOP]\nDeviceMetric.parent: describes the link to the  device that this devicemetric belongs to and that provide information about the location of this devicemetric in the containment structure of the parent device. an example would be a device that represents a channel. this reference can be used by a client application to distinguish devicemetrics that have the same type, but should be interpreted based on their containment location. [STOP]\nDeviceMetric.operationalStatus: indicates current operational state of the device. for example: on, off, standby, etc. [STOP]\nDeviceMetric.color: describes the color representation for the metric. this is often used to aid clinicians to track and identify parameter types by color. in practice, consider a patient monitor that has ecg/hr and pleth for example; the parameters are displayed in different characteristic colors, such as hr-blue, bp-green, and pr and spo2- magenta. [STOP]\nDeviceMetric.category: indicates the category of the observation generation process. a devicemetric can be for example a setting, measurement, or calculation. [STOP]\nDeviceMetric.measurementPeriod: describes the measurement repetition time. this is not necessarily the same as the update period. the measurement repetition time can range from milliseconds up to hours. an example for a measurement repetition time in the range of milliseconds is the sampling rate of an ecg. an example for a measurement repetition time in the range of hours is a nibp that is triggered automatically every hour. the update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured. [STOP]\nDeviceMetric.calibration: describes the calibrations that have been performed or that are required to be performed. [STOP]\nDeviceMetric.calibration.type: describes the type of the calibration method. [STOP]\nDeviceMetric.calibration.state: describes the state of the calibration. [STOP]\nDeviceMetric.calibration.time: describes the time last calibration has been performed. [STOP]",
+  "documentation": {
+    "DeviceMetric": "describes a measurement, calculation or setting capability of a medical device.",
+    "DeviceMetric.identifier": "unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. for example: handle id.",
+    "DeviceMetric.type": "describes the type of the metric. for example: heart rate, peep setting, etc.",
+    "DeviceMetric.unit": "describes the unit that an observed value determined for this metric will have. for example: percent, seconds, etc.",
+    "DeviceMetric.source": "describes the link to the  device that this devicemetric belongs to and that contains administrative device information such as manufacturer, serial number, etc.",
+    "DeviceMetric.parent": "describes the link to the  device that this devicemetric belongs to and that provide information about the location of this devicemetric in the containment structure of the parent device. an example would be a device that represents a channel. this reference can be used by a client application to distinguish devicemetrics that have the same type, but should be interpreted based on their containment location.",
+    "DeviceMetric.operationalStatus": "indicates current operational state of the device. for example: on, off, standby, etc.",
+    "DeviceMetric.color": "describes the color representation for the metric. this is often used to aid clinicians to track and identify parameter types by color. in practice, consider a patient monitor that has ecg/hr and pleth for example; the parameters are displayed in different characteristic colors, such as hr-blue, bp-green, and pr and spo2- magenta.",
+    "DeviceMetric.category": "indicates the category of the observation generation process. a devicemetric can be for example a setting, measurement, or calculation.",
+    "DeviceMetric.measurementPeriod": "describes the measurement repetition time. this is not necessarily the same as the update period. the measurement repetition time can range from milliseconds up to hours. an example for a measurement repetition time in the range of milliseconds is the sampling rate of an ecg. an example for a measurement repetition time in the range of hours is a nibp that is triggered automatically every hour. the update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.",
+    "DeviceMetric.calibration": "describes the calibrations that have been performed or that are required to be performed.",
+    "DeviceMetric.calibration.type": "describes the type of the calibration method.",
+    "DeviceMetric.calibration.state": "describes the state of the calibration.",
+    "DeviceMetric.calibration.time": "describes the time last calibration has been performed."
+  }
+}

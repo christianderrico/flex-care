@@ -1,0 +1,158 @@
+{
+  "resource": "bodystructure",
+  "examples": [
+    {
+      "name": "This example demonstrates using the bodystructure resource to identify a fetus within systems that choose not to treat a fetus as a Patient",
+      "document": {
+        "resourceType": "BodyStructure",
+        "id": "fetus",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: fetus</p><p><b>identifier</b>: 12345</p><p><b>location</b>: Fetus <span>(Details : {SNOMED CT code '83418008' = 'Fetus', given as 'Entire fetus (body structure)'})</span></p><p><b>description</b>: EDD 1/1/2017 confirmation by LMP</p><p><b>patient</b>: <a>Patient/example</a></p></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://goodhealth.org/bodystructure/identifiers",
+            "value": "12345"
+          }
+        ],
+        "location": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "83418008",
+              "display": "Entire fetus (body structure)"
+            }
+          ],
+          "text": "Fetus"
+        },
+        "description": "EDD 1/1/2017 confirmation by LMP",
+        "patient": {
+          "reference": "Patient/example"
+        }
+      }
+    },
+    {
+      "name": "This example demonstrates using the bodystructure resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time",
+      "document": {
+        "resourceType": "BodyStructure",
+        "id": "tumor",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: tumor</p><p><b>identifier</b>: 12345</p><p><b>morphology</b>: Splenic mass <span>(Details : {SNOMED CT code '4147007' = 'Mass', given as 'Mass (morphologic abnormality)'})</span></p><p><b>location</b>: Spleen <span>(Details : {SNOMED CT code '78961009' = 'Spleen', given as 'Splenic structure (body structure)'})</span></p><p><b>description</b>: 7 cm maximum diameter</p><p><b>image</b>: </p><p><b>patient</b>: <a>Patient/example</a></p></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://goodhealth.org/bodystructure/identifiers",
+            "value": "12345"
+          }
+        ],
+        "morphology": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "4147007",
+              "display": "Mass (morphologic abnormality)"
+            }
+          ],
+          "text": "Splenic mass"
+        },
+        "location": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "78961009",
+              "display": "Splenic structure (body structure)"
+            }
+          ],
+          "text": "Spleen"
+        },
+        "description": "7 cm maximum diameter",
+        "image": [
+          {
+            "contentType": "application/dicom",
+            "url": "http://imaging.acme.com/wado/server?requestType=WADO&amp;wado_details"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/example"
+        }
+      }
+    },
+    {
+      "name": "This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time",
+      "document": {
+        "resourceType": "BodyStructure",
+        "id": "skin-patch",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skin-patch</p><p><b>identifier</b>: 12345</p><p><b>active</b>: false</p><p><b>morphology</b>: Skin patch <span>(Details )</span></p><p><b>location</b>: Forearm <span>(Details : {SNOMED CT code '14975008' = 'Forearm', given as 'Forearm'})</span></p><p><b>locationQualifier</b>: Left <span>(Details : {SNOMED CT code '419161000' = 'Unilateral left', given as 'Unilateral left'})</span>, Volar <span>(Details : {SNOMED CT code '263929005' = 'Volar', given as 'Volar'})</span></p><p><b>description</b>: inner surface (volar) of the left forearm</p><p><b>patient</b>: <a>Patient/example</a></p></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://goodhealth.org/bodystructure/identifiers",
+            "value": "12345"
+          }
+        ],
+        "active": false,
+        "morphology": {
+          "text": "Skin patch"
+        },
+        "location": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "14975008",
+              "display": "Forearm"
+            }
+          ],
+          "text": "Forearm"
+        },
+        "locationQualifier": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "419161000",
+                "display": "Unilateral left"
+              }
+            ],
+            "text": "Left"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "263929005",
+                "display": "Volar"
+              }
+            ],
+            "text": "Volar"
+          }
+        ],
+        "description": "inner surface (volar) of the left forearm",
+        "patient": {
+          "reference": "Patient/example"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "10.9Resource BodyStructure - Content",
+    "introduction": "Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.",
+    "Scope and Usage": "The BodyStructure resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers, as well as text descriptions and images.  It provides for the addition of qualifiers such as laterality and directionality to the anatomic location for those use cases where precoordination of codes is not possible.  The BodyStructure resource supports recording and tracking of an anatomic location or structure on a patient outside the context of another resource.  For example it can be the target of a Procedure resource or Observation resource.",
+    "Boundaries and Relationships": "The BodyStructure resource is not intended to substitute for precoordination of codes.  If precoordination of codes is  supported by an implementation the codeableConcept should be used.  This resource is not intended for describing the type of anatomical location but rather a specific body site on a specific patient."
+  },
+  "definitions": "BodyStructure: record details about an anatomical structure.  this resource may be used when a coded concept does not provide the necessary detail needed for the use case. [STOP]\nBodyStructure.identifier: identifier for this instance of the anatomical structure. [STOP]\nBodyStructure.active: whether this body site is in active use. [STOP]\nBodyStructure.morphology: the kind of structure being represented by the body structure atbodystructure.location.  this can define both normal and abnormal morphologies. [STOP]\nBodyStructure.location: the anatomical location or region of the specimen, lesion, or body structure. [STOP]\nBodyStructure.locationQualifier: qualifier to refine the anatomical location.  these include qualifiers for laterality, relative location, directionality, number, and plane. [STOP]\nBodyStructure.description: a summary, characterization or explanation of the body structure. [STOP]\nBodyStructure.image: image or images used to identify a location. [STOP]\nBodyStructure.patient: the person to which the body site belongs. [STOP]",
+  "documentation": {
+    "BodyStructure": "record details about an anatomical structure.  this resource may be used when a coded concept does not provide the necessary detail needed for the use case.",
+    "BodyStructure.identifier": "identifier for this instance of the anatomical structure.",
+    "BodyStructure.active": "whether this body site is in active use.",
+    "BodyStructure.morphology": "the kind of structure being represented by the body structure atbodystructure.location.  this can define both normal and abnormal morphologies.",
+    "BodyStructure.location": "the anatomical location or region of the specimen, lesion, or body structure.",
+    "BodyStructure.locationQualifier": "qualifier to refine the anatomical location.  these include qualifiers for laterality, relative location, directionality, number, and plane.",
+    "BodyStructure.description": "a summary, characterization or explanation of the body structure.",
+    "BodyStructure.image": "image or images used to identify a location.",
+    "BodyStructure.patient": "the person to which the body site belongs."
+  }
+}

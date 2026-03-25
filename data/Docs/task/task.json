@@ -1,0 +1,996 @@
+{
+  "resource": "task",
+  "examples": [
+    {
+      "name": "Example of in-progress/awaiting specimen task for a lipid panel order",
+      "document": {
+        "resourceType": "Task",
+        "id": "example1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example1</p><p><b>contained</b>: </p><p><b>identifier</b>: 20170201-001 (OFFICIAL)</p><p><b>basedOn</b>: General Wellness Careplan</p><p><b>groupIdentifier</b>: G20170201-001 (OFFICIAL)</p><p><b>status</b>: in-progress</p><p><b>businessStatus</b>: waiting for specimen <span>(Details )</span></p><p><b>intent</b>: order</p><p><b>priority</b>: routine</p><p><b>code</b>: Lipid Panel <span>(Details )</span></p><p><b>description</b>: Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen</p><p><b>focus</b>: <a>Lipid Panel Request</a></p><p><b>for</b>: <a>Peter James Chalmers</a></p><p><b>encounter</b>: <a>Example In-Patient Encounter</a></p><p><b>executionPeriod</b>: 31/10/2016 8:25:05 AM --&gt; (ongoing)</p><p><b>authoredOn</b>: 31/10/2016 8:25:05 AM</p><p><b>lastModified</b>: 31/10/2016 9:45:05 AM</p><p><b>requester</b>: <a>Dr Adam Careful</a></p><p><b>performerType</b>: Performer <span>(Details : {http://terminology.hl7.org/CodeSystem/task-performer-type code 'performer' = 'performer', given as 'Performer'})</span></p><p><b>owner</b>: <a>Clinical Laboratory @ Acme Hospital</a></p><p><b>reasonCode</b>: The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus <span>(Details )</span></p><p><b>note</b>: This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test </p><p><b>relevantHistory</b>: Author's Signature. Generated Summary: id: signature; recorded: 31/10/2016 8:25:05 AM; </p><h3>Restrictions</h3><table><tr><td>-</td><td><b>Repetitions</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>1</td><td>?? --&gt; 02/11/2016 9:45:05 AM</td></tr></table></div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Provenance",
+            "id": "signature",
+            "target": [
+              {
+                "reference": "ServiceRequest/physiotherapy/_history/1"
+              }
+            ],
+            "recorded": "2016-10-31T08:25:05+10:00",
+            "agent": [
+              {
+                "role": [
+                  {
+                    "coding": [
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                        "code": "AUT"
+                      }
+                    ]
+                  }
+                ],
+                "who": {
+                  "reference": "Practitioner/f202",
+                  "display": "Luigi Maas"
+                }
+              }
+            ],
+            "signature": [
+              {
+                "type": [
+                  {
+                    "system": "urn:iso-astm:E1762-95:2013",
+                    "code": "1.2.840.10065.1.12.1.1",
+                    "display": "Author's Signature"
+                  }
+                ],
+                "when": "2016-10-31T08:25:05+10:00",
+                "who": {
+                  "reference": "Practitioner/example",
+                  "display": "Dr Adam Careful"
+                },
+                "targetFormat": "application/fhir+xml",
+                "sigFormat": "application/signature+xml",
+                "data": "dGhpcyBibG9iIGlzIHNuaXBwZWQ="
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/goodhealth.org/identifiers",
+            "value": "20170201-001"
+          }
+        ],
+        "basedOn": [
+          {
+            "display": "General Wellness Careplan"
+          }
+        ],
+        "groupIdentifier": {
+          "use": "official",
+          "system": "http:/goodhealth.org/accession/identifiers",
+          "value": "G20170201-001"
+        },
+        "status": "in-progress",
+        "businessStatus": {
+          "text": "waiting for specimen"
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "text": "Lipid Panel"
+        },
+        "description": "Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen",
+        "focus": {
+          "reference": "ServiceRequest/lipid",
+          "display": "Lipid Panel Request"
+        },
+        "for": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "encounter": {
+          "reference": "Encounter/example",
+          "display": "Example In-Patient Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-10-31T08:25:05+10:00"
+        },
+        "authoredOn": "2016-10-31T08:25:05+10:00",
+        "lastModified": "2016-10-31T09:45:05+10:00",
+        "requester": {
+          "reference": "Practitioner/example",
+          "display": "Dr Adam Careful"
+        },
+        "performerType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/task-performer-type",
+                "code": "performer",
+                "display": "Performer"
+              }
+            ],
+            "text": "Performer"
+          }
+        ],
+        "owner": {
+          "reference": "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+          "display": "Clinical Laboratory @ Acme Hospital"
+        },
+        "reasonCode": {
+          "text": "The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"
+        },
+        "note": [
+          {
+            "text": "This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "
+          }
+        ],
+        "relevantHistory": [
+          {
+            "reference": "#signature",
+            "display": "Author's Signature"
+          }
+        ],
+        "restriction": {
+          "repetitions": 1,
+          "period": {
+            "end": "2016-11-02T09:45:05+10:00"
+          }
+        }
+      }
+    },
+    {
+      "name": "Example of an accepted, filler generated specimen collection subtask",
+      "document": {
+        "resourceType": "Task",
+        "id": "example2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example2</p><p><b>identifier</b>: 20170201-002 (OFFICIAL)</p><p><b>groupIdentifier</b>: G20170201-001 (OFFICIAL)</p><p><b>partOf</b>: <a>Lipid Panel</a></p><p><b>status</b>: accepted</p><p><b>businessStatus</b>: waiting for patient <span>(Details )</span></p><p><b>intent</b>: filler-order</p><p><b>priority</b>: routine</p><p><b>code</b>: Specimen Collection <span>(Details )</span></p><p><b>focus</b>: BloodDraw ServiceRequest</p><p><b>for</b>: <a>Peter James Chalmers</a></p><p><b>encounter</b>: <a>Example In-Patient Encounter</a></p><p><b>executionPeriod</b>: 31/10/2016 8:45:05 AM --&gt; (ongoing)</p><p><b>authoredOn</b>: 31/10/2016 8:45:05 AM</p><p><b>lastModified</b>: 31/10/2016 9:45:05 AM</p><p><b>requester</b>: <a>Clinical Laboratory @ Acme Hospital</a></p><p><b>performerType</b>: Performer <span>(Details : {http://terminology.hl7.org/CodeSystem/task-performer-type code 'performer' = 'performer', given as 'Performer'})</span></p><p><b>owner</b>: <a>Clinical Laboratory @ Acme Hospital</a></p><h3>Restrictions</h3><table><tr><td>-</td><td><b>Repetitions</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>1</td><td>?? --&gt; 01/11/2016 9:45:05 AM</td></tr></table></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/goodhealth.org/identifiers",
+            "value": "20170201-002"
+          }
+        ],
+        "groupIdentifier": {
+          "use": "official",
+          "system": "http:/goodhealth.org/accession/identifiers",
+          "value": "G20170201-001"
+        },
+        "partOf": [
+          {
+            "reference": "Task/example1",
+            "display": "Lipid Panel"
+          }
+        ],
+        "status": "accepted",
+        "businessStatus": {
+          "text": "waiting for patient"
+        },
+        "intent": "filler-order",
+        "priority": "routine",
+        "code": {
+          "text": "Specimen Collection"
+        },
+        "focus": {
+          "display": "BloodDraw ServiceRequest"
+        },
+        "for": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "encounter": {
+          "reference": "Encounter/example",
+          "display": "Example In-Patient Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-10-31T08:45:05+10:00"
+        },
+        "authoredOn": "2016-10-31T08:45:05+10:00",
+        "lastModified": "2016-10-31T09:45:05+10:00",
+        "requester": {
+          "reference": "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+          "display": "Clinical Laboratory @ Acme Hospital"
+        },
+        "performerType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/task-performer-type",
+                "code": "performer",
+                "display": "Performer"
+              }
+            ],
+            "text": "Performer"
+          }
+        ],
+        "owner": {
+          "reference": "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+          "display": "Clinical Laboratory @ Acme Hospital"
+        },
+        "restriction": {
+          "repetitions": 1,
+          "period": {
+            "end": "2016-11-01T09:45:05+10:00"
+          }
+        }
+      }
+    },
+    {
+      "name": "Example of a completed  filler generated specimen collection subtask",
+      "document": {
+        "resourceType": "Task",
+        "id": "example4",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example4</p><p><b>identifier</b>: 20170201-002 (OFFICIAL)</p><p><b>groupIdentifier</b>: G20170201-001 (OFFICIAL)</p><p><b>partOf</b>: <a>Lipid Panel</a></p><p><b>status</b>: completed</p><p><b>intent</b>: filler-order</p><p><b>priority</b>: routine</p><p><b>code</b>: Specimen Collection <span>(Details )</span></p><p><b>focus</b>: BloodDraw ServiceRequest</p><p><b>for</b>: <a>Peter James Chalmers</a></p><p><b>encounter</b>: <a>Example In-Patient Encounter</a></p><p><b>executionPeriod</b>: 31/10/2016 8:45:05 AM --&gt; 31/10/2016 2:45:05 PM</p><p><b>authoredOn</b>: 31/10/2016 8:45:05 AM</p><p><b>lastModified</b>: 31/10/2016 9:45:05 AM</p><p><b>requester</b>: <a>Clinical Laboratory @ Acme Hospital</a></p><p><b>performerType</b>: Performer <span>(Details : {http://terminology.hl7.org/CodeSystem/task-performer-type code 'performer' = 'performer', given as 'Performer'})</span></p><p><b>owner</b>: <a>Luigi Maas</a></p><h3>Restrictions</h3><table><tr><td>-</td><td><b>Repetitions</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>1</td><td>?? --&gt; 01/11/2016 9:45:05 AM</td></tr></table><h3>Outputs</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>collected specimen <span>(Details )</span></td><td><a>Specimen/101</a></td></tr></table></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/goodhealth.org/identifiers",
+            "value": "20170201-002"
+          }
+        ],
+        "groupIdentifier": {
+          "use": "official",
+          "system": "http:/goodhealth.org/accession/identifiers",
+          "value": "G20170201-001"
+        },
+        "partOf": [
+          {
+            "reference": "Task/example1",
+            "display": "Lipid Panel"
+          }
+        ],
+        "status": "completed",
+        "intent": "filler-order",
+        "priority": "routine",
+        "code": {
+          "text": "Specimen Collection"
+        },
+        "focus": {
+          "display": "BloodDraw ServiceRequest"
+        },
+        "for": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "encounter": {
+          "reference": "Encounter/example",
+          "display": "Example In-Patient Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-10-31T08:45:05+10:00",
+          "end": "2016-10-31T14:45:05+10:00"
+        },
+        "authoredOn": "2016-10-31T08:45:05+10:00",
+        "lastModified": "2016-10-31T09:45:05+10:00",
+        "requester": {
+          "reference": "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+          "display": "Clinical Laboratory @ Acme Hospital"
+        },
+        "performerType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/task-performer-type",
+                "code": "performer",
+                "display": "Performer"
+              }
+            ],
+            "text": "Performer"
+          }
+        ],
+        "owner": {
+          "reference": "Practitioner/f202",
+          "display": "Luigi Maas"
+        },
+        "restriction": {
+          "repetitions": 1,
+          "period": {
+            "end": "2016-11-01T09:45:05+10:00"
+          }
+        },
+        "output": [
+          {
+            "type": {
+              "text": "collected specimen"
+            },
+            "valueReference": {
+              "reference": "Specimen/101"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of in-progress/test results pending task for a lipid panel order",
+      "document": {
+        "resourceType": "Task",
+        "id": "example5",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example5</p><p><b>identifier</b>: 20170201-001 (OFFICIAL)</p><p><b>basedOn</b>: General Wellness Careplan</p><p><b>groupIdentifier</b>: G20170201-001 (OFFICIAL)</p><p><b>status</b>: in-progress</p><p><b>businessStatus</b>: specimen received, test in progress <span>(Details )</span></p><p><b>intent</b>: order</p><p><b>priority</b>: routine</p><p><b>code</b>: Lipid Panel <span>(Details )</span></p><p><b>description</b>: Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen</p><p><b>focus</b>: <a>Lipid Panel Request</a></p><p><b>for</b>: <a>Peter James Chalmers</a></p><p><b>encounter</b>: <a>Example In-Patient Encounter</a></p><p><b>executionPeriod</b>: 31/10/2016 8:25:05 AM --&gt; (ongoing)</p><p><b>authoredOn</b>: 31/10/2016 8:25:05 AM</p><p><b>lastModified</b>: 31/10/2016 4:45:05 PM</p><p><b>requester</b>: <a>Dr Adam Careful</a></p><p><b>performerType</b>: Performer <span>(Details : {http://terminology.hl7.org/CodeSystem/task-performer-type code 'performer' = 'performer', given as 'Performer'})</span></p><p><b>owner</b>: <a>Clinical Laboratory @ Acme Hospital</a></p><p><b>reasonCode</b>: The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus <span>(Details )</span></p><p><b>note</b>: This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test </p><h3>Restrictions</h3><table><tr><td>-</td><td><b>Repetitions</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>1</td><td>?? --&gt; 02/11/2016 9:45:05 AM</td></tr></table><h3>Outputs</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>collected specimen <span>(Details )</span></td><td><a>Specimen/101</a></td></tr></table></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/goodhealth.org/identifiers",
+            "value": "20170201-001"
+          }
+        ],
+        "basedOn": [
+          {
+            "display": "General Wellness Careplan"
+          }
+        ],
+        "groupIdentifier": {
+          "use": "official",
+          "system": "http:/goodhealth.org/accession/identifiers",
+          "value": "G20170201-001"
+        },
+        "status": "in-progress",
+        "businessStatus": {
+          "text": "specimen received, test in progress"
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "text": "Lipid Panel"
+        },
+        "description": "Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen",
+        "focus": {
+          "reference": "ServiceRequest/lipid",
+          "display": "Lipid Panel Request"
+        },
+        "for": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "encounter": {
+          "reference": "Encounter/example",
+          "display": "Example In-Patient Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-10-31T08:25:05+10:00"
+        },
+        "authoredOn": "2016-10-31T08:25:05+10:00",
+        "lastModified": "2016-10-31T16:45:05+10:00",
+        "requester": {
+          "reference": "Practitioner/example",
+          "display": "Dr Adam Careful"
+        },
+        "performerType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/task-performer-type",
+                "code": "performer",
+                "display": "Performer"
+              }
+            ],
+            "text": "Performer"
+          }
+        ],
+        "owner": {
+          "reference": "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+          "display": "Clinical Laboratory @ Acme Hospital"
+        },
+        "reasonCode": {
+          "text": "The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"
+        },
+        "note": [
+          {
+            "text": "This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "
+          }
+        ],
+        "restriction": {
+          "repetitions": 1,
+          "period": {
+            "end": "2016-11-02T09:45:05+10:00"
+          }
+        },
+        "output": [
+          {
+            "type": {
+              "text": "collected specimen"
+            },
+            "valueReference": {
+              "reference": "Specimen/101"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of completed  task for a lipid panel order",
+      "document": {
+        "resourceType": "Task",
+        "id": "example6",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example6</p><p><b>identifier</b>: 20170201-001 (OFFICIAL)</p><p><b>basedOn</b>: General Wellness Careplan</p><p><b>groupIdentifier</b>: G20170201-001 (OFFICIAL)</p><p><b>status</b>: completed</p><p><b>businessStatus</b>: test completed and posted <span>(Details )</span></p><p><b>intent</b>: order</p><p><b>priority</b>: routine</p><p><b>code</b>: Lipid Panel <span>(Details )</span></p><p><b>description</b>: Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen</p><p><b>focus</b>: <a>Lipid Panel Request</a></p><p><b>for</b>: <a>Peter James Chalmers</a></p><p><b>encounter</b>: <a>Example In-Patient Encounter</a></p><p><b>executionPeriod</b>: 31/10/2016 8:25:05 AM --&gt; 31/10/2016 6:45:05 PM</p><p><b>authoredOn</b>: 31/10/2016 8:25:05 AM</p><p><b>lastModified</b>: 31/10/2016 6:45:05 PM</p><p><b>requester</b>: <a>Dr Adam Careful</a></p><p><b>performerType</b>: Performer <span>(Details : {http://terminology.hl7.org/CodeSystem/task-performer-type code 'performer' = 'performer', given as 'Performer'})</span></p><p><b>owner</b>: <a>Clinical Laboratory @ Acme Hospital</a></p><p><b>reasonCode</b>: The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus <span>(Details )</span></p><p><b>note</b>: This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test </p><h3>Restrictions</h3><table><tr><td>-</td><td><b>Repetitions</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>1</td><td>?? --&gt; 02/11/2016 9:45:05 AM</td></tr></table><blockquote><p><b>output</b></p><p><b>type</b>: DiagnosticReport generated <span>(Details )</span></p><p><b>value</b>: <a>DiagnosticReport/lipids</a></p></blockquote><blockquote><p><b>output</b></p><p><b>type</b>: collected specimen <span>(Details )</span></p><p><b>value</b>: <a>Specimen/101</a></p></blockquote></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/goodhealth.org/identifiers",
+            "value": "20170201-001"
+          }
+        ],
+        "basedOn": [
+          {
+            "display": "General Wellness Careplan"
+          }
+        ],
+        "groupIdentifier": {
+          "use": "official",
+          "system": "http:/goodhealth.org/accession/identifiers",
+          "value": "G20170201-001"
+        },
+        "status": "completed",
+        "businessStatus": {
+          "text": "test completed and posted"
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "text": "Lipid Panel"
+        },
+        "description": "Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen",
+        "focus": {
+          "reference": "ServiceRequest/lipid",
+          "display": "Lipid Panel Request"
+        },
+        "for": {
+          "reference": "Patient/example",
+          "display": "Peter James Chalmers"
+        },
+        "encounter": {
+          "reference": "Encounter/example",
+          "display": "Example In-Patient Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-10-31T08:25:05+10:00",
+          "end": "2016-10-31T18:45:05+10:00"
+        },
+        "authoredOn": "2016-10-31T08:25:05+10:00",
+        "lastModified": "2016-10-31T18:45:05+10:00",
+        "requester": {
+          "reference": "Practitioner/example",
+          "display": "Dr Adam Careful"
+        },
+        "performerType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/task-performer-type",
+                "code": "performer",
+                "display": "Performer"
+              }
+            ],
+            "text": "Performer"
+          }
+        ],
+        "owner": {
+          "reference": "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+          "display": "Clinical Laboratory @ Acme Hospital"
+        },
+        "reasonCode": {
+          "text": "The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"
+        },
+        "note": [
+          {
+            "text": "This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "
+          }
+        ],
+        "restriction": {
+          "repetitions": 1,
+          "period": {
+            "end": "2016-11-02T09:45:05+10:00"
+          }
+        },
+        "output": [
+          {
+            "type": {
+              "text": "DiagnosticReport generated"
+            },
+            "valueReference": {
+              "reference": "DiagnosticReport/lipids"
+            }
+          },
+          {
+            "type": {
+              "text": "collected specimen"
+            },
+            "valueReference": {
+              "reference": "Specimen/101"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of simple prescription task",
+      "document": {
+        "resourceType": "Task",
+        "id": "example3",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example3</p><p><b>status</b>: draft</p><p><b>intent</b>: order</p><p><b>code</b>: Refill Request <span>(Details )</span></p><p><b>focus</b>: <a>MedicationRequest/medrx002</a></p><p><b>for</b>: <a>Patient/f001</a></p><p><b>authoredOn</b>: 10/03/2016 10:39:32 PM</p><p><b>lastModified</b>: 10/03/2016 10:39:32 PM</p><p><b>requester</b>: <a>Patient/example</a></p><p><b>owner</b>: <a>Practitioner/example</a></p></div>"
+        },
+        "status": "draft",
+        "intent": "order",
+        "code": {
+          "text": "Refill Request"
+        },
+        "focus": {
+          "reference": "MedicationRequest/medrx002"
+        },
+        "for": {
+          "reference": "Patient/f001"
+        },
+        "authoredOn": "2016-03-10T22:39:32-04:00",
+        "lastModified": "2016-03-10T22:39:32-04:00",
+        "requester": {
+          "reference": "Patient/example"
+        },
+        "owner": {
+          "reference": "Practitioner/example"
+        }
+      }
+    },
+    {
+      "name": "Example of the cancellation of a preauthorization",
+      "document": {
+        "resourceType": "Task",
+        "id": "fm-example1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\t<b> Generated Narrative with Details</b>\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/happyvalley.com/task",
+            "value": "20181012-001"
+          }
+        ],
+        "status": "requested",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+              "code": "cancel"
+            }
+          ]
+        },
+        "focus": {
+          "identifier": {
+            "system": "http://happyvalley.com/claim",
+            "value": "1500"
+          }
+        },
+        "authoredOn": "2018-10-04T08:25:05+10:00",
+        "lastModified": "2018-10-04T08:25:05+10:00",
+        "requester": {
+          "reference": "Organization/example",
+          "display": "Happy Valley Clinic"
+        },
+        "owner": {
+          "identifier": {
+            "system": "http://nationalinsurers.com/identifiers",
+            "value": "12345"
+          }
+        }
+      }
+    },
+    {
+      "name": "Example of polling for queued resources",
+      "document": {
+        "resourceType": "Task",
+        "id": "fm-example2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\t<b> Generated Narrative with Details</b>\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/happyvalley.com/task",
+            "value": "20181012-005"
+          }
+        ],
+        "status": "requested",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+              "code": "poll"
+            }
+          ]
+        },
+        "authoredOn": "2018-10-12T08:25:05+10:00",
+        "lastModified": "2018-10-12T08:25:05+10:00",
+        "requester": {
+          "reference": "Organization/example",
+          "display": "Happy Valley Clinic"
+        },
+        "owner": {
+          "identifier": {
+            "system": "http://nationalinsurers.com/identifiers",
+            "value": "12345"
+          }
+        },
+        "input": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+                  "code": "include"
+                }
+              ]
+            },
+            "valueCode": "ClaimResponse"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+                  "code": "period"
+                }
+              ]
+            },
+            "valuePeriod": {
+              "start": "2018-10-01",
+              "end": "2018-10-12"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of the release of the balance of reserved funds for a preauthorization",
+      "document": {
+        "resourceType": "Task",
+        "id": "fm-example3",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\t<b> Generated Narrative with Details</b>\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/happyvalley.com/task",
+            "value": "20181012-001"
+          }
+        ],
+        "status": "requested",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+              "code": "release"
+            }
+          ]
+        },
+        "focus": {
+          "identifier": {
+            "system": "http://happyvalley.com/claim",
+            "value": "1501"
+          }
+        },
+        "authoredOn": "2018-10-04T08:25:05+10:00",
+        "lastModified": "2018-10-04T08:25:05+10:00",
+        "requester": {
+          "reference": "Organization/example",
+          "display": "Happy Valley Clinic"
+        },
+        "owner": {
+          "identifier": {
+            "system": "http://nationalinsurers.com/identifiers",
+            "value": "12345"
+          }
+        },
+        "input": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/financial-taskinputtype",
+                  "code": "origresponse"
+                }
+              ]
+            },
+            "valueReference": {
+              "identifier": {
+                "system": "http://nationalinsurers.com/claimresponse",
+                "value": "CR201810040001234"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of the cancellation of a preauthorization",
+      "document": {
+        "resourceType": "Task",
+        "id": "fm-example4",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\t<b> Generated Narrative with Details</b>\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/happyvalley.com/task",
+            "value": "20181012-006"
+          }
+        ],
+        "status": "requested",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+              "code": "reprocess"
+            }
+          ]
+        },
+        "focus": {
+          "identifier": {
+            "system": "http://happyvalley.com/claim",
+            "value": "1501"
+          }
+        },
+        "authoredOn": "2018-10-04T08:25:05+10:00",
+        "lastModified": "2018-10-04T08:25:05+10:00",
+        "requester": {
+          "reference": "Organization/example",
+          "display": "Happy Valley Clinic"
+        },
+        "owner": {
+          "identifier": {
+            "system": "http://nationalinsurers.com/identifiers",
+            "value": "12345"
+          }
+        },
+        "input": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+                  "code": "origresponse"
+                }
+              ]
+            },
+            "valueReference": {
+              "identifier": {
+                "system": "http://nationalinsurers.com/claimresponse",
+                "value": "CR201810040001234"
+              }
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+                  "code": "reference"
+                }
+              ]
+            },
+            "valueString": "BR12345"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+                  "code": "item"
+                }
+              ]
+            },
+            "valuePositiveInt": 2
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+                  "code": "item"
+                }
+              ]
+            },
+            "valuePositiveInt": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example of checking the processing status of a preauthorization",
+      "document": {
+        "resourceType": "Task",
+        "id": "fm-example5",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\t<b> Generated Narrative with Details</b>\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/happyvalley.com/task",
+            "value": "20181012-001"
+          }
+        ],
+        "status": "requested",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+              "code": "status"
+            }
+          ]
+        },
+        "focus": {
+          "identifier": {
+            "system": "http://happyvalley.com/claim",
+            "value": "1500"
+          }
+        },
+        "authoredOn": "2018-10-04T08:25:05+10:00",
+        "lastModified": "2018-10-04T08:25:05+10:00",
+        "requester": {
+          "reference": "Organization/example",
+          "display": "Happy Valley Clinic"
+        },
+        "owner": {
+          "identifier": {
+            "system": "http://nationalinsurers.com/identifiers",
+            "value": "12345"
+          }
+        }
+      }
+    },
+    {
+      "name": "Example of the response to checking the processing status of a preauthorization",
+      "document": {
+        "resourceType": "Task",
+        "id": "fm-example6",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>\n\t\t\t\t<b> Generated Narrative with Details</b>\n\t\t\t</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http:/happyvalley.com/task",
+            "value": "20181012-001"
+          },
+          {
+            "use": "official",
+            "system": "http://nationalinsurers.com/identifiers/12345",
+            "value": "123GB5674"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+              "code": "status"
+            }
+          ]
+        },
+        "focus": {
+          "identifier": {
+            "system": "http://happyvalley.com/claim",
+            "value": "1500"
+          }
+        },
+        "authoredOn": "2018-10-04T08:25:05+10:00",
+        "lastModified": "2018-10-04T08:25:05+10:00",
+        "requester": {
+          "reference": "Organization/example",
+          "display": "Happy Valley Clinic"
+        },
+        "owner": {
+          "identifier": {
+            "system": "http://nationalinsurers.com/identifiers",
+            "value": "12345"
+          }
+        },
+        "output": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/financial-taskoutputtype",
+                  "code": "status"
+                }
+              ]
+            },
+            "valueCode": "complete"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.1Resource Task - Content",
+    "introduction": "A task to be performed.\nThis resource is referenced by CarePlan , ImagingStudy , PaymentReconciliation and itself",
+    "Scope and Usage": "A task resource describes an activity that can be performed and tracks the state of\r\n      completion of that activity. It is a representation that an activity should be or has been\r\n      initiated, and eventually, represents the successful or unsuccessful completion of that\r\n      activity.\nNote that there are a variety of processes associated with making and processing orders.\r\n      Some orders may be handled immediately by automated systems but most require real world\r\n      actions by one or more humans. Some orders can only be processed when other real world actions\r\n      happen, such as a patient presenting themselves so that the action to be performed\r\n      can actually be performed. Often these real world dependencies are only implicit in the order\r\n      details.",
+    "Background and Context": "In a RESTful context, a server functions as a repository of tasks. The server itself, or\r\n      other agents are expected to monitor task activity and initiate appropriate actions to ensure\r\n      task completion, updating the status of the task as it proceeds through its various stages of\r\n      completion. These agents can be coordinated, following well choreographed business logic to\r\n      ensure that tasks are completed. Task management may also be centrally controlled using some\r\n      form of a workflow engine, in which case, the workflow engine itself may update and maintain the\r\n      task resources in the server, and through its orchestration activities ensure that tasks are\r\n      completed. The task resource enables either model of task management yet provides a\r\n      consistent view of the status of tasks being executed in support of healthcare workflows.\nThe assignment of tasks into categories by type of task, type of performer and task status\r\n      enable the server to function as a queue of work items.  This queue can be polled or subscribed\r\n      to by various agents, enabling automation of workflows in FHIR using existing search and subscription\r\n      mechanisms.  Owners, requesters, other agents (e.g. workflow managers) can thus be ready to\r\n      initiate the next steps in a complex workflow.\nTasks start in a Created state. Once they have been assigned to an owner they transition to\r\n      the Ready state, indicating that they are ready to be performed. Once the owner initiates\r\n      activity on the task, the task transitions to the In Progress state, indicating that work is\r\n      being performed. Upon normal completion, the task enters the Completed state. If there is a\r\n      failure during the task execution that prevents the task from being completed, it can also\r\n      enter a Failed state, indicating an abnormal termination of the task. A task in any\r\n      non-terminal state may also be Cancelled, representing an abnormal termination of the task due\r\n      to external forces, rather than an error condition.\nTasks in any non-terminal state (Created, Ready, In Progress) can be suspended and resumed.\r\n      When a task is suspended, it is typically resumed in the state it was in when it was\r\n      originally suspended. Suspending a task suspends all of its children as well. Resuming a task\r\n      resumes all of its children.\nAn In-progress task can also be stopped, returning it to a Ready state. This may be in\r\n      preparation for delegation or reassignment (e.g., because it cannot be completed by the\r\n      current owner), to restart a task due to a temporary failure (e.g., to reattempt completion of\r\n      the activity), or in preparation to allow others to claim the task.\nThe task history allows applications monitoring the state of a workflow to identify tasks\r\n      that are long running, perhaps stuck in some queue, to enable management activities that could\r\n      ensure completion. It also enables tracking of task statistics such as wait time, or time in\r\n      progress, or time to completion, enabling capture of important task metrics in support of\r\n      optimization and quality improvement.",
+    "Boundaries and Relationships": "Task spans both intent and event and tracks the execution through to\r\n    completion. A Task is a workflow step such as cancelling an order,\r\n    fulfilling an order, signing an order, merging a set of records, admitting a\r\n    patient. In contrast, Procedures are actions\r\n    that are intended to result in a physical or mental change to or for the\r\n    subject (for example, surgery, physiotherapy, training, counseling). A Task resource\r\n    often exists in parallel with clinical resources. For example, a Task could\r\n    request fulfillment of a ServiceRequest ordering a Procedure that would result in a Procedure, Observation , DiagnosticReport , ImagingStudy or similar resource.  Another\r\n    example would be a Task that requests fulfillment of a CommunicationRequest to be performed\r\n    between various actors.\nAs stated above, the task resource tracks the state of a task, enabling\r\n    systems to ensure that tasks are completed. This information is kept\r\n    separate from the operational details necessary to complete the task, as\r\n    those details vary across and even within workflows. That detail is expected\r\n    to be carried in the referenced `focus` of the task.\nTasks may have named inputs and outputs. Inputs represent\r\n     information that may or must be present in order for a task to\r\n     complete. Outputs represent intermediate or final results produced by a\r\n     task. For example, in a task supporting reading of radiology image, the\r\n     inputs might include both the imaging study to be read, as well as\r\n     relevant prior images. Outputs could represent radiology measurements\r\n     as well as the Radiologist's diagnostic report.\nInputs and outputs are tracked by the task because workflow\r\n    management activity may automate the transfer of outputs from one task\r\n    to inputs to a subsequent task.\nTo facilitate the integration of off the shelf workflow applications\r\n    with FHIR, the task resource may reference a definition.  This\r\n    definition can represent a description of the workflow activity to be\r\n    performed, using a standard workflow description language such as BPEL,\r\n    BPMN, or XPDL, a workflow definition such as those defined in IHE\r\n    profiles, or even simple written instructions explaining a process to be\r\n    performed.",
+    "Task Titles": "Tasks often have titles (eg \"My Tasks\", \"Outstanding Tasks for Patient X\") which can be presented in a list.  The task title should go into the Task.code as a coded concept and/or text.",
+    "Task state machine": "The following diagram reflects the \"typical\" state machine for Task.  Note that not all states will be supported by all workflows\r\n    and that some workflows may support additional transitions, including transitions from terminal states (e.g. back to \"in-progress\"\r\n    from \"failed\" or \"completed\").",
+    "The Cancelled state": "While the intention of a \"cancelled\" task is that all work authorized by the task should cease, this\r\n    might not always be possible practice.  It is possible that the originally requested action could still\r\n    be completed and still attached to the Task but this would not change the status of the task.  If the\r\n    placer cancels a task, it signals they no longer care about the outcome of the task."
+  },
+  "definitions": "Task: a task to be performed. [STOP]\nTask.identifier: the business identifier for this task. [STOP]\nTask.instantiatesCanonical: the url pointing to afhir-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this task. [STOP]\nTask.instantiatesUri: the url pointing to anexternallymaintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this task. [STOP]\nTask.basedOn: basedon refers to a higher-level authorization that triggered the creation of the task.  it references a \"request\" resource such as a servicerequest, medicationrequest, servicerequest, careplan, etc. which is distinct from the \"request\" resource the task is seeking to fulfill.  this latter resource is referenced by focuson.  for example, based on a servicerequest (= basedon), a task is created to fulfill a procedurerequest ( = focuson ) to collect a specimen from a patient. [STOP]\nTask.groupIdentifier: an identifier that links together multiple tasks and other requests that were created in the same context. [STOP]\nTask.partOf: task that this particular task is part of. [STOP]\nTask.status: the current status of the task. [STOP]\nTask.statusReason: an explanation as to why this task is held, failed, was refused, etc. [STOP]\nTask.businessStatus: contains business-specific nuances of the business state. [STOP]\nTask.intent: indicates the \"level\" of actionability associated with the task, i.e. i+r[9]cs this a proposed task, a planned task, an actionable task, etc. [STOP]\nTask.priority: indicates how quickly the task should be addressed with respect to other requests. [STOP]\nTask.code: a name or code (or both) briefly describing what the task involves. [STOP]\nTask.description: a free-text description of what is to be performed. [STOP]\nTask.focus: the request being actioned or the resource being manipulated by this task. [STOP]\nTask.for: the entity who benefits from the performance of the service specified in the task (e.g., the patient). [STOP]\nTask.encounter: the healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created. [STOP]\nTask.executionPeriod: identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end). [STOP]\nTask.authoredOn: the date and time this task was created. [STOP]\nTask.lastModified: the date and time of last modification to this task. [STOP]\nTask.requester: the creator of the task. [STOP]\nTask.performerType: the kind of participant that should perform the task. [STOP]\nTask.owner: individual organization or device currently responsible for task execution. [STOP]\nTask.location: principal physical location where the this task is performed. [STOP]\nTask.reasonCode: a description or code indicating why this task needs to be performed. [STOP]\nTask.reasonReference: a resource reference indicating why this task needs to be performed. [STOP]\nTask.insurance: insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the task. [STOP]\nTask.note: free-text information captured about the task as it progresses. [STOP]\nTask.relevantHistory: links to provenance records for past versions of this task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task. [STOP]\nTask.restriction: if the task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned. [STOP]\nTask.restriction.repetitions: indicates the number of times the requested action should occur. [STOP]\nTask.restriction.period: over what time-period is fulfillment sought. [STOP]\nTask.restriction.recipient: for requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought? [STOP]\nTask.input: additional information that may be needed in the execution of the task. [STOP]\nTask.input.type: a code or description indicating how the input is intended to be used as part of the task execution. [STOP]\nTask.input.value[x]: the value of the input parameter as a basic type. [STOP]\nTask.output: outputs produced by the task. [STOP]\nTask.output.type: the name of the output parameter. [STOP]\nTask.output.value[x]: the value of the output parameter as a basic type. [STOP]",
+  "documentation": {
+    "Task": "a task to be performed.",
+    "Task.identifier": "the business identifier for this task.",
+    "Task.instantiatesCanonical": "the url pointing to afhir-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this task.",
+    "Task.instantiatesUri": "the url pointing to anexternallymaintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this task.",
+    "Task.basedOn": "basedon refers to a higher-level authorization that triggered the creation of the task.  it references a \"request\" resource such as a servicerequest, medicationrequest, servicerequest, careplan, etc. which is distinct from the \"request\" resource the task is seeking to fulfill.  this latter resource is referenced by focuson.  for example, based on a servicerequest (= basedon), a task is created to fulfill a procedurerequest ( = focuson ) to collect a specimen from a patient.",
+    "Task.groupIdentifier": "an identifier that links together multiple tasks and other requests that were created in the same context.",
+    "Task.partOf": "task that this particular task is part of.",
+    "Task.status": "the current status of the task.",
+    "Task.statusReason": "an explanation as to why this task is held, failed, was refused, etc.",
+    "Task.businessStatus": "contains business-specific nuances of the business state.",
+    "Task.intent": "indicates the \"level\" of actionability associated with the task, i.e. i+r[9]cs this a proposed task, a planned task, an actionable task, etc.",
+    "Task.priority": "indicates how quickly the task should be addressed with respect to other requests.",
+    "Task.code": "a name or code (or both) briefly describing what the task involves.",
+    "Task.description": "a free-text description of what is to be performed.",
+    "Task.focus": "the request being actioned or the resource being manipulated by this task.",
+    "Task.for": "the entity who benefits from the performance of the service specified in the task (e.g., the patient).",
+    "Task.encounter": "the healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.",
+    "Task.executionPeriod": "identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end).",
+    "Task.authoredOn": "the date and time this task was created.",
+    "Task.lastModified": "the date and time of last modification to this task.",
+    "Task.requester": "the creator of the task.",
+    "Task.performerType": "the kind of participant that should perform the task.",
+    "Task.owner": "individual organization or device currently responsible for task execution.",
+    "Task.location": "principal physical location where the this task is performed.",
+    "Task.reasonCode": "a description or code indicating why this task needs to be performed.",
+    "Task.reasonReference": "a resource reference indicating why this task needs to be performed.",
+    "Task.insurance": "insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the task.",
+    "Task.note": "free-text information captured about the task as it progresses.",
+    "Task.relevantHistory": "links to provenance records for past versions of this task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.",
+    "Task.restriction": "if the task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.",
+    "Task.restriction.repetitions": "indicates the number of times the requested action should occur.",
+    "Task.restriction.period": "over what time-period is fulfillment sought.",
+    "Task.restriction.recipient": "for requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?",
+    "Task.input": "additional information that may be needed in the execution of the task.",
+    "Task.input.type": "a code or description indicating how the input is intended to be used as part of the task execution.",
+    "Task.input.value[x]": "the value of the input parameter as a basic type.",
+    "Task.output": "outputs produced by the task.",
+    "Task.output.type": "the name of the output parameter.",
+    "Task.output.value[x]": "the value of the output parameter as a basic type."
+  }
+}

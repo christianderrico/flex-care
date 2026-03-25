@@ -1,0 +1,140 @@
+{
+  "resource": "episodeofcare",
+  "examples": [
+    {
+      "name": "Episode of Care example",
+      "document": {
+        "resourceType": "EpisodeOfCare",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      HACC Program for Peter James Chalmers at HL7 Healthcare 15 Sept 2014 - current<br/>\n\t\t\twas on leave from 22 Sept - 24 Sept while in respite care\n    </div>"
+        },
+        "identifier": [
+          {
+            "system": "http://example.org/sampleepisodeofcare-identifier",
+            "value": "123"
+          }
+        ],
+        "status": "active",
+        "statusHistory": [
+          {
+            "status": "planned",
+            "period": {
+              "start": "2014-09-01",
+              "end": "2014-09-14"
+            }
+          },
+          {
+            "status": "active",
+            "period": {
+              "start": "2014-09-15",
+              "end": "2014-09-21"
+            }
+          },
+          {
+            "status": "onhold",
+            "period": {
+              "start": "2014-09-22",
+              "end": "2014-09-24"
+            }
+          },
+          {
+            "status": "active",
+            "period": {
+              "start": "2014-09-25"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
+                "code": "hacc",
+                "display": "Home and Community Care"
+              }
+            ]
+          }
+        ],
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/stroke"
+            },
+            "role": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "CC",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "rank": 1
+          }
+        ],
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "managingOrganization": {
+          "reference": "Organization/hl7"
+        },
+        "period": {
+          "start": "2014-09-01"
+        },
+        "referralRequest": [
+          {
+            "display": "Referral from Example Aged Care Services"
+          }
+        ],
+        "careManager": {
+          "reference": "Practitioner/14",
+          "display": "Amanda Assigned"
+        },
+        "team": [
+          {
+            "reference": "CareTeam/example",
+            "display": "example care team"
+          }
+        ],
+        "account": [
+          {
+            "reference": "Account/example",
+            "display": "example account"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.10Resource EpisodeOfCare - Content",
+    "introduction": "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.\nThis resource is referenced by ChargeItem , Contract , DocumentReference , Encounter , MedicationAdministration , MedicationDispense and MedicationStatement",
+    "Scope and Usage": "The EpisodeOfCare Resource contains information about an association of a Patient with a Healthcare Provider for a period\r\n      of time under which related healthcare activities may occur.\nIn many cases, this represents a period of time where the Healthcare Provider has some level of responsibility for the care\r\n      of the patient regarding a specific condition or problem, even if not currently participating in an encounter.\nThese resources are typically known in existing systems as:\nEpisodeOfCare: Case, Program, Problem, Episode Encounter: Visit, Contact\n\nMany organizations can be involved in an EpisodeOfCare; however each organization will have its own EpisodeOfCare resource instance\r\n      that tracks its responsibility with the patient.\nWhen an Organization completes their involvement with the patient and transfers care to another Organization.\r\n      This is often in the form of a referral to another Organization (or Organizations).\nWhen an incoming referral is received a new EpisodeOfCare may be created for this organization.\r\n      The initial step(s) in the intake workflow for the referral often involve some form of assessment(s),\r\n      eligibility, capacity, care levels, which could take some time. Once the intake process is completed and the patient is accepted, a CarePlan is often created.",
+    "Boundaries and Relationships": "The primary difference between the EpisodeOfCare and the Encounter is that the Encounter records the details of an\r\n      activity directly relating to the patient, while the EpisodeOfCare is the container that can link a series of Encounters\r\n      together for problems/issues. The Example scenarios below give some good examples as to when you might want to be using an EpisodeOfCare.\nThis difference is a similar difference between the EpisodeOfCare and a CarePlan. \r\n      The EpisodeOfCare is a tracking resource, rather than a planning resource. The EpisodeOfCare usually exists before the CarePlan.\r\n      You don't need a CarePlan to use an EpisodeOfCare.",
+    "Background and Context": "Systems collect a coherent group of activities (such as encounters) related to a patient's health condition or problem often referred to as a Care Episode.\r\n      Information about an episode is often shared across systems, and in some cases organizational and disciplinary boundaries.\r\n      An EpisodeOfCare contains details about the purpose of the care and can exist without any activities. The minimal information that would be required in an episode of care would be a patient, organization and a reason for the ongoing association.\r\n      Other reasons for creating an EpisodeOfCare could be for tracking the details required for government reporting or billing.\nChronic Disease Management Systems Community Care Systems Tracking progress of a specific condition Tracking government funding Problem based General Practice systems Disability Support Systems Aged Care Systems (Community and Residential)",
+    "Status Management": "When an organization assumes responsibility for a patient, then the EpisodeOfCare is created and a start date\r\n\t\t\tentered to show when it has begun. As the organization's responsibility changes, so does the status of the EpisodeOfCare. This is described via an example below for an intake workflow.\n\nWith long term care there is often a concept of the provision of care being suspended for various reasons.\r\n\t\t\tMany systems have extensive Leave Management/Tracking solutions which consider the complexities of this space,\r\n\t\t\thowever this EpisodeOfCare resource is NOT intended to provide this level of tracking. Extension(s) may be used on the status/status history to track the on-hold reason, which can facilitate the processing.\nA more complete Leave Management solution may have to deal with:\nLeave Types Leave Entitlements Billing/Funding implications while on different types of leave\n\nThis example sequence demonstrates some status transitions and how other resources interact. The context could be in a Community/Aged Care/Disability/Mental Health setting.\nServiceRequest received intake clerk processes referral and decides that the first level eligibility has been met (e.g. Have capacity in the facility for the patient, the patient is covered by VA) EpisodeOfCare created with status of planned which is allocated as fulfilling the ServiceRequest Further assessment of needs is scheduled to be taken, a care manager is probably allocated at this point Assessment Practitioner sees the Patient and completes a series of relevant Questionnaires to rank the patient The assessments are reviewed and a formal CarePlan is created The EpisodeOfCare is updated to be marked as active, and the CareTeam is likely filled in The provision of care is then managed through the care plan, with all activities will also being linked to the EpisodeOfCare The patient is admitted to hospital for some procedures, and the EpisodeOfCare is marked as on hold Some of the services on the CarePlan (or scheduled appointments) would be reviewed to determine if they\r\n\t\t\t\tcan be performed without the patient (e.g., home maintenance), or if they should be suspended while the\r\n\t\t\t\tpatient is on hold. The patient returns from the hospital and the EpisodeOfCare is marked as active again (and services reviewed again) Patient wished to move to another area to be closer to family Organization creates an outgoing ServiceRequest to a new Organization to continue the care The EpisodeOfCare is closed\nIn some jurisdictions an Organization may be funded by a government body for the days that a patient is under\r\n\t\t\ttheir care. These are known as \"active days\". This does not mean that they are actively receiving a service (an encounter),\r\n\t\t\tbut that the organization is responsible for managing their care. This monthly reporting value can be easily extracted from the status history as described above. The actual provision of services may also be funded separately, and this would be via the Encounters.\nAn Organization may perform analytics on their EpisodeOfCare resources to have an understanding of how their business is performing. Observing that there was a 60/40 split of episodes being finished/cancelled is not very informative. The organization would\r\n\t\t\tprefer to know the reason why the episodes are completing so that they can plan their business effectively. They would be more interested in knowing whether it was due to services hitting their mandatory end date, client passing away,\r\n\t\t\tclient transitioning to a higher level of services provided by them or to another provider etc.\nCurrently there are no attributes on this resource to provide this information.\r\n\t\t\tThis would be very specific to each implementation and usage, so it would be recommended to use extensions to achieve this functionality.",
+    "Example Scenarios": "A General Practitioner wants to review how well his patient is managing his diabetes over time from information\r\n\t\t\twithin his clinic and also the regional community care organization's system(s).\nThe EpisodeOfCare enables the practitioner to easily separate the diabetes activities from the mental health problem's activities.\nA Community Care organization wants to track all activities that occur with a patient relating to their disability\r\n\t\t\tto simplify the reporting to the government to receive funding to care for the patient"
+  },
+  "definitions": "EpisodeOfCare: an association between a patient and an organization / healthcare provider(s) during which time encounters may occur. the managing organization assumes a level of responsibility for the patient during this time. [STOP]\nEpisodeOfCare.identifier: the episodeofcare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the episode for funding purposes. [STOP]\nEpisodeOfCare.status: planned | waitlist | active | onhold | finished | cancelled. [STOP]\nEpisodeOfCare.statusHistory: the history of statuses that the episodeofcare has been through (without requiring processing the history of the resource). [STOP]\nEpisodeOfCare.statusHistory.status: planned | waitlist | active | onhold | finished | cancelled. [STOP]\nEpisodeOfCare.statusHistory.period: the period during this episodeofcare that the specific status applied. [STOP]\nEpisodeOfCare.type: a classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care. [STOP]\nEpisodeOfCare.diagnosis: the list of diagnosis relevant to this episode of care. [STOP]\nEpisodeOfCare.diagnosis.condition: a list of conditions/problems/diagnoses that this episode of care is intended to be providing care for. [STOP]\nEpisodeOfCare.diagnosis.role: role that this diagnosis has within the episode of care (e.g. admission, billing, discharge â¦). [STOP]\nEpisodeOfCare.diagnosis.rank: ranking of the diagnosis (for each role type). [STOP]\nEpisodeOfCare.patient: the patient who is the focus of this episode of care. [STOP]\nEpisodeOfCare.managingOrganization: the organization that has assumed the specific responsibilities for the specified duration. [STOP]\nEpisodeOfCare.period: the interval during which the managing organization assumes the defined responsibility. [STOP]\nEpisodeOfCare.referralRequest: referral request(s) that are fulfilled by this episodeofcare, incoming referrals. [STOP]\nEpisodeOfCare.careManager: the practitioner that is the care manager/care coordinator for this patient. [STOP]\nEpisodeOfCare.team: the list of practitioners that may be facilitating this episode of care for specific purposes. [STOP]\nEpisodeOfCare.account: the set of accounts that may be used for billing for this episodeofcare. [STOP]",
+  "documentation": {
+    "EpisodeOfCare": "an association between a patient and an organization / healthcare provider(s) during which time encounters may occur. the managing organization assumes a level of responsibility for the patient during this time.",
+    "EpisodeOfCare.identifier": "the episodeofcare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the episode for funding purposes.",
+    "EpisodeOfCare.status": "planned | waitlist | active | onhold | finished | cancelled.",
+    "EpisodeOfCare.statusHistory": "the history of statuses that the episodeofcare has been through (without requiring processing the history of the resource).",
+    "EpisodeOfCare.statusHistory.status": "planned | waitlist | active | onhold | finished | cancelled.",
+    "EpisodeOfCare.statusHistory.period": "the period during this episodeofcare that the specific status applied.",
+    "EpisodeOfCare.type": "a classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care.",
+    "EpisodeOfCare.diagnosis": "the list of diagnosis relevant to this episode of care.",
+    "EpisodeOfCare.diagnosis.condition": "a list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.",
+    "EpisodeOfCare.diagnosis.role": "role that this diagnosis has within the episode of care (e.g. admission, billing, discharge â¦).",
+    "EpisodeOfCare.diagnosis.rank": "ranking of the diagnosis (for each role type).",
+    "EpisodeOfCare.patient": "the patient who is the focus of this episode of care.",
+    "EpisodeOfCare.managingOrganization": "the organization that has assumed the specific responsibilities for the specified duration.",
+    "EpisodeOfCare.period": "the interval during which the managing organization assumes the defined responsibility.",
+    "EpisodeOfCare.referralRequest": "referral request(s) that are fulfilled by this episodeofcare, incoming referrals.",
+    "EpisodeOfCare.careManager": "the practitioner that is the care manager/care coordinator for this patient.",
+    "EpisodeOfCare.team": "the list of practitioners that may be facilitating this episode of care for specific purposes.",
+    "EpisodeOfCare.account": "the set of accounts that may be used for billing for this episodeofcare."
+  }
+}

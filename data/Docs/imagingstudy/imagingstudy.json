@@ -1,0 +1,272 @@
+{
+  "resource": "imagingstudy",
+  "examples": [
+    {
+      "name": "Example of imagingstudy",
+      "document": {
+        "resourceType": "ImagingStudy",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "Patient/dicom"
+        },
+        "started": "2011-01-01T11:01:20+03:00",
+        "numberOfSeries": 1,
+        "numberOfInstances": 1,
+        "series": [
+          {
+            "uid": "2.16.124.113543.6003.2588828330.45298.17418.2723805630",
+            "number": 3,
+            "modality": {
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "code": "CT"
+            },
+            "description": "CT Surview 180",
+            "numberOfInstances": 1,
+            "bodySite": {
+              "system": "http://snomed.info/sct",
+              "code": "67734004",
+              "display": "Upper Trunk Structure"
+            },
+            "instance": [
+              {
+                "uid": "2.16.124.113543.6003.189642796.63084.16748.2599092903",
+                "sopClass": {
+                  "system": "urn:ietf:rfc:3986",
+                  "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2"
+                },
+                "number": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Example XR imaging study with full elements",
+      "document": {
+        "resourceType": "ImagingStudy",
+        "id": "example-xr",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01. 1 series, 2 images.</div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "ACSN"
+                }
+              ]
+            },
+            "value": "W12342398",
+            "assigner": {
+              "reference": "Organization/dicom-organization"
+            }
+          },
+          {
+            "use": "secondary",
+            "value": "55551234",
+            "assigner": {
+              "reference": "Organization/dicom-organization"
+            }
+          }
+        ],
+        "status": "available",
+        "modality": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "DX"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/dicom"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "started": "2017-01-01T11:01:20+03:00",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/example"
+          }
+        ],
+        "referrer": {
+          "reference": "Practitioner/example"
+        },
+        "interpreter": [
+          {
+            "reference": "Practitioner/example"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/example-wadors"
+          }
+        ],
+        "numberOfSeries": 1,
+        "numberOfInstances": 2,
+        "procedureReference": {
+          "reference": "Procedure/example"
+        },
+        "procedureCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.radlex.org",
+                "code": "RPID2589",
+                "display": "XR Wrist 3+ Views"
+              }
+            ],
+            "text": "XR Wrist 3+ Views"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "357009",
+                "display": "Closed fracture of trapezoidal bone of wrist"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "XR Wrist 3+ Views"
+          }
+        ],
+        "series": [
+          {
+            "uid": "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1",
+            "number": 3,
+            "modality": {
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "code": "DX"
+            },
+            "description": "XR Wrist 3+ Views",
+            "numberOfInstances": 2,
+            "endpoint": [
+              {
+                "reference": "Endpoint/example-wadors"
+              }
+            ],
+            "bodySite": {
+              "system": "http://snomed.info/sct",
+              "code": "T-15460",
+              "display": "Wrist Joint"
+            },
+            "laterality": {
+              "system": "http://snomed.info/sct",
+              "code": "419161000",
+              "display": "Unilateral left"
+            },
+            "started": "2011-01-01T11:01:20+03:00",
+            "performer": [
+              {
+                "function": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code": "PRF"
+                    }
+                  ]
+                },
+                "actor": {
+                  "reference": "Practitioner/example"
+                }
+              }
+            ],
+            "instance": [
+              {
+                "uid": "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1",
+                "sopClass": {
+                  "system": "urn:ietf:rfc:3986",
+                  "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2"
+                },
+                "number": 1,
+                "title": "PA VIEW"
+              },
+              {
+                "uid": "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2",
+                "sopClass": {
+                  "system": "urn:ietf:rfc:3986",
+                  "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2"
+                },
+                "number": 2,
+                "title": "LL VIEW"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "10.4Resource ImagingStudy - Content",
+    "introduction": "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.\nThis resource is referenced by ChargeItem , ClinicalImpression , DiagnosticReport and Observation",
+    "Scope and Usage": "ImagingStudy provides information on a DICOM imaging study, and the series and imaging objects in \r\nthat study. It also provides information on how to retrieve that information (in a native DICOM \r\nformat, or in a rendered format, such as JPEG). ImagingStudy is used to make available information \r\nabout all parts of a single DICOM study.\nThis resource provides mappings of its elements to DICOM attributes.  DICOM attributes are identified \r\nby a 32-bit tag, presented in canonical form as two four-digit hexadecimal values within parentheses \r\nand separated by a comma, e.g. (0008,103E).  The name and value representation (data type) of \r\neach attribute can be found \r\nin DICOM Part 6 Data Dictionary .  \r\nThe use of the attributes in the context of information objects, including detailed description of use, can be found \r\nin DICOM Part 3 Information Object Definitions .  \r\nAttributes used in the DICOM query information models, such as \"Number of Instances in Study\", can be found \r\nin DICOM Part 4 Annex C .\nImagingStudy provides access to significant DICOM information but will only eliminate the need for DICOM \r\nquery (e.g., QIDO-RS) in the simplest cases. The DICOM instances are not stored in the ImagingStudy \r\nresource; use of a DICOM WADO-RS server or other storage mechanism is needed.\nAn ImagingStudy SHALL reference one DICOM Study, and MAY reference a subset of that Study. More than one ImagingStudy MAY reference the same DICOM Study or different subsets of the same DICOM Study.",
+    "Boundaries and Relationships": "ImagingStudy is used for DICOM imaging and associated information. Use Media to \r\ntrack non-DICOM images, video, or audio. Binary can be used to store arbitrary content. DocumentReference allow indexing and retrieval of clinical âdocumentsâ with relevant metadata."
+  },
+  "definitions": "ImagingStudy: representation of the content produced in a dicom imaging study. a study comprises a set of series, each of which includes a set of service-object pair instances (sop instances - images or other data) acquired or produced in a common context.  a series is of only one modality (e.g. x-ray, ct, mr, ultrasound), but a study may have multiple series of different modalities. [STOP]\nImagingStudy.identifier: identifiers for the imagingstudy such as dicom study instance uid, and accession number. [STOP]\nImagingStudy.status: the current state of the imagingstudy. [STOP]\nImagingStudy.modality: a list of all the series.modality values that are actual acquisition modalities, i.e. those in the dicom context group 29 (value set oid 1.2.840.10008.6.1.19). [STOP]\nImagingStudy.subject: the subject, typically a patient, of the imaging study. [STOP]\nImagingStudy.encounter: the healthcare event (e.g. a patient and healthcare provider interaction) during which this imagingstudy is made. [STOP]\nImagingStudy.started: date and time the study started. [STOP]\nImagingStudy.basedOn: a list of the diagnostic requests that resulted in this imaging study being performed. [STOP]\nImagingStudy.referrer: the requesting/referring physician. [STOP]\nImagingStudy.interpreter: who read the study and interpreted the images or other content. [STOP]\nImagingStudy.endpoint: the network service providing access (e.g., query, view, or retrieval) for the study. see implementation notes for information about using dicom endpoints. a study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same endpoint.connectiontype. [STOP]\nImagingStudy.numberOfSeries: number of series in the study. this value given may be larger than the number of series elements this resource contains due to resource availability, security, or other factors. this element should be present if any series elements are present. [STOP]\nImagingStudy.numberOfInstances: number of sop instances in study. this value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. this element should be present if any instance elements are present. [STOP]\nImagingStudy.procedureReference: the procedure which this imagingstudy was part of. [STOP]\nImagingStudy.procedureCode: the code for the performed procedure type. [STOP]\nImagingStudy.location: the principal physical location where the imagingstudy was performed. [STOP]\nImagingStudy.reasonCode: description of clinical condition indicating why the imagingstudy was requested. [STOP]\nImagingStudy.reasonReference: indicates another resource whose existence justifies this study. [STOP]\nImagingStudy.note: per the recommended dicom mapping, this element is derived from the study description attribute (0008,1030). observations or findings about the imaging study should be recorded in another resource, e.g. observation, and not in this element. [STOP]\nImagingStudy.description: the imaging manager description of the study. institution-generated description or classification of the study (component) performed. [STOP]\nImagingStudy.series: each study has one or more series of images or other content. [STOP]\nImagingStudy.series.uid: the dicom series instance uid for the series. [STOP]\nImagingStudy.series.number: the numeric identifier of this series in the study. [STOP]\nImagingStudy.series.modality: the modality of this series sequence. [STOP]\nImagingStudy.series.description: a description of the series. [STOP]\nImagingStudy.series.numberOfInstances: number of sop instances in the study. the value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. this element should be present if any instance elements are present. [STOP]\nImagingStudy.series.endpoint: the network service providing access (e.g., query, view, or retrieval) for this series. see implementation notes for information about using dicom endpoints. a series-level endpoint, if present, has precedence over a study-level endpoint with the same endpoint.connectiontype. [STOP]\nImagingStudy.series.bodySite: the anatomic structures examined. see dicom part 16 annex l (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_l.html) for dicom to snomed-ct mappings. the bodysite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of imagingstudy.series.laterality. [STOP]\nImagingStudy.series.laterality: the laterality of the (possibly paired) anatomic structures examined. e.g., the left knee, both lungs, or unpaired abdomen. if present, shall be consistent with any laterality information indicated in imagingstudy.series.bodysite. [STOP]\nImagingStudy.series.specimen: the specimen imaged, e.g., for whole slide imaging of a biopsy. [STOP]\nImagingStudy.series.started: the date and time the series was started. [STOP]\nImagingStudy.series.performer: indicates who or what performed the series and how they were involved. [STOP]\nImagingStudy.series.performer.function: distinguishes the type of involvement of the performer in the series. [STOP]\nImagingStudy.series.performer.actor: indicates who or what performed the series. [STOP]\nImagingStudy.series.instance: a single sop instance within the series, e.g. an image, or presentation state. [STOP]\nImagingStudy.series.instance.uid: the dicom sop instance uid for this image or other dicom content. [STOP]\nImagingStudy.series.instance.sopClass: dicom instance  type. [STOP]\nImagingStudy.series.instance.number: the number of instance in the series. [STOP]\nImagingStudy.series.instance.title: the description of the instance. [STOP]",
+  "documentation": {
+    "ImagingStudy": "representation of the content produced in a dicom imaging study. a study comprises a set of series, each of which includes a set of service-object pair instances (sop instances - images or other data) acquired or produced in a common context.  a series is of only one modality (e.g. x-ray, ct, mr, ultrasound), but a study may have multiple series of different modalities.",
+    "ImagingStudy.identifier": "identifiers for the imagingstudy such as dicom study instance uid, and accession number.",
+    "ImagingStudy.status": "the current state of the imagingstudy.",
+    "ImagingStudy.modality": "a list of all the series.modality values that are actual acquisition modalities, i.e. those in the dicom context group 29 (value set oid 1.2.840.10008.6.1.19).",
+    "ImagingStudy.subject": "the subject, typically a patient, of the imaging study.",
+    "ImagingStudy.encounter": "the healthcare event (e.g. a patient and healthcare provider interaction) during which this imagingstudy is made.",
+    "ImagingStudy.started": "date and time the study started.",
+    "ImagingStudy.basedOn": "a list of the diagnostic requests that resulted in this imaging study being performed.",
+    "ImagingStudy.referrer": "the requesting/referring physician.",
+    "ImagingStudy.interpreter": "who read the study and interpreted the images or other content.",
+    "ImagingStudy.endpoint": "the network service providing access (e.g., query, view, or retrieval) for the study. see implementation notes for information about using dicom endpoints. a study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same endpoint.connectiontype.",
+    "ImagingStudy.numberOfSeries": "number of series in the study. this value given may be larger than the number of series elements this resource contains due to resource availability, security, or other factors. this element should be present if any series elements are present.",
+    "ImagingStudy.numberOfInstances": "number of sop instances in study. this value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. this element should be present if any instance elements are present.",
+    "ImagingStudy.procedureReference": "the procedure which this imagingstudy was part of.",
+    "ImagingStudy.procedureCode": "the code for the performed procedure type.",
+    "ImagingStudy.location": "the principal physical location where the imagingstudy was performed.",
+    "ImagingStudy.reasonCode": "description of clinical condition indicating why the imagingstudy was requested.",
+    "ImagingStudy.reasonReference": "indicates another resource whose existence justifies this study.",
+    "ImagingStudy.note": "per the recommended dicom mapping, this element is derived from the study description attribute (0008,1030). observations or findings about the imaging study should be recorded in another resource, e.g. observation, and not in this element.",
+    "ImagingStudy.description": "the imaging manager description of the study. institution-generated description or classification of the study (component) performed.",
+    "ImagingStudy.series": "each study has one or more series of images or other content.",
+    "ImagingStudy.series.uid": "the dicom series instance uid for the series.",
+    "ImagingStudy.series.number": "the numeric identifier of this series in the study.",
+    "ImagingStudy.series.modality": "the modality of this series sequence.",
+    "ImagingStudy.series.description": "a description of the series.",
+    "ImagingStudy.series.numberOfInstances": "number of sop instances in the study. the value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. this element should be present if any instance elements are present.",
+    "ImagingStudy.series.endpoint": "the network service providing access (e.g., query, view, or retrieval) for this series. see implementation notes for information about using dicom endpoints. a series-level endpoint, if present, has precedence over a study-level endpoint with the same endpoint.connectiontype.",
+    "ImagingStudy.series.bodySite": "the anatomic structures examined. see dicom part 16 annex l (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_l.html) for dicom to snomed-ct mappings. the bodysite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of imagingstudy.series.laterality.",
+    "ImagingStudy.series.laterality": "the laterality of the (possibly paired) anatomic structures examined. e.g., the left knee, both lungs, or unpaired abdomen. if present, shall be consistent with any laterality information indicated in imagingstudy.series.bodysite.",
+    "ImagingStudy.series.specimen": "the specimen imaged, e.g., for whole slide imaging of a biopsy.",
+    "ImagingStudy.series.started": "the date and time the series was started.",
+    "ImagingStudy.series.performer": "indicates who or what performed the series and how they were involved.",
+    "ImagingStudy.series.performer.function": "distinguishes the type of involvement of the performer in the series.",
+    "ImagingStudy.series.performer.actor": "indicates who or what performed the series.",
+    "ImagingStudy.series.instance": "a single sop instance within the series, e.g. an image, or presentation state.",
+    "ImagingStudy.series.instance.uid": "the dicom sop instance uid for this image or other dicom content.",
+    "ImagingStudy.series.instance.sopClass": "dicom instance  type.",
+    "ImagingStudy.series.instance.number": "the number of instance in the series.",
+    "ImagingStudy.series.instance.title": "the description of the instance."
+  }
+}

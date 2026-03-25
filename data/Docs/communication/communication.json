@@ -1,0 +1,296 @@
+{
+  "resource": "communication",
+  "examples": [
+    {
+      "name": "An example of an alert message",
+      "document": {
+        "resourceType": "Communication",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient has very high serum potassium</div>"
+        },
+        "identifier": [
+          {
+            "type": {
+              "text": "Paging System"
+            },
+            "system": "urn:oid:1.3.4.5.6.7",
+            "value": "2345678901"
+          }
+        ],
+        "instantiatesUri": [
+          "http://example.org/hyperkalemia"
+        ],
+        "partOf": [
+          {
+            "display": "Serum Potassium Observation"
+          }
+        ],
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://acme.org/messagetypes",
+                "code": "Alert"
+              }
+            ],
+            "text": "Alert"
+          }
+        ],
+        "medium": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+                "code": "WRITTEN",
+                "display": "written"
+              }
+            ],
+            "text": "written"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "encounter": {
+          "reference": "Encounter/example"
+        },
+        "sent": "2014-12-12T18:01:10-08:00",
+        "received": "2014-12-12T18:01:11-08:00",
+        "recipient": [
+          {
+            "reference": "Practitioner/example"
+          }
+        ],
+        "sender": {
+          "reference": "Device/f001"
+        },
+        "payload": [
+          {
+            "contentString": "Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)"
+          },
+          {
+            "contentReference": {
+              "display": "Serum Potassium Observation"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "An example of a response to a request for additional information",
+      "document": {
+        "resourceType": "Communication",
+        "id": "fm-solicited",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment in response to a Request</div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Organization",
+            "id": "provider",
+            "identifier": [
+              {
+                "system": "http://www.jurisdiction.com/provideroffices",
+                "value": "3456"
+              }
+            ]
+          },
+          {
+            "resourceType": "Organization",
+            "id": "payor",
+            "identifier": [
+              {
+                "system": "http://www.jurisdiction.com/insurer",
+                "value": "123456"
+              }
+            ]
+          },
+          {
+            "resourceType": "CommunicationRequest",
+            "id": "request",
+            "identifier": [
+              {
+                "system": "http://www.jurisdiction.com/insurer/123456",
+                "value": "ABC123"
+              }
+            ],
+            "status": "completed",
+            "subject": {
+              "reference": "Patient/1"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://www.providerco.com/communication",
+            "value": "12345"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "#request"
+          }
+        ],
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://acme.org/messagetypes",
+                "code": "SolicitedAttachment"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/1"
+        },
+        "sent": "2016-06-12T18:01:10-08:00",
+        "recipient": [
+          {
+            "reference": "#payor"
+          }
+        ],
+        "sender": {
+          "reference": "#provider"
+        },
+        "payload": [
+          {
+            "contentAttachment": {
+              "contentType": "application/pdf",
+              "data": "SGVsbG8=",
+              "title": "accident notes 20100201.pdf",
+              "creation": "2010-02-01T11:50:23-05:00"
+            }
+          },
+          {
+            "contentAttachment": {
+              "contentType": "application/pdf",
+              "url": "http://happyvalley.com/docs/AB12345",
+              "size": 104274,
+              "hash": "SGVsbG8gdGhlcmU=",
+              "creation": "2010-02-01T10:57:34+01:00"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "An example of an unsolicited attachment - provision of additional information",
+      "document": {
+        "resourceType": "Communication",
+        "id": "fm-attachment",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment which is unsolicited</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://www.providerco.com/communication",
+            "value": "12345"
+          }
+        ],
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://acme.org/messagetypes",
+                "code": "SolicitedAttachment"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/1"
+        },
+        "about": [
+          {
+            "identifier": {
+              "system": "http://happyvalley.com/claim",
+              "value": "12345"
+            }
+          },
+          {
+            "identifier": {
+              "system": "http://www.BenefitsInc.com/fhir/claimresponse",
+              "value": "R3500"
+            }
+          }
+        ],
+        "sent": "2016-06-12T18:01:10-08:00",
+        "recipient": [
+          {
+            "identifier": {
+              "system": "http://www.jurisdiction.com/insurer",
+              "value": "123456"
+            }
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "http://www.jurisdiction.com/provideroffices",
+            "value": "3456"
+          }
+        },
+        "payload": [
+          {
+            "contentAttachment": {
+              "contentType": "application/pdf",
+              "data": "SGVsbG8=",
+              "title": "accident notes 20100201.pdf",
+              "creation": "2010-02-01T11:50:23-05:00"
+            }
+          },
+          {
+            "contentAttachment": {
+              "contentType": "application/pdf",
+              "url": "http://example.org/docs/AB12345",
+              "size": 104274,
+              "hash": "SGVsbG8gdGhlcmU=",
+              "creation": "2010-02-01T10:57:34+01:00"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.20Resource Communication - Content",
+    "introduction": "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.\nThis resource is referenced by itself",
+    "Scope and Usage": "Communication is one of the event resources in the FHIR workflow specification.\nThis resource is a record of a communication even if it is planned or has failed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. \r\nThe sender and receivers may be patients, practitioners, related persons, organizations, or devices. Communication use cases include:\nA reminder or alert delivered to a responsible provider A recorded notification from the nurse to the on-call physician (or any other specified person) that a patient's temperature exceeds a value A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency Patient educational material sent by a provider to a patient Unable to deliver lab results to ordering physician\nNon-patient specific communication use cases may include:\nA nurse call from a hall bathroom Advisory for battery service from a pump",
+    "Boundaries and Relationships": "This resource is a record of a communication that has occurred. It does not represent the actual flow of communication.\r\nWhile AuditEvent can track electronic disclosures of information, it cannot track conversations,\r\nphone calls, letters and other interactions that are not system-to-system.  And even for system-to-system communications, the\r\nspecific end recipients might not be known.  Furthermore, AuditEvents are not considered to be \"part\"\r\nof the patient record, while Communication instances are.  The Communication resource is not used as a general\r\naudit mechanism to track every disclosure of every record.  Rather, it is used when a clinician or other user wants to ensure\r\na record of a particular communication is itself maintained as part of the reviewable health record.\nFlag resources represent a continuous ongoing \"communication\" alerting anyone dealing with the patient\r\nof certain precautions to take or issues to be aware of.  The flags are continuously present as an ongoing reminder.  This is \r\ndistinct from Communication where there is a specific intended sender and receiver and the information is delivered only\r\nonce.\nCommunication and Encounter\nThe Communication is about the transfer of information (which might or might not occur as part of an encounter), while Encounter \r\nis about the coming together (in person or virtually) of a Patient with a Practitioner.  Communication does not deal with \r\nthe duration of a call, it represents the fact that information was transferred at a particular point in time.\nThe phone calls involving the Patient should be handled using Encounter .  Phone calls not involving the patient \r\n(e.g. between practitioners or practitioner to relative) that are tracked for billing or other purposes can use Communication \r\nto represent the information transferred but are not ideal to represent the call itself.  \r\nA better mechanism for handling such calls will be explored in a future release."
+  },
+  "definitions": "Communication: an occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition. [STOP]\nCommunication.identifier: business identifiers assigned to this communication by the performer or other systems which remain constant as the resource is updated and propagates from server to server. [STOP]\nCommunication.instantiatesCanonical: the url pointing to a fhir-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this communication. [STOP]\nCommunication.instantiatesUri: the url pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this communication. [STOP]\nCommunication.basedOn: an order, proposal or plan fulfilled in whole or in part by this communication. [STOP]\nCommunication.partOf: part of this action. [STOP]\nCommunication.inResponseTo: prior communication that this communication is in response to. [STOP]\nCommunication.status: the status of the transmission. [STOP]\nCommunication.statusReason: captures the reason for the current state of the communication. [STOP]\nCommunication.category: the type of message conveyed such as alert, notification, reminder, instruction, etc. [STOP]\nCommunication.priority: characterizes how quickly the planned or in progress communication must be addressed. includes concepts such as stat, urgent, routine. [STOP]\nCommunication.medium: a channel that was used for this communication (e.g. email, fax). [STOP]\nCommunication.subject: the patient or group that was the focus of this communication. [STOP]\nCommunication.topic: description of the purpose/content, similar to a subject line in an email. [STOP]\nCommunication.about: other resources that pertain to this communication and to which this communication should be associated. [STOP]\nCommunication.encounter: the encounter during which this communication was created or to which the creation of this record is tightly associated. [STOP]\nCommunication.sent: the time when this communication was sent. [STOP]\nCommunication.received: the time when this communication arrived at the destination. [STOP]\nCommunication.recipient: the entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. if receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  multiple recipient communications are intended where either receipts are not tracked (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time). [STOP]\nCommunication.sender: the entity (e.g. person, organization, clinical information system, or device) which was the source of the communication. [STOP]\nCommunication.reasonCode: the reason or justification for the communication. [STOP]\nCommunication.reasonReference: indicates another resource whose existence justifies this communication. [STOP]\nCommunication.payload: text, attachment(s), or resource(s) that was communicated to the recipient. [STOP]\nCommunication.payload.content[x]: a communicated content (or for multi-part communications, one portion of the communication). [STOP]\nCommunication.note: additional notes or commentary about the communication by the sender, receiver or other interested parties. [STOP]",
+  "documentation": {
+    "Communication": "an occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.",
+    "Communication.identifier": "business identifiers assigned to this communication by the performer or other systems which remain constant as the resource is updated and propagates from server to server.",
+    "Communication.instantiatesCanonical": "the url pointing to a fhir-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this communication.",
+    "Communication.instantiatesUri": "the url pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this communication.",
+    "Communication.basedOn": "an order, proposal or plan fulfilled in whole or in part by this communication.",
+    "Communication.partOf": "part of this action.",
+    "Communication.inResponseTo": "prior communication that this communication is in response to.",
+    "Communication.status": "the status of the transmission.",
+    "Communication.statusReason": "captures the reason for the current state of the communication.",
+    "Communication.category": "the type of message conveyed such as alert, notification, reminder, instruction, etc.",
+    "Communication.priority": "characterizes how quickly the planned or in progress communication must be addressed. includes concepts such as stat, urgent, routine.",
+    "Communication.medium": "a channel that was used for this communication (e.g. email, fax).",
+    "Communication.subject": "the patient or group that was the focus of this communication.",
+    "Communication.topic": "description of the purpose/content, similar to a subject line in an email.",
+    "Communication.about": "other resources that pertain to this communication and to which this communication should be associated.",
+    "Communication.encounter": "the encounter during which this communication was created or to which the creation of this record is tightly associated.",
+    "Communication.sent": "the time when this communication was sent.",
+    "Communication.received": "the time when this communication arrived at the destination.",
+    "Communication.recipient": "the entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. if receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  multiple recipient communications are intended where either receipts are not tracked (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time).",
+    "Communication.sender": "the entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.",
+    "Communication.reasonCode": "the reason or justification for the communication.",
+    "Communication.reasonReference": "indicates another resource whose existence justifies this communication.",
+    "Communication.payload": "text, attachment(s), or resource(s) that was communicated to the recipient.",
+    "Communication.payload.content[x]": "a communicated content (or for multi-part communications, one portion of the communication).",
+    "Communication.note": "additional notes or commentary about the communication by the sender, receiver or other interested parties."
+  }
+}

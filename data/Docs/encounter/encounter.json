@@ -1,0 +1,991 @@
+{
+  "resource": "encounter",
+  "examples": [
+    {
+      "name": "Encounter example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example</div>"
+        },
+        "status": "in-progress",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "Patient/example"
+        }
+      }
+    },
+    {
+      "name": "Encounter example - virtual encounter",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "home",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example who is at home</div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Location",
+            "id": "home",
+            "description": "Client's home",
+            "mode": "kind"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "HH",
+          "display": "home health"
+        },
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2015-01-17T16:00:00+10:00",
+              "end": "2015-01-17T16:30:00+10:00"
+            },
+            "individual": {
+              "reference": "Practitioner/example",
+              "display": "Dr Adam Careful"
+            }
+          }
+        ],
+        "period": {
+          "start": "2015-01-17T16:00:00+10:00",
+          "end": "2015-01-17T16:30:00+10:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "#home",
+              "display": "Client's home"
+            },
+            "status": "completed",
+            "period": {
+              "start": "2015-01-17T16:00:00+10:00",
+              "end": "2015-01-17T16:30:00+10:00"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world encounter example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "f201",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>identifier</b>: Encounter_Roel_20130404 (TEMP)</p><p><b>status</b>: finished</p><p><b>class</b>: ambulatory (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code AMB = 'ambulatory', stated as 'ambulatory')</p><p><b>type</b>: Consultation <span>(Details : {SNOMED CT code '11429006' = 'Consultation', given as 'Consultation'})</span></p><p><b>priority</b>: Normal <span>(Details : {SNOMED CT code '17621005' = 'Normal', given as 'Normal'})</span></p><p><b>subject</b>: <a>Roel</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Individual</b></td></tr><tr><td>*</td><td><a>Practitioner/f201</a></td></tr></table><p><b>reasonCode</b>: The patient had fever peaks over the last couple of days. He is worried about these peaks. <span>(Details )</span></p><p><b>serviceProvider</b>: <a>Organization/f201</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "temp",
+            "value": "Encounter_Roel_20130404"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11429006",
+                "display": "Consultation"
+              }
+            ]
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "17621005",
+              "display": "Normal"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f201",
+          "display": "Roel"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/f201"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "The patient had fever peaks over the last couple of days. He is worried about these peaks."
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/f201"
+        }
+      }
+    },
+    {
+      "name": "Real-world encounter example (with primaryDiagnosis extension added)",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "f202",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f202</p><p><b>identifier</b>: Encounter_Roel_20130128 (TEMP)</p><p><b>status</b>: finished</p><p><b>class</b>: ambulatory (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code AMB = 'ambulatory', stated as 'ambulatory')</p><p><b>type</b>: Chemotherapy <span>(Details : {SNOMED CT code '367336001' = 'Chemotherapy', given as 'Chemotherapy'})</span></p><p><b>priority</b>: Urgent <span>(Details : {SNOMED CT code '103391001' = 'Urgency', given as 'Urgent'})</span></p><p><b>subject</b>: <a>Roel</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Individual</b></td></tr><tr><td>*</td><td><a>Practitioner/f201</a></td></tr></table><p><b>length</b>: 56 minutes<span> (Details: UCUM code min = 'min')</span></p><p><b>reasonCode</b>: The patient is treated for a tumor. <span>(Details )</span></p><blockquote><p><b>diagnosis</b></p><p><b>condition</b>: Complications from Roel's TPF chemotherapy on January 28th, 2013</p><p><b>use</b>: Admission diagnosis <span>(Details : {http://terminology.hl7.org/CodeSystem/diagnosis-role code 'AD' = 'Admission diagnosis', given as 'Admission diagnosis'})</span></p><p><b>rank</b>: 2</p></blockquote><blockquote><p><b>diagnosis</b></p><p><b>condition</b>: The patient is treated for a tumor</p><p><b>use</b>: Chief complaint <span>(Details : {http://terminology.hl7.org/CodeSystem/diagnosis-role code 'CC' = 'Chief complaint', given as 'Chief complaint'})</span></p><p><b>rank</b>: 1</p></blockquote><p><b>serviceProvider</b>: <a>Organization/f201</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "temp",
+            "value": "Encounter_Roel_20130128"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "367336001",
+                "display": "Chemotherapy"
+              }
+            ]
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103391001",
+              "display": "Urgent"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f201",
+          "display": "Roel"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/f201"
+            }
+          }
+        ],
+        "length": {
+          "value": 56,
+          "unit": "minutes",
+          "system": "http://unitsofmeasure.org",
+          "code": "min"
+        },
+        "reasonCode": [
+          {
+            "text": "The patient is treated for a tumor."
+          }
+        ],
+        "diagnosis": [
+          {
+            "condition": {
+              "display": "Complications from Roel's TPF chemotherapy on January 28th, 2013"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "AD",
+                  "display": "Admission diagnosis"
+                }
+              ]
+            },
+            "rank": 2
+          },
+          {
+            "condition": {
+              "display": "The patient is treated for a tumor"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "CC",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "rank": 1
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/f201"
+        }
+      }
+    },
+    {
+      "name": "Real-world encounter example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "f203",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f203</p><p><b>identifier</b>: Encounter_Roel_20130311 (TEMP)</p><p><b>status</b>: finished</p><h3>StatusHistories</h3><table><tr><td>-</td><td><b>Status</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>arrived</td><td>08/03/2013 --&gt; (ongoing)</td></tr></table><p><b>class</b>: inpatient encounter (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code IMP = 'inpatient encounter', stated as 'inpatient encounter')</p><p><b>type</b>: Inpatient stay for nine days <span>(Details : {SNOMED CT code '183807002' = 'Inpatient stay 9 days', given as 'Inpatient stay for nine days'})</span></p><p><b>priority</b>: High priority <span>(Details : {SNOMED CT code '394849002' = 'High priority', given as 'High priority'})</span></p><p><b>subject</b>: <a>Roel</a></p><p><b>episodeOfCare</b>: <a>EpisodeOfCare/example</a></p><p><b>basedOn</b>: <a>ServiceRequest/myringotomy</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Individual</b></td></tr><tr><td>*</td><td>Participation <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-ParticipationType code 'PART' = 'Participation)</span></td><td><a>Practitioner/f201</a></td></tr></table><p><b>appointment</b>: <a>Appointment/example</a></p><p><b>period</b>: 11/03/2013 --&gt; 20/03/2013</p><p><b>reasonCode</b>: The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy. <span>(Details )</span></p><blockquote><p><b>diagnosis</b></p><p><b>condition</b>: <a>Condition/stroke</a></p><p><b>use</b>: Admission diagnosis <span>(Details : {http://terminology.hl7.org/CodeSystem/diagnosis-role code 'AD' = 'Admission diagnosis', given as 'Admission diagnosis'})</span></p><p><b>rank</b>: 1</p></blockquote><blockquote><p><b>diagnosis</b></p><p><b>condition</b>: <a>Condition/f201</a></p><p><b>use</b>: Discharge diagnosis <span>(Details : {http://terminology.hl7.org/CodeSystem/diagnosis-role code 'DD' = 'Discharge diagnosis', given as 'Discharge diagnosis'})</span></p></blockquote><p><b>account</b>: <a>Account/example</a></p><h3>Hospitalizations</h3><table><tr><td>-</td><td><b>Origin</b></td><td><b>AdmitSource</b></td><td><b>ReAdmission</b></td><td><b>DietPreference</b></td><td><b>SpecialCourtesy</b></td><td><b>SpecialArrangement</b></td><td><b>Destination</b></td></tr><tr><td>*</td><td><a>Location/2</a></td><td>Clinical Oncology Department <span>(Details : {SNOMED CT code '309902002' = 'Clinical oncology department', given as 'Clinical Oncology Department'})</span></td><td>readmitted <span>(Details : {[not stated] code 'null' = 'null', given as 'readmitted'})</span></td><td>Fluid balance regulation <span>(Details : {SNOMED CT code '276026009' = 'Fluid balance regulation', given as 'Fluid balance regulation'})</span></td><td>normal courtesy <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy code 'NRM' = 'normal courtesy', given as 'normal courtesy'})</span></td><td>Wheelchair <span>(Details : {http://terminology.hl7.org/CodeSystem/encounter-special-arrangements code 'wheel' = 'Wheelchair', given as 'Wheelchair'})</span></td><td><a>Location/2</a></td></tr></table><p><b>serviceProvider</b>: <a>Organization/2</a></p><p><b>partOf</b>: <a>Encounter/f203</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "temp",
+            "value": "Encounter_Roel_20130311"
+          }
+        ],
+        "status": "finished",
+        "statusHistory": [
+          {
+            "status": "arrived",
+            "period": {
+              "start": "2013-03-08"
+            }
+          }
+        ],
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "183807002",
+                "display": "Inpatient stay for nine days"
+              }
+            ]
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394849002",
+              "display": "High priority"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f201",
+          "display": "Roel"
+        },
+        "episodeOfCare": [
+          {
+            "reference": "EpisodeOfCare/example"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/myringotomy"
+          }
+        ],
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PART"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/f201"
+            }
+          }
+        ],
+        "appointment": [
+          {
+            "reference": "Appointment/example"
+          }
+        ],
+        "period": {
+          "start": "2013-03-11",
+          "end": "2013-03-20"
+        },
+        "reasonCode": [
+          {
+            "text": "The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."
+          }
+        ],
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/stroke"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "AD",
+                  "display": "Admission diagnosis"
+                }
+              ]
+            },
+            "rank": 1
+          },
+          {
+            "condition": {
+              "reference": "Condition/f201"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "DD",
+                  "display": "Discharge diagnosis"
+                }
+              ]
+            }
+          }
+        ],
+        "account": [
+          {
+            "reference": "Account/example"
+          }
+        ],
+        "hospitalization": {
+          "origin": {
+            "reference": "Location/2"
+          },
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "309902002",
+                "display": "Clinical Oncology Department"
+              }
+            ]
+          },
+          "reAdmission": {
+            "coding": [
+              {
+                "display": "readmitted"
+              }
+            ]
+          },
+          "dietPreference": [
+            {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "276026009",
+                  "display": "Fluid balance regulation"
+                }
+              ]
+            }
+          ],
+          "specialCourtesy": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy",
+                  "code": "NRM",
+                  "display": "normal courtesy"
+                }
+              ]
+            }
+          ],
+          "specialArrangement": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements",
+                  "code": "wheel",
+                  "display": "Wheelchair"
+                }
+              ]
+            }
+          ],
+          "destination": {
+            "reference": "Location/2"
+          }
+        },
+        "serviceProvider": {
+          "reference": "Organization/2"
+        },
+        "partOf": {
+          "reference": "Encounter/f203"
+        }
+      }
+    },
+    {
+      "name": "Real-world encounter example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "f001",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: v1451 (OFFICIAL)</p><p><b>status</b>: finished</p><p><b>class</b>: ambulatory (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code AMB = 'ambulatory', stated as 'ambulatory')</p><p><b>type</b>: Patient-initiated encounter <span>(Details : {SNOMED CT code '270427003' = 'Patient-initiated encounter', given as 'Patient-initiated encounter'})</span></p><p><b>priority</b>: Non-urgent cardiological admission <span>(Details : {SNOMED CT code '310361003' = 'Non-urgent cardiological admission', given as 'Non-urgent cardiological admission'})</span></p><p><b>subject</b>: <a>P. van de Heuvel</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Individual</b></td></tr><tr><td>*</td><td><a>P. Voigt</a></td></tr></table><p><b>length</b>: 140 min<span> (Details: UCUM code min = 'min')</span></p><p><b>reasonCode</b>: Heart valve replacement <span>(Details : {SNOMED CT code '34068001' = 'Heart valve replacement', given as 'Heart valve replacement'})</span></p><h3>Hospitalizations</h3><table><tr><td>-</td><td><b>PreAdmissionIdentifier</b></td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td>*</td><td>93042 (OFFICIAL)</td><td>Referral by physician <span>(Details : {SNOMED CT code '305956004' = 'Referral from physician', given as 'Referral by physician'})</span></td><td>Discharge to home <span>(Details : {SNOMED CT code '306689006' = 'Discharge to home', given as 'Discharge to home'})</span></td></tr></table><p><b>serviceProvider</b>: <a>Burgers University Medical Center</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://www.amc.nl/zorgportal/identifiers/visits",
+            "value": "v1451"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "270427003",
+                "display": "Patient-initiated encounter"
+              }
+            ]
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310361003",
+              "display": "Non-urgent cardiological admission"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f001",
+          "display": "P. van de Heuvel"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/f002",
+              "display": "P. Voigt"
+            }
+          }
+        ],
+        "length": {
+          "value": 140,
+          "unit": "min",
+          "system": "http://unitsofmeasure.org",
+          "code": "min"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "34068001",
+                "display": "Heart valve replacement"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "preAdmissionIdentifier": {
+            "use": "official",
+            "system": "http://www.amc.nl/zorgportal/identifiers/pre-admissions",
+            "value": "93042"
+          },
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "305956004",
+                "display": "Referral by physician"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306689006",
+                "display": "Discharge to home"
+              }
+            ]
+          }
+        },
+        "serviceProvider": {
+          "reference": "Organization/f001",
+          "display": "Burgers University Medical Center"
+        }
+      }
+    },
+    {
+      "name": "Real-world encounter example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "f002",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f002</p><p><b>identifier</b>: v3251 (OFFICIAL)</p><p><b>status</b>: finished</p><p><b>class</b>: ambulatory (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code AMB = 'ambulatory', stated as 'ambulatory')</p><p><b>type</b>: Patient-initiated encounter <span>(Details : {SNOMED CT code '270427003' = 'Patient-initiated encounter', given as 'Patient-initiated encounter'})</span></p><p><b>priority</b>: Urgent <span>(Details : {SNOMED CT code '103391001' = 'Urgency', given as 'Urgent'})</span></p><p><b>subject</b>: <a>P. van de Heuvel</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Individual</b></td></tr><tr><td>*</td><td><a>M.I.M Versteegh</a></td></tr></table><p><b>length</b>: 140 min<span> (Details: UCUM code min = 'min')</span></p><p><b>reasonCode</b>: Partial lobectomy of lung <span>(Details : {SNOMED CT code '34068001' = 'Heart valve replacement', given as 'Partial lobectomy of lung'})</span></p><h3>Hospitalizations</h3><table><tr><td>-</td><td><b>PreAdmissionIdentifier</b></td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td>*</td><td>98682 (OFFICIAL)</td><td>Referral by radiologist <span>(Details : {SNOMED CT code '305997006' = 'Referral by radiologist', given as 'Referral by radiologist'})</span></td><td>Discharge to home <span>(Details : {SNOMED CT code '306689006' = 'Discharge to home', given as 'Discharge to home'})</span></td></tr></table><p><b>serviceProvider</b>: <a>BMC</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://www.bmc.nl/zorgportal/identifiers/encounters",
+            "value": "v3251"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "270427003",
+                "display": "Patient-initiated encounter"
+              }
+            ]
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103391001",
+              "display": "Urgent"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f001",
+          "display": "P. van de Heuvel"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/f003",
+              "display": "M.I.M Versteegh"
+            }
+          }
+        ],
+        "length": {
+          "value": 140,
+          "unit": "min",
+          "system": "http://unitsofmeasure.org",
+          "code": "min"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "34068001",
+                "display": "Partial lobectomy of lung"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "preAdmissionIdentifier": {
+            "use": "official",
+            "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+            "value": "98682"
+          },
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "305997006",
+                "display": "Referral by radiologist"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306689006",
+                "display": "Discharge to home"
+              }
+            ]
+          }
+        },
+        "serviceProvider": {
+          "reference": "Organization/f001",
+          "display": "BMC"
+        }
+      }
+    },
+    {
+      "name": "Real-world encounter example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "f003",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f003</p><p><b>identifier</b>: v6751 (OFFICIAL)</p><p><b>status</b>: finished</p><p><b>class</b>: ambulatory (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code AMB = 'ambulatory', stated as 'ambulatory')</p><p><b>type</b>: Patient-initiated encounter <span>(Details : {SNOMED CT code '270427003' = 'Patient-initiated encounter', given as 'Patient-initiated encounter'})</span></p><p><b>priority</b>: Non-urgent ear, nose and throat admission <span>(Details : {SNOMED CT code '103391001' = 'Urgency', given as 'Non-urgent ear, nose and throat admission'})</span></p><p><b>subject</b>: <a>P. van de Heuvel</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Individual</b></td></tr><tr><td>*</td><td><a>E.M. van den Broek</a></td></tr></table><p><b>length</b>: 90 min<span> (Details: UCUM code min = 'min')</span></p><p><b>reasonCode</b>: Retropharyngeal abscess <span>(Details : {SNOMED CT code '18099001' = 'Retropharyngeal abscess', given as 'Retropharyngeal abscess'})</span></p><h3>Hospitalizations</h3><table><tr><td>-</td><td><b>PreAdmissionIdentifier</b></td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td>*</td><td>93042 (OFFICIAL)</td><td>Referral by physician <span>(Details : {SNOMED CT code '305956004' = 'Referral from physician', given as 'Referral by physician'})</span></td><td>Discharge to home <span>(Details : {SNOMED CT code '306689006' = 'Discharge to home', given as 'Discharge to home'})</span></td></tr></table><p><b>serviceProvider</b>: <a>Organization/f001</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://www.bmc.nl/zorgportal/identifiers/encounters",
+            "value": "v6751"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "270427003",
+                "display": "Patient-initiated encounter"
+              }
+            ]
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103391001",
+              "display": "Non-urgent ear, nose and throat admission"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f001",
+          "display": "P. van de Heuvel"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/f001",
+              "display": "E.M. van den Broek"
+            }
+          }
+        ],
+        "length": {
+          "value": 90,
+          "unit": "min",
+          "system": "http://unitsofmeasure.org",
+          "code": "min"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "18099001",
+                "display": "Retropharyngeal abscess"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "preAdmissionIdentifier": {
+            "use": "official",
+            "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+            "value": "93042"
+          },
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "305956004",
+                "display": "Referral by physician"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306689006",
+                "display": "Discharge to home"
+              }
+            ]
+          }
+        },
+        "serviceProvider": {
+          "reference": "Organization/f001"
+        }
+      }
+    },
+    {
+      "name": "for Clinical Document example patient",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "xcda",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: xcda</p><p><b>identifier</b>: 1234213.52345873 (OFFICIAL)</p><p><b>status</b>: finished</p><p><b>class</b>: ambulatory (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code AMB = 'ambulatory', stated as 'ambulatory')</p><p><b>subject</b>: <a>Patient/xcda</a></p><h3>Participants</h3><table><tr><td>-</td><td><b>Individual</b></td></tr><tr><td>*</td><td><a>Practitioner/xcda1</a></td></tr></table><p><b>reasonCode</b>: Arm <span>(Details : {http://ihe.net/xds/connectathon/eventCodes code 'T-D8200' = 'T-D8200', given as 'Arm'})</span></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://healthcare.example.org/identifiers/enocunter",
+            "value": "1234213.52345873"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/xcda"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/xcda1"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://ihe.net/xds/connectathon/eventCodes",
+                "code": "T-D8200",
+                "display": "Arm"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Emergency transitioning into inpatient example",
+      "document": {
+        "resourceType": "Encounter",
+        "id": "emerg",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Emergency visit that escalated into inpatient patient @example</div>"
+        },
+        "status": "in-progress",
+        "statusHistory": [
+          {
+            "status": "arrived",
+            "period": {
+              "start": "2017-02-01T07:15:00+10:00",
+              "end": "2017-02-01T07:35:00+10:00"
+            }
+          },
+          {
+            "status": "triaged",
+            "period": {
+              "start": "2017-02-01T07:35:00+10:00",
+              "end": "2017-02-01T08:45:00+10:00"
+            }
+          },
+          {
+            "status": "in-progress",
+            "period": {
+              "start": "2017-02-01T08:45:00+10:00",
+              "end": "2017-02-01T12:15:00+10:00"
+            }
+          },
+          {
+            "status": "onleave",
+            "period": {
+              "start": "2017-02-01T12:15:00+10:00",
+              "end": "2017-02-01T12:45:00+10:00"
+            }
+          },
+          {
+            "status": "in-progress",
+            "period": {
+              "start": "2017-02-01T12:45:00+10:00"
+            }
+          }
+        ],
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "classHistory": [
+          {
+            "class": {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "EMER",
+              "display": "emergency"
+            },
+            "period": {
+              "start": "2017-02-01T07:15:00+10:00",
+              "end": "2017-02-01T09:27:00+10:00"
+            }
+          },
+          {
+            "class": {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "IMP",
+              "display": "inpatient encounter"
+            },
+            "period": {
+              "start": "2017-02-01T09:27:00+10:00"
+            }
+          }
+        ],
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "period": {
+          "start": "2017-02-01T07:15:00+10:00"
+        },
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                "code": "emd",
+                "display": "From accident/emergency department"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "Emergency Waiting Room"
+            },
+            "status": "active",
+            "period": {
+              "start": "2017-02-01T07:15:00+10:00",
+              "end": "2017-02-01T08:45:00+10:00"
+            }
+          },
+          {
+            "location": {
+              "display": "Emergency"
+            },
+            "status": "active",
+            "period": {
+              "start": "2017-02-01T08:45:00+10:00",
+              "end": "2017-02-01T09:27:00+10:00"
+            }
+          },
+          {
+            "location": {
+              "display": "Ward 1, Room 42, Bed 1"
+            },
+            "status": "active",
+            "period": {
+              "start": "2017-02-01T09:27:00+10:00",
+              "end": "2017-02-01T12:15:00+10:00"
+            }
+          },
+          {
+            "location": {
+              "display": "Ward 1, Room 42, Bed 1"
+            },
+            "status": "reserved",
+            "period": {
+              "start": "2017-02-01T12:15:00+10:00",
+              "end": "2017-02-01T12:45:00+10:00"
+            }
+          },
+          {
+            "location": {
+              "display": "Ward 1, Room 42, Bed 1"
+            },
+            "status": "active",
+            "period": {
+              "start": "2017-02-01T12:45:00+10:00"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.11Resource Encounter - Content",
+    "introduction": "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.\nThis resource is referenced by AdverseEvent , AllergyIntolerance , CarePlan , CareTeam , ChargeItem , Claim , ClinicalImpression , Communication , CommunicationRequest , Composition , Condition , Contract , DeviceRequest , DiagnosticReport , DocumentReference , itself, ExplanationOfBenefit , Flag , GuidanceResponse , ImagingStudy , Immunization , List , Media , MedicationAdministration , MedicationDispense , MedicationRequest , MedicationStatement , NutritionOrder , Observation , Procedure , QuestionnaireResponse , RequestGroup , RiskAssessment , ServiceRequest , Task and VisionPrescription",
+    "Scope and Usage": "A patient encounter is further characterized by the setting in which it takes place. Amongst them are ambulatory,\r\n emergency, home health, inpatient and virtual encounters. An Encounter encompasses the lifecycle from pre-admission, \r\n the actual encounter (for ambulatory encounters), and admission, stay and discharge (for inpatient encounters). \r\nDuring the encounter the patient may move from practitioner to practitioner and location to location.\nBecause of the broad scope of Encounter, not all elements will be relevant in all settings. For this reason, \r\nadmission/discharge related information is kept in a separate Hospitalization component within Encounter. \r\nThe class element is used to distinguish between these settings, which will guide further validation and\r\napplication of business rules.\nThere is also substantial variance from organization to organization (and between jurisdictions and countries) \r\non which business events translate to the start of a new Encounter, or what level of aggregation is used for Encounter. For example, each\r\nsingle visit of a practitioner during a hospitalization may lead to a new instance of Encounter, but depending on\r\nlocal practice and the systems involved, it may well be that this is aggregated to a single instance for a whole hospitalization.\r\nEven more aggregation may occur where jurisdictions introduce groups of Encounters for financial or other reasons.\r\nEncounters can be aggregated or grouped under other Encounters using the partOf element. \r\nSee below for examples.\nEncounter instances may exist before the actual encounter takes place to convey pre-admission information, including\r\nusing Encounters elements to reflect the planned start date or planned encounter locations. In \r\nthis case the status element is set to 'planned'.\nThe Hospitalization component is intended to store the extended information relating to a hospitalization event.\r\nIt is always expected to be the same period as the encounter itself. Where the period is different, another\r\nencounter instance should be used to capture this information as a partOf this encounter instance.\nThe Procedure and encounter have references to each other, and these should be to different procedures;\r\none for the procedure that was performed during the encounter (stored in Procedure.encounter), and another for cases\r\nwhere an encounter is a result of another procedure (stored in Encounter.indication) such as a follow-up encounter to\r\nresolve complications from an earlier procedure.\nDuring the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the\r\norganization's workflow: planned, in-progress, finished/cancelled. This status information is often used for other things, and often an analysis of the status history is required.\r\nThis could be done by scanning through all the versions of the encounter, checking the period of each,\r\nand then doing some form of post processing. To ease the burden of this (or where a system doesn't support resource\r\nhistories) a status history component is included.\nThere is no direct indication purely by the status field as to whether an encounter is considered \"admitted\". The context of the encounter and business practices/policies/workflows/types can influence this definition.\r\n(e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic). Statuses of \"arrived\", \"triaged\" or \"in progress\" could be considered the start of the admission, and also have the \r\npresence of the hospitalization sub-component entered.\nThe \"on leave\" status might or might not be a part of the admission, for example if the patient \r\nwas permitted to go home for a weekend or some other form of external event. The location is also likely to be filled in with a location status of \"present\". For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be \r\nconsidered to be admitted, hence the encounter doesn't have a fixed definition of admitted.\r\nAt a minimum, we do believe that a patient IS admitted when the status is in-progress.",
+    "Boundaries and Relationships": "The Encounter resource is not to be used to store appointment information, the Appointment resource is intended to be used for that.\r\nNote that in many systems outpatient encounters (which are in scope for Encounter) and Appointment are used \r\nconcurrently. In FHIR, Appointment is used for establishing a date for the encounter, while Encounter is \r\napplicable to information about the actual Encounter, i.e., the patient showing up. As such, an encounter in the \"planned\" status is not identical to the appointment that scheduled it,\r\nbut it is the encounter prior to its actual occurrence, with the expectation that encounter will be\r\nupdated as it progresses to completion. Patient arrival at a location does not necessarily mean the\r\nstart of the encounter (e.g. a patient arrives an hour earlier than he is actually seen by a practitioner).\nAn appointment is normally used for the planning stage of an appointment, searching, locating an available time, then\r\nmaking the appointment. Once this process is completed and the appointment is about to start, then the appointment\r\nwill be marked as fulfilled, and linked to the newly created encounter. This new encounter may start in an \"arrived\" status when they are admitted at a location of the facility, and then will\r\nmove to the ward where another part-of encounter may begin.\nCommunication resources are used for a simultaneous interaction between a practitioner and a patient where there is no\r\ndirect contact. Examples include a phone message, or transmission of some correspondence documentation. There is no duration recorded for a communication resource, but it could contain sent and received times.\nStandard Extension: Associated Encounter This extension should be used to reference an encounter where there is no property that already defines this association on the resource.",
+    "Notes": "The class element describes the setting (in/outpatient etc.) in which the Encounter took place. Since this is important for \r\ninterpreting the context of the encounter, choosing the appropriate business rules to enforce and for the management of the process, this element\r\nis required. In future versions of FHIR, some kind of charge posting vehicle (e.g. Account) will be added.",
+    "Example usage": "As stated, Encounter allows a flexible nesting of Encounters using the partOf element. For example:\nA patient is admitted for two weeks - This could be modeled using a single Encounter instance,\r\nin which the start and length are given for the duration of the whole stay. The admitting doctor and\r\nthe responsible doctor during the stay are specified using the Participant component. During the encounter, the patient moves from the admitting department to the Intensive Care unit and back - \r\nThree more detailed additional Encounters can be created, one for each location in which the patient stayed.\r\nEach of these Encounters has a single location (twice the admitting department and once\r\nthe Intensive Care unit) and one or more participants at that location. These Encounters may use the partOf \r\nrelationship to indicate these movements occurred during the longer overarching Encounter. During the last part of the stay, the patient is visited by the members of the multi-disciplinary team that\r\ntreated him for final evaluation - If relevant, for each of these short visits, an Encounter may be created\r\nwith a single participant. Since these took place during the last part of the stay, the partOf element can be\r\nused to associate these short visits with either the third patient movement or the bigger overall encounter.\nExactly how the Encounter is used depends on information available in the source system, the relevance of exchange\r\nof each level of Encounter and demands specific to the communicating partners. The expectation is that for each\r\ndomain of exchange, profiles are used to limit the flexibility of Encounter to meet the demands of the use case."
+  },
+  "definitions": "Encounter: an interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient. [STOP]\nEncounter.identifier: identifier(s) by which this encounter is known. [STOP]\nEncounter.status: planned | arrived | triaged | in-progress | onleave | finished | cancelled +. [STOP]\nEncounter.statusHistory: the status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them. [STOP]\nEncounter.statusHistory.status: planned | arrived | triaged | in-progress | onleave | finished | cancelled +. [STOP]\nEncounter.statusHistory.period: the time that the episode was in the specified status. [STOP]\nEncounter.class: concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations. [STOP]\nEncounter.classHistory: the class history permits the tracking of the encounters transitions without needing to go  through the resource history.  this would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient. [STOP]\nEncounter.classHistory.class: inpatient | outpatient | ambulatory | emergency +. [STOP]\nEncounter.classHistory.period: the time that the episode was in the specified class. [STOP]\nEncounter.type: specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation). [STOP]\nEncounter.serviceType: broad categorization of the service that is to be provided (e.g. cardiology). [STOP]\nEncounter.priority: indicates the urgency of the encounter. [STOP]\nEncounter.subject: the patient or group present at the encounter. [STOP]\nEncounter.episodeOfCare: where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. this association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  the association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years). [STOP]\nEncounter.basedOn: the request this encounter satisfies (e.g. incoming referral or procedure request). [STOP]\nEncounter.participant: the list of people responsible for providing the service. [STOP]\nEncounter.participant.type: role of participant in encounter. [STOP]\nEncounter.participant.period: the period of time that the specified participant participated in the encounter. these can overlap or be sub-sets of the overall encounter's period. [STOP]\nEncounter.participant.individual: persons involved in the encounter other than the patient. [STOP]\nEncounter.appointment: the appointment that scheduled this encounter. [STOP]\nEncounter.period: the start and end time of the encounter. [STOP]\nEncounter.length: quantity of time the encounter lasted. this excludes the time during leaves of absence. [STOP]\nEncounter.reasonCode: reason the encounter takes place, expressed as a code. for admissions, this can be used for a coded admission diagnosis. [STOP]\nEncounter.reasonReference: reason the encounter takes place, expressed as a code. for admissions, this can be used for a coded admission diagnosis. [STOP]\nEncounter.diagnosis: the list of diagnosis relevant to this encounter. [STOP]\nEncounter.diagnosis.condition: reason the encounter takes place, as specified using information from another resource. for admissions, this is the admission diagnosis. the indication will typically be a condition (with other resources referenced in the evidence.detail), or a procedure. [STOP]\nEncounter.diagnosis.use: role that this diagnosis has within the encounter (e.g. admission, billing, discharge â¦). [STOP]\nEncounter.diagnosis.rank: ranking of the diagnosis (for each role type). [STOP]\nEncounter.account: the set of accounts that may be used for billing for this encounter. [STOP]\nEncounter.hospitalization: details about the admission to a healthcare service. [STOP]\nEncounter.hospitalization.preAdmissionIdentifier: pre-admission identifier. [STOP]\nEncounter.hospitalization.origin: the location/organization from which the patient came before admission. [STOP]\nEncounter.hospitalization.admitSource: from where patient was admitted (physician referral, transfer). [STOP]\nEncounter.hospitalization.reAdmission: whether this hospitalization is a readmission and why if known. [STOP]\nEncounter.hospitalization.dietPreference: diet preferences reported by the patient. [STOP]\nEncounter.hospitalization.specialCourtesy: special courtesies (vip, board member). [STOP]\nEncounter.hospitalization.specialArrangement: any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things. [STOP]\nEncounter.hospitalization.destination: location/organization to which the patient is discharged. [STOP]\nEncounter.hospitalization.dischargeDisposition: category or kind of location after discharge. [STOP]\nEncounter.location: list of locations where  the patient has been during this encounter. [STOP]\nEncounter.location.location: the location where the encounter takes place. [STOP]\nEncounter.location.status: the status of the participants' presence at the specified location during the period specified. if the participant is no longer at the location, then the period will have an end date/time. [STOP]\nEncounter.location.physicalType: this will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query. [STOP]\nEncounter.location.period: time period during which the patient was present at the location. [STOP]\nEncounter.serviceProvider: the organization that is primarily responsible for this encounter's services. this may be the same as the organization on the patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  refer to the example bundle showing an abbreviated set of encounters for a colonoscopy. [STOP]\nEncounter.partOf: another encounter of which this encounter is a part of (administratively or in time). [STOP]",
+  "documentation": {
+    "Encounter": "an interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.",
+    "Encounter.identifier": "identifier(s) by which this encounter is known.",
+    "Encounter.status": "planned | arrived | triaged | in-progress | onleave | finished | cancelled +.",
+    "Encounter.statusHistory": "the status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.",
+    "Encounter.statusHistory.status": "planned | arrived | triaged | in-progress | onleave | finished | cancelled +.",
+    "Encounter.statusHistory.period": "the time that the episode was in the specified status.",
+    "Encounter.class": "concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.",
+    "Encounter.classHistory": "the class history permits the tracking of the encounters transitions without needing to go  through the resource history.  this would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient.",
+    "Encounter.classHistory.class": "inpatient | outpatient | ambulatory | emergency +.",
+    "Encounter.classHistory.period": "the time that the episode was in the specified class.",
+    "Encounter.type": "specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).",
+    "Encounter.serviceType": "broad categorization of the service that is to be provided (e.g. cardiology).",
+    "Encounter.priority": "indicates the urgency of the encounter.",
+    "Encounter.subject": "the patient or group present at the encounter.",
+    "Encounter.episodeOfCare": "where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. this association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  the association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).",
+    "Encounter.basedOn": "the request this encounter satisfies (e.g. incoming referral or procedure request).",
+    "Encounter.participant": "the list of people responsible for providing the service.",
+    "Encounter.participant.type": "role of participant in encounter.",
+    "Encounter.participant.period": "the period of time that the specified participant participated in the encounter. these can overlap or be sub-sets of the overall encounter's period.",
+    "Encounter.participant.individual": "persons involved in the encounter other than the patient.",
+    "Encounter.appointment": "the appointment that scheduled this encounter.",
+    "Encounter.period": "the start and end time of the encounter.",
+    "Encounter.length": "quantity of time the encounter lasted. this excludes the time during leaves of absence.",
+    "Encounter.reasonCode": "reason the encounter takes place, expressed as a code. for admissions, this can be used for a coded admission diagnosis.",
+    "Encounter.reasonReference": "reason the encounter takes place, expressed as a code. for admissions, this can be used for a coded admission diagnosis.",
+    "Encounter.diagnosis": "the list of diagnosis relevant to this encounter.",
+    "Encounter.diagnosis.condition": "reason the encounter takes place, as specified using information from another resource. for admissions, this is the admission diagnosis. the indication will typically be a condition (with other resources referenced in the evidence.detail), or a procedure.",
+    "Encounter.diagnosis.use": "role that this diagnosis has within the encounter (e.g. admission, billing, discharge â¦).",
+    "Encounter.diagnosis.rank": "ranking of the diagnosis (for each role type).",
+    "Encounter.account": "the set of accounts that may be used for billing for this encounter.",
+    "Encounter.hospitalization": "details about the admission to a healthcare service.",
+    "Encounter.hospitalization.preAdmissionIdentifier": "pre-admission identifier.",
+    "Encounter.hospitalization.origin": "the location/organization from which the patient came before admission.",
+    "Encounter.hospitalization.admitSource": "from where patient was admitted (physician referral, transfer).",
+    "Encounter.hospitalization.reAdmission": "whether this hospitalization is a readmission and why if known.",
+    "Encounter.hospitalization.dietPreference": "diet preferences reported by the patient.",
+    "Encounter.hospitalization.specialCourtesy": "special courtesies (vip, board member).",
+    "Encounter.hospitalization.specialArrangement": "any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.",
+    "Encounter.hospitalization.destination": "location/organization to which the patient is discharged.",
+    "Encounter.hospitalization.dischargeDisposition": "category or kind of location after discharge.",
+    "Encounter.location": "list of locations where  the patient has been during this encounter.",
+    "Encounter.location.location": "the location where the encounter takes place.",
+    "Encounter.location.status": "the status of the participants' presence at the specified location during the period specified. if the participant is no longer at the location, then the period will have an end date/time.",
+    "Encounter.location.physicalType": "this will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query.",
+    "Encounter.location.period": "time period during which the patient was present at the location.",
+    "Encounter.serviceProvider": "the organization that is primarily responsible for this encounter's services. this may be the same as the organization on the patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  refer to the example bundle showing an abbreviated set of encounters for a colonoscopy.",
+    "Encounter.partOf": "another encounter of which this encounter is a part of (administratively or in time)."
+  }
+}

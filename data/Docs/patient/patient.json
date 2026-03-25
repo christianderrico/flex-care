@@ -1,0 +1,1619 @@
+{
+  "resource": "patient",
+  "examples": [
+    {
+      "name": "General Person Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<table>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Name</td>\n\t\t\t\t\t\t<td>Peter James \n              <b>Chalmers</b> (&quot;Jim&quot;)\n            </td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Address</td>\n\t\t\t\t\t\t<td>534 Erewhon, Pleasantville, Vic, 3999</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Contacts</td>\n\t\t\t\t\t\t<td>Home: unknown. Work: (03) 5555 6473</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Id</td>\n\t\t\t\t\t\t<td>MRN: 12345 (Acme Healthcare)</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.36.146.595.217.0.1",
+            "value": "12345",
+            "period": {
+              "start": "2001-05-06"
+            },
+            "assigner": {
+              "display": "Acme Healthcare"
+            }
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Chalmers",
+            "given": [
+              "Peter",
+              "James"
+            ]
+          },
+          {
+            "use": "usual",
+            "given": [
+              "Jim"
+            ]
+          },
+          {
+            "use": "maiden",
+            "family": "Windsor",
+            "given": [
+              "Peter",
+              "James"
+            ],
+            "period": {
+              "end": "2002"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "(03) 5555 6473",
+            "use": "work",
+            "rank": 1
+          },
+          {
+            "system": "phone",
+            "value": "(03) 3410 5613",
+            "use": "mobile",
+            "rank": 2
+          },
+          {
+            "system": "phone",
+            "value": "(03) 5555 8834",
+            "use": "old",
+            "period": {
+              "end": "2014"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25",
+        "_birthDate": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+              "valueDateTime": "1974-12-25T14:35:45-05:00"
+            }
+          ]
+        },
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "text": "534 Erewhon St PeasantVille, Rainbow, Vic  3999",
+            "line": [
+              "534 Erewhon St"
+            ],
+            "city": "PleasantVille",
+            "district": "Rainbow",
+            "state": "Vic",
+            "postalCode": "3999",
+            "period": {
+              "start": "1974-12-25"
+            }
+          }
+        ],
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "family": "du Marché",
+              "_family": {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+                    "valueString": "VV"
+                  }
+                ]
+              },
+              "given": [
+                "Bénédicte"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+33 (237) 998327"
+              }
+            ],
+            "address": {
+              "use": "home",
+              "type": "both",
+              "line": [
+                "534 Erewhon St"
+              ],
+              "city": "PleasantVille",
+              "district": "Rainbow",
+              "state": "Vic",
+              "postalCode": "3999",
+              "period": {
+                "start": "1974-12-25"
+              }
+            },
+            "gender": "female",
+            "period": {
+              "start": "2012"
+            }
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/1"
+        }
+      }
+    },
+    {
+      "name": "Patient 1 for linking",
+      "document": {
+        "resourceType": "Patient",
+        "id": "pat1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:0.1.2.3.4.5.6.7",
+            "value": "654321"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Donald",
+            "given": [
+              "Duck"
+            ]
+          }
+        ],
+        "gender": "male",
+        "photo": [
+          {
+            "contentType": "image/gif",
+            "data": "R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"
+          }
+        ],
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "E"
+                  }
+                ]
+              }
+            ],
+            "organization": {
+              "reference": "Organization/1",
+              "display": "Walt Disney Corporation"
+            }
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/1",
+          "display": "ACME Healthcare, Inc"
+        },
+        "link": [
+          {
+            "other": {
+              "reference": "Patient/pat2"
+            },
+            "type": "seealso"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Patient 2 for linking",
+      "document": {
+        "resourceType": "Patient",
+        "id": "pat2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:0.1.2.3.4.5.6.7",
+            "value": "123456"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Donald",
+            "given": [
+              "Duck",
+              "D"
+            ]
+          }
+        ],
+        "gender": "other",
+        "_gender": {
+          "extension": [
+            {
+              "url": "http://example.org/Profile/administrative-status",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0001",
+                    "code": "A",
+                    "display": "Ambiguous"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "photo": [
+          {
+            "contentType": "image/gif",
+            "data": "R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/1",
+          "display": "ACME Healthcare, Inc"
+        },
+        "link": [
+          {
+            "other": {
+              "reference": "Patient/pat1"
+            },
+            "type": "seealso"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Deceased patient (using time)",
+      "document": {
+        "resourceType": "Patient",
+        "id": "pat3",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Patient Simon Notsowell @ Acme Healthcare, Inc. MR = 123457, DECEASED</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:0.1.2.3.4.5.6.7",
+            "value": "123457"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Notsowell",
+            "given": [
+              "Simon"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1982-01-23",
+        "deceasedDateTime": "2015-02-14T13:42:00+10:00",
+        "managingOrganization": {
+          "reference": "Organization/1",
+          "display": "ACME Healthcare, Inc"
+        }
+      }
+    },
+    {
+      "name": "Deceased patient (using boolean)",
+      "document": {
+        "resourceType": "Patient",
+        "id": "pat4",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>Patient Sandy Notsowell @ Acme Healthcare, Inc. MR = 123458, DECEASED</p>\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:0.1.2.3.4.5.6.7",
+            "value": "123458"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Notsowell",
+            "given": [
+              "Sandy"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1982-08-02",
+        "deceasedBoolean": true,
+        "managingOrganization": {
+          "reference": "Organization/1",
+          "display": "ACME Healthcare, Inc"
+        }
+      }
+    },
+    {
+      "name": "2nd person example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "xcda",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.840.1.113883.19.5",
+            "value": "12345"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Levin",
+            "given": [
+              "Henry"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1932-09-24",
+        "managingOrganization": {
+          "reference": "Organization/2.16.840.1.113883.19.5",
+          "display": "Good Health Clinic"
+        }
+      }
+    },
+    {
+      "name": "XDS Patient",
+      "document": {
+        "resourceType": "Patient",
+        "id": "xds",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Patient John Doe, M, 27-May 1956. ID: 89765a87b</p>\n    \n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.3.4.5",
+            "value": "89765a87b"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Doe",
+            "given": [
+              "John"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1956-05-27",
+        "address": [
+          {
+            "line": [
+              "100 Main St"
+            ],
+            "city": "Metropolis",
+            "state": "Il",
+            "postalCode": "44130",
+            "country": "USA"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/2"
+        }
+      }
+    },
+    {
+      "name": "An example of an animal",
+      "document": {
+        "resourceType": "Patient",
+        "id": "animal",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <table>\n        \n        <tbody>\n          \n          <tr>\n            \n            <td>Id</td>\n            \n            <td>Kenzi (Dog: Golden Retriever)</td>\n          \n          </tr>\n          \n          <tr>\n            \n            <td>Owner</td>\n            \n            <td>Peter Chalmers, 534 Erewhon, Pleasantville, Vic, 3999</td>\n          \n          </tr>\n          \n          <tr>\n            \n            <td>Contacts</td>\n            \n            <td>Work: (03) 5555 6473</td>\n          \n          </tr>\n          \n          <tr>\n            \n            <td>Id</td>\n            \n            <td>Dog Tag: 1234123 (Maroondah City Council)</td>\n          \n          </tr>\n        \n        </tbody>\n      \n      </table>\n    \n    </div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-animal",
+            "extension": [
+              {
+                "url": "species",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/animal-species",
+                      "code": "canislf",
+                      "display": "Dog"
+                    }
+                  ]
+                }
+              },
+              {
+                "url": "breed",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "58108001",
+                      "display": "Golden retriever"
+                    },
+                    {
+                      "system": "http://example.org/fhir/CodeSystem/animal-breed",
+                      "code": "gret",
+                      "display": "Golden Retriever"
+                    }
+                  ]
+                }
+              },
+              {
+                "url": "genderStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/animal-genderstatus",
+                      "code": "neutered"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "text": "Dog Tag"
+            },
+            "system": "http://www.maroondah.vic.gov.au/AnimalRegFees.aspx",
+            "value": "1234123",
+            "period": {
+              "start": "2010-05-31"
+            },
+            "assigner": {
+              "display": "Maroondah City Council"
+            }
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "given": [
+              "Kenzi"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2010-03-23",
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "C"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "family": "Chalmers",
+              "given": [
+                "Peter",
+                "James"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "(03) 5555 6473",
+                "use": "work"
+              }
+            ]
+          }
+        ],
+        "managingOrganization": {
+          "display": "Pete's Vetinary Services"
+        }
+      }
+    },
+    {
+      "name": "Taken from a DICOM sample",
+      "document": {
+        "resourceType": "Patient",
+        "id": "dicom",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"> Patient MINT_TEST, ID = MINT1234. Age = 56y, Size =\n      1.83m, Weight = 72.58kg </div>"
+        },
+        "extension": [
+          {
+            "url": "http://nema.org/fhir/extensions#0010:1010",
+            "valueQuantity": {
+              "value": 56,
+              "unit": "Y"
+            }
+          },
+          {
+            "url": "http://nema.org/fhir/extensions#0010:1020",
+            "valueQuantity": {
+              "value": 1.83,
+              "unit": "m"
+            }
+          },
+          {
+            "url": "http://nema.org/fhir/extensions#0010:1030",
+            "valueQuantity": {
+              "value": 72.58,
+              "unit": "kg"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://nema.org/examples/patients",
+            "value": "MINT1234"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "MINT_TEST"
+          }
+        ],
+        "gender": "male",
+        "_gender": {
+          "extension": [
+            {
+              "url": "http://nema.org/examples/extensions#gender",
+              "valueCoding": {
+                "system": "http://nema.org/examples/gender",
+                "code": "M"
+              }
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/1"
+        }
+      }
+    },
+    {
+      "name": "Example from IHE-PCD example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "ihe-pcd",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Albert Brooks, Id: AB60001</div>"
+        },
+        "identifier": [
+          {
+            "type": {
+              "text": "Internal Identifier"
+            },
+            "value": "AB60001"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "BROOKS",
+            "given": [
+              "ALBERT"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real-world patient example (anonymized)",
+      "document": {
+        "resourceType": "Patient",
+        "id": "f001",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 738472983 (USUAL), ?? (USUAL)</p><p><b>active</b>: true</p><p><b>name</b>: Pieter van de Heuvel </p><p><b>telecom</b>: ph: 0648352638(MOBILE), p.heuvel@gmail.com(HOME)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: 17/11/1944</p><p><b>deceased</b>: false</p><p><b>address</b>: Van Egmondkade 23 Amsterdam 1024 RJ NLD (HOME)</p><p><b>maritalStatus</b>: Getrouwd <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-MaritalStatus code 'M' = 'Married', given as 'Married'})</span></p><p><b>multipleBirth</b>: true</p><h3>Contacts</h3><table><tr><td>-</td><td><b>Relationship</b></td><td><b>Name</b></td><td><b>Telecom</b></td></tr><tr><td>*</td><td>Emergency Contact <span>(Details : {http://terminology.hl7.org/CodeSystem/v2-0131 code 'C' = 'Emergency Contact)</span></td><td>Sarah Abels </td><td>ph: 0690383372(MOBILE)</td></tr></table><h3>Communications</h3><table><tr><td>-</td><td><b>Language</b></td><td><b>Preferred</b></td></tr><tr><td>*</td><td>Nederlands <span>(Details : {urn:ietf:bcp:47 code 'nl' = 'Dutch', given as 'Dutch'})</span></td><td>true</td></tr></table><p><b>managingOrganization</b>: <a>Burgers University Medical Centre</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:2.16.840.1.113883.2.4.6.3",
+            "value": "738472983"
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:2.16.840.1.113883.2.4.6.3"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "family": "van de Heuvel",
+            "given": [
+              "Pieter"
+            ],
+            "suffix": [
+              "MSc"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "0648352638",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "p.heuvel@gmail.com",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1944-11-17",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "Van Egmondkade 23"
+            ],
+            "city": "Amsterdam",
+            "postalCode": "1024 RJ",
+            "country": "NLD"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Married"
+            }
+          ],
+          "text": "Getrouwd"
+        },
+        "multipleBirthBoolean": true,
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "C"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "use": "usual",
+              "family": "Abels",
+              "given": [
+                "Sarah"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "0690383372",
+                "use": "mobile"
+              }
+            ]
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "nl",
+                  "display": "Dutch"
+                }
+              ],
+              "text": "Nederlands"
+            },
+            "preferred": true
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/f001",
+          "display": "Burgers University Medical Centre"
+        }
+      }
+    },
+    {
+      "name": "Real-world patient example (anonymized)",
+      "document": {
+        "resourceType": "Patient",
+        "id": "f201",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>identifier</b>: BSN = 123456789 (OFFICIAL), BSN = 123456789 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>name</b>: Roel(OFFICIAL)</p><p><b>telecom</b>: ph: +31612345678(MOBILE), ph: +31201234567(HOME)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: 13/03/1960</p><p><b>deceased</b>: false</p><p><b>address</b>: Bos en Lommerplein 280 Amsterdam 1055RW NLD (HOME)</p><p><b>maritalStatus</b>: Legally married <span>(Details : {SNOMED CT code '36629006' = 'Legal marriage', given as 'Legally married'}; {http://terminology.hl7.org/CodeSystem/v3-MaritalStatus code 'M' = 'Married)</span></p><p><b>multipleBirth</b>: false</p><p><b>photo</b>: </p><h3>Contacts</h3><table><tr><td>-</td><td><b>Relationship</b></td><td><b>Name</b></td><td><b>Telecom</b></td></tr><tr><td>*</td><td>Wife <span>(Details : {SNOMED CT code '127850001' = 'Wife', given as 'Wife'}; {http://terminology.hl7.org/CodeSystem/v2-0131 code 'N' = 'Next-of-Kin; {http://terminology.hl7.org/CodeSystem/v3-RoleCode code 'WIFE' = 'wife)</span></td><td>Ariadne Bor-Jansma</td><td>ph: +31201234567(HOME)</td></tr></table><h3>Communications</h3><table><tr><td>-</td><td><b>Language</b></td><td><b>Preferred</b></td></tr><tr><td>*</td><td>Dutch <span>(Details : {urn:ietf:bcp:47 code 'nl-NL' = 'Dutch (Region=Netherlands)', given as 'Dutch'})</span></td><td>true</td></tr></table><p><b>managingOrganization</b>: <a>AUMC</a></p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "text": "BSN"
+            },
+            "system": "urn:oid:2.16.840.1.113883.2.4.6.3",
+            "value": "123456789"
+          },
+          {
+            "use": "official",
+            "type": {
+              "text": "BSN"
+            },
+            "system": "urn:oid:2.16.840.1.113883.2.4.6.3",
+            "value": "123456789"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "text": "Roel",
+            "family": "Bor",
+            "given": [
+              "Roelof Olaf"
+            ],
+            "prefix": [
+              "Drs."
+            ],
+            "suffix": [
+              "PDEng."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+31612345678",
+            "use": "mobile"
+          },
+          {
+            "system": "phone",
+            "value": "+31201234567",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1960-03-13",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "Bos en Lommerplein 280"
+            ],
+            "city": "Amsterdam",
+            "postalCode": "1055RW",
+            "country": "NLD"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "36629006",
+              "display": "Legally married"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M"
+            }
+          ]
+        },
+        "multipleBirthBoolean": false,
+        "photo": [
+          {
+            "contentType": "image/jpeg",
+            "url": "Binary/f006"
+          }
+        ],
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "127850001",
+                    "display": "Wife"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "WIFE"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "use": "usual",
+              "text": "Ariadne Bor-Jansma"
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+31201234567",
+                "use": "home"
+              }
+            ]
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "nl-NL",
+                  "display": "Dutch"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/f201",
+          "display": "AUMC"
+        }
+      }
+    },
+    {
+      "name": "Example for glossy",
+      "document": {
+        "resourceType": "Patient",
+        "id": "glossy",
+        "meta": {
+          "lastUpdated": "2014-11-13T11:41:00+11:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Henry Levin the 7th</p>\n      <p>MRN: 123456. Male, 24-Sept 1932</p>\n    </div>"
+        },
+        "extension": [
+          {
+            "url": "http://example.org/StructureDefinition/trials",
+            "valueCode": "renal"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "http://www.goodhealth.org/identifiers/mrn",
+            "value": "123456"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Levin",
+            "given": [
+              "Henry"
+            ],
+            "suffix": [
+              "The 7th"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1932-09-24",
+        "generalPractitioner": [
+          {
+            "reference": "Practitioner/example",
+            "display": "Dr Adam Careful"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/2",
+          "display": "Good Health Clinic"
+        }
+      }
+    },
+    {
+      "name": "Genetic Risk Assessment Person",
+      "document": {
+        "resourceType": "Patient",
+        "id": "proband",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n      <p>\n\n        <b>Annie Proband</b>: Female, born 1966-04-04\n      </p>\n\n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "text": "Computer-Stored Abulatory Records (COSTAR)"
+            },
+            "system": "urn:oid:2.16.840.1.113883.6.117",
+            "value": "999999999",
+            "assigner": {
+              "display": "Boston Massachesetts General Hospital"
+            }
+          }
+        ],
+        "active": true,
+        "gender": "female",
+        "birthDate": "1966-04-04",
+        "deceasedBoolean": false
+      }
+    },
+    {
+      "name": "Additional Genetics Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "genetics-example1",
+        "meta": {
+          "lastUpdated": "2012-05-29T23:45:32Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Everywoman, Eve. SSN:\n      444222222</div>"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SS"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "444222222"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Everywoman",
+            "given": [
+              "Eve"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-555-2003",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1973-05-31",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "2222 Home Street"
+            ]
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/hl7"
+        }
+      }
+    },
+    {
+      "name": "Example Patient resource with Chinese content",
+      "document": {
+        "resourceType": "Patient",
+        "id": "ch-example",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2016-05-16T00:55:52Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>名字</td>\n            <td>张无忌</td> </tr>\n          <tr>\n            <td>地址</td>\n            <td>上海市黄埔区马当路190号, 1974年12月25日</td> \n          </tr>\n          <tr>\n            <td>联系方式</td>\n            <td>住宅: 不详。工作: 18337177888</td> \n          </tr>\n          <tr>\n            <td>Id</td>\n            <td>MRN: 3112219680806371X (市卫生局)</td> \n          </tr> \n        </tbody> \n      </table> \n    </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.36.146.595.217.0.1",
+            "value": "3112219680806371X",
+            "period": {
+              "start": "2001-05-06"
+            },
+            "assigner": {
+              "display": "市卫生局"
+            }
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "text": "张无忌"
+          }
+        ],
+        "telecom": [
+          {
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "18337177888",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "马当路190号"
+            ],
+            "city": "上海市",
+            "district": "黄埔区",
+            "postalCode": "200000",
+            "period": {
+              "start": "1974-12-25"
+            }
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/1",
+          "display": "上海东方医院"
+        }
+      }
+    },
+    {
+      "name": "Newborn Patient Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "newborn",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: newborn</p><p><b>gender</b>: male</p><p><b>birthDate</b>: 05/09/2017</p><p><b>multipleBirth</b>: 2</p></div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Everywoman"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2017-09-05",
+        "_birthDate": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+              "valueDateTime": "2017-05-09T17:11:00+01:00"
+            }
+          ]
+        },
+        "multipleBirthInteger": 2
+      }
+    },
+    {
+      "name": "Mother of Newborn Patient Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "mom",
+        "meta": {
+          "lastUpdated": "2012-05-29T23:45:32Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: mom</p><p><b>meta</b>: </p><p><b>identifier</b>: Social Security number = 444222222</p><p><b>active</b>: true</p><p><b>name</b>: Eve Everywoman (OFFICIAL)</p><p><b>telecom</b>: ph: 555-555-2003(WORK)</p><p><b>gender</b>: female</p><p><b>birthDate</b>: 31/05/1973</p><p><b>address</b>: 2222 Home Street (HOME)</p><p><b>managingOrganization</b>: <a>Organization/hl7</a></p><h3>Links</h3><table><tr><td>-</td><td><b>Other</b></td><td><b>Type</b></td></tr><tr><td>*</td><td><a>RelatedPerson/newborn-mom</a></td><td>seealso</td></tr></table></div>"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SS"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "444222222"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Everywoman",
+            "given": [
+              "Eve"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-555-2003",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1973-05-31",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "2222 Home Street"
+            ]
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/hl7"
+        },
+        "link": [
+          {
+            "other": {
+              "reference": "RelatedPerson/newborn-mom"
+            },
+            "type": "seealso"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Newborn Eldest Twin Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "infant-twin-1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: infant-twin-1</p><p><b>identifier</b>: Medical record number = MRN7465737865, 7465737865</p><p><b>name</b>: Jaina Solo (OFFICIAL)</p><p><b>gender</b>: female</p><p><b>birthDate</b>: 15/05/2017</p><p><b>multipleBirth</b>: 1</p><h3>Contacts</h3><table><tr><td>-</td><td><b>Relationship</b></td><td><b>Name</b></td><td><b>Telecom</b></td></tr><tr><td>*</td><td>Mother <span>(Details : {SNOMED CT code '72705000' = 'Mother', given as 'Mother'}; {http://terminology.hl7.org/CodeSystem/v2-0131 code 'N' = 'Next-of-Kin; {http://terminology.hl7.org/CodeSystem/v3-RoleCode code 'MTH' = 'mother)</span></td><td>Leia Organa (MAIDEN)</td><td>ph: +31201234567(MOBILE)</td></tr></table></div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Organa"
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "http://coruscanthealth.org/main-hospital/patient-identifier",
+            "value": "MRN7465737865"
+          },
+          {
+            "system": "http://new-republic.gov/galactic-citizen-identifier",
+            "value": "7465737865"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Solo",
+            "given": [
+              "Jaina"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2017-05-15",
+        "_birthDate": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+              "valueDateTime": "2017-05-15T17:11:00+01:00"
+            }
+          ]
+        },
+        "multipleBirthInteger": 1,
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "72705000",
+                    "display": "Mother"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "MTH"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "use": "maiden",
+              "family": "Organa",
+              "given": [
+                "Leia"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+31201234567",
+                "use": "mobile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Newborn Youngest Twin Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "infant-twin-2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: infant-twin-2</p><p><b>identifier</b>: Medical record number = MRN7465676978, 7465676978</p><p><b>name</b>: Jacen Solo (OFFICIAL)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: 15/05/2017</p><p><b>multipleBirth</b>: 2</p><h3>Contacts</h3><table><tr><td>-</td><td><b>Relationship</b></td><td><b>Name</b></td><td><b>Telecom</b></td></tr><tr><td>*</td><td>Mother <span>(Details : {SNOMED CT code '72705000' = 'Mother', given as 'Mother'}; {http://terminology.hl7.org/CodeSystem/v2-0131 code 'N' = 'Next-of-Kin; {http://terminology.hl7.org/CodeSystem/v3-RoleCode code 'MTH' = 'mother)</span></td><td>Leia Organa (MAIDEN)</td><td>ph: +31201234567(MOBILE)</td></tr></table></div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Organa"
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "http://coruscanthealth.org/main-hospital/patient-identifier",
+            "value": "MRN7465676978"
+          },
+          {
+            "system": "http://new-republic.gov/galactic-citizen-identifier",
+            "value": "7465676978"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Solo",
+            "given": [
+              "Jacen"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2017-05-15",
+        "_birthDate": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+              "valueDateTime": "2017-05-15T17:11:30+01:00"
+            }
+          ]
+        },
+        "multipleBirthInteger": 2,
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "72705000",
+                    "display": "Mother"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "MTH"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "use": "maiden",
+              "family": "Organa",
+              "given": [
+                "Leia"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+31201234567",
+                "use": "mobile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pre-birth fetal infant Example",
+      "document": {
+        "resourceType": "Patient",
+        "id": "infant-fetal",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: infant-fetal</p><p><b>identifier</b>: Medical record number = MRN657865757378</p><p><b>gender</b>: male</p><h3>Contacts</h3><table><tr><td>-</td><td><b>Relationship</b></td><td><b>Name</b></td><td><b>Telecom</b></td></tr><tr><td>*</td><td>Mother <span>(Details : {SNOMED CT code '72705000' = 'Mother', given as 'Mother'}; {http://terminology.hl7.org/CodeSystem/v2-0131 code 'N' = 'Next-of-Kin; {http://terminology.hl7.org/CodeSystem/v3-RoleCode code 'MTH' = 'mother)</span></td><td>Leia Organa (MAIDEN)</td><td>ph: +31201234567(MOBILE)</td></tr></table></div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Organa"
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "http://coruscanthealth.org/main-hospital/patient-identifier",
+            "value": "MRN657865757378"
+          }
+        ],
+        "gender": "male",
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "72705000",
+                    "display": "Mother"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N"
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "MTH"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "use": "maiden",
+              "family": "Organa",
+              "given": [
+                "Leia"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+31201234567",
+                "use": "mobile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mother of infant twins and fetal infant.",
+      "document": {
+        "resourceType": "Patient",
+        "id": "infant-mom",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: infant-mom</p><p><b>name</b>: Leia Solo (OFFICIAL), Leia Organa (MAIDEN)</p><p><b>gender</b>: female</p><p><b>birthDate</b>: 12/10/1995</p><p><b>maritalStatus</b>: Married <span>(Details : {http://terminology.hl7.org/CodeSystem/v3-MaritalStatus code 'M' = 'Married', given as 'Married'})</span></p><p><b>generalPractitioner</b>: <a>Too-Onebee</a></p></div>"
+        },
+        "name": [
+          {
+            "use": "official",
+            "family": "Solo",
+            "given": [
+              "Leia"
+            ]
+          },
+          {
+            "use": "maiden",
+            "family": "Organa",
+            "given": [
+              "Leia"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1995-10-12",
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Married"
+            }
+          ]
+        },
+        "generalPractitioner": [
+          {
+            "reference": "Practitioner/21B",
+            "display": "Too-Onebee"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.1Resource Patient - Content",
+    "introduction": "Demographics and other administrative information about an individual or animal receiving care or other health-related services.\nThis resource is referenced by Annotation , Signature , Account , AdverseEvent , AllergyIntolerance , Appointment , AppointmentResponse , AuditEvent , Basic , BiologicallyDerivedProduct , BodyStructure , CarePlan , CareTeam , ChargeItem , Claim , ClaimResponse , ClinicalImpression , Communication , CommunicationRequest , Composition , Condition , Consent , Contract , Coverage , CoverageEligibilityRequest , CoverageEligibilityResponse , DetectedIssue , Device , DeviceRequest , DeviceUseStatement , DiagnosticReport , DocumentManifest , DocumentReference , Encounter , EnrollmentRequest , EpisodeOfCare , ExplanationOfBenefit , FamilyMemberHistory , Flag , Goal , Group , GuidanceResponse , ImagingStudy , Immunization , ImmunizationEvaluation , ImmunizationRecommendation , Invoice , List , MeasureReport , Media , MedicationAdministration , MedicationDispense , MedicationRequest , MedicationStatement , MolecularSequence , NutritionOrder , Observation , itself, Person , Procedure , Provenance , QuestionnaireResponse , RelatedPerson , RequestGroup , ResearchSubject , RiskAssessment , Schedule , ServiceRequest , Specimen , SupplyDelivery , SupplyRequest , Task and VisionPrescription",
+    "Scope and Usage": "This Resource covers data about patients and animals involved in a wide range of health-related activities, including:\nCurative activities Psychiatric care Social services Pregnancy care Nursing and assisted living Dietary services Tracking of personal health and exercise data\nThe data in the Resource covers the \"who\" information about the patient: its attributes are focused on the demographic\r\ninformation necessary to support the administrative, financial and logistic procedures. A Patient record is generally \r\ncreated and maintained by each organization providing care for a patient. A patient or animal receiving care at multiple\r\norganizations may therefore have its information present in multiple Patient Resources.\nNot all concepts are included within the base resource (such as race, ethnicity, organ donor status, nationality, etc.), \r\nbut may be found in profiles defined for specific jurisdictions (e.g., US Meaningful Use Program) \r\nor standard extensions . Such fields vary widely between jurisdictions and often have different \r\nnames and valuesets for the similar concepts, but they are not similar enough to be able to map and exchange.",
+    "Patient ids and Patient resource ids": "A Patient record's Resource Id can never change. For this reason, the identifiers with \r\nwhich humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not \r\nbe used for the resource's id, since MRN's may change, i.e. as a result of having duplicate records of\r\nthe same patient. Instead they should be represented in the Patient.identifier list where they can be managed. This is also useful for the case of institutions that have acquired \r\nmultiple numbers because of mergers of patient record systems over time.\nWhere there is a need to implement an automated MRN Identifier created for a patient record, this could be achieved by providing an identifier in the patient with an appropriate assigner, MRN Type and/or system but with no value assigned. Internal business rules can then detect this and replace/populate this identifier with 1 or more identifiers (as required).",
+    "Linking Patients": "The link element is used to assert that patient resources refer to the same patient. This element is used\r\nto support the following scenarios where multiple patient records exist:\nManaging Patient registration is a well-known difficult problem. Around 2% of registrations are in error, \r\nmostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much \r\ndata is accumulated. In other cases, substantial amounts of data may accumulate. By using a link of type 'replaced-by',\r\nthe record containing such a link is marked as a duplicate and the link points forward to a record that should\r\nbe used instead. Note that the record pointed to may in its turn have been identified as created in error and forward\r\nto yet another Patient resource. Records that replace another record may use a link type of 'replaces' pointing to the old record.\nA Patient record may be present in a system that acts as a Patient Index: it maintains a (summary of) patient data and\r\na list of one or more servers that are known to hold a more comprehensive and/or authoritative record of the same patient.\r\nThe link type 'refer' is used to denote such a link. Note that linked records may contain contradictory information. The\r\nrecord referred to does not point back to the referring record.\nIn a distributed architecture, multiple systems keep separate patient records concerning the same patient. These\r\nrecords are not considered duplicates, but contain a distributed, potentially overlapping view of the patient's data.\r\nEach such record may have its own focus or maintaining organization and there need not be a sense of one record\r\nbeing more complete or more authoritative than another. In such cases, links of type 'see also' can be used to point to\r\nother patient records. It is not a requirement that such links are bilateral.",
+    "Patient vs Person vs PatientLink vs Linkage": "The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar\r\nto using the Patient.Link capability. The intention of the Person resource is to be able to link instances of resources together that are believed to be the same\r\nindividual. This includes across resource types, such as RelatedPerson, Practitioner, Patient and even other Person resources. The Patient Link however is only intended to be used for Patient resources.\nThe primary use case for the Person resource is to be able to support person registries that do not necessarily have a\r\nhealthcare context, and are able to identify and quantify confidence levels that this is the same person. This could include consumer portals where the maintainer of the person information is the actual person themselves. A system could use the Person entry to cross check changes to information applied to one part of a record to values in another\r\nsystem; e.g., when moving, a consumer updates his contact numbers and address in his person record, and then a Patient Administration\r\nsystem is able to see that this data is changed and prompt the organization to follow up with the patient that was linked to\r\nthe person record if they want their details updated, or if they no longer need services and they should be cancelled, \r\nas they've moved from the area.\nThe Linkage resource and the Patient.link property conceptually perform similar functions in FHIR, \r\nboth provide an assertion of linkages between multiple resource instances that are referring to the same underlying individual. When a Patient resource is linked/merged then it needs to have an internal indication that there is another\r\npatient resource that should be considered when referencing other records, which is achieved using the patient.link property. Not detecting/checking for a potential linkage could mean that related clinical records are not discovered, potentially impacting patient safety.\r\n(which is why using the Linkage resource is not appropriate, as its use in this manner would force the use of either another\r\nquery to potentially locate other patient resources to consider, or use _revinclude)",
+    "Patientcontact vs RelatedPerson": "The contact element on the Patient resource should be used for storing the details of people to contact. This information always travels with the Patient resource, and cannot be used as the target of a reference.\r\n\r\nWhere related people need to be referenced by other resources (e.g. CarePlan.participant, Encounter.participant, DocumentReference.author, Appointment.participant), the RelatedPerson resource must be used.\nIt is not expected that these records will be used for recording the primary care provider; this information should be stored in\r\nthe Patient.generalPractitioner field.",
+    "Patient Gender and Sex": "Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient's gender and sex with a single value. However, there are many considerations around sex and gender documentation and interoperability.  Listed below are the various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can be communicated.\nAdministrative Gender - in order to interoperate with systems that use a single generic property, the basic Patient.gender property represents an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms, for example.\nIn addition to this administrative gender, other kinds of gender or sex properties may be represented:\nClinical Sex - a testable observation about a biological property of the patient.  There are several different types of clinical sex, including karyotypic/genetic/chromosomal, gonadal, ductal, phenotypic, etc.  Clinical sex observations should be represented using Observation , qualified with the appropriate clinical codes from LOINC and/or SNOMED. Clinical Gender - an observation about the patient, often collected as part of social history documentation, and represented as an Observation ( example ) using, for example, the LOINC code 76691-5 . Clinical gender observations can provide both history and confidentiality, where the genderIdentity extension does not. Gender Identity - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard genderIdentity extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known. Sex assigned at Birth - the sex assigned at birth, as documented on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some countries also allow birth registration information to be updated.  The US realm defines a US specific extension for this property.\r\n  Alternatively, if you were representing this concept with an observation, you could use the LOINC code 76689-9 . Legal Sex - regional and national entities often categorize citizens using a single legal sex value.  The legal sex of a patient can vary from region to region and country to country.  A single patient may have multiple legal sex values at the same time in different jurisdictions.  In case where the Patient.gender administrative property is not sufficient to communicate legal sex, realm specific extensions should be used.\nFor veterinary use, the animal extension also includes the genderStatus which indicates sterility information.",
+    "Mother and newborn relationships": "There are several ways to represent the relationship between a mother and a child.\r\nThis is due to the when it is recorded and the purpose for which it is recorded:\nTo express the family relationship and legal responsibility thereof for \r\n\t\tadministrative purposes: use the Patient/RelatedPerson structure. This structure is consistent over time. To relate the encounters of a mother and her baby in a maternity encounter,\r\n\t\tfor administrative and billing purposes: use the encounter.partof property To collect information about the patient's relatives that might be relevant\r\n\t\tto the patient's medical condition: use the FamilyMemberHistory resource\nDuring a maternity encounter, the Patient and Encounter resources for the mother will be present.\r\nAfter the child is born, new Patient, Encounter and RelatedPerson (for the mother) records will be created.\r\nThe Child's encounter should reference the Mother's encounter using the partOf property. The Patient/RelatedPerson structure should also be created for ongoing usage, as shown in this example:",
+    "Merging records": "This specification does not specify merge functionality: if multiple patient records are found to be \r\nduplicates, they can be linked together, as described above. These links merely express the relationship\r\nbetween records, and in the case of a replacement link, indicate a \"master\" record.  This specification\r\ndoes not mandate that FHIR servers migrate information between such records on finding such a link. Note:\nHealth information administrators may call the process \"merging\", but it is often implemented as \"linking\" at the record level Servers are allowed to implement merging/record migration even though it is not mandated.",
+    "Patient Matching using an MPI": "A Master Patient Index ( MPI )\r\nis a service used to manage patient identification in a context\r\nwhere multiple patient databases exist. Healthcare applications and middleware use the \r\nMPI to match patients between the databases, and as new patient details are encountered.\r\nMPIs are highly specialized applications, often tailored extensively to the institution's \r\nparticular mix of patients. MPIs can also be run on a regional and national basis.\nTo ask an MPI to match a patient, clients call the patient $match operation,\r\nwhich processes a parameters resource containing a complete or fragment of a patient resource, along with some other control parameters. This provided patient resource does not need to pass full validation (mandatory fields, or invariants) as the resource will not be stored,\r\nit does however need to be a parsable instance. The MPI can then use the properties of the resource as MPI inputs, and process them using an internal MPI algorithm of some kind to determine the most appropriate matches \r\nin the patient set. It does not have to use all the properties provided, and may ignore others provided quietly. A specific profile (with the required fields/invariants) can be used to define what parameters the MPI algorithm requires.\nThe response from an MPI $match operation is a set of patient records, ordered from most\r\nlikely to least likely. If there are not patient matches, the MPI SHALL return \r\nan empty search set with no error, but may include an operation outcome with \r\nfurther advice. All patient records should have a score from 0 to 1, where\r\n1 is the most certain match, along with an extension \"match-grade\" that indicates the MPI's position on the match quality:\nThe match-grade extension has one of the following codes :\nThe purpose of using an MPI search versus a regular search is that the MPI search is really intended to target and \r\n  find a specific single patient for recording information about reducing errors through incorrectly selecting the\r\n  wrong patient. Often MPIs won't return data if there is insufficient search parameter data, such as a partial surname. This compares to a regular search which can be used for finding lists of patients, such as to locate a group of patients\r\n  that share a property in common, such as live in a specific location, or fit within an age range for performing population analysis.\nA formal definition for the MPI $match operation is published.",
+    "Veterinary Care": "Veterinary care is very much within the scope of FHIR, and the Patient resource can be used to communicate information about animal patients. To support this, there is a standard patient-animal extension which can be used for recording details about species, breed, and gender status. This extension is not intended to cover all relevant properties for veterinary care, and the use of additional domain-relevant extensions is expected for areas such as laboratory, zoological and livestock care.\nThe veterinary client (\"owner\") is represented using the RelatedPerson resource."
+  },
+  "definitions": "Patient: demographics and other administrative information about an individual or animal receiving care or other health-related services. [STOP]\nPatient.identifier: an identifier for this patient. [STOP]\nPatient.active: whether this patient record is in active use.\r\nmany systems use this property to mark as non-current patients, such as those that have not been seen for a period of time based on an organization's business rules.it is often used to filter patient lists to exclude inactive patientsdeceased patients may also be marked as inactive for the same reasons, but may be active for some time after death. [STOP]\nPatient.name: a name associated with the individual. [STOP]\nPatient.telecom: a contact detail (e.g. a telephone number or an email address) by which the individual may be contacted. [STOP]\nPatient.gender: administrative gender - the gender that the patient is considered to have for administration and record keeping purposes. [STOP]\nPatient.birthDate: the date of birth for the individual. [STOP]\nPatient.deceased[x]: indicates if the individual is deceased or not. [STOP]\nPatient.address: an address for the individual. [STOP]\nPatient.maritalStatus: this field contains a patient's most recent marital (civil) status. [STOP]\nPatient.multipleBirth[x]: indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer). [STOP]\nPatient.photo: image of the patient. [STOP]\nPatient.contact: a contact party (e.g. guardian, partner, friend) for the patient. [STOP]\nPatient.contact.relationship: the nature of the relationship between the patient and the contact person. [STOP]\nPatient.contact.name: a name associated with the contact person. [STOP]\nPatient.contact.telecom: a contact detail for the person, e.g. a telephone number or an email address. [STOP]\nPatient.contact.address: address for the contact person. [STOP]\nPatient.contact.gender: administrative gender - the gender that the contact person is considered to have for administration and record keeping purposes. [STOP]\nPatient.contact.organization: organization on behalf of which the contact is acting or for which the contact is working. [STOP]\nPatient.contact.period: the period during which this contact person or organization is valid to be contacted relating to this patient. [STOP]\nPatient.communication: a language which may be used to communicate with the patient about his or her health. [STOP]\nPatient.communication.language: the iso-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the iso-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for english, or \"en-us\" for american english versus \"en-en\" for england english. [STOP]\nPatient.communication.preferred: indicates whether or not the patient prefers this language (over other languages he masters up a certain level). [STOP]\nPatient.generalPractitioner: patient's nominated care provider. [STOP]\nPatient.managingOrganization: organization that is the custodian of the patient record. [STOP]\nPatient.link: link to another patient resource that concerns the same actual patient. [STOP]\nPatient.link.other: the other patient resource that the link refers to. [STOP]\nPatient.link.type: the type of link between this patient resource and another patient resource. [STOP]",
+  "documentation": {
+    "Patient": "demographics and other administrative information about an individual or animal receiving care or other health-related services.",
+    "Patient.identifier": "an identifier for this patient.",
+    "Patient.active": "whether this patient record is in active use.\r\nmany systems use this property to mark as non-current patients, such as those that have not been seen for a period of time based on an organization's business rules.it is often used to filter patient lists to exclude inactive patientsdeceased patients may also be marked as inactive for the same reasons, but may be active for some time after death.",
+    "Patient.name": "a name associated with the individual.",
+    "Patient.telecom": "a contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.",
+    "Patient.gender": "administrative gender - the gender that the patient is considered to have for administration and record keeping purposes.",
+    "Patient.birthDate": "the date of birth for the individual.",
+    "Patient.deceased[x]": "indicates if the individual is deceased or not.",
+    "Patient.address": "an address for the individual.",
+    "Patient.maritalStatus": "this field contains a patient's most recent marital (civil) status.",
+    "Patient.multipleBirth[x]": "indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).",
+    "Patient.photo": "image of the patient.",
+    "Patient.contact": "a contact party (e.g. guardian, partner, friend) for the patient.",
+    "Patient.contact.relationship": "the nature of the relationship between the patient and the contact person.",
+    "Patient.contact.name": "a name associated with the contact person.",
+    "Patient.contact.telecom": "a contact detail for the person, e.g. a telephone number or an email address.",
+    "Patient.contact.address": "address for the contact person.",
+    "Patient.contact.gender": "administrative gender - the gender that the contact person is considered to have for administration and record keeping purposes.",
+    "Patient.contact.organization": "organization on behalf of which the contact is acting or for which the contact is working.",
+    "Patient.contact.period": "the period during which this contact person or organization is valid to be contacted relating to this patient.",
+    "Patient.communication": "a language which may be used to communicate with the patient about his or her health.",
+    "Patient.communication.language": "the iso-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the iso-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for english, or \"en-us\" for american english versus \"en-en\" for england english.",
+    "Patient.communication.preferred": "indicates whether or not the patient prefers this language (over other languages he masters up a certain level).",
+    "Patient.generalPractitioner": "patient's nominated care provider.",
+    "Patient.managingOrganization": "organization that is the custodian of the patient record.",
+    "Patient.link": "link to another patient resource that concerns the same actual patient.",
+    "Patient.link.other": "the other patient resource that the link refers to.",
+    "Patient.link.type": "the type of link between this patient resource and another patient resource."
+  }
+}

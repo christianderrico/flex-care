@@ -1,0 +1,50 @@
+{
+  "resource": "researchsubject",
+  "examples": [
+    {
+      "name": "Placeholder example",
+      "document": {
+        "resourceType": "ResearchSubject",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+        },
+        "identifier": [
+          {
+            "type": {
+              "text": "Subject id"
+            },
+            "system": "http://example.org/studysubjectids",
+            "value": "123"
+          }
+        ],
+        "status": "candidate",
+        "study": {
+          "reference": "ResearchStudy/example"
+        },
+        "individual": {
+          "reference": "Patient/example"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "title": "8.23Resource ResearchSubject - Content",
+    "introduction": "A physical entity which is the primary unit of operational and/or administrative interest in a study.",
+    "Scope and Usage": "A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. The ResearchSubject resource describes essential information about the subject, including the gender, birthdate, study, study arm, consent status, and other key items. Human research subjects are usually not traceable to a particular person to protect the subjectâs privacy.\nThe ResearchSubject resource is used in the following research activities:\nConsent and registration to a research study Exposure to test therapy Assessment of test therapy results Reporting of adverse events",
+    "ResearchSubject State Machine": "The following diagram reflects the \"typical\" state machine for ResearchSubject."
+  },
+  "definitions": "ResearchSubject: a physical entity which is the primary unit of operational and/or administrative interest in a study. [STOP]\nResearchSubject.identifier: identifiers assigned to this research subject for a study. [STOP]\nResearchSubject.status: the current state of the subject. [STOP]\nResearchSubject.period: the dates the subject began and ended their participation in the study. [STOP]\nResearchSubject.study: reference to the study the subject is participating in. [STOP]\nResearchSubject.individual: the record of the person or animal who is involved in the study. [STOP]\nResearchSubject.assignedArm: the name of the arm in the study the subject is expected to follow as part of this study. [STOP]\nResearchSubject.actualArm: the name of the arm in the study the subject actually followed as part of this study. [STOP]\nResearchSubject.consent: a record of the patient's informed agreement to participate in the study. [STOP]",
+  "documentation": {
+    "ResearchSubject": "a physical entity which is the primary unit of operational and/or administrative interest in a study.",
+    "ResearchSubject.identifier": "identifiers assigned to this research subject for a study.",
+    "ResearchSubject.status": "the current state of the subject.",
+    "ResearchSubject.period": "the dates the subject began and ended their participation in the study.",
+    "ResearchSubject.study": "reference to the study the subject is participating in.",
+    "ResearchSubject.individual": "the record of the person or animal who is involved in the study.",
+    "ResearchSubject.assignedArm": "the name of the arm in the study the subject is expected to follow as part of this study.",
+    "ResearchSubject.actualArm": "the name of the arm in the study the subject actually followed as part of this study.",
+    "ResearchSubject.consent": "a record of the patient's informed agreement to participate in the study."
+  }
+}

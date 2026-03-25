@@ -1,0 +1,174 @@
+{
+  "resource": "slot",
+  "examples": [
+    {
+      "name": "Example of an available slot (no appointments allocated)",
+      "document": {
+        "resourceType": "Slot",
+        "id": "example",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t25 Dec 2013 9:15am - 9:30am: <b>Busy</b> Physiotherapy\n\t\t</div>"
+        },
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "17",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "code": "57",
+                "display": "Immunization"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "code": "408480009",
+                "display": "Clinical immunology"
+              }
+            ]
+          }
+        ],
+        "appointmentType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+              "code": "WALKIN",
+              "display": "A previously unscheduled walk-in visit"
+            }
+          ]
+        },
+        "schedule": {
+          "reference": "Schedule/example"
+        },
+        "status": "free",
+        "start": "2013-12-25T09:15:00Z",
+        "end": "2013-12-25T09:30:00Z",
+        "comment": "Assessments should be performed before requesting appointments in this slot."
+      }
+    },
+    {
+      "name": "Example for a slot that has an appointment allocated to it",
+      "document": {
+        "resourceType": "Slot",
+        "id": "1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t25 Dec 2013 9:00am - 9:15am: <b>Busy</b> Physiotherapy\n\t\t</div>"
+        },
+        "identifier": [
+          {
+            "system": "http://example.org/identifiers/slots",
+            "value": "123132"
+          }
+        ],
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "17",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "schedule": {
+          "reference": "Schedule/example"
+        },
+        "status": "busy",
+        "start": "2013-12-25T09:00:00Z",
+        "end": "2013-12-25T09:15:00Z",
+        "overbooked": true,
+        "comment": "Assessments should be performed before requesting appointments in this slot."
+      }
+    },
+    {
+      "name": "Example for tentatively occupied slot",
+      "document": {
+        "resourceType": "Slot",
+        "id": "2",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t25 Dec 2013 9:45am - 10:00am: <b>Tentative</b> Physiotherapy\n\t\t</div>"
+        },
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "17",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "schedule": {
+          "reference": "Schedule/example"
+        },
+        "status": "busy-tentative",
+        "start": "2013-12-25T09:45:00Z",
+        "end": "2013-12-25T10:00:00Z",
+        "comment": "Dr Careful is out of the office"
+      }
+    },
+    {
+      "name": "Example of a slot that has been marked as unavailable",
+      "document": {
+        "resourceType": "Slot",
+        "id": "3",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t25 Dec 2013 9:30am - 9:45am: <b>Unavailable</b> Physiotherapy<br/>\n\t\t\tDr Careful is out of the office\n\t\t</div>"
+        },
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "code": "17",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ],
+        "schedule": {
+          "reference": "Schedule/example"
+        },
+        "status": "busy-unavailable",
+        "start": "2013-12-25T09:30:00Z",
+        "end": "2013-12-25T09:45:00Z",
+        "comment": "Dr Careful is out of the office"
+      }
+    }
+  ],
+  "sections": {
+    "title": "12.13Resource Slot - Content",
+    "introduction": "A slot of time on a schedule that may be available for booking appointments.\nThis resource is referenced by Appointment",
+    "Scope and Usage": "Slot resources are used to provide time-slots that can be booked using an appointment.\r\n\t\t\tThey do not provide any information about appointments that are available, just the time,\r\n\t\t\tand optionally what the time can be used for. These are effectively spaces of free/busy time. Slots can also be marked as busy without having appointments associated.\nA slot can have more than one appointment allocated to it. A scheduling system may permit\r\n\t\t\tmultiple allocations up to a specific number of places. An example of this type of usage \r\n      could be where the slot is being used for a group service that permits 5 participants at \r\n      the same time.\nA slot can be marked as over-booked indicating that there are too many appointments allocated\r\n\t\t\tto it.\nIn some situations a service may have a specific set of slots reserved for specific uses, such \r\n\t\t\tas \"walk-ins\" or a specific organization has a \"standing booking\" for Thursday mornings.\r\n\t\t\tThese should be represented using the appointmentType field with a specified and agreed value. Security Permissions or specific business rules on the system could enforce that only eligible\r\n\t\t\tappointments are allocated to them.\nIf a service had a weekly schedule created that permitted eight 1 hour appointments each\r\n      day of a working week (Monday - Friday), this would be constructed by a single Schedule\r\n      resource with the dates for the start and end of the week set, and then 40 (5x8) Slot \r\n      resources associated with it. As appointments fill up the schedule, these slots would individually be marked as busy\r\n      as the appointments are filled into the slots. The slots in a schedule do not need to be the same size, and can be different for different\r\n      days of the week. Slot instances do not have any recurrence information included. If recurring information is\r\n      desired, this will be managed outside these resources, or included as extensions. Note that booking an appointment does not necessarily require that slot resources be identified.\r\n\t  When attempting to book an appointment, if the requestor knows ahead of time which schedulable  \r\n\t  resources are required, then identifying individual slots from the resources' schedules prior to creating\r\n\t  the appointment is appropriate.\r\n\t  However, in some medical scheduling scenarios, determining which resources are required for an appointment\r\n\t  is very complex, and options other than using schedule+slot may be a better solution.",
+    "Notes": "Interaction with other Standards There is a strong desire that implementers of this resource should consider providing the resource\r\n\t\t\t\tin the iCalendar format as an alternative representation. Many 3rd party applications and component providers \r\n\t\t\t\thave parsers and user interface controls to display this information.\r\n\t\t\t\tThis may lower the entry point to integrate outside the health-care specific applications, and into the \r\n\t\t\t\tconsumer space. This would permit the easier creation of a mobile application that creates appointments\r\n\t\t\t\tin the devices native calendar. The iCalendar specification can be found at http://www.ietf.org/rfc/rfc2445.txt ."
+  },
+  "definitions": "Slot: a slot of time on a schedule that may be available for booking appointments. [STOP]\nSlot.identifier: external ids for this item. [STOP]\nSlot.serviceCategory: a broad categorization of the service that is to be performed during this appointment. [STOP]\nSlot.serviceType: the type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). if provided then this overrides the value provided on the availability resource. [STOP]\nSlot.specialty: the specialty of a practitioner that would be required to perform the service requested in this appointment. [STOP]\nSlot.appointmentType: the style of appointment or patient that may be booked in the slot (not service type). [STOP]\nSlot.schedule: the schedule resource that this slot defines an interval of status information. [STOP]\nSlot.status: busy | free | busy-unavailable | busy-tentative | entered-in-error. [STOP]\nSlot.start: date/time that the slot is to begin. [STOP]\nSlot.end: date/time that the slot is to conclude. [STOP]\nSlot.overbooked: this slot has already been overbooked, appointments are unlikely to be accepted for this time. [STOP]\nSlot.comment: comments on the slot to describe any extended information. such as custom constraints on the slot. [STOP]",
+  "documentation": {
+    "Slot": "a slot of time on a schedule that may be available for booking appointments.",
+    "Slot.identifier": "external ids for this item.",
+    "Slot.serviceCategory": "a broad categorization of the service that is to be performed during this appointment.",
+    "Slot.serviceType": "the type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). if provided then this overrides the value provided on the availability resource.",
+    "Slot.specialty": "the specialty of a practitioner that would be required to perform the service requested in this appointment.",
+    "Slot.appointmentType": "the style of appointment or patient that may be booked in the slot (not service type).",
+    "Slot.schedule": "the schedule resource that this slot defines an interval of status information.",
+    "Slot.status": "busy | free | busy-unavailable | busy-tentative | entered-in-error.",
+    "Slot.start": "date/time that the slot is to begin.",
+    "Slot.end": "date/time that the slot is to conclude.",
+    "Slot.overbooked": "this slot has already been overbooked, appointments are unlikely to be accepted for this time.",
+    "Slot.comment": "comments on the slot to describe any extended information. such as custom constraints on the slot."
+  }
+}
