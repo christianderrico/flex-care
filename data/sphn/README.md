@@ -1,4 +1,4 @@
-# Dataset Card for the SPHN Dataset (Swiss Personalized Health Network)
+# Dataset Card for the SPHN
 
 ## Dataset Details
 
