@@ -200,9 +200,6 @@ notebooks/mlruns/
 *.bin
 *.gguf
 
-# data
-data/Docs/
-
 # indice FAISS
 faiss_index/
 
