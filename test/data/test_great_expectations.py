@@ -6,14 +6,14 @@ import ast
 import json
 from pathlib import Path
 
-import great_expectations as gx  # pylint: disable=import-error
+import great_expectations as gx
 import pandas as pd
 import pytest
 
 DATASETS = {
-    "MOTU":     Path("data/motu.csv"),
-    "MIMIC-IV": Path("data/mimic.csv"),
-    "SPHN":     Path("data/sphn.csv"),
+    "MOTU":     Path("data/motu/motu.csv"),
+    "MIMIC-IV": Path("data/mimic/mimic.csv"),
+    "SPHN":     Path("data/sphn/sphn.csv"),
 }
 
 FHIR_KB_DIR = Path("data/Docs")
