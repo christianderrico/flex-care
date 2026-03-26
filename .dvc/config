@@ -1,4 +1,8 @@
 [core]
-    remote = origin
+    remote = storage_2
 ['remote "origin"']
     url = ../main
+['remote "storage"']
+    url = s3://flex-care/dvc-storage
+['remote "storage_2"']
+    url = gdrive://flex-care
