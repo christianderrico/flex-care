@@ -1,4 +1,4 @@
-# Dataset CARD for MOTU
+# Dataset Card for MOTU
 
 ## Dataset Description
 The MOTU dataset provides FHIR-standardized clinical data on the rehabilitation pathways of trans-femoral amputation patients. It includes clinical features, mobility measurements, and prosthetic knee information from 1962 hospitalizations of 1006 patients. Data are available in CSV and FHIR formats.
